@@ -1,3 +1,10 @@
+<!-- PHP -->
+<?php
+    require "../function.php";
+    $page = "patient";
+    $users = query("SELECT * FROM user");
+?>
+<!-- PHP -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,28 +32,39 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIK</th>
+                            <th>KTP</th>
                             <th>Name</th>
+                            <th>Birth</th>
                             <th>Gender</th>
                             <th>City</th>
-                            <th>Action</th>
+                            <th style="width: 300px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1 ?>
+                        <?php foreach($users as $user) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011-04-25</td>
+                            <td><?= $i ?></td>
+                            <td><?= $user["ktp"] ?></td>
+                            <td><?= $user["fullname"] ?></td>
+                            <td><?= date("j F Y", strtotime($user['birth_date'])) ?></td>
+                            <td><?= $user["gender"] ?></td>
+                            <td><?= $user["city"] ?></td>
+                            <td class="d-flex justify-content-evenly">
+                                <a class="btn btn-primary" href="#"><i class="bi bi-eye"></i> View </a>
+                                <a class="btn btn-warning" href="#"><i class="bi bi-pencil"></i> Edit </a>
+                                <a class="btn btn-danger" href="#"><i class="bi bi-trash"></i> Delete </a>
+                            </td>
                         </tr>
+                        <?php $i++ ?>
+                        <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>NIK</th>
+                            <th>KTP</th>
                             <th>Name</th>
+                            <th>Birthd</th>
                             <th>Gender</th>
                             <th>City</th>
                             <th>Action</th>

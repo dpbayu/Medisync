@@ -1,3 +1,8 @@
+<!-- PHP -->
+<?php
+$page = "dashboard";
+?>
+<!-- PHP -->
 <!DOCTYPE html>
 <html lang="en">
 
