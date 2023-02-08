@@ -80,7 +80,8 @@
                             <td class="d-flex justify-content-evenly">
                                 <a class="btn btn-info" href="#"><i class="bi bi-eye"></i> View </a>
                                 <a class="btn btn-warning" href="#"><i class="bi bi-pencil"></i> Edit </a>
-                                <a class="btn btn-danger" href="#"><i class="bi bi-trash"></i> Delete </a>
+                                <a class="btn btn-danger" href="deletePatient.php?id=<?= $user["id"]; ?>"
+                                    onclick="return confirm('Are you sure? ');"><i class="bi bi-trash"></i> Delete </a>
                             </td>
                         </tr>
                         <?php $i++ ?>

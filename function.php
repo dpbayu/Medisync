@@ -34,4 +34,12 @@ function add ($data) {
     return mysqli_affected_rows($db);
 }
 // Add Patient End
+
+// Delete Patient Start
+function delete($id) {
+    global $db;
+    mysqli_query($db, "DELETE FROM user WHERE id = $id");
+    return mysqli_affected_rows($db);
+}
+// Deelete Patient End
 ?>
