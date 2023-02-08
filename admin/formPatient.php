@@ -5,7 +5,7 @@ $page = "patient";
 if (isset($_POST["submit"])) {
     if (add($_POST) > 0) {
         echo "<script>alert('data berhasil ditambahkan!');
-                document.location.href = 'formPatient.php';
+                document.location.href = 'patient.php';
                 </script>";
     } else {
         echo "<script>alert('data gagal ditambahkan!');
@@ -60,17 +60,15 @@ if (isset($_POST["submit"])) {
                         <label for="gender">Gender</label>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <label for="date" class="col-1 col-form-label">Date</label>
-                    <div class="col-5">
-                        <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control" id="date" />
-                            <span class="input-group-append">
-                                <span class="input-group-text bg-light d-block">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </span>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="birthPlace" name="birth_place" placeholder="Birth Place">
+                        <label for="birthPlace">Birth Place</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -88,7 +86,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Address" id="address" name="address"
+                        <textarea class="form-control" id="address" name="address" placeholder="Address"
                             style="height: 100px;"></textarea>
                         <label for="address">Address</label>
                     </div>
@@ -144,11 +142,6 @@ if (isset($_POST["submit"])) {
     </main>
     <!-- Content End -->
     <!-- Footer Start -->
-    <script>
-	$(function () {
-		$('#datepicker').datepicker();
-	});
-</script>
     <?php require "partials/footer.php" ?>
     <!-- Footer End -->
 </body>

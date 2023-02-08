@@ -21,13 +21,13 @@ function add ($data) {
     $username = htmlspecialchars($data["username"]);
     $password = htmlspecialchars($data["password"]);
     $address = htmlspecialchars($data["address"]);
-    $birth_date = htmlspecialchars($data["birth_date"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
-    $gender = htmlspecialchars($data["gender"]);
+    $birth_date = $data["birth_date"];
+    $gender = $data["gender"];
     $city = htmlspecialchars($data["city"]);
     $phone = htmlspecialchars($data["phone"]);
-    $blood_type = htmlspecialchars($data["blood_type"]);
-    $marital_status = htmlspecialchars($data["marital_status"]);
+    $blood_type = $data["blood_type"];
+    $marital_status = $data["marital_status"];
     $work = htmlspecialchars($data["work"]);
     $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$username','$password','$address','$birth_date','$birth_place','$gender','$city','$phone','$blood_type','$marital_status','$work')";
     mysqli_query($db, $query);
