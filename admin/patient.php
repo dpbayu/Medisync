@@ -25,12 +25,36 @@
         <div class="pagetitle">
             <h1 class="text-center">Data Patient</h1>
         </div>
-        <div class="mt-5 mb-2">
+        <div class="my-3">
             <a class="btn btn-primary" href="formPatient.php"><i class="bi bi-database-add"></i> Add data </a>
         </div>
         <!-- Title End -->
         <section class="section dashboard">
             <div class="row">
+                <!-- Alert Success Start -->
+                <?php
+                    if (isset($_GET['success'])) {
+                        $msg = $_GET['success'];
+                        echo '
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        '.$msg.'
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                ?>
+                <!-- Alert Success Start -->
+                <!-- Alert Failed Start -->
+                <?php
+                    if (isset($_GET['failed'])) {
+                        $msg = $_GET['failed'];
+                        echo '
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        '.$msg.'
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                ?>
+                <!-- Alert Failed Start -->
                 <table id="example" class="cell-border" style="width:100%">
                     <thead>
                         <tr>

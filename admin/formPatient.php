@@ -4,13 +4,9 @@ require ("../function.php");
 $page = "patient";
 if (isset($_POST["submit"])) {
     if (add($_POST) > 0) {
-        echo "<script>alert('data berhasil ditambahkan!');
-                document.location.href = 'patient.php';
-                </script>";
+        echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
     } else {
-        echo "<script>alert('data gagal ditambahkan!');
-                document.location.href = 'formPatient.php';
-                </script>";    
+        echo "<script>document.location.href='formPatient.php?failed=Data failed added!';</script>";    
     }
 }
 ?>

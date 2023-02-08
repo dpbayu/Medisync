@@ -1,9 +1,9 @@
-<footer id="footer" class="footer fixed-bottom">
+<footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span><a href="https://dwiputrabayu.rf.gd"> Dwi Putra Bayu</a></span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://github.com/dpbayu">Dwi Putra Bayu</a>
     </div>
 </footer>
 <!-- Footer End -->
