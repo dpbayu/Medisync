@@ -25,6 +25,9 @@
         <div class="pagetitle">
             <h1 class="text-center">Data Patient</h1>
         </div>
+        <div class="mt-5 mb-2">
+            <a class="btn btn-primary" href="formPatient.php"><i class="bi bi-database-add"></i> Add data </a>
+        </div>
         <!-- Title End -->
         <section class="section dashboard">
             <div class="row">
@@ -51,7 +54,7 @@
                             <td><?= $user["gender"] ?></td>
                             <td><?= $user["city"] ?></td>
                             <td class="d-flex justify-content-evenly">
-                                <a class="btn btn-primary" href="#"><i class="bi bi-eye"></i> View </a>
+                                <a class="btn btn-info" href="#"><i class="bi bi-eye"></i> View </a>
                                 <a class="btn btn-warning" href="#"><i class="bi bi-pencil"></i> Edit </a>
                                 <a class="btn btn-danger" href="#"><i class="bi bi-trash"></i> Delete </a>
                             </td>
