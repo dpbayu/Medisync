@@ -2,7 +2,7 @@
 <?php
     require "../function.php";
     $page = "patient";
-    $users = query("SELECT * FROM user");
+    $users = query("SELECT * FROM user ORDER BY id DESC");
 ?>
 <!-- PHP -->
 <!DOCTYPE html>

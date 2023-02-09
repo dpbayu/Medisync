@@ -148,8 +148,8 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
                 <div class="text-left">
-                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Update</button>
+                    <a class="btn btn-danger" href="patient.php">Cancel</a>
                 </div>
             </form>
         </section>
