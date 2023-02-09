@@ -1,12 +1,12 @@
 <!-- PHP -->
 <?php
 require ("../function.php");
-$page = "patient";
+$page = "doctor";
 if (isset($_POST["submit"])) {
-    if (add($_POST) > 0) {
-        echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
+    if (add_doctor($_POST) > 0) {
+        echo "<script>document.location.href='doctor.php?success=Data already added!';</script>";
     } else {
-        echo "<script>document.location.href='patient.php?failed=Data failed added!';</script>";    
+        echo "<script>document.location.href='doctor.php?failed=Data failed added!';</script>";    
     }
 }
 ?>
@@ -37,8 +37,8 @@ if (isset($_POST["submit"])) {
             <form action="" method="POST" class="row g-3">
                 <div class="col-md-12">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
-                        <label for="KTP">KTP</label>
+                        <input type="number" class="form-control" id="nip" name="nip" placeholder="NIP">
+                        <label for="nip">NIP</label>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -69,12 +69,6 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                        <label for="username">Username</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
                         <input type="password" class="form-control" id="password" name="password"
                             placeholder="Password">
                         <label for="password">Password</label>
@@ -85,14 +79,6 @@ if (isset($_POST["submit"])) {
                         <textarea class="form-control" id="address" name="address" placeholder="Address"
                             style="height: 100px;"></textarea>
                         <label for="address">Address</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
-                            <label for="city">City</label>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -114,8 +100,8 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="work" name="work" placeholder="Work">
-                        <label for="work">Work</label>
+                        <input type="text" class="form-control" id="spesialis" name="spesialis" placeholder="Spesialis">
+                        <label for="spesialis">Spesialis</label>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -13,7 +13,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="doctor.php">
+        <a class="nav-link <?php if($page != 'doctor'){echo 'collapsed';} ?>" href="doctor.php">
                 <i class="bi  bi-diagram-2"></i>
                 <span>Doctor</span>
             </a>

@@ -43,7 +43,7 @@ function delete($id) {
 }
 // Deelete Patient End
 
-// Add Patient Start
+// Edit Patient Start
 function edit ($data) {
     global $db;
     $id = $data["id"];
@@ -53,7 +53,7 @@ function edit ($data) {
     $username = htmlspecialchars($data["username"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
-    $password = htmlspecialchars($data["password"]);
+    $password = $data["password"];
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
     $phone = htmlspecialchars($data["phone"]);
@@ -64,5 +64,54 @@ function edit ($data) {
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
-// Add Patient End
+// Edit Patient End
+
+// Add Doctor Start
+function add_doctor ($data) {
+    global $db;
+    $nip = htmlspecialchars($data["nip"]);
+    $fullname = htmlspecialchars($data["fullname"]);
+    $password = $data["password"];
+    $address = htmlspecialchars($data["address"]);
+    $birth_place = htmlspecialchars($data["birth_place"]);
+    $birth_date = $data["birth_date"];
+    $gender = htmlspecialchars($data["gender"]);
+    $spesialis = htmlspecialchars($data["spesialis"]);
+    $phone = htmlspecialchars($data["phone"]);
+    $blood_type = $data["blood_type"];
+    $marital_status = $data["marital_status"];
+    $query = "INSERT INTO doctor VALUES ('','$nip','$fullname','$password','$address','$birth_place','$birth_date','$gender','$spesialis','$phone','$blood_type','$marital_status')";
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+// Add Doctor End
+
+// Delete Doctor Start
+function delete_doctor($id) {
+    global $db;
+    mysqli_query($db, "DELETE FROM doctor WHERE id = $id");
+    return mysqli_affected_rows($db);
+}
+// Deelete Doctor End
+
+// Edit Doctor Start
+function edit_doctor ($data) {
+    global $db;
+    $id = $data["id"];
+    $nip = htmlspecialchars($data["nip"]);
+    $fullname = htmlspecialchars($data["fullname"]);
+    $password = $data["password"];
+    $address = htmlspecialchars($data["address"]);
+    $birth_place = htmlspecialchars($data["birth_place"]);
+    $birth_date = $data["birth_date"];
+    $gender = htmlspecialchars($data["gender"]);
+    $spesialis = htmlspecialchars($data["spesialis"]);
+    $phone = htmlspecialchars($data["phone"]);
+    $blood_type = $data["blood_type"];
+    $marital_status = $data["marital_status"];
+    $query = "UPDATE doctor SET nip='$nip', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', spesialis='$spesialis', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
+    mysqli_query($db, $query);
+    return mysqli_affected_rows($db);
+}
+// Edit Doctor End
 ?>
