@@ -1,5 +1,6 @@
 <!-- PHP -->
 <?php
+session_start();
 $page = "dashboard";
 ?>
 <!-- PHP -->
