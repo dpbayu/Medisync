@@ -74,11 +74,11 @@
                             <td><?= $i ?></td>
                             <td><?= $user["ktp"] ?></td>
                             <td><?= $user["fullname"] ?></td>
-                            <td><?= date("j F Y", strtotime($user['born_date'])) ?></td>
+                            <td><?= date("j F Y", strtotime($user['birth_date'])) ?></td>
                             <td><?= $user["gender"] ?></td>
                             <td><?= $user["blood_type"] ?></td>
                             <td class="d-flex justify-content-evenly">
-                                <a class="btn btn-info" href="#"><i class="bi bi-eye"></i> View </a>
+                                <a class="btn btn-info" href="detailPatient.php?id=<?= $user["id"]; ?>"><i class="bi bi-eye"></i> Detail </a>
                                 <a class="btn btn-warning" href="editPatient.php?id=<?= $user["id"]; ?>"><i class="bi bi-pencil"></i> Edit </a>
                                 <a class="btn btn-danger" href="deletePatient.php?id=<?= $user["id"]; ?>"
                                     onclick="return confirm('Are you sure? ');"><i class="bi bi-trash"></i> Delete </a>

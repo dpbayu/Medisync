@@ -65,15 +65,15 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="birthPlace" name="born_place"
-                            placeholder="Birth Place" value="<?= $user["born_place"] ?>">
+                        <input type="text" class="form-control" id="birthPlace" name="birth_place"
+                            placeholder="Birth Place" value="<?= $user["birth_place"] ?>">
                         <label for="birthPlace">Birth Place</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="born_date"
-                            value="<?= $user["born_date"] ?>">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date"
+                            value="<?= $user["birth_date"] ?>">
                     </div>
                 </div>
                 <div class="col-md-6">

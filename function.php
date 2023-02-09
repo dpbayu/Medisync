@@ -20,8 +20,8 @@ function add ($data) {
     $fullname = htmlspecialchars($data["fullname"]);
     $gender = $data["gender"];
     $username = htmlspecialchars($data["username"]);
-    $born_place = htmlspecialchars($data["born_place"]);
-    $born_date = $data["born_date"];
+    $birth_place = htmlspecialchars($data["birth_place"]);
+    $birth_date = $data["birth_date"];
     $password = htmlspecialchars($data["password"]);
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
@@ -29,7 +29,7 @@ function add ($data) {
     $blood_type = $data["blood_type"];
     $work = htmlspecialchars($data["work"]);
     $marital_status = $data["marital_status"];
-    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$gender','$username','$born_place','$born_date','$password','$address','$city','$phone','$blood_type','$work','$marital_status')";
+    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$gender','$username','$birth_place','$birth_date','$password','$address','$city','$phone','$blood_type','$work','$marital_status')";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -51,8 +51,8 @@ function edit ($data) {
     $fullname = htmlspecialchars($data["fullname"]);
     $gender = $data["gender"];
     $username = htmlspecialchars($data["username"]);
-    $born_place = htmlspecialchars($data["born_place"]);
-    $born_date = $data["born_date"];
+    $birth_place = htmlspecialchars($data["birth_place"]);
+    $birth_date = $data["birth_date"];
     $password = htmlspecialchars($data["password"]);
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
@@ -60,7 +60,7 @@ function edit ($data) {
     $blood_type = $data["blood_type"];
     $work = htmlspecialchars($data["work"]);
     $marital_status = $data["marital_status"];
-    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', gender='$gender', username='$username', born_place='$born_place', born_date='$born_date', password='$password', address='$address', city='$city', phone='$phone', blood_type='$blood_type', work='$work', marital_status='$marital_status' WHERE id = $id";
+    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', gender='$gender', username='$username', birth_place='$birth_place', birth_date='$birth_date', password='$password', address='$address', city='$city', phone='$phone', blood_type='$blood_type', work='$work', marital_status='$marital_status' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
