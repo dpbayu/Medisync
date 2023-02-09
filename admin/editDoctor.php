@@ -79,7 +79,7 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                            value="<?= $doctor["password"] ?>" disabled>
+                            value="<?= $doctor["password"] ?>" readonly>
                         <label for="password">Password</label>
                     </div>
                 </div>

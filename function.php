@@ -14,7 +14,7 @@ function query($query) {
 // Function Query End
 
 // Add Patient Start
-function add ($data) {
+function add_patient ($data) {
     global $db;
     $ktp = htmlspecialchars($data["ktp"]);
     $fullname = htmlspecialchars($data["fullname"]);
@@ -36,7 +36,7 @@ function add ($data) {
 // Add Patient End
 
 // Delete Patient Start
-function delete($id) {
+function delete_patient($id) {
     global $db;
     mysqli_query($db, "DELETE FROM user WHERE id = $id");
     return mysqli_affected_rows($db);
@@ -44,7 +44,7 @@ function delete($id) {
 // Deelete Patient End
 
 // Edit Patient Start
-function edit ($data) {
+function edit_patient ($data) {
     global $db;
     $id = $data["id"];
     $ktp = htmlspecialchars($data["ktp"]);

@@ -3,7 +3,7 @@
 require ("../function.php");
 $page = "patient";
 if (isset($_POST["submit"])) {
-    if (add($_POST) > 0) {
+    if (add_patient($_POST) > 0) {
         echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
     } else {
         echo "<script>document.location.href='patient.php?failed=Data failed added!';</script>";    
