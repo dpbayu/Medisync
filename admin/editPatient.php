@@ -2,11 +2,13 @@
 <?php
 require ("../function.php");
 $page = "patient";
+$id = $_GET["id"];
+$user = query("SELECT * FROM user WHERE id = $id")[0];
 if (isset($_POST["submit"])) {
-    if (add($_POST) > 0) {
-        echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
+    if (edit($_POST) > 0) {
+        echo "<script>document.location.href='patient.php?success=Data success updated!';</script>";
     } else {
-        echo "<script>document.location.href='editpatient.php?failed=Data failed added!';</script>";    
+        echo "<script>document.location.href='formPatient.php?failed=Data failed updated!';</script>";    
     }
 }
 ?>
@@ -34,97 +36,113 @@ if (isset($_POST["submit"])) {
         </div>
         <!-- Title End -->
         <section class="section dashboard">
-            <form action="" method="POST" class="row g-3">
+            <form action="" method="POST" enctype="multipart/form-data" class="row g-3">
+                <input type="hidden" name="id" value="<?= $user["id"]; ?>">
                 <div class="col-md-12">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
+                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP"
+                            value="<?= $user["ktp"] ?>">
                         <label for="KTP">KTP</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname"
+                            value="<?= $user["fullname"] ?>">
                         <label for="fullname">Fullname</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <option value="Pria" <?= $user['gender'] == 'Pria' ? ' selected="selected"' : '';?>>Pria
+                            </option>
+                            <option value="Wanita" <?= $user['gender'] == 'Wanita' ? ' selected="selected"' : '';?>>
+                                Wanita</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="birthPlace" name="born_place" placeholder="Birth Place">
+                        <input type="text" class="form-control" id="birthPlace" name="born_place"
+                            placeholder="Birth Place" value="<?= $user["born_place"] ?>">
                         <label for="birthPlace">Birth Place</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="born_date">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="born_date"
+                            value="<?= $user["born_date"] ?>">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                            value="<?= $user["username"] ?>">
                         <label for="username">Username</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="password" name="password"
-                            placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            value="<?= $user["password"] ?>">
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea class="form-control" id="address" name="address" placeholder="Address"
-                            style="height: 100px;"></textarea>
+                            style="height: 100px;"><?= $user["address"] ?></textarea>
                         <label for="address">Address</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City"
+                                value="<?= $user["city"] ?>">
                             <label for="city">City</label>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
+                            value="<?= $user["phone"] ?>">
                         <label for="phone">Phone</label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="bloodType" name="blood_type">
-                            <option value="A" selected>A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
+                            <option value="A" <?= $user['blood_type'] == 'A' ? ' selected="selected"' : '';?>>A</option>
+                            <option value="B" <?= $user['blood_type'] == 'B' ? ' selected="selected"' : '';?>>B</option>
+                            <option value="AB" <?= $user['blood_type'] == 'AB' ? ' selected="selected"' : '';?>>AB
+                            </option>
+                            <option value="O" <?= $user['blood_type'] == 'O' ? ' selected="selected"' : '';?>>O</option>
                         </select>
                         <label for="bloodType">Blood Type</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="work" name="work" placeholder="Work">
+                        <input type="text" class="form-control" id="work" name="work" placeholder="Work"
+                            value="<?= $user["work"] ?>">
                         <label for="work">Work</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah" selected>Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Duda">Duda</option>
-                            <option value="Janda">Janda</option>
+                            <option value="Belum Menikah"
+                                <?= $user['marital_status'] == 'Menikah' ? ' selected="selected"' : '';?>>Belum Menikah</option>
+                            <option value="Menikah" <?= $user['marital_status'] == 'Belum Menikah' ? ' selected="selected"' : '';?>>
+                                Menikah</option>
+                            <option value="Duda" <?= $user['marital_status'] == 'Duda' ? ' selected="selected"' : '';?>>Duda
+                            </option>
+                            <option value="Janda" <?= $user['marital_status'] == 'Janda' ? ' selected="selected"' : '';?>>Janda
+                            </option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
                     </div>
