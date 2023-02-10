@@ -18,5 +18,11 @@
                 <span>Doctor</span>
             </a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link <?php if($page != 'account'){echo 'collapsed';} ?>" href="account.php">
+                <i class="bi  bi-person"></i>
+                <span>Account</span>
+            </a>
+        </li>
     </ul>
 </aside>

@@ -12,10 +12,11 @@ if (isset($_POST['login'])) {
             while ($row = mysqli_fetch_assoc($result)) {
                 if (password_verify($password, $row['password'])) {
                     $_SESSION['id'] = $row['id'];
-                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['nik'] = $row['nik'];
                     $_SESSION['fullname'] = $row['fullname'];
-                    $_SESSION['admin_profile'] = $row['admin_profile'];
+                    $_SESSION['username'] = $row['username'];
                     $_SESSION['password'] = $row['password'];
+                    $_SESSION['admin_profile'] = $row['admin_profile'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION["login"] = true;
                     header("Location: admin/index.php");

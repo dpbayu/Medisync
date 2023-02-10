@@ -115,4 +115,53 @@ function edit_doctor ($data) {
     return mysqli_affected_rows($db);
 }
 // Edit Doctor End
+
+// Update Profile Start
+function update($data) {
+    global $db;
+    $nik = mysqli_real_escape_string($db, $data['nik']);
+    $fullname = mysqli_real_escape_string($db, $data['fullname']);
+    $username = mysqli_real_escape_string($db, $data['username']);
+    $password = mysqli_real_escape_string($db, $data['password']);
+    $admin_profile = $_FILES['admin_profile']['name'];
+    $imgtemp = $_FILES['admin_profile']['tmp_name'];
+    if ($imgtemp=='') {
+        $id = $_SESSION['id'];
+        $q = "SELECT * FROM admin WHERE id = '$id'";
+        $r = mysqli_query($db,$q);
+        $d = mysqli_fetch_array($r);
+        $admin_profile = $d['admin_profile'];
+    }
+    move_uploaded_file($imgtemp,"assets/img/$admin_profile");
+    if (empty($nik) OR empty($fullname) OR empty($username)) {
+        echo "Field still empty";
+    } else {
+            if (empty($password)) {
+                $id = $_SESSION['id'];
+                $sql = "UPDATE admin SET nik='$nik', fullname='$fullname', username='$username', admin_profile='$admin_profile' WHERE id = '$id'";
+                if (mysqli_query($db, $sql)) {
+                    $_SESSION['nik'] = $nik;    
+                    $_SESSION['fullname'] = $fullname;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['admin_profile'] = $admin_profile;
+                } else {
+                    echo "Error";
+                }
+            } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $id = $_SESSION['id'];
+                $sql2 = "UPDATE admin SET nik='$nik', fullname='$fullname', username='$username', password='$hash' WHERE id = '$id'";
+                if (mysqli_query($db, $sql2)) {
+                    session_unset();
+                    session_destroy();
+                    echo "<script>alert('Password success changed, please login again');
+                    document.location.href = '../index.php';
+                    </script>";
+                } else {
+                echo "error";
+            }
+        }
+    }
+}
+// Update Profile End
 ?>
