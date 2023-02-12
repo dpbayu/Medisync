@@ -7,6 +7,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?php if($page != 'medicalRecord'){echo 'collapsed';} ?>" href="medicalRecord.php">
+                <i class="bi bi-layout-text-sidebar-reverse"></i>
+                <span>Medical Record</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="profile.php">
                 <i class="bi bi-file-earmark-person"></i>
                 <span>Profile</span>
