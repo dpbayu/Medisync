@@ -3,6 +3,11 @@
 session_start();
 require "include/db.php";
 
+if (isset($_SESSION["login"])) {
+    header("Location: index.html");
+    exit;
+}
+
 if (isset($_POST['login'])) {
     $username = mysqli_escape_string($db, $_POST['username']);
     $password = mysqli_escape_string($db, $_POST['password']);

@@ -1,5 +1,10 @@
 <!-- PHP -->
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
 require ("../function.php");
 $page = "patient";
 $id = $_GET["id"];

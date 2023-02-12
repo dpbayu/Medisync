@@ -1,5 +1,10 @@
 <!-- PHP Start -->
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
 $page="account";
 require "../function.php";
 if (isset($_POST["update"])) {

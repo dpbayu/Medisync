@@ -1,8 +1,13 @@
 <!-- PHP -->
 <?php
-    require "../function.php";
-    $page = "doctor";
-    $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
+require "../function.php";
+$page = "doctor";
+$doctors = query("SELECT * FROM doctor ORDER BY id DESC");
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -23,7 +28,7 @@
     <main id="main" class="main">
         <!-- Title Start -->
         <div class="pagetitle">
-            <h1 class="text-center">Data Patient</h1>
+            <h1 class="text-center">Data Doctor</h1>
         </div>
         <div class="my-3">
             <a class="btn btn-primary" href="formDoctor.php"><i class="bi bi-database-add"></i> Add data </a>

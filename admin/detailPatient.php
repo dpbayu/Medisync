@@ -1,9 +1,14 @@
 <!-- PHP -->
 <?php
-    require "../function.php";
-    $page = "patient";
-    $id = $_GET["id"];
-    $users = query("SELECT * FROM user WHERE id = $id");
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
+require "../function.php";
+$page = "patient";
+$id = $_GET["id"];
+$users = query("SELECT * FROM user WHERE id = $id");
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
