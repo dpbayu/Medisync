@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
     <?php require "partials/sidebar.php" ?>
     <!-- Sidebar End -->
     <!-- Content Start -->
-    <main id="main" class="main">
+    <main id="main" class="main" style="height: 84vh">
         <!-- Title Start -->
         <div class="pagetitle">
             <h1>Dashboard</h1>

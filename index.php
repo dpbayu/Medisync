@@ -86,10 +86,6 @@ if (isset($_POST['login'])) {
             </div>
         </section>
     </div>
-
-    <!-- Footer Start -->
-    <?php require "admin/partials/footer.php" ?>
-    <!-- Footer End -->
 </body>
 
 </html>

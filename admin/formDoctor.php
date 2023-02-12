@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
     <?php require "partials/sidebar.php" ?>
     <!-- Sidebar End -->
     <!-- Content Start -->
-    <main id="main" class="main">
+    <main id="main" class="main" style="height: 84vh">
         <!-- Title Start -->
         <div class="pagetitle">
             <h1>Dashboard</h1>
@@ -79,6 +79,12 @@ if (isset($_POST["submit"])) {
                         <label for="password">Password</label>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                        <label for="phone">Phone</label>
+                    </div>
+                </div>
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea class="form-control" id="address" name="address" placeholder="Address"
@@ -87,12 +93,6 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
-                        <label for="phone">Phone</label>
-                    </div>
-                </div>
-                <div class="col-md-2">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="bloodType" name="blood_type">
                             <option value="A" selected>A</option>
@@ -103,13 +103,13 @@ if (isset($_POST["submit"])) {
                         <label for="bloodType">Blood Type</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="spesialis" name="spesialis" placeholder="Spesialis">
                         <label for="spesialis">Spesialis</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
                             <option value="Belum Menikah" selected>Belum Menikah</option>
