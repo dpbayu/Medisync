@@ -18,18 +18,21 @@ function add_patient ($data) {
     global $db;
     $ktp = htmlspecialchars($data["ktp"]);
     $fullname = htmlspecialchars($data["fullname"]);
-    $gender = $data["gender"];
     $username = htmlspecialchars($data["username"]);
+    $password = htmlspecialchars($data["password"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
-    $password = htmlspecialchars($data["password"]);
+    $gender = $data["gender"];
+    $blood_type = $data["blood_type"];
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
-    $phone = htmlspecialchars($data["phone"]);
-    $blood_type = $data["blood_type"];
-    $work = htmlspecialchars($data["work"]);
+    $religion = $data["religion"];
     $marital_status = $data["marital_status"];
-    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$gender','$username','$birth_place','$birth_date','$password','$address','$city','$phone','$blood_type','$work','$marital_status')";
+    $work = htmlspecialchars($data["work"]);
+    $phone = htmlspecialchars($data["phone"]);
+    $type_room = $data["type_room"];
+    $room_number = htmlspecialchars($data["room_number"]);
+    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$username','$password','$birth_place','$birth_date','$gender','$blood_type','$address','$city','$religion','$marital_status','$work','$phone','$type_room','$room_number')";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -41,7 +44,7 @@ function delete_patient($id) {
     mysqli_query($db, "DELETE FROM user WHERE id = $id");
     return mysqli_affected_rows($db);
 }
-// Deelete Patient End
+// Delete Patient End
 
 // Edit Patient Start
 function edit_patient ($data) {

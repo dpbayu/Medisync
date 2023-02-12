@@ -42,7 +42,8 @@ if (isset($_POST["submit"])) {
             <form action="" method="POST" class="row g-3">
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
+                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP"
+                            value="<?= $user["ktp"] ?>">
                         <label for="KTP">KTP</label>
                     </div>
                 </div>
@@ -50,6 +51,19 @@ if (isset($_POST["submit"])) {
                     <div class="form-floating">
                         <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
                         <label for="fullname">Fullname</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Password">
+                        <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -75,6 +89,32 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
+                        <select class="form-select" id="bloodType" name="blood_type">
+                            <option value="A" selected>A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                        <label for="bloodType">Blood Type</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="address" name="address" placeholder="Address"
+                            style="height: 100px;"></textarea>
+                        <label for="address">Address</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            <label for="city">City</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
                         <select class="form-select" id="religion" name="religion">
                             <option value="Islam">Islam</option>
                             <option value="Christian Protestant">Christian Protestant</option>
@@ -85,58 +125,7 @@ if (isset($_POST["submit"])) {
                         <label for="religion">Religion</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                        <label for="username">Username</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="password" name="password"
-                            placeholder="Password">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="form-floating">
-                        <textarea class="form-control" id="address" name="address" placeholder="Address"
-                            style="height: 100px;"></textarea>
-                        <label for="address">Address</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
-                            <label for="city">City</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
-                        <label for="phone">Phone</label>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="bloodType" name="blood_type">
-                            <option value="A" selected>A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
-                        </select>
-                        <label for="bloodType">Blood Type</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="work" name="work" placeholder="Work">
-                        <label for="work">Work</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
                             <option value="Belum Menikah" selected>Belum Menikah</option>
@@ -145,6 +134,46 @@ if (isset($_POST["submit"])) {
                             <option value="Janda">Janda</option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="work" name="work" placeholder="Work">
+                        <label for="work">Work</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                        <label for="phone">Phone</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="typeRoom" name="type_room">
+                            <option value="A" selected>A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                        <label for="typeRoom">Type Room</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="roomNumber" name="room_number">
+                            <option value="01" selected>01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                        </select>
+                        <label for="roomNumber">Room Number</label>
                     </div>
                 </div>
                 <div class="col-md-12">
