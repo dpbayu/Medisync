@@ -81,7 +81,7 @@ $users = query("SELECT * FROM user ORDER BY id DESC");
                             <td><?= $user["fullname"] ?></td>
                             <td><?= date("j F Y", strtotime($user['birth_date'])) ?></td>
                             <td><?= $user["gender"] ?></td>
-                            <td><?= $user["blood_type"] ?></td>
+                            <td><?= $user["city"] ?></td>
                             <td class="d-flex justify-content-evenly">
                                 <a class="btn btn-info" href="detailPatient.php?id=<?= $user["id"]; ?>"><i class="bi bi-eye"></i> Detail </a>
                                 <a class="btn btn-warning" href="editPatient.php?id=<?= $user["id"]; ?>"><i class="bi bi-pencil"></i> Edit </a>

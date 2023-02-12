@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
         <!-- Title End -->
         <section class="section dashboard">
             <form action="" method="POST" class="row g-3">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-floating">
                         <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
                         <label for="KTP">KTP</label>
@@ -50,26 +50,6 @@ if (isset($_POST["submit"])) {
                     <div class="form-floating">
                         <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
                         <label for="fullname">Fullname</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating mb-3">
-                        <select class="form-select" id="gender" name="gender">
-                            <option value="Man">Man</option>
-                            <option value="Woman">Woman</option>
-                        </select>
-                        <label for="gender">Gender</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="birthPlace" name="birth_place" placeholder="Birth Place">
-                        <label for="birthPlace">Birth Place</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -85,28 +65,28 @@ if (isset($_POST["submit"])) {
                         <label for="password">Password</label>
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-md-3">
                     <div class="form-floating">
-                        <textarea class="form-control" id="address" name="address" placeholder="Address"
-                            style="height: 100px;"></textarea>
-                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="birthPlace" name="birth_place"
+                            placeholder="Birth Place">
+                        <label for="birthPlace">Birth Place</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
-                            <label for="city">City</label>
-                        </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
-                        <label for="phone">Phone</label>
+                        <select class="form-select" id="gender" name="gender">
+                            <option value="Man">Man</option>
+                            <option value="Woman">Woman</option>
+                        </select>
+                        <label for="gender">Gender</label>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="bloodType" name="blood_type">
                             <option value="A" selected>A</option>
@@ -117,7 +97,45 @@ if (isset($_POST["submit"])) {
                         <label for="bloodType">Blood Type</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="address" name="address" placeholder="Address"
+                            style="height: 100px;"></textarea>
+                        <label for="address">Address</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="col-md-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            <label for="city">City</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="religion" name="religion">
+                            <option value="Islam">Islam</option>
+                            <option value="Protestant">Protestant</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Kong Hu Cu">Kong Hu Cu</option>
+                        </select>
+                        <label for="religion">Religion</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="maritalStatus" name="marital_status">
+                            <option value="Single" selected>Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Widower">Widower</option>
+                            <option value="Window">Window</option>
+                        </select>
+                        <label for="maritalStatus">Marital Status</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="work" name="work" placeholder="Work">
                         <label for="work">Work</label>
@@ -125,13 +143,8 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
-                        <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Single" selected>Single</option>
-                            <option value="Married">Married</option>
-                            <option value="Widower">Widower</option>
-                            <option value="Widow">Janda</option>
-                        </select>
-                        <label for="maritalStatus">Marital Status</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                        <label for="phone">Phone</label>
                     </div>
                 </div>
                 <div class="text-left">

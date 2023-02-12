@@ -42,20 +42,19 @@ if (isset($_POST["submit"])) {
             <form action="" method="POST" class="row g-3">
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP"
-                            value="<?= $user["ktp"] ?>">
+                        <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
                         <label for="KTP">KTP</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname" value="<?= $user["fullname"] ?>">
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
                         <label for="fullname">Fullname</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $user["username"] ?>">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                         <label for="username">Username</label>
                     </div>
                 </div>
