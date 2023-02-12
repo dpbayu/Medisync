@@ -117,7 +117,7 @@ function edit_doctor ($data) {
 // Edit Doctor End
 
 // Update Profile Start
-function update($data) {
+function update_admin($data) {
     global $db;
     $nik = mysqli_real_escape_string($db, $data['nik']);
     $fullname = mysqli_real_escape_string($db, $data['fullname']);

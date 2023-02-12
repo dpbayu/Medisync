@@ -3,7 +3,7 @@
 $page="account";
 require "../function.php";
 if (isset($_POST["update"])) {
-    if (update($_POST) > 0) {
+    if (update_admin($_POST) > 0) {
         echo "<script>document.location.href = 'account.php';</script>";
     } else {
         echo "<script>document.location.href = 'account.php';</script>";    
