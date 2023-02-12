@@ -67,10 +67,10 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria" <?= $doctor['gender'] == 'Pria' ? ' selected="selected"' : '';?>>Pria
+                            <option value="Man" <?= $doctor['gender'] == 'Man' ? ' selected="selected"' : '';?>>Man
                             </option>
-                            <option value="Wanita" <?= $doctor['gender'] == 'Wanita' ? ' selected="selected"' : '';?>>
-                                Wanita</option>
+                            <option value="Woman" <?= $doctor['gender'] == 'Woman' ? ' selected="selected"' : '';?>>
+                                Woman</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
@@ -112,11 +112,14 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-2">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="bloodType" name="blood_type">
-                            <option value="A" <?= $doctor['blood_type'] == 'A' ? ' selected="selected"' : '';?>>A</option>
-                            <option value="B" <?= $doctor['blood_type'] == 'B' ? ' selected="selected"' : '';?>>B</option>
+                            <option value="A" <?= $doctor['blood_type'] == 'A' ? ' selected="selected"' : '';?>>A
+                            </option>
+                            <option value="B" <?= $doctor['blood_type'] == 'B' ? ' selected="selected"' : '';?>>B
+                            </option>
                             <option value="AB" <?= $doctor['blood_type'] == 'AB' ? ' selected="selected"' : '';?>>AB
                             </option>
-                            <option value="O" <?= $doctor['blood_type'] == 'O' ? ' selected="selected"' : '';?>>O</option>
+                            <option value="O" <?= $doctor['blood_type'] == 'O' ? ' selected="selected"' : '';?>>O
+                            </option>
                         </select>
                         <label for="bloodType">Blood Type</label>
                     </div>
@@ -131,13 +134,17 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah"
-                                <?= $doctor['marital_status'] == 'Menikah' ? ' selected="selected"' : '';?>>Belum Menikah</option>
-                            <option value="Menikah" <?= $doctor['marital_status'] == 'Belum Menikah' ? ' selected="selected"' : '';?>>
-                                Menikah</option>
-                            <option value="Duda" <?= $doctor['marital_status'] == 'Duda' ? ' selected="selected"' : '';?>>Duda
+                            <option value="Single"
+                                <?= $doctor['marital_status'] == 'Single' ? ' selected="selected"' : '';?>>Single
                             </option>
-                            <option value="Janda" <?= $doctor['marital_status'] == 'Janda' ? ' selected="selected"' : '';?>>Janda
+                            <option value="Married"
+                                <?= $doctor['marital_status'] == 'Married' ? ' selected="selected"' : '';?>>
+                                Married</option>
+                            <option value="Widower"
+                                <?= $doctor['marital_status'] == 'Widower' ? ' selected="selected"' : '';?>>Widower
+                            </option>
+                            <option value="Window"
+                                <?= $doctor['marital_status'] == 'Window' ? ' selected="selected"' : '';?>>Window
                             </option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>

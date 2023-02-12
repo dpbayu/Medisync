@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'medicalRecord'){echo 'collapsed';} ?>" href="medicalRecord.php">
+            <a class="nav-link <?php if($page != 'patient'){echo 'collapsed';} ?>" href="patient.php">
                 <i class="bi bi-layout-text-sidebar-reverse"></i>
                 <span>Medical Record</span>
             </a>

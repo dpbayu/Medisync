@@ -6,12 +6,12 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 require ("function.php");
-$page = "medicalRecord";
+$page = "patient";
 if (isset($_POST["submit"])) {
     if (add_patient($_POST) > 0) {
-        echo "<script>document.location.href='medicalRecord.php?success=Data already added!';</script>";
+        echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
     } else {
-        echo "<script>document.location.href='medicalRecord.php?failed=Data failed added!';</script>";    
+        echo "<script>document.location.href='patient.php?failed=Data failed added!';</script>";    
     }
 }
 ?>
@@ -49,13 +49,13 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname" value="<?= $user["fullname"] ?>">
                         <label for="fullname">Fullname</label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $user["username"] ?>">
                         <label for="username">Username</label>
                     </div>
                 </div>
@@ -81,8 +81,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <option value="Man">Man</option>
+                            <option value="Woman">Woman</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
@@ -117,7 +117,7 @@ if (isset($_POST["submit"])) {
                     <div class="form-floating mb-3">
                         <select class="form-select" id="religion" name="religion">
                             <option value="Islam">Islam</option>
-                            <option value="Christian Protestant">Christian Protestant</option>
+                            <option value="Protestant">Protestant</option>
                             <option value="Hindu">Hindu</option>
                             <option value="Buddha">Buddha</option>
                             <option value="Kong Hu Cu">Kong Hu Cu</option>
@@ -128,10 +128,10 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah" selected>Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Duda">Duda</option>
-                            <option value="Janda">Janda</option>
+                            <option value="Single" selected>Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Widower">Widower</option>
+                            <option value="Window">Window</option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
                     </div>

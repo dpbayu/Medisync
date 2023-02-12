@@ -52,17 +52,20 @@ function edit_patient ($data) {
     $id = $data["id"];
     $ktp = htmlspecialchars($data["ktp"]);
     $fullname = htmlspecialchars($data["fullname"]);
-    $gender = $data["gender"];
     $username = htmlspecialchars($data["username"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
+    $gender = $data["gender"];
+    $blood_type = $data["blood_type"];
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
-    $phone = htmlspecialchars($data["phone"]);
-    $blood_type = $data["blood_type"];
-    $work = htmlspecialchars($data["work"]);
+    $religion = $data["religion"];
     $marital_status = $data["marital_status"];
-    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', gender='$gender', username='$username', birth_place='$birth_place', birth_date='$birth_date', address='$address', city='$city', phone='$phone', blood_type='$blood_type', work='$work', marital_status='$marital_status' WHERE id = $id";
+    $work = htmlspecialchars($data["work"]);
+    $phone = htmlspecialchars($data["phone"]);
+    $type_room = $data["type_room"];
+    $room_number = htmlspecialchars($data["room_number"]);
+    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', username='$username', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', blood_type='$blood_type', address='$address', city='$city', religion='$religion', marital_status='$marital_status', work='$work', phone='$phone', type_room='$type_room', room_number='$room_number' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

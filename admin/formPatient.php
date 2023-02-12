@@ -55,8 +55,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <option value="Man">Man</option>
+                            <option value="Woman">Woman</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
@@ -126,10 +126,10 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah" selected>Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Duda">Duda</option>
-                            <option value="Janda">Janda</option>
+                            <option value="Single" selected>Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Widower">Widower</option>
+                            <option value="Widow">Janda</option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
                     </div>

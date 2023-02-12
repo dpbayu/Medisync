@@ -60,10 +60,10 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria" <?= $user['gender'] == 'Pria' ? ' selected="selected"' : '';?>>Pria
+                            <option value="Man" <?= $user['gender'] == 'Man' ? ' selected="selected"' : '';?>>Man
                             </option>
-                            <option value="Wanita" <?= $user['gender'] == 'Wanita' ? ' selected="selected"' : '';?>>
-                                Wanita</option>
+                            <option value="Woman" <?= $user['gender'] == 'Woman' ? ' selected="selected"' : '';?>>
+                                Woman</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
@@ -133,13 +133,18 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah"
-                                <?= $user['marital_status'] == 'Menikah' ? ' selected="selected"' : '';?>>Belum Menikah</option>
-                            <option value="Menikah" <?= $user['marital_status'] == 'Belum Menikah' ? ' selected="selected"' : '';?>>
-                                Menikah</option>
-                            <option value="Duda" <?= $user['marital_status'] == 'Duda' ? ' selected="selected"' : '';?>>Duda
+                            <option value="Single"
+                                <?= $user['marital_status'] == 'Single' ? ' selected="selected"' : '';?>>Single
                             </option>
-                            <option value="Janda" <?= $user['marital_status'] == 'Janda' ? ' selected="selected"' : '';?>>Janda
+                            <option value="Married"
+                                <?= $user['marital_status'] == 'Married' ? ' selected="selected"' : '';?>>
+                                Married</option>
+                            <option value="Widower"
+                                <?= $user['marital_status'] == 'Widower' ? ' selected="selected"' : '';?>>
+                                Widower
+                            </option>
+                            <option value="Window"
+                                <?= $user['marital_status'] == 'Window' ? ' selected="selected"' : '';?>>Window
                             </option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>

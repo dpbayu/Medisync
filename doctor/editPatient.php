@@ -6,14 +6,14 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 require ("function.php");
-$page = "medicalRecord";
+$page = "patient";
 $id = $_GET["id"];
 $user = query("SELECT * FROM user WHERE id = $id")[0];
 if (isset($_POST["submit"])) {
     if (edit_patient($_POST) > 0) {
-        echo "<script>document.location.href='medicalRecord.php?success=Data success updated!';</script>";
+        echo "<script>document.location.href='patient.php?success=Data success updated!';</script>";
     } else {
-        echo "<script>document.location.href='medicalRecord.php?failed=Data failed updated!';</script>";    
+        echo "<script>document.location.href='patient.php?failed=Data failed updated!';</script>";    
     }
 }
 ?>
@@ -42,6 +42,7 @@ if (isset($_POST["submit"])) {
         <!-- Title End -->
         <section class="section dashboard">
             <form action="" method="POST" class="row g-3">
+            <input type="hidden" name="id" value="<?= $user["id"]; ?>">
                 <div class="col-md-6">
                     <div class="form-floating">
                         <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP" value="<?= $user["ktp"] ?>">
@@ -56,7 +57,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= $user["username"] ?>">
                         <label for="username">Username</label>
                     </div>
                 </div>
@@ -82,8 +83,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <option value="Man" <?= $user['gender'] == 'Man' ? ' selected="selected"' : '';?>>Man</option>
+                            <option value="Woman" <?= $user['gender'] == 'Woman' ? ' selected="selected"' : '';?>>Woman</option>
                         </select>
                         <label for="gender">Gender</label>
                     </div>
@@ -91,17 +92,17 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="bloodType" name="blood_type">
-                            <option value="A" selected>A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
+                            <option value="A" <?= $user['blood_type'] == 'A' ? ' selected="selected"' : '';?>>A</option>
+                            <option value="B" <?= $user['blood_type'] == 'B' ? ' selected="selected"' : '';?>>B</option>
+                            <option value="AB" <?= $user['blood_type'] == 'AB' ? ' selected="selected"' : '';?>>AB</option>
+                            <option value="O" <?= $user['blood_type'] == 'O' ? ' selected="selected"' : '';?>>O</option>
                         </select>
                         <label for="bloodType">Blood Type</label>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-floating">
-                        <textarea class="form-control" id="address" name="address" placeholder="Address"
+                        <textarea class="form-control" id="address" name="address" placeholder="Address" value="<?= $user["address"] ?>"
                             style="height: 100px;"></textarea>
                         <label for="address">Address</label>
                     </div>
@@ -109,7 +110,7 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="col-md-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City" value="<?= $user["city"] ?>">
                             <label for="city">City</label>
                         </div>
                     </div>
@@ -117,11 +118,11 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="religion" name="religion">
-                            <option value="Islam">Islam</option>
-                            <option value="Christian Protestant">Christian Protestant</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Buddha">Buddha</option>
-                            <option value="Kong Hu Cu">Kong Hu Cu</option>
+                            <option value="Islam" <?= $user['religion'] == 'Islam' ? ' selected="selected"' : '';?>>Islam</option>
+                            <option value="Protestant" <?= $user['religion'] == 'Protestant' ? ' selected="selected"' : '';?>>Protestant</option>
+                            <option value="Hindu" <?= $user['religion'] == 'Hindu' ? ' selected="selected"' : '';?>>Hindu</option>
+                            <option value="Buddha" <?= $user['religion'] == 'Buddha' ? ' selected="selected"' : '';?>>Buddha</option>
+                            <option value="Kong Hu Cu" <?= $user['religion'] == 'Kong Hu Cu' ? ' selected="selected"' : '';?>>Kong Hu Cu</option>
                         </select>
                         <label for="religion">Religion</label>
                     </div>
@@ -129,10 +130,10 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
-                            <option value="Belum Menikah" selected>Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Duda">Duda</option>
-                            <option value="Janda">Janda</option>
+                            <option value="Single" <?= $user['marital_status'] == 'Single' ? ' selected="selected"' : '';?>>Single</option>
+                            <option value="Married" <?= $user['marital_status'] == 'Married' ? ' selected="selected"' : '';?>>Married</option>
+                            <option value="Widower" <?= $user['marital_status'] == 'Widower' ? ' selected="selected"' : '';?>>Widower</option>
+                            <option value="Widow" <?= $user['marital_status'] == 'Widow' ? ' selected="selected"' : '';?>>Widow</option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
                     </div>

@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 require "function.php";
-$page = "medicalRecord";
+$page = "patient";
 $users = query("SELECT * FROM user ORDER BY id DESC");
 ?>
 <!-- PHP -->
