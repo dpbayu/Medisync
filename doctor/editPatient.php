@@ -1,19 +1,14 @@
 <!-- PHP -->
 <?php
-session_start();
-if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
-    exit;
-}
 require ("function.php");
 $page = "patient";
 $id = $_GET["id"];
 $user = query("SELECT * FROM user WHERE id = $id")[0];
 if (isset($_POST["submit"])) {
     if (edit_patient($_POST) > 0) {
-        echo "<script>document.location.href='patient.php?success=Data success updated!';</script>";
+        echo "<script>document.location.href='medicalRecord.php?success=Data success updated!';</script>";
     } else {
-        echo "<script>document.location.href='formPatient.php?failed=Data failed updated!';</script>";    
+        echo "<script>document.location.href='medicalRecord.php?failed=Data failed updated!';</script>";    
     }
 }
 ?>

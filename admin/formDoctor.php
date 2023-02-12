@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require ("../function.php");
+require ("function.php");
 $page = "doctor";
 if (isset($_POST["submit"])) {
     if (add_doctor($_POST) > 0) {
@@ -40,10 +40,16 @@ if (isset($_POST["submit"])) {
         <!-- Title End -->
         <section class="section dashboard">
             <form action="" method="POST" class="row g-3">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-floating">
                         <input type="number" class="form-control" id="nip" name="nip" placeholder="NIP">
                         <label for="nip">NIP</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="ktp" name="ktp" placeholder="KTP">
+                        <label for="ktp">KTP</label>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -110,6 +116,12 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
                 <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="role" name="role" placeholder="role">
+                        <label for="role">role</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="maritalStatus" name="marital_status">
                             <option value="Belum Menikah" selected>Belum Menikah</option>
@@ -120,6 +132,10 @@ if (isset($_POST["submit"])) {
                         <label for="maritalStatus">Marital Status</label>
                     </div>
                 </div>
+                <label for="profil">Profile</label><br>
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="profile" name="doctor_profile">
+                    </div>
                 <div class="text-left">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>

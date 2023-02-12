@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../loginDoctor.php");
     exit;
 }
-require "../function.php";
+require "function.php";
 $page = "profile";
 ?>
 <!-- PHP -->

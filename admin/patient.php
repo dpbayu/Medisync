@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require "../function.php";
+require "function.php";
 $page = "patient";
 $users = query("SELECT * FROM user ORDER BY id DESC");
 ?>

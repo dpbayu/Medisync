@@ -6,12 +6,12 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 require ("function.php");
-$page = "patient";
+$page = "medicalRecord";
 if (isset($_POST["submit"])) {
     if (add_patient($_POST) > 0) {
-        echo "<script>document.location.href='patient.php?success=Data already added!';</script>";
+        echo "<script>document.location.href='medicalRecord.php?success=Data already added!';</script>";
     } else {
-        echo "<script>document.location.href='patient.php?failed=Data failed added!';</script>";    
+        echo "<script>document.location.href='medicalRecord.php?failed=Data failed added!';</script>";    
     }
 }
 ?>
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
     <?php require "partials/sidebar.php" ?>
     <!-- Sidebar End -->
     <!-- Content Start -->
-    <main id="main" class="main" style="height: 84vh">
+    <main id="main" class="main">
         <!-- Title Start -->
         <div class="pagetitle">
             <h1>Dashboard</h1>
@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
         <!-- Title End -->
         <section class="section dashboard">
             <form action="" method="POST" class="row g-3">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-floating">
                         <input type="number" class="form-control" id="KTP" name="ktp" placeholder="KTP">
                         <label for="KTP">KTP</label>
@@ -52,7 +52,19 @@ if (isset($_POST["submit"])) {
                         <label for="fullname">Fullname</label>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="birthPlace" name="birth_place"
+                            placeholder="Birth Place">
+                        <label for="birthPlace">Birth Place</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="gender" name="gender">
                             <option value="Pria">Pria</option>
@@ -61,15 +73,16 @@ if (isset($_POST["submit"])) {
                         <label for="gender">Gender</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="birthPlace" name="birth_place" placeholder="Birth Place">
-                        <label for="birthPlace">Birth Place</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="religion" name="religion">
+                            <option value="Islam">Islam</option>
+                            <option value="Christian Protestant">Christian Protestant</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Kong Hu Cu">Kong Hu Cu</option>
+                        </select>
+                        <label for="religion">Religion</label>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -132,6 +145,53 @@ if (isset($_POST["submit"])) {
                             <option value="Janda">Janda</option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="diagnosis" name="diagnosis" placeholder="Diagnosis">
+                        <label for="diagnosis">Diagnosis</label>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="complication" name="complication"
+                            placeholder="Complication">
+                        <label for="complication">Complication</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="infection" name="infection" placeholder="Infection">
+                        <label for="infection">Infection</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="causeOfInfection" name="cause_of_infection"
+                            placeholder="Cause Of Infection">
+                        <label for="causeOfInfection">Cause Of Infection</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="exitCondition" name="exit_condition">
+                            <option value="Healed" selected>Healed</option>
+                            <option value="Not Healed Yet">Not Healed Yet</option>
+                            <option value="Getting Better">Getting Better</option>
+                            <option value="Pass Away">Pass Away</option>
+                        </select>
+                        <label for="exitCondition">Exit Condition</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="wayOut" name="way_out">
+                            <option value="Allowed Home" selected>Allowed Home</option>
+                            <option value="Force Home">Force Home</option>
+                            <option value="Run Away">Run Away</option>
+                        </select>
+                        <label for="wayOut">Way Out</label>
                     </div>
                 </div>
                 <div class="text-left">

@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-require ("../function.php");
+require ("function.php");
 $page = "doctor";
 $id = $_GET["id"];
 $doctor = query("SELECT * FROM doctor WHERE id = $id")[0];

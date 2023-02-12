@@ -17,15 +17,15 @@
             <!-- Profile Start -->
             <li class="nav-item dropdown pe-3">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/<?php echo $_SESSION['doctor_profile'] ?>" alt="Profile" class="rounded-circle"
+                    <img src="assets/img/<?= $_SESSION['doctor_profile'] ?>" alt="Profile" class="rounded-circle"
                         style="height: 50px; width: 40px;">
-                    <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['fullname'] ?></span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['fullname'] ?></span>
                 </a>
                 <!-- End Profile Image Icon -->
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6><?php echo $_SESSION['fullname'] ?></h6>
-                        <span><?php echo $_SESSION['role'] ?></span>
+                        <h6><?= $_SESSION['fullname'] ?></h6>
+                        <span><?= $_SESSION['role'] ?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">

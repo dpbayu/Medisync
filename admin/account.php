@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 $page="account";
-require "../function.php";
+require "function.php";
 if (isset($_POST["update"])) {
     if (update_admin($_POST) > 0) {
         echo "<script>document.location.href = 'account.php';</script>";
