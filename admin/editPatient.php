@@ -88,13 +88,6 @@ if (isset($_POST["submit"])) {
                         <label for="username">Username</label>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                            value="<?= $user["password"] ?>" disabled>
-                        <label for="password">Password</label>
-                    </div>
-                </div>
                 <div class="col-12">
                     <div class="form-floating">
                         <textarea class="form-control" id="address" name="address" placeholder="Address"

@@ -53,14 +53,13 @@ function edit_patient ($data) {
     $username = htmlspecialchars($data["username"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
-    $password = $data["password"];
     $address = htmlspecialchars($data["address"]);
     $city = htmlspecialchars($data["city"]);
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $work = htmlspecialchars($data["work"]);
     $marital_status = $data["marital_status"];
-    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', gender='$gender', username='$username', birth_place='$birth_place', birth_date='$birth_date', password='$password', address='$address', city='$city', phone='$phone', blood_type='$blood_type', work='$work', marital_status='$marital_status' WHERE id = $id";
+    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', gender='$gender', username='$username', birth_place='$birth_place', birth_date='$birth_date', address='$address', city='$city', phone='$phone', blood_type='$blood_type', work='$work', marital_status='$marital_status' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -155,6 +154,55 @@ function update_admin($data) {
                     session_destroy();
                     echo "<script>alert('Password success changed, please login again');
                     document.location.href = '../index.php';
+                    </script>";
+                } else {
+                echo "error";
+            }
+        }
+    }
+}
+// Update Profile End
+
+// Update Profile Start
+function update_doctor($data) {
+    global $db;
+    $fullname = mysqli_real_escape_string($db, $data['fullname']);
+    $phone = mysqli_real_escape_string($db, $data['phone']);
+    $address = mysqli_real_escape_string($db, $data['address']);
+    $password = mysqli_real_escape_string($db, $data['password']);
+    $doctor_profile = $_FILES['doctor_profile']['name'];
+    $imgtemp = $_FILES['doctor_profile']['tmp_name'];
+    if ($imgtemp=='') {
+        $id = $_SESSION['id'];
+        $q = "SELECT * FROM doctor WHERE id = '$id'";
+        $r = mysqli_query($db,$q);
+        $d = mysqli_fetch_array($r);
+        $doctor_profile = $d['doctor_profile'];
+    }
+    move_uploaded_file($imgtemp,"assets/img/$doctor_profile");
+    if (empty($fullname)) {
+        echo "Field still empty";
+    } else {
+            if (empty($password)) {
+                $id = $_SESSION['id'];
+                $sql = "UPDATE doctor SET fullname='$fullname', phone='$phone', address='$address', doctor_profile='$doctor_profile' WHERE id = '$id'";
+                if (mysqli_query($db, $sql)) {
+                    $_SESSION['fullname'] = $fullname;
+                    $_SESSION['phone'] = $phone;
+                    $_SESSION['address'] = $address;
+                    $_SESSION['doctor_profile'] = $doctor_profile;
+                } else {
+                    echo "Error";
+                }
+            } else {
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $id = $_SESSION['id'];
+                $sql2 = "UPDATE doctor SET fullname='$fullname', phone='$phone', address='$address', password='$hash' WHERE id = '$id'";
+                if (mysqli_query($db, $sql2)) {
+                    session_unset();
+                    session_destroy();
+                    echo "<script>alert('Password success changed, please login again');
+                    document.location.href = '../loginDoctor.php';
                     </script>";
                 } else {
                 echo "error";

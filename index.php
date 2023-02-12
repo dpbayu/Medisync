@@ -3,11 +3,6 @@
 session_start();
 require "include/db.php";
 
-if (isset($_SESSION["login"])) {
-    header("Location: index.html");
-    exit;
-}
-
 if (isset($_POST['login'])) {
     $username = mysqli_escape_string($db, $_POST['username']);
     $password = mysqli_escape_string($db, $_POST['password']);
@@ -18,9 +13,9 @@ if (isset($_POST['login'])) {
                 if (password_verify($password, $row['password'])) {
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['nik'] = $row['nik'];
-                    $_SESSION['fullname'] = $row['fullname'];
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['password'] = $row['password'];
+                    $_SESSION['fullname'] = $row['fullname'];
                     $_SESSION['admin_profile'] = $row['admin_profile'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION["login"] = true;
@@ -38,7 +33,7 @@ if (isset($_POST['login'])) {
 <html lang="en">
 
 <!-- Head Start -->
-<?php require "admin/partials/head.php" ?>
+<?php require "partials/head.php" ?>
 <!-- Head End -->
 
 <body>
@@ -56,7 +51,7 @@ if (isset($_POST['login'])) {
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                                    <h5 class="card-title text-center pb-0 fs-4">Login Admin</h5>
                                     <p class="text-center small">Enter your username & password to login</p>
                                 </div>
                                 <form action="" method="POST" class="row g-3 needs-validation">
@@ -77,6 +72,9 @@ if (isset($_POST['login'])) {
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100" type="submit" name="login">Login</button>
+                                    </div>
+                                    <div>
+                                        <a href="loginDoctor.php">Login as doctor</a>
                                     </div>
                                 </form>
                             </div>
