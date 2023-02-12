@@ -69,6 +69,7 @@ function edit_patient ($data) {
 function add_doctor ($data) {
     global $db;
     $nip = htmlspecialchars($data["nip"]);
+    $ktp = htmlspecialchars($data["ktp"]);
     $fullname = htmlspecialchars($data["fullname"]);
     $password = $data["password"];
     $address = htmlspecialchars($data["address"]);
@@ -79,7 +80,7 @@ function add_doctor ($data) {
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $marital_status = $data["marital_status"];
-    $query = "INSERT INTO doctor VALUES ('','$nip','$fullname','$password','$address','$birth_place','$birth_date','$gender','$spesialis','$phone','$blood_type','$marital_status')";
+    $query = "INSERT INTO doctor VALUES ('','$nip','$ktp','$fullname','$password','$address','$birth_place','$birth_date','$gender','$spesialis','$phone','$blood_type','$marital_status')";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -98,6 +99,7 @@ function edit_doctor ($data) {
     global $db;
     $id = $data["id"];
     $nip = htmlspecialchars($data["nip"]);
+    $ktp = htmlspecialchars($data["ktp"]);
     $fullname = htmlspecialchars($data["fullname"]);
     $password = $data["password"];
     $address = htmlspecialchars($data["address"]);
@@ -108,7 +110,7 @@ function edit_doctor ($data) {
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $marital_status = $data["marital_status"];
-    $query = "UPDATE doctor SET nip='$nip', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', spesialis='$spesialis', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
+    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', spesialis='$spesialis', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

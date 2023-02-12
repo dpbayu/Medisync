@@ -64,7 +64,7 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>KTP</th>
+                            <th>NIP</th>
                             <th>Name</th>
                             <th>Birth</th>
                             <th>Gender</th>
@@ -95,7 +95,7 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>KTP</th>
+                            <th>NIP</th>
                             <th>Name</th>
                             <th>Birthd</th>
                             <th>Gender</th>

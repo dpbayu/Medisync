@@ -43,11 +43,18 @@ if (isset($_POST["submit"])) {
         <section class="section dashboard">
             <form action="" method="POST" class="row g-3">
                 <input type="hidden" name="id" value="<?= $doctor["id"]; ?>">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-floating">
                         <input type="number" class="form-control" id="nip" name="nip" placeholder="NIP"
                             value="<?= $doctor["nip"] ?>">
                         <label for="nip">NIP</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="ktp" name="ktp" placeholder="KTP"
+                            value="<?= $doctor["ktp"] ?>">
+                        <label for="ktp">KTP</label>
                     </div>
                 </div>
                 <div class="col-md-6">
