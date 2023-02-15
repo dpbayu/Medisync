@@ -147,6 +147,81 @@ if (isset($_POST["submit"])) {
                         <label for="phone">Phone</label>
                     </div>
                 </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="typeRoom" name="type_room">
+                            <option value="A" selected>A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                        <label for="typeRoom">Type Room</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="roomNumber" name="room_number">
+                            <option value="01" selected>01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                        </select>
+                        <label for="roomNumber">Room Number</label>
+                    </div>
+                </div>
+                <div class="col-md-12 d-none">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="diagnosis" name="diagnosis" placeholder="Diagnosis">
+                        <label for="diagnosis">Diagnosis</label>
+                    </div>
+                </div>
+                <div class="col-md-12 d-none">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="complication" name="complication"
+                            placeholder="Complication">
+                        <label for="complication">Complication</label>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="infection" name="infection" placeholder="Infection">
+                        <label for="infection">Infection</label>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="causeOfInfection" name="cause_of_infection"
+                            placeholder="Cause Of Infection">
+                        <label for="causeOfInfection">Cause Of Infection</label>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="exitCondition" name="exit_condition">
+                            <option value="Healed" selected>Healed</option>
+                            <option value="Not Healed Yet">Not Healed Yet</option>
+                            <option value="Getting Better">Getting Better</option>
+                            <option value="Pass Away">Pass Away</option>
+                        </select>
+                        <label for="exitCondition">Exit Condition</label>
+                    </div>
+                </div>
+                <div class="col-md-6 d-none">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="wayOut" name="way_out">
+                            <option value="Allowed Home" selected>Allowed Home</option>
+                            <option value="Force Home">Force Home</option>
+                            <option value="Run Away">Run Away</option>
+                        </select>
+                        <label for="wayOut">Way Out</label>
+                    </div>
+                </div>
                 <div class="text-left">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>

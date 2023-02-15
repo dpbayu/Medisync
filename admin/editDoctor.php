@@ -143,8 +143,8 @@ if (isset($_POST["submit"])) {
                             <option value="Widower"
                                 <?= $doctor['marital_status'] == 'Widower' ? ' selected="selected"' : '';?>>Widower
                             </option>
-                            <option value="Window"
-                                <?= $doctor['marital_status'] == 'Window' ? ' selected="selected"' : '';?>>Window
+                            <option value="Widow"
+                                <?= $doctor['marital_status'] == 'Widow' ? ' selected="selected"' : '';?>>Widow
                             </option>
                         </select>
                         <label for="maritalStatus">Marital Status</label>

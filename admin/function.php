@@ -32,7 +32,13 @@ function add_patient ($data) {
     $phone = htmlspecialchars($data["phone"]);
     $type_room = $data["type_room"];
     $room_number = htmlspecialchars($data["room_number"]);
-    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$username','$password','$birth_place','$birth_date','$gender','$blood_type','$address','$city','$religion','$marital_status','$work','$phone','$type_room','$room_number')";
+    $diagnosis = htmlspecialchars($data["diagnosis"]);
+    $complication = htmlspecialchars($data["complication"]);
+    $infection = htmlspecialchars($data["infection"]);
+    $cause_of_infection = htmlspecialchars($data["cause_of_infection"]);
+    $exit_condition = htmlspecialchars($data["exit_condition"]);
+    $way_out = htmlspecialchars($data["way_out"]);
+    $query = "INSERT INTO user VALUES ('','$ktp','$fullname','$username','$password','$birth_place','$birth_date','$gender','$blood_type','$address','$city','$religion','$marital_status','$work','$phone','$type_room','$room_number','$diagnosis','$complication','$infection','$cause_of_infection','$exit_condition','$way_out')";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
