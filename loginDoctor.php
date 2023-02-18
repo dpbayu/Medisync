@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
                     $_SESSION['birth_place'] = $row['birth_place'];
                     $_SESSION['birth_date'] = $row['birth_date'];
                     $_SESSION['gender'] = $row['gender'];
-                    $_SESSION['spesialis'] = $row['spesialis'];
+                    $_SESSION['poly'] = $row['poly'];
                     $_SESSION['phone'] = $row['phone'];
                     $_SESSION['blood_type'] = $row['blood_type'];
                     $_SESSION['marital_status'] = $row['marital_status'];

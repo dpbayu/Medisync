@@ -86,13 +86,13 @@ function add_doctor ($data) {
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
     $gender = htmlspecialchars($data["gender"]);
-    $spesialis = htmlspecialchars($data["spesialis"]);
+    $poly = $data["poly"];
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $marital_status = $data["marital_status"];
     $doctor_profile = $data["doctor_profile"];
     $role = $data["role"];
-    $query = "INSERT INTO doctor VALUES ('','$nip','$ktp','$fullname','$password','$address','$birth_place','$birth_date','$gender','$spesialis','$phone','$blood_type','$marital_status','$doctor_profile','$role')";
+    $query = "INSERT INTO doctor VALUES ('','$nip','$ktp','$fullname','$password','$address','$birth_place','$birth_date','$gender','$poly','$phone','$blood_type','$marital_status','$doctor_profile','$role')";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
@@ -118,11 +118,11 @@ function edit_doctor ($data) {
     $birth_place = htmlspecialchars($data["birth_place"]);
     $birth_date = $data["birth_date"];
     $gender = htmlspecialchars($data["gender"]);
-    $spesialis = htmlspecialchars($data["spesialis"]);
+    $poly = htmlspecialchars($data["poly"]);
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $marital_status = $data["marital_status"];
-    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', spesialis='$spesialis', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
+    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', poly='$poly', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

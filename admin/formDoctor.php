@@ -69,7 +69,8 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="birthPlace" name="birth_place" placeholder="Birth Place">
+                        <input type="text" class="form-control" id="birthPlace" name="birth_place"
+                            placeholder="Birth Place">
                         <label for="birthPlace">Birth Place</label>
                     </div>
                 </div>
@@ -111,8 +112,13 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="spesialis" name="spesialis" placeholder="Spesialis">
-                        <label for="spesialis">Spesialis</label>
+                        <select class="form-select" id="poly" name="poly">
+                            <option value="GENERAL" selected>GENERAL</option>
+                            <option value="EDERLY">EDERLY</option>
+                            <option value="DENTAL">DENTAL</option>
+                            <option value="KIA-MTBS-KB">KIA-MTBS-KB</option>
+                            <option value="NUTRITION">NUTRITION</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -133,9 +139,9 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
                 <label for="profil">Profile</label><br>
-                    <div class="form-group">
-                        <input type="file" class="form-control" id="profile" name="doctor_profile">
-                    </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" id="profile" name="doctor_profile">
+                </div>
                 <div class="text-left">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>

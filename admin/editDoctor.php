@@ -126,9 +126,23 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="spesialis" name="spesialis" placeholder="Spesialis"
-                            value="<?= $doctor["spesialis"] ?>">
-                        <label for="spesialis">Spesialis</label>
+                        <select class="form-select" id="poly" name="poly">
+                            <option value="GENERAL" <?= $doctor['poly'] == 'GENERAL' ? ' selected="selected"' : '';?>>
+                                GENERAL
+                            </option>
+                            <option value="EDERLY" <?= $doctor['poly'] == 'EDERLY' ? ' selected="selected"' : '';?>>
+                                EDERLY
+                            </option>
+                            <option value="DENTAL" <?= $doctor['poly'] == 'DENTAL' ? ' selected="selected"' : '';?>>
+                                DENTAL
+                            </option>
+                            <option value="KIA-MTBS-KB"
+                                <?= $doctor['poly'] == 'KIA-MTBS-KB' ? ' selected="selected"' : '';?>>KIA-MTBS-KB
+                            </option>
+                            <option value="NUTRITION"
+                                <?= $doctor['poly'] == 'NUTRITION' ? ' selected="selected"' : '';?>>NUTRITION
+                            </option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">

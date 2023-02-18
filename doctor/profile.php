@@ -58,8 +58,8 @@ $page = "profile";
                         <p>: <?php echo $_SESSION['address'] ?></p>
                     </div>
                     <div class="d-flex">
-                        <label class="col-md-5">Spesialis</label>
-                        <p>: <?php echo $_SESSION['spesialis'] ?></p>
+                        <label class="col-md-5">Poly</label>
+                        <p>: <?php echo $_SESSION['poly'] ?></p>
                     </div>
                     <div class="d-flex">
                         <label class="col-md-5">Blood Type</label>
