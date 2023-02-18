@@ -112,7 +112,7 @@ $users = query("SELECT * FROM user WHERE id = $id");
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <p class="text-center fw-bold">Room</p>
+                    <p class="fw-bold">Room</p>
                     <div class="d-flex">
                         <div class="col-md-6">
                             <div class="d-flex">

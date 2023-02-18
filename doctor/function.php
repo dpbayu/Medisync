@@ -60,7 +60,7 @@ function edit_patient ($data) {
     $fullname = htmlspecialchars($data["fullname"]);
     $username = htmlspecialchars($data["username"]);
     $birth_place = htmlspecialchars($data["birth_place"]);
-    $birth_date = $data["birth_date"];
+    $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
     $gender = $data["gender"];
     $blood_type = $data["blood_type"];
     $address = htmlspecialchars($data["address"]);

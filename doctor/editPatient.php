@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date" value="<?= $user['birth_date'] ?>">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -241,10 +241,17 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="exitCondition" name="exit_condition">
-                            <option value="Healed" <?= $user['exit_condition'] == 'Healed' ? ' selected="selected"' : '';?>>Healed</option>
-                            <option value="Not Healed Yet" <?= $user['exit_condition'] == 'Not Healed Yet' ? ' selected="selected"' : '';?>>Not Healed Yet</option>
-                            <option value="Getting Better" <?= $user['exit_condition'] == 'Getting Better' ? ' selected="selected"' : '';?>>Getting Better</option>
-                            <option value="Pass Away" <?= $user['exit_condition'] == 'Pass Away' ? ' selected="selected"' : '';?>>Pass Away</option>
+                            <option value="Healed"
+                                <?= $user['exit_condition'] == 'Healed' ? ' selected="selected"' : '';?>>Healed</option>
+                            <option value="Not Healed Yet"
+                                <?= $user['exit_condition'] == 'Not Healed Yet' ? ' selected="selected"' : '';?>>Not
+                                Healed Yet</option>
+                            <option value="Getting Better"
+                                <?= $user['exit_condition'] == 'Getting Better' ? ' selected="selected"' : '';?>>Getting
+                                Better</option>
+                            <option value="Pass Away"
+                                <?= $user['exit_condition'] == 'Pass Away' ? ' selected="selected"' : '';?>>Pass Away
+                            </option>
                         </select>
                         <label for="exitCondition">Exit Condition</label>
                     </div>
@@ -252,9 +259,14 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="wayOut" name="way_out">
-                            <option value="Allowed Home" <?= $user['way_out'] == 'Allowed Home' ? ' selected="selected"' : '';?>>Allowed Home</option>
-                            <option value="Force Home" <?= $user['way_out'] == 'Force Home' ? ' selected="selected"' : '';?>>Force Home</option>
-                            <option value="Run Away" <?= $user['way_out'] == 'Run Away' ? ' selected="selected"' : '';?>>Run Away</option>
+                            <option value="Allowed Home"
+                                <?= $user['way_out'] == 'Allowed Home' ? ' selected="selected"' : '';?>>Allowed Home
+                            </option>
+                            <option value="Force Home"
+                                <?= $user['way_out'] == 'Force Home' ? ' selected="selected"' : '';?>>Force Home
+                            </option>
+                            <option value="Run Away"
+                                <?= $user['way_out'] == 'Run Away' ? ' selected="selected"' : '';?>>Run Away</option>
                         </select>
                         <label for="wayOut">Way Out</label>
                     </div>
