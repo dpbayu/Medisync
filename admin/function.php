@@ -122,7 +122,8 @@ function edit_doctor ($data) {
     $phone = htmlspecialchars($data["phone"]);
     $blood_type = $data["blood_type"];
     $marital_status = $data["marital_status"];
-    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', poly='$poly', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
+    $role = $data["role"];
+    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', poly='$poly', phone='$phone', blood_type='$blood_type', marital_status='$marital_status', role='$role' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }

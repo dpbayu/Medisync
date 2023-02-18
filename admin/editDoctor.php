@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
     <?php require "partials/sidebar.php" ?>
     <!-- Sidebar End -->
     <!-- Content Start -->
-    <main id="main" class="main" style="height: 84vh">
+    <main id="main" class="main">
         <!-- Title Start -->
         <div class="pagetitle">
             <h1>Dashboard</h1>
@@ -143,6 +143,7 @@ if (isset($_POST["submit"])) {
                                 <?= $doctor['poly'] == 'NUTRITION' ? ' selected="selected"' : '';?>>NUTRITION
                             </option>
                         </select>
+                        <label for="poly">Poly</label>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -164,9 +165,24 @@ if (isset($_POST["submit"])) {
                         <label for="maritalStatus">Marital Status</label>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="role" name="role">
+                            <option value="Doctor" <?= $doctor['role'] == 'Doctor' ? ' selected="selected"' : '';?>>
+                                Doctor
+                            </option>
+                            <option value="Nurse" <?= $doctor['role'] == 'Nurse' ? ' selected="selected"' : '';?>>
+                                Nurse</option>
+                            <option value="Psychologist"
+                                <?= $doctor['role'] == 'Psychologist' ? ' selected="selected"' : '';?>>Psychologist
+                            </option>
+                        </select>
+                        <label for="role">Role</label>
+                    </div>
+                </div>
                 <div class="text-left">
                     <button type="submit" name="submit" class="btn btn-primary">Update</button>
-                    <a class="btn btn-danger" href="patient.php">Cancel</a>
+                    <a class="btn btn-danger" href="doctor.php">Cancel</a>
                 </div>
             </form>
         </section>

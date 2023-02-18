@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
     <?php require "partials/sidebar.php" ?>
     <!-- Sidebar End -->
     <!-- Content Start -->
-    <main id="main" class="main" style="height: 84vh">
+    <main id="main" class="main">
         <!-- Title Start -->
         <div class="pagetitle">
             <h1>Dashboard</h1>
@@ -119,12 +119,17 @@ if (isset($_POST["submit"])) {
                             <option value="KIA-MTBS-KB">KIA-MTBS-KB</option>
                             <option value="NUTRITION">NUTRITION</option>
                         </select>
+                        <label for="poly">Poly</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="role" name="role" placeholder="role">
-                        <label for="role">role</label>
+                    <select class="form-select" id="role" name="role">
+                            <option value="Doctor" selected>Doctor</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Psychologist">Psychologist</option>
+                        </select>
+                        <label for="role">Role</label>
                     </div>
                 </div>
                 <div class="col-md-4">
