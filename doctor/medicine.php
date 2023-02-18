@@ -2,12 +2,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["login"])) {
-    header("Location: ../index.php");
+    header("Location: ../loginDoctor.php");
     exit;
 }
 require "function.php";
-$page = "doctor";
-$doctors = query("SELECT * FROM doctor ORDER BY id DESC");
+$page = "patient";
+$medicines = query("SELECT * FROM medicine ORDER BY id DESC");
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -28,10 +28,7 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
     <main id="main" class="main">
         <!-- Title Start -->
         <div class="pagetitle">
-            <h1 class="text-center">Data Doctor</h1>
-        </div>
-        <div class="my-3">
-            <a class="btn btn-primary" href="formDoctor.php"><i class="bi bi-database-add"></i> Add data </a>
+            <h1 class="text-center">Data Medical Record Patient</h1>
         </div>
         <!-- Title End -->
         <section class="section dashboard my-5">
@@ -64,7 +61,7 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIP</th>
+                            <th>KTP</th>
                             <th>Name</th>
                             <th>Birth</th>
                             <th>Gender</th>
@@ -74,18 +71,20 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
                     </thead>
                     <tbody>
                         <?php $i = 1 ?>
-                        <?php foreach($doctors as $doctor) : ?>
+                        <?php foreach($users as $user) : ?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?= $doctor["nip"] ?></td>
-                            <td><?= $doctor["fullname"] ?></td>
-                            <td><?= date("j F Y", strtotime($doctor['birth_date'])) ?></td>
-                            <td><?= $doctor["gender"] ?></td>
-                            <td><?= $doctor["blood_type"] ?></td>
+                            <td><?= $user["ktp"] ?></td>
+                            <td><?= $user["fullname"] ?></td>
+                            <td><?= date("j F Y", strtotime($user['birth_date'])) ?></td>
+                            <td><?= $user["gender"] ?></td>
+                            <td><?= $user["city"] ?></td>
                             <td class="d-flex justify-content-evenly">
-                                <a class="btn btn-info" href="detailDoctor.php?id=<?= $doctor["id"]; ?>"><i class="bi bi-eye"></i> Detail </a>
-                                <a class="btn btn-warning" href="editDoctor.php?id=<?= $doctor["id"]; ?>"><i class="bi bi-pencil"></i> Edit </a>
-                                <a class="btn btn-danger" href="deleteDoctor.php?id=<?= $doctor["id"]; ?>"
+                                <a class="btn btn-info" href="detailPatient.php?id=<?= $user["id"]; ?>"><i
+                                        class="bi bi-eye"></i> Detail </a>
+                                <a class="btn btn-warning" href="editPatient.php?id=<?= $user["id"]; ?>"><i
+                                        class="bi bi-pencil"></i> Edit </a>
+                                <a class="btn btn-danger" href="deletePatient.php?id=<?= $user["id"]; ?>"
                                     onclick="return confirm('Are you sure? ');"><i class="bi bi-trash"></i> Delete </a>
                             </td>
                         </tr>
@@ -95,7 +94,7 @@ $doctors = query("SELECT * FROM doctor ORDER BY id DESC");
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>NIP</th>
+                            <th>KTP</th>
                             <th>Name</th>
                             <th>Birthd</th>
                             <th>Gender</th>

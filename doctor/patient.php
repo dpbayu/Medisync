@@ -30,11 +30,8 @@ $users = query("SELECT * FROM user ORDER BY id DESC");
         <div class="pagetitle">
             <h1 class="text-center">Data Medical Record Patient</h1>
         </div>
-        <div class="my-3">
-            <a class="btn btn-primary" href="formPatient.php"><i class="bi bi-database-add"></i> Add data </a>
-        </div>
         <!-- Title End -->
-        <section class="section dashboard">
+        <section class="section dashboard my-5">
             <div class="row">
                 <!-- Alert Success Start -->
                 <?php

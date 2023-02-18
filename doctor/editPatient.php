@@ -80,7 +80,8 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating">
-                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date" value="<?= $user['birth_date'] ?>">
+                        <input type="date" class="form-control pb-4" id="birthDate" name="birth_date"
+                            value="<?= $user['birth_date'] ?>">
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -210,10 +211,10 @@ if (isset($_POST["submit"])) {
                         <label for="roomNumber">Room Number</label>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-12">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="diagnosis" name="diagnosis" placeholder="Diagnosis"
-                            value="<?= $user["diagnosis"] ?>">
+                        <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Diagnosis"
+                            style="height: 100px;"><?= $user["diagnosis"] ?></textarea>
                         <label for="diagnosis">Diagnosis</label>
                     </div>
                 </div>
@@ -241,6 +242,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="exitCondition" name="exit_condition">
+                            <option value="-" <?= $user['exit_condition'] == '-' ? ' selected="selected"' : '';?>>-
+                            </option>
                             <option value="Healed"
                                 <?= $user['exit_condition'] == 'Healed' ? ' selected="selected"' : '';?>>Healed</option>
                             <option value="Not Healed Yet"
@@ -259,6 +262,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="wayOut" name="way_out">
+                            <option value="-" <?= $user['way_out'] == '-' ? ' selected="selected"' : '';?>>-
+                            </option>
                             <option value="Allowed Home"
                                 <?= $user['way_out'] == 'Allowed Home' ? ' selected="selected"' : '';?>>Allowed Home
                             </option>
@@ -273,7 +278,7 @@ if (isset($_POST["submit"])) {
                 </div>
                 <div class="text-left">
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <a class="btn btn-secondary" href="patient.php">Back</a>
                 </div>
             </form>
         </section>

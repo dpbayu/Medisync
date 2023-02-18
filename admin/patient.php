@@ -34,7 +34,7 @@ $users = query("SELECT * FROM user ORDER BY id DESC");
             <a class="btn btn-primary" href="formPatient.php"><i class="bi bi-database-add"></i> Add data </a>
         </div>
         <!-- Title End -->
-        <section class="section dashboard">
+        <section class="section dashboard my-5">
             <div class="row">
                 <!-- Alert Success Start -->
                 <?php

@@ -30,7 +30,7 @@ $page = "profile";
             <h1 class="text-center">Profile Doctor <?php echo $_SESSION['fullname'] ?></h1>
         </div>
         <!-- Title End -->
-        <section class="section dashboard">
+        <section class="section dashboard my-5">
             <div class="row">
                 <div class="col-md-7">
                     <div class="d-flex">
@@ -74,7 +74,7 @@ $page = "profile";
                         <p>: <?php echo $_SESSION['marital_status'] ?></p>
                     </div>
                     <div class="d-flex">
-                        <label class="col-md-5">Role</label>
+                        <label class="col-md-5">Doctor</label>
                         <p>: <?php echo $_SESSION['role'] ?></p>
                     </div>
                 </div>

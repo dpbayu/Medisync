@@ -204,6 +204,7 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6 d-none">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="exitCondition" name="exit_condition">
+                            <option value="-" selected>-</option>
                             <option value="Healed" selected>Healed</option>
                             <option value="Not Healed Yet">Not Healed Yet</option>
                             <option value="Getting Better">Getting Better</option>

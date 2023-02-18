@@ -13,6 +13,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?php if($page != 'medicine'){echo 'collapsed';} ?>" href="medicine.php">
+                <i class="ri-medicine-bottle-line"></i>
+                <span>Medicine</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="profile.php">
                 <i class="bi bi-file-earmark-person"></i>
                 <span>Profile</span>
