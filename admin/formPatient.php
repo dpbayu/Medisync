@@ -205,7 +205,7 @@ if (isset($_POST["submit"])) {
                     <div class="form-floating mb-3">
                         <select class="form-select" id="exitCondition" name="exit_condition">
                             <option value="-" selected>-</option>
-                            <option value="Healed" selected>Healed</option>
+                            <option value="Healed">Healed</option>
                             <option value="Not Healed Yet">Not Healed Yet</option>
                             <option value="Getting Better">Getting Better</option>
                             <option value="Pass Away">Pass Away</option>
@@ -216,7 +216,8 @@ if (isset($_POST["submit"])) {
                 <div class="col-md-6 d-none">
                     <div class="form-floating mb-3">
                         <select class="form-select" id="wayOut" name="way_out">
-                            <option value="Allowed Home" selected>Allowed Home</option>
+                            <option value="-" selected>-</option>
+                            <option value="Allowed Home">Allowed Home</option>
                             <option value="Force Home">Force Home</option>
                             <option value="Run Away">Run Away</option>
                         </select>
