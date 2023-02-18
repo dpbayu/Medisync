@@ -72,64 +72,16 @@ function edit_patient ($data) {
     $type_room = $data["type_room"];
     $room_number = $data["room_number"];
     $diagnosis = htmlspecialchars($data["diagnosis"]);
-    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', username='$username', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', blood_type='$blood_type', address='$address', city='$city', religion='$religion', marital_status='$marital_status', work='$work', phone='$phone', type_room='$type_room', room_number='$room_number', diagnosis='$diagnosis' WHERE id = $id";
+    $complication = htmlspecialchars($data["complication"]);
+    $infection = htmlspecialchars($data["infection"]);
+    $cause_of_infection = htmlspecialchars($data["cause_of_infection"]);
+    $exit_condition = $data["exit_condition"];
+    $way_out = $data["way_out"];
+    $query = "UPDATE user SET ktp='$ktp', fullname='$fullname', username='$username', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', blood_type='$blood_type', address='$address', city='$city', religion='$religion', marital_status='$marital_status', work='$work', phone='$phone', type_room='$type_room', room_number='$room_number', diagnosis='$diagnosis', complication='$complication', infection='$infection', cause_of_infection='$cause_of_infection', exit_condition='$exit_condition', way_out='$way_out' WHERE id = $id";
     mysqli_query($db, $query);
     return mysqli_affected_rows($db);
 }
 // Edit Patient End
-
-// Add Doctor Start
-function add_doctor ($data) {
-    global $db;
-    $nip = htmlspecialchars($data["nip"]);
-    $ktp = htmlspecialchars($data["ktp"]);
-    $fullname = htmlspecialchars($data["fullname"]);
-    $password = $data["password"];
-    $address = htmlspecialchars($data["address"]);
-    $birth_place = htmlspecialchars($data["birth_place"]);
-    $birth_date = $data["birth_date"];
-    $gender = htmlspecialchars($data["gender"]);
-    $spesialis = htmlspecialchars($data["spesialis"]);
-    $phone = htmlspecialchars($data["phone"]);
-    $blood_type = $data["blood_type"];
-    $marital_status = $data["marital_status"];
-    $doctor_profile = $data["doctor_profile"];
-    $role = $data["role"];
-    $query = "INSERT INTO doctor VALUES ('','$nip','$ktp','$fullname','$password','$address','$birth_place','$birth_date','$gender','$spesialis','$phone','$blood_type','$marital_status','$doctor_profile','$role')";
-    mysqli_query($db, $query);
-    return mysqli_affected_rows($db);
-}
-// Add Doctor End
-
-// Delete Doctor Start
-function delete_doctor($id) {
-    global $db;
-    mysqli_query($db, "DELETE FROM doctor WHERE id = $id");
-    return mysqli_affected_rows($db);
-}
-// Deelete Doctor End
-
-// Edit Doctor Start
-function edit_doctor ($data) {
-    global $db;
-    $id = $data["id"];
-    $nip = htmlspecialchars($data["nip"]);
-    $ktp = htmlspecialchars($data["ktp"]);
-    $fullname = htmlspecialchars($data["fullname"]);
-    $password = $data["password"];
-    $address = htmlspecialchars($data["address"]);
-    $birth_place = htmlspecialchars($data["birth_place"]);
-    $birth_date = $data["birth_date"];
-    $gender = htmlspecialchars($data["gender"]);
-    $spesialis = htmlspecialchars($data["spesialis"]);
-    $phone = htmlspecialchars($data["phone"]);
-    $blood_type = $data["blood_type"];
-    $marital_status = $data["marital_status"];
-    $query = "UPDATE doctor SET nip='$nip', ktp='$ktp', fullname='$fullname', password='$password', address='$address', birth_place='$birth_place', birth_date='$birth_date', gender='$gender', spesialis='$spesialis', phone='$phone', blood_type='$blood_type', marital_status='$marital_status' WHERE id = $id";
-    mysqli_query($db, $query);
-    return mysqli_affected_rows($db);
-}
-// Edit Doctor End
 
 // Update Profile Start
 function update_admin($data) {
