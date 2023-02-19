@@ -1,6 +1,8 @@
 <?php
 //set default timezone
 date_default_timezone_set('Asia/Jakarta');
+// set session
+session_start();
 // create connection
 $db = mysqli_connect('localhost', 'root', '', 'e-cure');
 if(mysqli_connect_error()) {
