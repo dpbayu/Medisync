@@ -28,9 +28,9 @@ $page = 'poly';
         <div class="pagetitle">
             <h1>Data Poly</h1>
         </div>
-        <div class="d-flex gap-1 mb-3">
+        <div class="d-flex justify-content-end gap-1 mb-3">
             <a href="#" class="btn btn-outline-dark"><i class="ri-refresh-fill"></i></a>
-            <a href="add.php" class="btn btn-primary">Add data</a>
+            <a href="generate.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
