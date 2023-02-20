@@ -24,6 +24,12 @@
                 <span>Data Medicine</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?php if($page != 'poly'){echo 'collapsed';} ?>" href="../poly/data.php">
+                <i class="bi bi-bounding-box"></i>
+                <span>Data Poly</span>
+            </a>
+        </li>
         <li class="nav-heading">Account</li>
     </ul>
 </aside>
