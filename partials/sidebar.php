@@ -30,6 +30,12 @@
                 <span>Data Poly</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?php if($page != 'medical_record'){echo 'collapsed';} ?>" href="../medical_record/data.php">
+                <i class="bi bi-box"></i>
+                <span>Data Medical Record</span>
+            </a>
+        </li>
         <li class="nav-heading">Account</li>
     </ul>
 </aside>
