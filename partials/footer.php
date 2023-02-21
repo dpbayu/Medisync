@@ -47,16 +47,6 @@
                 ],
                 "order": [1, "asc"]
             });
-            $('#medicine').DataTable({
-                columnDefs: [
-                    {                    
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": [0, 3],
-                    }
-                ],
-                "order": [1, "asc"]
-            });
         });
     </script>
     <!-- JS End -->

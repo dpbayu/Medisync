@@ -48,10 +48,10 @@ $page = 'poly';
                             <tr>
                                 <td><?= $i ?></td>
                                 <td>
-                                    <input type="text" name="name_poly-<?= $i ?>" class="form-control" require>
+                                    <input type="text" name="name_poly-<?= $i ?>" class="form-control" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="place_poly-<?= $i ?>" class="form-control" require>
+                                    <input type="text" name="place_poly-<?= $i ?>" class="form-control" required>
                                 </td>
                             </tr>
                             <?php

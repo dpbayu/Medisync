@@ -37,11 +37,11 @@ $page = 'medicine';
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label for="name">Name Medicine</label>
-                            <input type="text" id="name" name="name_medicine" class="form-control" require>
+                            <input type="text" id="name" name="name_medicine" class="form-control" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="description">Description Medicine</label>
-                            <textarea id="description" name="description_medicine" class="form-control" require></textarea>
+                            <textarea id="description" name="description_medicine" class="form-control" required></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>

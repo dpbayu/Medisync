@@ -26,7 +26,7 @@ $page = 'doctor';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Doctor</h1>
+            <h1>Data Patient</h1>
         </div>
         <div class="d-flex gap-1 mb-3">
             <a href="data.php" class="btn btn-secondary">Back</a>
@@ -36,12 +36,23 @@ $page = 'doctor';
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
-                            <label for="fullname">Name Doctor</label>
-                            <input type="text" id="fullname" name="fullname" class="form-control" required autofocus>
+                            <label for="nik">NIK Patient</label>
+                            <input type="number" id="nik" name="nik" class="form-control" required autofocus>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="spesialis">Spesialis</label>
-                            <input type="text" id="spesialis" name="spesialis" class="form-control" required>
+                            <label for="fullname">Fullname</label>
+                            <input type="text" id="fullname" name="fullname" class="form-control" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="gender">Gender</label>
+                            <div class="d-flex gap-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="gender" value="L" required> Laki-laki
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="P" required> Perempuan
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone">Phone</label>
