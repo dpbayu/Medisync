@@ -61,6 +61,16 @@ $page = 'patient';
                 "processing": true,
                 "serverSide": true,
                 "ajax": "data_patient.php",
+                dom : 'Bfrtip',
+                button : [{
+                    extend : 'pdf',
+                    oriented : 'potrait',
+                    pageSize : 'Legal',
+                    title : 'Data Patient',
+                    download : 'open'
+                },
+                'csv', 'excel', 'print', 'copy'
+            ],
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,

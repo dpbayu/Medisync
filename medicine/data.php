@@ -112,18 +112,18 @@ $page = 'medicine';
                         <div class="float: left;">
                             <?php
                             $jml = mysqli_num_rows(mysqli_query($db, $queryJml));
-                            echo "Jumlah Data : <b>$jml</b>"
+                            echo "Jumlah data : <b>$jml</b>"
                             ?>
                         </div>
                         <div style="float: right;">
-                            <ul class="pagination pagination-sm" style="margin: 0;">
+                            <ul class="pagination" style="margin: 0;">
                                 <?php
                                 $jml_hal = ceil($jml / $batas);
                                 for ($i = 1; $i <= $jml_hal; $i++) {
                                     if ($i != $hal) {
-                                        echo '<li><a href="?hal='.$i.'">'.$i.'</a></li>';
+                                        echo '<li class="page-item"><a class="page-link" href="?hal='.$i.'">'.$i.'</a></li>';
                                     } else {
-                                        echo '<li class="active"><a>'.$i.'</a></li>';
+                                        echo '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
                                     }
                                 }
                                 ?>

@@ -35,7 +35,7 @@ $page = 'doctor';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive">
+                    <div class="table">
                         <form action="" method="POST" name="proses">
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>

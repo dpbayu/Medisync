@@ -20,31 +20,25 @@
     <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="../assets/vendor/php-email-form/validate.js"></script>
     <!-- Datables -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+    <script type="text/javascript" src="../assets/libs/dataTables/datatables.min.js"></script>
+    <script src=" ../assets/js/script.js"> </script>
     <script src="../assets/js/main.js"></script>
     <script>
         $(document).ready(function () {
             $('#doctor').DataTable({
-                columnDefs: [
-                    {                    
+                columnDefs: [{
                     "searchable": false,
                     "orderable": false,
                     "targets": [0, 6],
-                    }
-                ],
+                }],
                 "order": [1, "asc"]
             });
             $('#poly').DataTable({
-                columnDefs: [
-                    {                    
+                columnDefs: [{
                     "searchable": false,
                     "orderable": false,
                     "targets": [0, 3],
-                    }
-                ],
+                }],
                 "order": [1, "asc"]
             });
         });
