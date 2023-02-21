@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$page = 'doctor';
+$page = 'patient';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -35,26 +35,48 @@ $page = 'doctor';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>NIK</th>
-                                        <th>Fullname</th>
-                                        <th>Gender</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                            </table>
+                    <div class="table">
+                        <table class="table table-bordered table-hover" id="patient">
+                            <thead>
+                                <tr>
+                                    <th>NIK</th>
+                                    <th>Fullname</th>
+                                    <th>Gender</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <!-- Main End -->
+    <!-- JS Start -->
+    <script>
+        $(document).ready(function () {
+            $('#patient').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": "data_patient.php",
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 5,
+                    "render": function (data, type, row) {
+                        var btn = "<center><a href=\"edit.php?id=" + data +
+                            "\" class=\"btn btn-warning btn-xs\">Edit</a> <a href=\"delete.php?id=" +
+                            data +
+                            "\" onclick=\"return confirm('Are you sure')\" class=\"btn btn-danger btn-xs\">Delete</a></center>";
+                        return btn;
+                    }
+                }]
+            });
+        });
+    </script>
+    <!-- JS End -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
     <!-- Footer End -->
