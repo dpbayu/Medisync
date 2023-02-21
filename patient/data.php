@@ -31,6 +31,7 @@ $page = 'patient';
         <div class="d-flex justify-content-end gap-1 mb-3">
             <a href="#" class="btn btn-outline-dark"><i class="ri-refresh-fill"></i></a>
             <a href="add.php" class="btn btn-primary">Add data</a>
+            <a href="import.php" class="btn btn-info">Import</a>
         </div>
         <section class="section dashboard">
             <div class="row">

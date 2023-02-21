@@ -33,5 +33,18 @@ if (isset($_POST['add'])) {
         mysqli_query($db, "UPDATE tbl_patient SET nik = '$nik', fullname = '$fullname', gender = '$gender', address = '$address', phone = '$phone' WHERE id_patient = '$id'");
         echo "<script>window.location='data.php';</script>";
     }
+} else if (isset($_POST['import'])) {
+    $file = $_FILES['file']['name'];
+    $ekstensi = explode(".", $file);
+    $file_name = "file-".round(microtime(true).".".end($ekstensi));
+    $sumber = $_FILES['file']['tmp_name'];
+    $target_dir = "../file/";
+    $target_file = $target_dir.$file_name;
+    $upload = move_uploaded_file($sumber, $target_file);
+    if ($upload) {
+        echo "Sukses";
+    } else {
+        echo "Gagal";
+    }
 }
 ?>
