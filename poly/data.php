@@ -118,6 +118,7 @@ $page = 'poly';
                 }
             }
             document.proses.action = 'delete.php';
+            document.proses.submit();
         }
     </script>
     <!-- JS End -->
