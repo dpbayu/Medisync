@@ -53,7 +53,7 @@ $page = 'poly';
                                 <tbody>
                                     <?php
                                 $no = 1;
-                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_poly");
+                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
                                 if (mysqli_num_rows($sql_poli) > 0) {
                                     while ($data = mysqli_fetch_array($sql_poli)) {
                                     ?>
@@ -62,7 +62,7 @@ $page = 'poly';
                                         <td><?= $data['name_poly'] ?></td>
                                         <td><?= $data['place_poly'] ?></td>
                                         <td align="center">
-                                            <input type="checkbox" name="checked[]" class="check" value=""
+                                            <input type="checkbox" name="checked[]" class="check" value="<?= $data['id_poly'] ?>"
                                                 <?= $data['id_poly'] ?>>
                                         </td>
                                     </tr>
