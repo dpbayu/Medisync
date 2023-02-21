@@ -46,7 +46,7 @@ $page = 'medicine';
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
+                        <table id="medicine" class="display">
                             <thead>
                                 <tr>
                                     <th>No</th>

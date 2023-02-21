@@ -37,7 +37,7 @@ $page = 'poly';
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <form action="" method="POST" name="proses">
-                            <table class="table table-bordered table-hover">
+                            <table id="poly" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>

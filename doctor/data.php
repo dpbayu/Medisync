@@ -37,7 +37,7 @@ $page = 'doctor';
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <form action="" method="POST" name="proses">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
                                         <th>

@@ -25,4 +25,38 @@
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#doctor').DataTable({
+                columnDefs: [
+                    {                    
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": [0, 6],
+                    }
+                ],
+                "order": [1, "asc"]
+            });
+            $('#poly').DataTable({
+                columnDefs: [
+                    {                    
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": [0, 3],
+                    }
+                ],
+                "order": [1, "asc"]
+            });
+            $('#medicine').DataTable({
+                columnDefs: [
+                    {                    
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": [0, 3],
+                    }
+                ],
+                "order": [1, "asc"]
+            });
+        });
+    </script>
     <!-- JS End -->
