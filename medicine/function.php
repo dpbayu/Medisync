@@ -9,7 +9,7 @@ if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
     $name_medicine = trim(mysqli_real_escape_string($db, $_POST['name_medicine']));
     $description_medicine = trim(mysqli_real_escape_string($db, $_POST['description_medicine']));
-    mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine) VALUES ('$uuid', '$medicine', '$description')");
+    mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine) VALUES ('$uuid', '$name_medicine', '$description_medicine')");
     echo "<script>window.location='data.php';</script>";
 } else if (isset($_POST['edit'])) {
     $id = $_POST['id'];
