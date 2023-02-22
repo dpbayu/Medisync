@@ -36,8 +36,8 @@ $page = 'patient';
                     <form action="function.php" method="POST">
                         <?php
                         $id = @$_GET['id'];
-                        $sql_pasien = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
-                        $data = mysqli_fetch_array($sql_pasien);
+                        $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
+                        $data = mysqli_fetch_array($sql_patient);
                         ?>
                         <div class="form-group mb-3">
                             <label for="nik_patient">NIK Patient</label>
