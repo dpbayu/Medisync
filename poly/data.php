@@ -72,7 +72,7 @@ $page = 'poly';
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $poly['name_poly'] ?></td>
-                                        <td><?= $poly['place_poly'] ?></td>
+                                        <td>Floor <?= $poly['place_poly'] ?></td>
                                         <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
                                                 value="<?= $poly['id_poly'] ?>" <?= $poly['id_poly'] ?>>

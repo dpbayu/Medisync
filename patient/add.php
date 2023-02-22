@@ -46,10 +46,10 @@ $page = 'doctor';
                             <label class="form-label" for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
                                 <label class="form-label" class="radio-inline">
-                                    <input type="radio" name="gender_patient" id="gender_patient" value="Pria" required> Pria
+                                    <input type="radio" name="gender_patient" id="gender_patient" value="Man" required> Man
                                 </label>
                                 <label class="form-label" class="radio-inline">
-                                    <input type="radio" name="gender_patient" value="Wanita" required> Wanita
+                                    <input type="radio" name="gender_patient" value="Woman" required> Woman
                                 </label>
                             </div>
                         </div>

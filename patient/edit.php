@@ -54,12 +54,12 @@ $page = 'patient';
                             <label for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender_patient" id="gender_patient" value="Pria"
-                                        <?= $data['gender_patient'] == "Pria" ? "checked" : null ?> required> Pria
+                                    <input type="radio" name="gender_patient" id="gender_patient" value="Man"
+                                        <?= $data['gender_patient'] == "Man" ? "checked" : null ?> required> Man
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender_patient" value="Wanita"
-                                        <?= $data['gender_patient'] == "Wanita" ? "checked" : null ?> required> Wanita
+                                    <input type="radio" name="gender_patient" value="Woman"
+                                        <?= $data['gender_patient'] == "Woman" ? "checked" : null ?> required> Woman
                                 </label>
                             </div>
                         </div>
