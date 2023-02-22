@@ -1,7 +1,7 @@
 <?php
 $chk = @$_POST['checked'];
 if (!isset($chk)) {
-    echo "<script>alert('Tidak ada data yang dipilih'); window.location='data.php';</script>";
+    echo "<script>window.location='data.php?failed=No data selected!';</script>";
 } else {
     // PHP
     require '../function.php';

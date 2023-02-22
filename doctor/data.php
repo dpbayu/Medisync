@@ -29,8 +29,7 @@ $page = 'doctor';
         <div class="pagetitle">
             <h1>Data Doctor</h1>
         </div>
-        <div class="d-flex justify-content-end gap-1 mb-3">
-            <a href="#" class="btn btn-outline-dark"><i class="ri-refresh-fill"></i></a>
+        <div class="my-3">
             <a href="add.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
@@ -59,25 +58,21 @@ $page = 'doctor';
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">
-                                            <input type="checkbox" id="select_all" value="">
-                                        </th>
                                         <th>No</th>
                                         <th>Name Doctor</th>
                                         <th>Spesialis</th>
                                         <th>Address</th>
                                         <th>Phone</th>
                                         <th class="text-center">Action</th>
+                                        <th class="text-center">
+                                            <input type="checkbox" id="select_all" value="">
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach($doctors as $doctor) : ?>
                                     <tr>
-                                        <td class="text-center">
-                                            <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $doctor['id_doctor'] ?>">
-                                        </td>
                                         <td><?= $i; ?></td>
                                         <td><?= $doctor['name_doctor'] ?></td>
                                         <td><?= $doctor['specialist_doctor'] ?></td>
@@ -86,6 +81,10 @@ $page = 'doctor';
                                         <td class="text-center">
                                             <a href="edit.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-warning">Edit</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="checkbox" name="checked[]" class="check"
+                                                value="<?= $doctor['id_doctor'] ?>">
                                         </td>
                                     </tr>
                                     <?php $i++; ?>

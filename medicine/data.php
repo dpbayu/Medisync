@@ -6,6 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
+$medicines = query("SELECT * FROM tbl_medicine ORDER BY name_medicine ASC");
 $page = 'medicine';
 ?>
 <!-- PHP -->
@@ -28,120 +29,121 @@ $page = 'medicine';
         <div class="pagetitle">
             <h1>Data Medicine</h1>
         </div>
-        <div class="d-flex gap-1 mb-3">
-            <a href="#" class="btn btn-outline-dark"><i class="ri-refresh-fill"></i></a>
-            <a href="add.php" class="btn btn-primary">Add data</a>
-        </div>
-        <div class="mb-3 w-25">
-            <form class="d-flex gap-3" action="" method="POST">
-                <div class="form-group">
-                    <input type="text" name="pencarian" class="form-control" placeholder="Pencarian data">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary"><span class="bi bi-search" aria-hidden="true"></span></button>
-                </div>
-            </form>
+        <div class="my-3">
+            <a href="generate.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name Medicine</th>
-                                    <th>Description</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $batas = 5;
-                                $hal = @$_GET['hal'];
-                                if (empty($hal)) {
-                                    $posisi = 0;
-                                    $hal = 1;
-                                } else {
-                                    $posisi = ($hal - 1) * $batas;
-                                }
-                                $no = 1;
-                                if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                                    $pencarian = trim(mysqli_real_escape_string($db, $_POST['pencarian']));
-                                    if ($pencarian != '') {
-                                        $sql = "SELECT * FROM tbl_medicine WHERE medicine_name LIKE '%pencarian%'";
-                                        $query = $sql;
-                                        $queryJml = $sql;
-                                    } else {
-                                        $query = "SELECT * FROM tbl_medicine LIMIT $posisi, $batas";
-                                        $queryJml = "SELECT * FROM tbl_medicine";
-                                        $no = $posisi + 1;
-                                    }
-                                } else {
-                                    $query = "SELECT * FROM tbl_medicine LIMIT $posisi, $batas";
-                                    $queryJml = "SELECT * FROM tbl_medicine";
-                                    $no = $posisi + 1;
-                                }
-                                $sql_obat = mysqli_query($db, $query);
-                                if (mysqli_num_rows($sql_obat) > 0) {
-                                    while ($data = mysqli_fetch_array($sql_obat)) { ?>
-                                <tr>
-                                    <td><?= $no++ ?></td>
-                                    <td><?= $data['name_medicine'] ?></td>
-                                    <td><?= $data['description_medicine'] ?></td>
-                                    <td class="text-center">
-                                        <a class="btn btn-warning btn-xs" href="edit.php?id=<?= $data['id_medicine'] ?>"><i
-                                                class="ri-edit-2-line"></i></a>
-                                        <a class="btn btn-danger btn-xs" href="delete.php?id=<?= $data['id_medicine'] ?>"
-                                            onclick="return confirm('Are you sure ?')"><i
-                                                class=" ri-chat-delete-line"></i></a>
-                                    </td>
-                                </tr>
-                                <?php
-                                    }
-                                } else {
-                                    echo "<tr><td colspan=\"4\" align=\"center\">Data not found<td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php
-                    if (isset($_POST['pencarian']) == '') {
-                        ?>
-                        <div class="float: left;">
-                            <?php
-                            $jml = mysqli_num_rows(mysqli_query($db, $queryJml));
-                            echo "Jumlah data : <b>$jml</b>"
-                            ?>
-                        </div>
-                        <div style="float: right;">
-                            <ul class="pagination" style="margin: 0;">
-                                <?php
-                                $jml_hal = ceil($jml / $batas);
-                                for ($i = 1; $i <= $jml_hal; $i++) {
-                                    if ($i != $hal) {
-                                        echo '<li class="page-item"><a class="page-link" href="?hal='.$i.'">'.$i.'</a></li>';
-                                    } else {
-                                        echo '<li class="page-item active"><a class="page-link">'.$i.'</a></li>';
-                                    }
-                                }
-                                ?>
-                            </ul>
-                        </div>
-                        <?php
-                    } else {
-                        echo "<div style=\"float:left;\">";
-                        $jml = mysqli_num_rows(mysqli_query($db, $queryJml));
-                        echo "Data hasil pencarian : <b>$jml</b>";
-                        echo "</div>";
+                <?php
+                    if (isset($_GET['success'])) {
+                        $msg = $_GET['success'];
+                        echo '
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                    if (isset($_GET['failed'])) {
+                        $msg = $_GET['failed'];
+                        echo '
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
                     }
                     ?>
+                    <div class="table">
+                        <form action="" method="POST" name="process">
+                            <table id="poly" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name Medicine</th>
+                                        <th>Description Medicine</th>
+                                        <th class="text-center">
+                                            <input type="checkbox" id="select_all" value="">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach($medicines as $medicine) : ?>
+                                    <tr>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $medicine['name_medicine'] ?></td>
+                                        <td><?= $medicine['description_medicine'] ?></td>
+                                        <td class="text-center">
+                                            <input type="checkbox" name="checked[]" class="check"
+                                                value="<?= $medicine['id_medicine'] ?>" <?= $medicine['id_medicine'] ?>>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    ?>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="float-end border-0">
+                            <button class="btn btn-warning" onclick="edit()">Edit</button>
+                            <button class="btn btn-danger" onclick="hapus()">Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     <!-- Main End -->
+    <!-- JS Start -->
+    <script>
+        // Fungsi Checkbox
+        $(document).ready(function () {
+            $("#select_all").on('click', function () {
+                if (this.checked) {
+                    $('.check').each(function () {
+                        this.checked = true;
+                    });
+                } else {
+                    $('.check').each(function () {
+                        this.checked = false;
+                    });
+                }
+            });
+            $('.check').on('click', function () {
+                if ($('.check:checked').length == $('.check').length) {
+                    $('#select_all').prop('checked', true)
+                } else {
+                    $('#select_all').prop('checked', false)
+                }
+            })
+        });
+        // Function Edit
+        function edit() {
+            document.process.action = 'edit.php';
+            document.process.submit();
+        }
+        // Function Delete
+        function hapus() {
+            var conf = confirm('Are you sure ?'); {
+                if (conf) {
+                    document.process.action = 'delete.php';
+                    document.process.submit();
+                }
+            }
+        }
+        // Data Tables
+        $(document).ready(function () {
+            $('#poly').DataTable({
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 3,
+                }],
+            });
+        });
+    </script>
+    <!-- JS End -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
     <!-- Footer End -->
