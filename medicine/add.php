@@ -47,8 +47,10 @@ $page = 'medicine';
                         ?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><input class="form-control" type="text" name="name_medicine-<?= $i ?>" placeholder="Input medicine" required></td>
-                            <td><input class="form-control" type="text" name="description_medicine-<?= $i ?>" placeholder="Input description" required></td>
+                            <td><input class="form-control" type="text" name="name_medicine-<?= $i ?>"
+                                    placeholder="Input medicine" required></td>
+                            <td><input class="form-control" type="text" name="description_medicine-<?= $i ?>"
+                                    placeholder="Input description" required></td>
                         </tr>
                         <?php
                         }

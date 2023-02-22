@@ -13,13 +13,13 @@ if (isset($_POST['add'])) {
     $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
     $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
     $medicines = $_POST['id_medicine'];
-    $check_up_date = trim(mysqli_real_escape_string($db, $_POST['check_up_date']));
-    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up_date')");
+    $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
+    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up')");
     $medicines = $_POST['id_medicine'];
     foreach ($medicines as $medicine) {
         mysqli_query($db, "INSERT INTO tbl_hospital_medicine (id_hospital, id_medicine) VALUES ('$uuid', '$medicine')");
     }
-    echo "<script>window.location='data.php';</script>";
+    echo "<script>window.location='data.php?success=Data successfuly added!';</script>";
 } else if (isset($_POST['edit'])) {
 
 }

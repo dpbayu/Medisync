@@ -28,32 +28,30 @@ $page = 'medical_record';
         <div class="pagetitle">
             <h1>Data Medical Record</h1>
         </div>
-        <div class="d-flex gap-1 mb-3">
-            <a href="data.php" class="btn btn-secondary">Back</a>
-        </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
-                            <label for="patient">Name Patient</label>
-                            <select name="id_patient" id="patient" class="form-control">
+                            <label class="form-label" for="patient">Name Patient</label>
+                            <select class="form-control" name="id_patient" id="patient">
                                 <option value="">- Pilih -</option>
                                 <?php
                                 $sql_pasien = mysqli_query($db, "SELECT * FROM tbl_patient");
                                 while ($data_pasien = mysqli_fetch_array($sql_pasien)) { 
-                                    echo '<option value="'.$data_pasien['id_patient'].'">'.$data_pasien['fullname'].'</option>';
+                                    echo '<option value="'.$data_pasien['id_patient'].'">'.$data_pasien['name_patient'].'</option>';
                                 }
                                 ?>
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="illness">Illness</label>
-                            <textarea id="illness" name="illness" class="form-control"></textarea>
+                            <label class="form-label" for="illness">Illness</label>
+                            <textarea class="form-control" id="illness" name="illness" placeholder="Input illness"
+                                rows="5" style="resize: none;" required></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="doctor">Name Doctor</label>
-                            <select name="id_doctor" id="doctor" class="form-control">
+                            <label class="form-label" for="doctor">Name Doctor</label>
+                            <select class="form-control" name="id_doctor" id="doctor">
                                 <option value="">- Pilih -</option>
                                 <?php
                                 $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
@@ -64,12 +62,13 @@ $page = 'medical_record';
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="diagnosis">Diagnosis</label>
-                            <textarea id="diagnosis" name="diagnosis" class="form-control"></textarea>
+                            <label class="form-label" for="diagnosis">Diagnosis</label>
+                            <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Input diagnosis"
+                                rows="5" style="resize: none;"></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="poly">Name Poly</label>
-                            <select name="id_poly" id="poly" class="form-control">
+                            <label class="form-label" for="poly">Name Poly</label>
+                            <select class="form-control" name="id_poly" id="poly">
                                 <option value="">- Pilih -</option>
                                 <?php
                                 $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
@@ -80,8 +79,8 @@ $page = 'medical_record';
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="medicine">Name medicine</label>
-                            <select multiple size="7" name="id_medicine[]" id="medicine" class="form-control">
+                            <label class="form-label" for="medicine">Name medicine</label>
+                            <select class="form-control" multiple size="7" name="id_medicine[]" id="medicine">
                                 <?php
                                 $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine ORDER BY name_medicine ASC");
                                 while ($data_medicine = mysqli_fetch_array($sql_medicine)) { 
@@ -91,12 +90,13 @@ $page = 'medical_record';
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="check_up_date">Check Up Date</label>
-                            <input type="date" id="check_up_date" name="check_up_date" value="<?= date('Y-m-d') ?>" class="form-control">
+                            <label class="form-label" for="check_up_date">Check Up Date</label>
+                            <input class="form-control" type="date" id="check_up_date" name="check_up" value="<?= date('Y-m-d') ?>">
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>
-                            <button class="btn btn-default" type="reset" name="reset" value="Reset">Reset</button>
+                            <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
+                            <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>
