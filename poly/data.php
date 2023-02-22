@@ -78,8 +78,6 @@ $page = 'poly';
                                                 value="<?= $poly['id_poly'] ?>" <?= $poly['id_poly'] ?>>
                                         </td>
                                     </tr>
-                                    <?php
-                                    ?>
                                     <?php $i++; ?>
                                     <?php endforeach; ?>
                                 </tbody>

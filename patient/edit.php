@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$page = 'doctor';
+$page = 'patient';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -29,7 +29,6 @@ $page = 'doctor';
             <h1>Edit Data Patient</h1>
         </div>
         <div class="d-flex gap-1 mb-3">
-            <a href="data.php" class="btn btn-secondary">Back</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -41,41 +40,42 @@ $page = 'doctor';
                         $data = mysqli_fetch_array($sql_pasien);
                         ?>
                         <div class="form-group mb-3">
-                            <label for="nik">NIK Patient</label>
+                            <label for="nik_patient">NIK Patient</label>
                             <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
-                            <input type="number" id="nik" name="nik" class="form-control" value="<?= $data['nik'] ?>"
+                            <input type="number" id="nik_patient" name="nik_patient" class="form-control" value="<?= $data['nik_patient'] ?>"
                                 required autofocus>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="fullname">Fullname</label>
-                            <input type="text" id="fullname" name="fullname" class="form-control"
-                                value="<?= $data['fullname'] ?>" required>
+                            <label for="name_patient">Name Patient</label>
+                            <input type="text" id="name_patient" name="name_patient" class="form-control"
+                                value="<?= $data['name_patient'] ?>" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="gender">Gender</label>
+                            <label for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender" id="gender" value="L"
-                                        <?= $data['gender'] == "L" ? "checked" : null ?> required> Laki-laki
+                                    <input type="radio" name="gender_patient" id="gender_patient" value="Pria"
+                                        <?= $data['gender_patient'] == "Pria" ? "checked" : null ?> required> Pria
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender" value="P"
-                                        <?= $data['gender'] == "P" ? "checked" : null ?> required> Perempuan
+                                    <input type="radio" name="gender_patient" value="Wanita"
+                                        <?= $data['gender_patient'] == "Wanita" ? "checked" : null ?> required> Wanita
                                 </label>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="phone">Phone</label>
-                            <input type="number" id="phone" name="phone" class="form-control"
-                                value="<?= $data['phone'] ?>" required>
+                            <label for="phone_patient">Phone</label>
+                            <input type="number" id="phone_patient" name="phone_patient" class="form-control"
+                                value="<?= $data['phone_patient'] ?>" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="address">Address</label>
-                            <textarea id="address" name="address" class="form-control"
-                                required><?= $data['address'] ?></textarea>
+                            <label for="address_patient">Address</label>
+                            <textarea id="address_patient" name="address_patient" class="form-control"
+                                required><?= $data['address_patient'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="edit" value="Simpan">Simpan</button>
+                            <button class="btn btn-success" type="submit" name="edit">Update</button>
+                            <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

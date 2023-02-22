@@ -28,42 +28,44 @@ $page = 'doctor';
         <div class="pagetitle">
             <h1>Data Patient</h1>
         </div>
-        <div class="d-flex gap-1 mb-3">
-            <a href="data.php" class="btn btn-secondary">Back</a>
-        </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
-                            <label for="nik">NIK Patient</label>
-                            <input type="number" id="nik" name="nik" class="form-control" required autofocus>
+                            <label class="form-label" for="nik_patient">NIK Patient</label>
+                            <input class="form-control" type="number" id="nik_patient" name="nik_patient"
+                                placeholder="Input NIK" required autofocus>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="fullname">Fullname</label>
-                            <input type="text" id="fullname" name="fullname" class="form-control" required>
+                            <label class="form-label" for="name_patient">Name Patient</label>
+                            <input class="form-control" type="text" id="name_patient" name="name_patient"
+                                placeholder="Input name" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="gender">Gender</label>
+                            <label class="form-label" for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="gender" value="L" required> Laki-laki
+                                <label class="form-label" class="radio-inline">
+                                    <input type="radio" name="gender_patient" id="gender_patient" value="Pria" required> Pria
                                 </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" value="P" required> Perempuan
+                                <label class="form-label" class="radio-inline">
+                                    <input type="radio" name="gender_patient" value="Wanita" required> Wanita
                                 </label>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="phone">Phone</label>
-                            <input type="number" id="phone" name="phone" class="form-control" required>
+                            <label class="form-label" for="phone_patient">Phone</label>
+                            <input class="form-control" type="number" id="phone_patient" name="phone_patient"
+                                placeholder="Input phone" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="address">Address</label>
-                            <textarea id="address" name="address" class="form-control" required></textarea>
+                            <label class="form-label" for="address_patient">Address</label>
+                            <textarea class="form-control" id="address_patient" name="address_patient" rows="5"
+                                style="resize: none;" placeholder="Input address" required></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>
+                            <button class="btn btn-success" type="submit" name="add">Add data</button>
+                            <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

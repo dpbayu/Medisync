@@ -7,44 +7,31 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
-    $nik = trim(mysqli_real_escape_string($db, $_POST['nik']));
-    $fullname = trim(mysqli_real_escape_string($db, $_POST['fullname']));
-    $gender = trim(mysqli_real_escape_string($db, $_POST['gender']));
-    $address = trim(mysqli_real_escape_string($db, $_POST['address']));
-    $phone = trim(mysqli_real_escape_string($db, $_POST['phone']));
-    $sql_cek_identitas = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik = '$nik'");
-    if (mysqli_num_rows($sql_cek_identitas) > 0) {
-        echo "<script>alert('Nik sudah ada'); window.location='data.php';</script>";
+    $nik_patient = trim(mysqli_real_escape_string($db, $_POST['nik_patient']));
+    $name_patient = trim(mysqli_real_escape_string($db, $_POST['name_patient']));
+    $gender_patient = trim(mysqli_real_escape_string($db, $_POST['gender_patient']));
+    $address_patient = trim(mysqli_real_escape_string($db, $_POST['address_patient']));
+    $phone_patient = trim(mysqli_real_escape_string($db, $_POST['phone_patient']));
+    $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient'");
+    if (mysqli_num_rows($sql_check) > 0) {
+        echo "<script>window.location='data.php?failed=NIK already exist! Try again';</script>";
     } else {
-        mysqli_query($db, "INSERT INTO tbl_patient (id_patient, nik, fullname, gender, address, phone) VALUES ('$uuid', '$nik', '$fullname', '$gender', '$address', '$phone')");
-        echo "<script>window.location='data.php';</script>";
+        mysqli_query($db, "INSERT INTO tbl_patient (id_patient, nik_patient, name_patient, gender_patient, address_patient, phone_patient) VALUES ('$uuid', '$nik_patient', '$name_patient', '$gender_patient', '$address_patient', '$phone_patient')");
+        echo "<script>window.location='data.php?success=Data successfully added!';</script>";
     }
 } else if (isset($_POST['edit'])) {
     $id = $_POST['id'];
-    $nik = trim(mysqli_real_escape_string($db, $_POST['nik']));
-    $fullname = trim(mysqli_real_escape_string($db, $_POST['fullname']));
-    $gender = trim(mysqli_real_escape_string($db, $_POST['gender']));
-    $address = trim(mysqli_real_escape_string($db, $_POST['address']));
-    $phone = trim(mysqli_real_escape_string($db, $_POST['phone']));
-    $sql_cek_identitas = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik = '$nik' AND id_patient != '$id'");
-    if (mysqli_num_rows($sql_cek_identitas) > 0) {
-        echo "<script>alert('Nik sudah ada'); window.location='edit.php?id=$id';</script>";
+    $nik_patient = trim(mysqli_real_escape_string($db, $_POST['nik_patient']));
+    $name_patient = trim(mysqli_real_escape_string($db, $_POST['name_patient']));
+    $gender_patient = trim(mysqli_real_escape_string($db, $_POST['gender_patient']));
+    $address_patient = trim(mysqli_real_escape_string($db, $_POST['address_patient']));
+    $phone_patient = trim(mysqli_real_escape_string($db, $_POST['phone_patient']));
+    $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient' AND id_patient != '$id'");
+    if (mysqli_num_rows($sql_check) > 0) {
+        echo "<script>window.location='data.php?failed=NIK already exist!';</script>";
     } else {
-        mysqli_query($db, "UPDATE tbl_patient SET nik = '$nik', fullname = '$fullname', gender = '$gender', address = '$address', phone = '$phone' WHERE id_patient = '$id'");
-        echo "<script>window.location='data.php';</script>";
-    }
-} else if (isset($_POST['import'])) {
-    $file = $_FILES['file']['name'];
-    $ekstensi = explode(".", $file);
-    $file_name = "file-".round(microtime(true).".".end($ekstensi));
-    $sumber = $_FILES['file']['tmp_name'];
-    $target_dir = "../file/";
-    $target_file = $target_dir.$file_name;
-    $upload = move_uploaded_file($sumber, $target_file);
-    if ($upload) {
-        echo "Sukses";
-    } else {
-        echo "Gagal";
+        mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient' WHERE id_patient = '$id'");
+        echo "<script>window.location='data.php?success=Data successfully updated!';</script>";
     }
 }
 ?>
