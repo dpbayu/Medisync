@@ -26,7 +26,7 @@ $page = 'doctor';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Form Add Doctor</h1>
+            <h1>Form Doctor</h1>
         </div>
         <div class="d-flex gap-1 mb-3">
         </div>

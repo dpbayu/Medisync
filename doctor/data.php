@@ -55,7 +55,7 @@ $page = 'doctor';
                     }
                     ?>
                     <div class="table">
-                        <form action="" method="POST" name="proses">
+                        <form action="" method="POST" name="process">
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
@@ -127,8 +127,8 @@ $page = 'doctor';
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.proses.action = 'delete.php';
-                    document.proses.submit();
+                    document.proccess.action = 'delete.php';
+                    document.proccess.submit();
                 }
             }
         }
