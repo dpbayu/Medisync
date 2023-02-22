@@ -6,6 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
+$doctors = query("SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
 $page = 'doctor';
 ?>
 <!-- PHP -->
@@ -70,29 +71,25 @@ $page = 'doctor';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 1;
-                                    $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
-                                    while ($data = mysqli_fetch_array($sql_poli)) {
-                                    ?>
+                                    <?php $i = 1; ?>
+                                    <?php foreach($doctors as $doctor) : ?>
                                     <tr>
                                         <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $data['id_doctor'] ?>">
+                                                value="<?= $doctor['id_doctor'] ?>">
                                         </td>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $data['name_doctor'] ?></td>
-                                        <td><?= $data['specialist_doctor'] ?></td>
-                                        <td><?= $data['address_doctor'] ?></td>
-                                        <td><?= $data['phone_doctor'] ?></td>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $doctor['name_doctor'] ?></td>
+                                        <td><?= $doctor['specialist_doctor'] ?></td>
+                                        <td><?= $doctor['address_doctor'] ?></td>
+                                        <td><?= $doctor['phone_doctor'] ?></td>
                                         <td class="text-center">
-                                            <a href="edit.php?id=<?= $data['id_doctor'] ?>"
+                                            <a href="edit.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-warning">Edit</a>
                                         </td>
                                     </tr>
-                                    <?php
-                                    }
-                                ?>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </form>

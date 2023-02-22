@@ -35,8 +35,8 @@ $page = 'doctor';
                 <div class="col-md-12">
                     <?php
                     $id = @$_GET['id'];
-                    $sql_dokter = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE id_doctor = '$id'");
-                    $data = mysqli_fetch_array($sql_dokter)
+                    $sql = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE id_doctor = '$id'");
+                    $data = mysqli_fetch_array($sql)
                     ?>
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">

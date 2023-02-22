@@ -5,6 +5,7 @@ require '../assets/libs/vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
+// Add & Edit Start
 if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
     $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
@@ -23,3 +24,4 @@ if (isset($_POST['add'])) {
     echo "<script>window.location='data.php?success=Date successfuly updated!';</script>";
 }
 ?>
+<!-- Add & Edit End -->
