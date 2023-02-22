@@ -56,7 +56,7 @@ $page = 'doctor';
                                 <tbody>
                                     <?php
                                 $no = 1;
-                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_doctor ORDER BY fullname ASC");
+                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
                                     while ($data = mysqli_fetch_array($sql_poli)) {
                                     ?>
                                     <tr>
@@ -65,7 +65,7 @@ $page = 'doctor';
                                                 value="<?= $data['id_doctor'] ?>">
                                         </td>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $data['fullname'] ?></td>
+                                        <td><?= $data['name_doctor'] ?></td>
                                         <td><?= $data['spesialis'] ?></td>
                                         <td><?= $data['address'] ?></td>
                                         <td><?= $data['phone'] ?></td>

@@ -37,7 +37,7 @@ $page = 'doctor';
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label for="fullname">Name Doctor</label>
-                            <input type="text" id="fullname" name="fullname" class="form-control" required autofocus>
+                            <input type="text" id="fullname" name="name_doctor" class="form-control" required autofocus>
                         </div>
                         <div class="form-group mb-3">
                             <label for="spesialis">Spesialis</label>

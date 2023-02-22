@@ -58,7 +58,7 @@ $page = 'medical_record';
                                 <?php
                                 $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
                                 while ($data_doctor = mysqli_fetch_array($sql_doctor)) { 
-                                    echo '<option value="'.$data_doctor['id_doctor'].'">'.$data_doctor['fullname'].'</option>';
+                                    echo '<option value="'.$data_doctor['id_doctor'].'">'.$data_doctor['name_doctor'].'</option>';
                                 }
                                 ?>
                             </select>

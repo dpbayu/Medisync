@@ -43,19 +43,23 @@ $page = 'doctor';
                         <div class="form-group mb-3">
                             <label for="fullname">Name Doctor</label>
                             <input type="hidden" name="id" value="<?= $data['id_doctor'] ?>">
-                            <input type="text" id="fullname" name="fullname" value="<?= $data['fullname'] ?>" class="form-control" require autofocus>
+                            <input type="text" id="fullname" name="name_doctor" value="<?= $data['name_doctor'] ?>"
+                                class="form-control" require autofocus>
                         </div>
                         <div class="form-group mb-3">
                             <label for="spesialis">Spesialis</label>
-                            <input type="text" id="spesialis" name="spesialis" value="<?= $data['spesialis'] ?>" class="form-control" require>
+                            <input type="text" id="spesialis" name="spesialis" value="<?= $data['spesialis'] ?>"
+                                class="form-control" require>
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone">Phone</label>
-                            <input type="number" id="phone" name="phone" value="<?= $data['phone'] ?>" class="form-control" require>
+                            <input type="number" id="phone" name="phone" value="<?= $data['phone'] ?>"
+                                class="form-control" require>
                         </div>
                         <div class="form-group mb-3">
                             <label for="address">Address</label>
-                            <textarea id="address" name="address" class="form-control" require><?= $data['address'] ?></textarea>
+                            <textarea id="address" name="address" class="form-control"
+                                require><?= $data['address'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="edit" value="Update">Update</button>

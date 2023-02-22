@@ -15,7 +15,6 @@ if (isset($_POST['add'])) {
     $medicines = $_POST['id_medicine'];
     $check_up_date = trim(mysqli_real_escape_string($db, $_POST['check_up_date']));
     mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up_date')");
-
     $medicines = $_POST['id_medicine'];
     foreach ($medicines as $medicine) {
         mysqli_query($db, "INSERT INTO tbl_hospital_medicine (id_hospital, id_medicine) VALUES ('$uuid', '$medicine')");

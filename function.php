@@ -19,15 +19,10 @@ function base_url($url = null) {
     }
 }
 
-// SQL Start
-function query($query) {
-    global $db;
-    $result = mysqli_query($db, $query);
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    return $rows;
+function tgl_indo($tgl) {
+    $tanggal = substr($tgl, 8, 2);
+    $bulan = substr($tgl, 5, 2);
+    $tahun = substr($tgl, 0, 4);
+    return $tanggal."/".$bulan."/".$tahun;
 }
-// SQL End
 ?>
