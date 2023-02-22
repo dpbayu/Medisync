@@ -50,22 +50,22 @@ if (!isset($chk)) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
+                        <?php
                         $no = 1;
                         foreach ($chk as $id) {
-                        $sql_poli = mysqli_query($db, "SELECT * FROM tbl_poly WHERE id_poly = '$id'");
-                        while ($data = mysqli_fetch_array($sql_poli)) {
+                        $sql = mysqli_query($db, "SELECT * FROM tbl_poly WHERE id_poly = '$id'");
+                        while ($data = mysqli_fetch_array($sql)) {
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td>
                                     <input type="hidden" name="id[]" value="<?= $data['id_poly'] ?>">
                                     <input type="text" name="name_poly[]" value="<?= $data['name_poly'] ?>"
-                                        class="form-control" require>
+                                        class="form-control" required>
                                 </td>
                                 <td>
                                     <input type="text" name="place_poly[]" value="<?= $data['place_poly'] ?>"
-                                        class="form-control" require>
+                                        class="form-control" required>
                                 </td>
                             </tr>
                             <?php
@@ -75,7 +75,7 @@ if (!isset($chk)) {
                         </tbody>
                     </table>
                     <div class="form-group d-flex justify-content-end">
-                        <input type="submit" name="edit" value="Edit Semua" class="btn btn-success">
+                        <input type="submit" name="edit" value="Edit All" class="btn btn-success">
                     </div>
                 </form>
             </div>

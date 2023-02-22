@@ -14,9 +14,9 @@ if (isset($_POST['add'])) {
         $sql = mysqli_query($db, "INSERT INTO tbl_poly (id_poly, name_poly, place_poly) VALUES ('$uuid', '$name_poly', '$place_poly')");
     }
     if ($sql) {
-        echo "<script>alert('".$total." data berhasil di tambahkan'); window.location='data.php';</script>";
+        echo "<script>window.location='data.php?success=".$total." Data successfully added!';</script>";
     } else {
-        echo "<script>alert('Data gagal di tambahkan, coba lagi'); window.location='generate.php';</script>";
+        echo "<script>window.location='generate.php?failed=Data failed added! Try again';</script>";
     }
 } else if (isset($_POST['edit'])) {
     for ($i = 0; $i < count($_POST['id']); $i++) { 
@@ -25,6 +25,6 @@ if (isset($_POST['add'])) {
         $place_poly = $_POST['place_poly'][$i];        
         mysqli_query($db, "UPDATE tbl_poly SET name_poly = '$name_poly', place_poly = '$place_poly' WHERE id_poly = '$id'");
     }
-    echo "<script>alert('Data berhasil diubah'); window.location='data.php';</script>";
+    echo "<script>window.location='data.php?success=Data successfuly updated!';</script>";
 }
 ?>

@@ -6,6 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
+$polys = query("SELECT * FROM tbl_poly ORDER BY name_poly ASC");
 $page = 'poly';
 ?>
 <!-- PHP -->
@@ -35,49 +36,59 @@ $page = 'poly';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
+                <?php
+                    if (isset($_GET['success'])) {
+                        $msg = $_GET['success'];
+                        echo '
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                    if (isset($_GET['failed'])) {
+                        $msg = $_GET['failed'];
+                        echo '
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                    ?>
                     <div class="table">
-                        <form action="" method="POST" name="proses">
+                        <form action="" method="POST" name="process">
                             <table id="poly" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Name Poly</th>
                                         <th>Floor</th>
-                                        <th>
-                                            <center>
-                                                <input type="checkbox" id="select_all" value="">
-                                            </center>
+                                        <th class="text-center">
+                                            <input type="checkbox" id="select_all" value="">
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                $no = 1;
-                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
-                                if (mysqli_num_rows($sql_poli) > 0) {
-                                    while ($data = mysqli_fetch_array($sql_poli)) {
-                                    ?>
+                                    <?php $i = 1; ?>
+                                    <?php foreach($polys as $poly) : ?>
                                     <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $data['name_poly'] ?></td>
-                                        <td><?= $data['place_poly'] ?></td>
-                                        <td align="center">
+                                        <td><?= $i; ?></td>
+                                        <td><?= $poly['name_poly'] ?></td>
+                                        <td><?= $poly['place_poly'] ?></td>
+                                        <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $data['id_poly'] ?>" <?= $data['id_poly'] ?>>
+                                                value="<?= $poly['id_poly'] ?>" <?= $poly['id_poly'] ?>>
                                         </td>
                                     </tr>
                                     <?php
-                                    }
-                                } else {
-                                    echo "<tr><td colspan=\"4\" align=\"center\">Data not found<td></tr>";
-                                }
-                                ?>
+                                    ?>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </form>
-                        <div class="box float-end">
-                            <button class="btn btn-warning btn-sm" onclick="edit()">Edit</button>
-                            <button class="btn btn-danger btn-sm" onclick="hapus()">Delete</button>
+                        <div class="float-end border-0">
+                            <button class="btn btn-warning" onclick="edit()">Edit</button>
+                            <button class="btn btn-danger" onclick="hapus()">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -87,6 +98,7 @@ $page = 'poly';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
+        // Fungsi Checkbox
         $(document).ready(function () {
             $("#select_all").on('click', function () {
                 if (this.checked) {
@@ -107,20 +119,30 @@ $page = 'poly';
                 }
             })
         });
-
+        // Function Edit
         function edit() {
-            document.proses.action = 'edit.php';
-            document.proses.submit();
+            document.process.action = 'edit.php';
+            document.process.submit();
         }
-
+        // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.proses.action = 'delete.php';
-                    document.proses.submit();
+                    document.process.action = 'delete.php';
+                    document.process.submit();
                 }
             }
         }
+        // Data Tables
+        $(document).ready(function () {
+            $('#poly').DataTable({
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 3,
+                }],
+            });
+        });
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
