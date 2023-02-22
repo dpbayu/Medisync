@@ -26,33 +26,36 @@ $page = 'doctor';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Doctor</h1>
+            <h1>Form Add Doctor</h1>
         </div>
         <div class="d-flex gap-1 mb-3">
-            <a href="data.php" class="btn btn-secondary">Back</a>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
-                            <label for="fullname">Name Doctor</label>
-                            <input type="text" id="fullname" name="name_doctor" class="form-control" required autofocus>
+                            <label class="form-label" for="name_doctor">Name Doctor</label>
+                            <input class="form-control" type="text" id="name_doctor" name="name_doctor" placeholder="Input name doctor" required
+                                autofocus>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="spesialis">Spesialis</label>
-                            <input type="text" id="spesialis" name="spesialis" class="form-control" required>
+                            <label class="form-label" for="specialist_doctor">Specialist</label>
+                            <input class="form-control" type="text" id="specialist_doctor" name="specialist_doctor" placeholder="Input specialist doctor"
+                                required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="phone">Phone</label>
-                            <input type="number" id="phone" name="phone" class="form-control" required>
+                            <label class="form-label" for="phone_doctor">Phone</label>
+                            <input class="form-control" type="number" id="phone_doctor" name="phone_doctor" placeholder="Input phone doctor" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="address">Address</label>
-                            <textarea id="address" name="address" class="form-control" required></textarea>
+                            <label class="form-label" for="address_doctor">Address</label>
+                            <textarea class="form-control" id="address_doctor" name="address_doctor" rows="5" placeholder="Input address doctor" required
+                                style="resize: none;"></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>
+                            <button class="btn btn-success" type="submit" name="add">Add data</button>
+                            <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

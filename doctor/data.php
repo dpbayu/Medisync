@@ -35,43 +35,59 @@ $page = 'doctor';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
+                    <?php
+                    if (isset($_GET['success'])) {
+                        $msg = $_GET['success'];
+                        echo '
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                    if (isset($_GET['failed'])) {
+                        $msg = $_GET['failed'];
+                        echo '
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>'.$msg.'</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>';
+                    }
+                    ?>
                     <div class="table">
                         <form action="" method="POST" name="proses">
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <center>
-                                                <input type="checkbox" id="select_all" value="">
-                                            </center>
+                                        <th class="text-center">
+                                            <input type="checkbox" id="select_all" value="">
                                         </th>
                                         <th>No</th>
                                         <th>Name Doctor</th>
                                         <th>Spesialis</th>
                                         <th>Address</th>
                                         <th>Phone</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                $no = 1;
-                                $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
+                                    $no = 1;
+                                    $sql_poli = mysqli_query($db,  "SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
                                     while ($data = mysqli_fetch_array($sql_poli)) {
                                     ?>
                                     <tr>
-                                        <td align="center">
+                                        <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
                                                 value="<?= $data['id_doctor'] ?>">
                                         </td>
                                         <td><?= $no++ ?></td>
                                         <td><?= $data['name_doctor'] ?></td>
-                                        <td><?= $data['spesialis'] ?></td>
-                                        <td><?= $data['address'] ?></td>
-                                        <td><?= $data['phone'] ?></td>
-                                        <td align="center">
+                                        <td><?= $data['specialist_doctor'] ?></td>
+                                        <td><?= $data['address_doctor'] ?></td>
+                                        <td><?= $data['phone_doctor'] ?></td>
+                                        <td class="text-center">
                                             <a href="edit.php?id=<?= $data['id_doctor'] ?>"
-                                                class="btn btn-warning btn-xs">Edit</a>
+                                                class="btn btn-warning">Edit</a>
                                         </td>
                                     </tr>
                                     <?php
@@ -80,9 +96,7 @@ $page = 'doctor';
                                 </tbody>
                             </table>
                         </form>
-                        <div class="box float-end">
-                            <button class="btn btn-danger btn-sm" onclick="hapus()">Delete</button>
-                        </div>
+                        <button class="btn btn-danger float-end" onclick="hapus()">Delete</button>
                     </div>
                 </div>
             </div>
@@ -91,6 +105,7 @@ $page = 'doctor';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
+        // Function Checkbox
         $(document).ready(function () {
             $("#select_all").on('click', function () {
                 if (this.checked) {
@@ -111,7 +126,7 @@ $page = 'doctor';
                 }
             })
         });
-
+        // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
@@ -120,6 +135,17 @@ $page = 'doctor';
                 }
             }
         }
+        // Data Tables
+        $(document).ready(function () {
+            $('#doctor').DataTable({
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": [0, 6],
+                }],
+                "order": [1, "asc"]
+            });
+        });
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
