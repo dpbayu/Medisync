@@ -98,7 +98,7 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="medicine">Name medicine</label>
-                            <select class="form-control select" name="id_medicine[]" id="medicine" multiple data-mdb-filter="true">
+                            <select class="form-control" name="id_medicine[]" id="medicine">
                                 <?php
                                 $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
                                 while ($medicine = mysqli_fetch_assoc($sql_medicine)) {

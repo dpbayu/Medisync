@@ -94,7 +94,7 @@ $page = 'medical_record';
                             <input class="form-control" type="date" id="check_up_date" name="check_up" value="<?= date('Y-m-d') ?>">
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>
+                            <button class="btn btn-success" type="submit" name="add">Add</button>
                             <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
                             <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
