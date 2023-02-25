@@ -74,13 +74,13 @@ $page = 'medical_record';
                                     $query = "SELECT * FROM tbl_medical_record 
                                     INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
                                     INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly";
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
                                     $sql = mysqli_query($db, $query);
                                     while ($data = mysqli_fetch_array($sql)) {
                                         ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
-                                        <td><?= date("j F Y, l", strtotime($data['check_up'])) ?></td>
+                                        <td><?= date("j F Y", strtotime($data['check_up'])) ?></td>
                                         <td><?= $data['name_patient'] ?></td>
                                         <td><?= $data['illness'] ?></td>
                                         <td><?= $data['name_doctor'] ?></td>

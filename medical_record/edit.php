@@ -33,20 +33,27 @@ $page = 'medical_record';
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
                         <?php
-                        $id = @$_GET['id'];
-                        $sql = mysqli_query($db, "SELECT * FROM tbl_medical_record WHERE id_hospital = '$id'");
-                        $data = mysqli_fetch_array($sql);
+                            $id = $_GET['id'];
+                            $sql = mysqli_query($db, "SELECT * FROM tbl_medical_record 
+                            INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
+                            INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
+                            INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly WHERE id_hospital = '$id'");
+                            $data = mysqli_fetch_array($sql);
                         ?>
                         <div class="form-group mb-3">
+                        <input type="text" name="id" value="<?= $data['id_hospital'] ?>">
                             <label class="form-label" for="patient">Name Patient</label>
                             <select class="form-control" name="id_patient" id="patient">
-                                <option value="">- Pilih -</option>
-                                <?php
-                                $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient");
-                                while ($data_pasien = mysqli_fetch_array($sql_patient)) { 
-                                    echo '<option value="'.$data_pasien['id_patient'].'">'.$data_pasien['name_patient'].'</option>';
+                            <?php
+                            $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient");
+                            while ($patient = mysqli_fetch_assoc($sql_patient)) {
+                                if ($patient['id_patient'] == $data['id_patient']) {
+                                    echo '<option selected value="'.$patient['id_patient'].'">'.$patient['name_patient'].'</option>';
+                                } else {
+                                    echo '<option value="'.$patient['id_patient'].'">'.$patient['name_patient'].'</option>';
                                 }
-                                ?>
+                            }
+                            ?>
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -57,41 +64,51 @@ $page = 'medical_record';
                         <div class="form-group mb-3">
                             <label class="form-label" for="doctor">Name Doctor</label>
                             <select class="form-control" name="id_doctor" id="doctor">
-                                <option value="">- Pilih -</option>
                                 <?php
-                                $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
-                                while ($data_doctor = mysqli_fetch_array($sql_doctor)) { 
-                                    echo '<option value="'.$data_doctor['id_doctor'].'">'.$data_doctor['name_doctor'].'</option>';
+                            $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
+                            while ($doctor = mysqli_fetch_assoc($sql_doctor)) {
+                                if ($doctor['id_doctor'] == $data['id_doctor']) {
+                                    echo '<option selected value="'.$doctor['id_doctor'].'">'.$doctor['name_doctor'].'</option>';
+                                } else {
+                                    echo '<option value="'.$doctor['id_doctor'].'">'.$doctor['name_doctor'].'</option>';
                                 }
-                                ?>
+                            }
+                            ?>
                             </select>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="diagnosis">Diagnosis</label>
                             <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Input diagnosis"
-                                rows="5" style="resize: none;"></textarea>
+                                rows="5" style="resize: none;"><?= $data['diagnosis'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="poly">Name Poly</label>
                             <select class="form-control" name="id_poly" id="poly">
-                                <option value="">- Pilih -</option>
                                 <?php
-                                $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
-                                while ($data_poly = mysqli_fetch_array($sql_poly)) { 
-                                    echo '<option value="'.$data_poly['id_poly'].'">'.$data_poly['name_poly'].'</option>';
+                            $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly");
+                            while ($poly = mysqli_fetch_assoc($sql_poly)) {
+                                if ($poly['id_poly'] == $data['id_poly']) {
+                                    echo '<option selected value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
+                                } else {
+                                    echo '<option value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
                                 }
-                                ?>
+                            }
+                            ?>
                             </select>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="medicine">Name medicine</label>
-                            <select class="form-control" multiple size="7" name="id_medicine[]" id="medicine">
+                            <select class="form-control select" name="id_medicine[]" id="medicine" multiple data-mdb-filter="true">
                                 <?php
-                                $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine ORDER BY name_medicine ASC");
-                                while ($data_medicine = mysqli_fetch_array($sql_medicine)) { 
-                                    echo '<option value="'.$data_medicine['id_medicine'].'">'.$data_medicine['name_medicine'].'</option>';
+                                $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
+                                while ($medicine = mysqli_fetch_assoc($sql_medicine)) {
+                                    if ($medicine['id_medicine'] == $data['id_medicine']) {
+                                        echo '<option selected value="'.$medicine['id_medicine'].'">'.$medicine['name_medicine'].'</option>';
+                                    } else {
+                                        echo '<option value="'.$medicine['id_medicine'].'">'.$medicine['name_medicine'].'</option>';
+                                    }
                                 }
-                                ?>
+                            ?>
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -100,7 +117,7 @@ $page = 'medical_record';
                                 value="<?= date('Y-m-d') ?>">
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add" value="Simpan">Simpan</button>
+                            <button class="btn btn-success" type="submit" name="edit">Edit</button>
                             <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
                             <a href="data.php" class="btn btn-secondary">Back</a>
                         </div>
@@ -110,6 +127,9 @@ $page = 'medical_record';
         </section>
     </main>
     <!-- Main End -->
+    <!-- JS -->
+    
+    <!-- JS -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
     <!-- Footer End -->
