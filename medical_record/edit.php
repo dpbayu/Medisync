@@ -88,7 +88,7 @@ $page = 'medical_record';
                             $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly");
                             while ($poly = mysqli_fetch_assoc($sql_poly)) {
                                 if ($poly['id_poly'] == $data['id_poly']) {
-                                    echo '<option selected value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
+                                    echo '<option value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
                                 } else {
                                     echo '<option value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
                                 }
@@ -98,7 +98,7 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="medicine">Name medicine</label>
-                            <select class="form-control" name="id_medicine[]" id="medicine">
+                            <select class="form-control" multiple name="id_medicine[]" id="medicine">
                                 <?php
                                 $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
                                 while ($medicine = mysqli_fetch_assoc($sql_medicine)) {
@@ -128,7 +128,15 @@ $page = 'medical_record';
     </main>
     <!-- Main End -->
     <!-- JS -->
-    
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#medicine').select2({
+				placeholder: "Pilih Hobi",
+				allowClear: true,
+				language: "id"
+			});
+		});
+	</script>
     <!-- JS -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>

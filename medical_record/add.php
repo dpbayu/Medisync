@@ -80,7 +80,7 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="medicine">Name medicine</label>
-                            <select class="form-control" multiple size="7" name="id_medicine[]" id="medicine">
+                            <select class="form-control" multiple="multiple" name="id_medicine[]" id="medicine">
                                 <?php
                                 $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine ORDER BY name_medicine ASC");
                                 while ($data_medicine = mysqli_fetch_array($sql_medicine)) { 
@@ -91,7 +91,8 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="check_up_date">Check Up Date</label>
-                            <input class="form-control" type="date" id="check_up_date" name="check_up" value="<?= date('Y-m-d') ?>">
+                            <input class="form-control" type="date" id="check_up_date" name="check_up"
+                                value="<?= date('Y-m-d') ?>">
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="add">Add</button>
@@ -104,6 +105,17 @@ $page = 'medical_record';
         </section>
     </main>
     <!-- Main End -->
+    <!-- JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#medicine').select2({
+                placeholder: "Pilih Hobi",
+                allowClear: true,
+                language: "id"
+            });
+        });
+    </script>
+    <!-- JS -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
     <!-- Footer End -->

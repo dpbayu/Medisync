@@ -30,7 +30,7 @@ if (isset($_POST['add'])) {
     mysqli_query($db, "UPDATE tbl_medical_record SET id_patient = '$id_patient', illness = '$illness', id_doctor = '$id_doctor', diagnosis = '$diagnosis', id_poly = '$id_poly', check_up = '$check_up' WHERE id_hospital = '$id'");
     $medicines = $_POST['id_medicine'];
     foreach ($medicines as $medicine) {
-        mysqli_query($db, "UPDATE tbl_hospital_medicine SET id_medicine = '$medicine' WHERE id_hospital = '$id'");
+        mysqli_query($db, "UPDATE tbl_hospital_medicine SET id_medicine ='$medicine' WHERE id_hospital = '$id'");
     }
     echo "<script>window.location='data.php?success=Data successfuly updated!';</script>";
 }
