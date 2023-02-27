@@ -41,10 +41,10 @@ $page = 'medical_record';
                             $data = mysqli_fetch_array($sql);
                         ?>
                         <div class="form-group mb-3">
-                        <input type="text" name="id" value="<?= $data['id_hospital'] ?>">
+                            <input type="hidden" name="id" value="<?= $data['id_hospital'] ?>">
                             <label class="form-label" for="patient">Name Patient</label>
                             <select class="form-control" name="id_patient" id="patient">
-                            <?php
+                                <?php
                             $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient");
                             while ($patient = mysqli_fetch_assoc($sql_patient)) {
                                 if ($patient['id_patient'] == $data['id_patient']) {
@@ -65,8 +65,8 @@ $page = 'medical_record';
                             <label class="form-label" for="doctor">Name Doctor</label>
                             <select class="form-control" name="id_doctor" id="doctor">
                                 <?php
-                            $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
-                            while ($doctor = mysqli_fetch_assoc($sql_doctor)) {
+                                $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
+                                while ($doctor = mysqli_fetch_assoc($sql_doctor)) {
                                 if ($doctor['id_doctor'] == $data['id_doctor']) {
                                     echo '<option selected value="'.$doctor['id_doctor'].'">'.$doctor['name_doctor'].'</option>';
                                 } else {
@@ -85,8 +85,8 @@ $page = 'medical_record';
                             <label class="form-label" for="poly">Name Poly</label>
                             <select class="form-control" name="id_poly" id="poly">
                                 <?php
-                            $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly");
-                            while ($poly = mysqli_fetch_assoc($sql_poly)) {
+                                $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly");
+                                while ($poly = mysqli_fetch_assoc($sql_poly)) {
                                 if ($poly['id_poly'] == $data['id_poly']) {
                                     echo '<option value="'.$poly['id_poly'].'">'.$poly['name_poly'].'</option>';
                                 } else {
@@ -128,15 +128,15 @@ $page = 'medical_record';
     </main>
     <!-- Main End -->
     <!-- JS -->
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('#medicine').select2({
-				placeholder: "Pilih Hobi",
-				allowClear: true,
-				language: "id"
-			});
-		});
-	</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#medicine').select2({
+                placeholder: "Medicine",
+                allowClear: true,
+                language: "id"
+            });
+        });
+    </script>
     <!-- JS -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
