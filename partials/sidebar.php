@@ -1,5 +1,6 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-heading">Dashboard</li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'dashboard'){echo 'collapsed';} ?>" href="../admin/index.php">
                 <i class="bi bi-grid"></i>
@@ -31,7 +32,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'medical_record'){echo 'collapsed';} ?>" href="../medical_record/data.php">
+            <a class="nav-link <?php if($page != 'medical_record'){echo 'collapsed';} ?>"
+                href="../medical_record/data.php">
                 <i class="bi bi-box"></i>
                 <span>Data Medical Record</span>
             </a>
