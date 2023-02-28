@@ -37,5 +37,11 @@
             </a>
         </li>
         <li class="nav-heading">Account</li>
+        <li class="nav-item">
+            <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../admin/profile.php">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li>
     </ul>
 </aside>

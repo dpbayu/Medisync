@@ -11,6 +11,8 @@ if (isset($_POST["login"])) {
             $_SESSION['id_user'] = $row['id_user'];
             $_SESSION['fullname'] = $row['fullname'];
             $_SESSION['username'] = $row['username'];
+            $_SESSION['user_profile'] = $row['user_profile'];
+            $_SESSION['role'] = $row['role'];
             $_SESSION["login"] = true;
             header("Location: admin/index.php");
             exit;
