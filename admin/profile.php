@@ -12,15 +12,15 @@ $page = 'profile';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require 'partials/head.php' ?>
+<?php require '../partials/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require 'partials/header.php' ?>
+    <?php require '../partials/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require 'partials/sidebar.php' ?>
+    <?php require '../partials/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -54,7 +54,7 @@ $page = 'profile';
                         <label class="form-label" for="password">Password</label>
                         <input class="form-control" type="password" id="password" name="password">
                     </div>
-                    <img src="assets/img/<?php echo $_SESSION['user_profile'] ?>" class="rounded-circle" height="200"
+                    <img src="img/<?php echo $_SESSION['user_profile'] ?>" class="rounded-circle" height="200"
                         width="200">
                     <div class="form-group mb-3">
                         <label class="form-label" for="profil">Profile</label>
@@ -67,7 +67,7 @@ $page = 'profile';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require 'partials/footer.php' ?>
+    <?php require '../partials/footer.php' ?>
     <!-- Footer End -->
 </body>
 

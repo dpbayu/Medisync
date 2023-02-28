@@ -2,7 +2,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-heading">Dashboard</li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'dashboard'){echo 'collapsed';} ?>" href="../index.php">
+            <a class="nav-link <?php if($page != 'dashboard'){echo 'collapsed';} ?>" href="../admin/index.php">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -39,7 +39,7 @@
         </li>
         <li class="nav-heading">Account</li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../profile.php">
+            <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../admin/profile.php">
                 <i class="ri-account-circle-fill"></i>
                 <span>Profile</span>
             </a>
