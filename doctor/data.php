@@ -83,8 +83,8 @@ $page = 'doctor';
                                                 class="btn btn-warning">Edit</a>
                                         </td>
                                         <td class="text-center">
-                                        <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $doctor['id_doctor'] ?>" <?= $doctor['id_doctor'] ?>>
+                                            <input type="checkbox" name="checked[]" class="check"
+                                                value="<?= $doctor['id_doctor'] ?>">
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -101,7 +101,7 @@ $page = 'doctor';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
-        // Fungsi Checkbox
+        // Function Checkbox
         $(document).ready(function () {
             $("#select_all").on('click', function () {
                 if (this.checked) {
@@ -122,17 +122,12 @@ $page = 'doctor';
                 }
             })
         });
-        // Function Edit
-        function edit() {
-            document.process.action = 'edit.php';
-            document.process.submit();
-        }
         // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.process.action = 'delete.php';
-                    document.process.submit();
+                    document.proccess.action = 'delete.php';
+                    document.proccess.submit();
                 }
             }
         }
@@ -143,7 +138,7 @@ $page = 'doctor';
                     "searchable": false,
                     "orderable": false,
                     "targets": [5,6],
-                }],
+                }]
             });
         });
     </script>
