@@ -13,15 +13,15 @@ $page = 'doctor';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../admin/partials/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../admin/partials/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../admin/partials/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -74,7 +74,7 @@ $page = 'doctor';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../admin/partials/footer.php' ?>
     <!-- Footer End -->
 </body>
 
