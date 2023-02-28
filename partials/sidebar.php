@@ -1,13 +1,8 @@
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
-<<<<<<< HEAD
         <li class="nav-heading">Dashboard</li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'dashboard'){echo 'collapsed';} ?>" href="../admin/index.php">
-=======
-        <li class="nav-item">
-            <a class="nav-link <?php if($page != 'dashboard'){echo 'collapsed';} ?>" href="../index.php">
->>>>>>> parent of ce5365f (admin finish)
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -43,22 +38,13 @@
             </a>
         </li>
         <li class="nav-heading">Account</li>
-<<<<<<< HEAD
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../admin/profile.php">
-=======
-<<<<<<<< HEAD:admin/partials/sidebar.php
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../profile.php">
->>>>>>> parent of ce5365f (admin finish)
                 <i class="ri-account-circle-fill"></i>
                 <span>Profile</span>
             </a>
         </li>
-<<<<<<< HEAD
-=======
-========
->>>>>>>> parent of ce5365f (admin finish):partials/sidebar.php
->>>>>>> parent of ce5365f (admin finish)
     </ul>
 </aside>

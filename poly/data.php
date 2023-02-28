@@ -95,7 +95,7 @@ $page = 'poly';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
-        // Fungsi Checkbox
+        // Function Checkbox
         $(document).ready(function () {
             $("#select_all").on('click', function () {
                 if (this.checked) {

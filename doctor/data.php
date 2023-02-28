@@ -84,7 +84,7 @@ $page = 'doctor';
                                         </td>
                                         <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $doctor['id_doctor'] ?>">
+                                                value="<?= $doctor['id_doctor'] ?>"<?= $doctor['id_doctor'] ?>>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -122,12 +122,17 @@ $page = 'doctor';
                 }
             })
         });
+        // Function Edit
+        function edit() {
+            document.process.action = 'edit.php';
+            document.process.submit();
+        }
         // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.proccess.action = 'delete.php';
-                    document.proccess.submit();
+                    document.process.action = 'delete.php';
+                    document.process.submit();
                 }
             }
         }
@@ -138,7 +143,7 @@ $page = 'doctor';
                     "searchable": false,
                     "orderable": false,
                     "targets": [5,6],
-                }]
+                }],
             });
         });
     </script>
