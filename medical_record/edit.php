@@ -103,7 +103,7 @@ $page = 'medical_record';
                                 $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
                                 while ($medicine = mysqli_fetch_assoc($sql_medicine)) {
                                     if ($medicine['id_medicine'] == $data['id_medicine']) {
-                                        echo '<option selected value="'.$medicine['id_medicine'].'">'.$medicine['name_medicine'].'</option>';
+                                        echo '<option value="'.$medicine['id_medicine'].'">'.$medicine['name_medicine'].'</option>';
                                     } else {
                                         echo '<option value="'.$medicine['id_medicine'].'">'.$medicine['name_medicine'].'</option>';
                                     }

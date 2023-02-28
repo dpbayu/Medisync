@@ -137,7 +137,7 @@ $page = 'doctor';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 5,
+                    "targets": [5,6],
                 }]
             });
         });
