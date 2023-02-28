@@ -13,7 +13,11 @@
             <li class="nav-item dropdown pe-3">
                 <!-- Profile Image Start -->
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+<<<<<<< HEAD
                     <img src="../admin/img/<?php echo $_SESSION['user_profile'] ?>" alt="Profile" class="rounded-circle" width="40" height="100">
+=======
+                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+>>>>>>> parent of ce5365f (admin finish)
                     <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['fullname'] ?></span>
                 </a>
                 <!-- Profile Image End -->
@@ -21,13 +25,21 @@
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
                         <h6><?= $_SESSION['fullname'] ?></h6>
+<<<<<<< HEAD
                         <span><?= $_SESSION['role'] ?></span>
+=======
+                        <span>Web Designer</span>
+>>>>>>> parent of ce5365f (admin finish)
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a class="dropdown-item d-flex align-items-center" href="profile.php">
+=======
+                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+>>>>>>> parent of ce5365f (admin finish)
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
