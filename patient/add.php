@@ -1,7 +1,7 @@
 <!-- PHP -->
 <?php
 require '../function.php';
-require '../../assets/libs/vendor/autoload.php';
+require '../assets/libs/vendor/autoload.php';
 if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;

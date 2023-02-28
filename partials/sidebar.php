@@ -8,7 +8,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'patient'){echo 'collapsed';} ?>" href="patient/data.php">
+            <a class="nav-link <?php if($page != 'patient'){echo 'collapsed';} ?>" href="../patient/data.php">
                 <i class="bi bi-people"></i>
                 <span>Data Patient</span>
             </a>
@@ -40,8 +40,6 @@
         <li class="nav-heading">Account</li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../admin/profile.php">
-        <li class="nav-item">
-            <a class="nav-link <?php if($page != 'profile'){echo 'collapsed';} ?>" href="../profile.php">
                 <i class="ri-account-circle-fill"></i>
                 <span>Profile</span>
             </a>

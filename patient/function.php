@@ -1,6 +1,6 @@
 <?php
 require '../function.php';
-require '../../assets/libs/vendor/autoload.php';
+require '../assets/libs/vendor/autoload.php';
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
