@@ -122,7 +122,7 @@ INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicin
 CREATE TABLE `tbl_patient` (
   `id_patient` varchar(50) NOT NULL,
   `nik` varchar(30) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
+  `name_admin` varchar(255) NOT NULL,
   `gender` enum('L','P') NOT NULL,
   `address` text NOT NULL,
   `phone` varchar(15) NOT NULL
@@ -132,7 +132,7 @@ CREATE TABLE `tbl_patient` (
 -- Dumping data for table `tbl_patient`
 --
 
-INSERT INTO `tbl_patient` (`id_patient`, `nik`, `fullname`, `gender`, `address`, `phone`) VALUES
+INSERT INTO `tbl_patient` (`id_patient`, `nik`, `name_admin`, `gender`, `address`, `phone`) VALUES
 ('34cf1cd1-ed82-418a-9412-df8149f4659e', '41815010141', 'Chou Tzuyu', 'P', 'Seoul', '089604333575'),
 ('62c20641-cc31-461d-8577-8ed08ebda101', '41815010144', 'Irene', 'P', 'Permata Hijau', '089604333577'),
 ('895ca7af-ff15-42ed-97ba-50eb684d1bac', '41815010145', 'Yeri', 'P', 'Grogol', '089604333577'),
@@ -165,22 +165,22 @@ INSERT INTO `tbl_poly` (`id_poly`, `name_poly`, `place_poly`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Table structure for table `tbl_admin`
 --
 
-CREATE TABLE `tbl_user` (
-  `id_user` varchar(50) NOT NULL,
-  `fullname` varchar(50) NOT NULL,
+CREATE TABLE `tbl_admin` (
+  `id_admin` varchar(50) NOT NULL,
+  `name_admin` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `level` enum('1','2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data for table `tbl_admin`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `fullname`, `username`, `password`, `level`) VALUES
+INSERT INTO `tbl_admin` (`id_admin`, `name_admin`, `username`, `password`, `level`) VALUES
 ('0fc08115-afb1-11ed-8ce2-b4a9fcffb61c', 'Syifa Khairunnisa', 'syifa', '$2y$10$4hSMhJ4iGZ6UniDMW78JtOAv7oTyz2cgl7DlG03iByd9/ePRQ7ORq', '1'),
 ('7a26582f-afa7-11ed-8ce2-b4a9fcffb61c', 'Dwi Putra Bayu', 'admin', '$2y$10$oLH88W3xXef0PbrY8IOsSekHFQYQ7CJufpZv8sGyzr.bnyvTf.NVi', '1');
 
@@ -231,10 +231,10 @@ ALTER TABLE `tbl_poly`
   ADD PRIMARY KEY (`id_poly`);
 
 --
--- Indexes for table `tbl_user`
+-- Indexes for table `tbl_admin`
 --
-ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- AUTO_INCREMENT for dumped tables

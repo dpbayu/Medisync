@@ -4,14 +4,14 @@ require 'function.php';
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $result = mysqli_query($db, "SELECT * FROM tbl_user WHERE username = '$username'");
+    $result = mysqli_query($db, "SELECT * FROM tbl_admin WHERE username = '$username'");
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
-            $_SESSION['id_user'] = $row['id_user'];
-            $_SESSION['fullname'] = $row['fullname'];
+            $_SESSION['id_admin'] = $row['id_admin'];
+            $_SESSION['name_admin'] = $row['name_admin'];
             $_SESSION['username'] = $row['username'];
-            $_SESSION['user_profile'] = $row['user_profile'];
+            $_SESSION['user_admin'] = $row['user_admin'];
             $_SESSION['role'] = $row['role'];
             $_SESSION["login"] = true;
             header("Location: admin/index.php");

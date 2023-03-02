@@ -40,9 +40,9 @@ $page = 'doctor';
                     ?>
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
-                            <label class="form-label" for="fullname">Name Doctor</label>
+                            <label class="form-label" for="name_admin">Name Doctor</label>
                             <input class="form-control" type="hidden" name="id" value="<?= $data['id_doctor'] ?>">
-                            <input class="form-control" type="text" id="fullname" name="name_doctor" value="<?= $data['name_doctor'] ?>"
+                            <input class="form-control" type="text" id="name_admin" name="name_doctor" value="<?= $data['name_doctor'] ?>"
                                 require autofocus>
                         </div>
                         <div class="form-group mb-3">

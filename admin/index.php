@@ -32,7 +32,7 @@ $page = 'dashboard';
                 <!-- Left Side Start -->
                 <div class="col-lg-8">
                     <div class="row">
-                        <h1>Welcome to E-CURE <?= $_SESSION['fullname'] ?></h1>
+                        <h1>Welcome to E-CURE <?= $_SESSION['name_admin'] ?></h1>
                     </div>
                 </div>
                 <!-- Left Side Start -->
