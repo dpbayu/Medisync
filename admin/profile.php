@@ -54,11 +54,11 @@ $page = 'profile';
                         <label class="form-label" for="password">Password</label>
                         <input class="form-control" type="password" id="password" name="password">
                     </div>
-                    <img src="img/<?php echo $_SESSION['user_admin'] ?>" class="rounded-circle" height="200"
+                    <img src="img/<?php echo $_SESSION['profile_admin'] ?>" class="rounded-circle" height="200"
                         width="200">
                     <div class="form-group mb-3">
                         <label class="form-label" for="profil">Profile</label>
-                        <input class="form-control" type="file" id="profile" name="user_admin">
+                        <input class="form-control" type="file" id="profile" name="profile_admin">
                     </div>
                     <button type="submit" name="update" class="btn btn-success me-2">Update</button>
                 </form>
