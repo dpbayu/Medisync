@@ -64,9 +64,6 @@ $page = 'doctor';
                                         <th>Address</th>
                                         <th>Phone</th>
                                         <th class="text-center">Action</th>
-                                        <th class="text-center">
-                                            <input type="checkbox" id="select_all" value="">
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -81,10 +78,10 @@ $page = 'doctor';
                                         <td class="text-center">
                                             <a href="edit.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-warning">Edit</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <input type="checkbox" name="checked[]" class="check"
-                                                value="<?= $doctor['id_doctor'] ?>"<?= $doctor['id_doctor'] ?>>
+                                            <a onclick="return confirm('Are you sure delete this data ?')"
+                                                href="delete.php?id=<?= $doctor['id_doctor'] ?>"
+                                                class="btn btn-danger">
+                                                Delete</a>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -92,62 +89,12 @@ $page = 'doctor';
                                 </tbody>
                             </table>
                         </form>
-                        <button class="btn btn-danger float-end" onclick="hapus()">Delete</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <!-- Main End -->
-    <!-- JS Start -->
-    <script>
-        // Function Checkbox
-        $(document).ready(function () {
-            $("#select_all").on('click', function () {
-                if (this.checked) {
-                    $('.check').each(function () {
-                        this.checked = true;
-                    });
-                } else {
-                    $('.check').each(function () {
-                        this.checked = false;
-                    });
-                }
-            });
-            $('.check').on('click', function () {
-                if ($('.check:checked').length == $('.check').length) {
-                    $('#select_all').prop('checked', true)
-                } else {
-                    $('#select_all').prop('checked', false)
-                }
-            })
-        });
-        // Function Edit
-        function edit() {
-            document.process.action = 'edit.php';
-            document.process.submit();
-        }
-        // Function Delete
-        function hapus() {
-            var conf = confirm('Are you sure ?'); {
-                if (conf) {
-                    document.process.action = 'delete.php';
-                    document.process.submit();
-                }
-            }
-        }
-        // Data Tables
-        $(document).ready(function () {
-            $('#doctor').DataTable({
-                columnDefs: [{
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": [5,6],
-                }],
-            });
-        });
-    </script>
-    <!-- JS End -->
     <!-- Footer Start -->
     <?php require '../partials/footer.php' ?>
     <!-- Footer End -->

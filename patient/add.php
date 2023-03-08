@@ -6,7 +6,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$page = 'doctor';
+$page = 'patient';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>

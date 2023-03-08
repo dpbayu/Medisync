@@ -40,38 +40,38 @@ $page = 'patient';
                         $data = mysqli_fetch_array($sql_patient);
                         ?>
                         <div class="form-group mb-3">
-                            <label for="nik_patient">NIK Patient</label>
+                            <label class="form-label" for="nik_patient">NIK Patient</label>
                             <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
-                            <input type="number" id="nik_patient" name="nik_patient" class="form-control" value="<?= $data['nik_patient'] ?>"
+                            <input class="form-control" type="number" id="nik_patient" name="nik_patient" value="<?= $data['nik_patient'] ?>"
                                 required autofocus>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name_patient">Name Patient</label>
-                            <input type="text" id="name_patient" name="name_patient" class="form-control"
+                            <label class="form-label" for="name_patient">Name Patient</label>
+                            <input class="form-control" type="text" id="name_patient" name="name_patient"
                                 value="<?= $data['name_patient'] ?>" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="gender_patient">Gender</label>
+                            <label class="form-label" for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
-                                <label class="radio-inline">
+                                <label class="form-label" class="radio-inline">
                                     <input type="radio" name="gender_patient" id="gender_patient" value="Man"
                                         <?= $data['gender_patient'] == "Man" ? "checked" : null ?> required> Man
                                 </label>
-                                <label class="radio-inline">
+                                <label class="form-label" class="radio-inline">
                                     <input type="radio" name="gender_patient" value="Woman"
                                         <?= $data['gender_patient'] == "Woman" ? "checked" : null ?> required> Woman
                                 </label>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="phone_patient">Phone</label>
-                            <input type="number" id="phone_patient" name="phone_patient" class="form-control"
+                            <label class="form-label" for="phone_patient">Phone</label>
+                            <input class="form-control" type="number" id="phone_patient" name="phone_patient"
                                 value="<?= $data['phone_patient'] ?>" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="address_patient">Address</label>
-                            <textarea id="address_patient" name="address_patient" class="form-control"
-                                required><?= $data['address_patient'] ?></textarea>
+                            <label class="form-label" for="address_patient">Address</label>
+                            <textarea class="form-control" id="address_patient" name="address_patient" rows="5"
+                                style="resize: none;" required><?= $data['address_patient'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="edit">Update</button>
