@@ -33,7 +33,7 @@ $page = 'patient';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="function.php" method="POST">
+                    <form action="functionPatient.php" method="POST">
                         <?php
                         $id = @$_GET['id'];
                         $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
@@ -75,7 +75,7 @@ $page = 'patient';
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="edit">Update</button>
-                            <a href="data.php" class="btn btn-secondary">Back</a>
+                            <a href="dataPatient.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

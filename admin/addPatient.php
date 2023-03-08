@@ -31,7 +31,7 @@ $page = 'patient';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="function.php" method="POST">
+                    <form action="functionPatient.php" method="POST">
                         <div class="form-group mb-3">
                             <label class="form-label" for="nik_patient">NIK Patient</label>
                             <input class="form-control" type="number" id="nik_patient" name="nik_patient"
@@ -65,7 +65,7 @@ $page = 'patient';
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="add">Add data</button>
-                            <a href="data.php" class="btn btn-secondary">Back</a>
+                            <a href="dataPatient.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

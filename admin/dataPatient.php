@@ -30,7 +30,7 @@ $page = 'patient';
             <h1>Data Patient</h1>
         </div>
         <div class="my-3">
-            <a href="add.php" class="btn btn-primary">Add data</a>
+            <a href="addPatient.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -77,11 +77,11 @@ $page = 'patient';
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $patient['phone_patient'] ?></td>
                                     <td class="text-center">
-                                        <a href="edit.php?id=<?= $patient['id_patient'] ?>" class="btn btn-warning">
+                                        <a href="editPatient.php?id=<?= $patient['id_patient'] ?>" class="btn btn-warning">
                                             Edit
                                         </a>
                                         <a onclick="return confirm('Are you sure delete this data ?')"
-                                            href="delete.php?id=<?= $patient['id_patient'] ?>" class="btn btn-danger">
+                                            href="deletePatient.php?id=<?= $patient['id_patient'] ?>" class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>
