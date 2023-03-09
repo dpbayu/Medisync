@@ -40,6 +40,16 @@ $page = 'doctor';
                                 placeholder="Input name doctor" required autofocus>
                         </div>
                         <div class="form-group mb-3">
+                            <label class="form-label" for="email_doctor">Email Doctor</label>
+                            <input class="form-control" type="email" id="email_doctor" name="email_doctor"
+                                placeholder="Input email doctor" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="password_doctor">Password</label>
+                            <input class="form-control" type="password" id="password_doctor" name="password_doctor"
+                                placeholder="Input password" required>
+                        </div>
+                        <div class="form-group mb-3">
                             <label class="form-label" for="specialist_doctor">Specialist</label>
                             <input class="form-control" type="text" id="specialist_doctor" name="specialist_doctor"
                                 placeholder="Input specialist doctor" required>

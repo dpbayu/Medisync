@@ -2,20 +2,48 @@
 <?php
 require 'function.php';
 if (isset($_POST["login"])) {
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
-    $result = mysqli_query($db, "SELECT * FROM tbl_admin WHERE username = '$username'");
+    $result = mysqli_query($db, "SELECT * FROM tbl_user WHERE email = '$email'");
     if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
-            $_SESSION['id_admin'] = $row['id_admin'];
-            $_SESSION['name_admin'] = $row['name_admin'];
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['profile_admin'] = $row['profile_admin'];
-            $_SESSION['role'] = $row['role'];
-            $_SESSION["login"] = true;
-            header("Location: admin/index.php");
-            exit;
+        $row = mysqli_fetch_assoc($result)['role'];
+        if ($row == 'Admin') {
+            $patient = mysqli_query($db, "SELECT * FROM tbl_admin WHERE email_admin = '$email'");
+            if (mysqli_num_rows($patient) === 1) {
+                $value = mysqli_fetch_assoc($patient);
+                if (password_verify($password, $value["password_admin"])) {
+                    $_SESSION['id_admin'] = $value['id_admin'];
+                    $_SESSION['name_admin'] = $value['name_admin'];
+                    $_SESSION['email_admin'] = $value['email_admin'];
+                    $_SESSION['profile_admin'] = $value['profile_admin'];
+                    $_SESSION['role'] = $value['role'];
+                    $_SESSION["login"] = true;
+                    header("Location: admin/index.php");
+                    exit;
+                } else {
+                    $error = true;
+                }
+            }
+        } else if ($row == 'Doctor') {
+            $doctor = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE email_doctor = '$email'");
+            if (mysqli_num_rows($doctor) === 1) {
+                $value = mysqli_fetch_assoc($doctor);
+                if (password_verify($password, $value["password_doctor"])) {
+                    $_SESSION['id_doctor'] = $value['id_doctor'];
+                    $_SESSION['name_doctor'] = $value['name_doctor'];
+                    $_SESSION['email_doctor'] = $value['email_doctor'];
+                    $_SESSION['specialist_doctor'] = $value['specialist_doctor'];
+                    $_SESSION['address_doctor'] = $value['address_doctor'];
+                    $_SESSION['phone_doctor'] = $value['phone_doctor'];
+                    $_SESSION['profile_doctor'] = $value['profile_doctor'];
+                    $_SESSION['role'] = $value['role'];
+                    $_SESSION["login"] = true;
+                    header("Location: doctor/index.php");
+                    exit;
+                } else {
+                    $error = true;
+                }
+            }
         }
     }
     $error = true;
@@ -67,18 +95,18 @@ if (isset($_POST["login"])) {
                                 <div class="card-body">
                                     <div class="pt-4 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                                        <p class="text-center small">Enter your username & password to login</p>
+                                        <p class="text-center small">Enter your email & password to login</p>
                                     </div>
                                     <!-- Message Failed Start -->
                                     <?php if(isset($error)) : ?>
-                                    <p style="color: red; font-style: italic;">Username / password wrong</p>
+                                    <p style="color: red; font-style: italic;">email / password wrong</p>
                                     <?php endif; ?>
                                     <!-- Message Failed End -->
                                     <!-- Form Start -->
                                     <form action="" method="POST" class="row g-3 needs-validation">
                                         <div class="col-12">
-                                            <label for="username" class="form-label">Username</label>
-                                            <input type="text" name="username" class="form-control" id="username"
+                                            <label for="email" class="form-label">email</label>
+                                            <input type="text" name="email" class="form-control" id="email"
                                                 required autofocus>
                                         </div>
                                         <div class="col-12">

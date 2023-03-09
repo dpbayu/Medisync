@@ -41,19 +41,40 @@ if (isset($_POST['addPatient'])) {
 if (isset($_POST['addDoctor'])) {
     $uuid = Uuid::uuid4()->toString();
     $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
+    $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
+    $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
     $specialist_doctor = trim(mysqli_real_escape_string($db, $_POST['specialist_doctor']));
     $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
     $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
-    mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, specialist_doctor, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$specialist_doctor', '$address_doctor', '$phone_doctor')");
-    echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
+    $sql_check = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE email_doctor = '$email_doctor'");
+    if (mysqli_num_rows($sql_check) > 0) {
+        echo "<script>window.location='dataDoctor.php?failed=Email already exist! Try again';</script>";
+    } else {
+        $password_doctor = password_hash($password_doctor, PASSWORD_DEFAULT);
+        mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, specialist_doctor, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$specialist_doctor', '$address_doctor', '$phone_doctor')");
+        mysqli_query($db, "INSERT INTO tbl_user VALUES ('', '$email_doctor', 'Doctor')");
+        echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
+    }
 } else if (isset($_POST['editDoctor'])) {
     $id = $_POST['id'];
     $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
+    $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
+    $old_email = trim(mysqli_real_escape_string($db, $_POST['old_email']));
+    $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
     $specialist_doctor = trim(mysqli_real_escape_string($db, $_POST['specialist_doctor']));
     $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
     $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
-    mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', specialist_doctor = '$specialist_doctor', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
-    echo "<script>window.location='dataDoctor.php?success=Date successfuly updated!';</script>";
+    mysqli_query($db, "SELECT tbl_doctor.id_doctor FROM tbl_doctor INNER JOIN tbl_user ON tbl_doctor.email_doctor = tbl_user.email WHERE tbl_user.email = '$email_doctor'");
+        if (empty($password_doctor)) {
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', specialist_doctor = '$specialist_doctor', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
+            mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
+            echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
+        } else {
+            $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', specialist_doctor = '$specialist_doctor', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
+            mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
+            echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
+    }
 }
 // Add & Edit Doctor End
 
@@ -111,8 +132,8 @@ if (isset($_POST['addPoly'])) {
 if (isset($_POST['update'])) {
     global $db;
     $name_admin = mysqli_real_escape_string($db, $_POST['name_admin']);
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+    $email_admin = mysqli_real_escape_string($db, $_POST['email_admin']);
+    $password_admin = mysqli_real_escape_string($db, $_POST['password_admin']);
     $profile_admin = $_FILES['profile_admin']['name'];
     $imgtemp = $_FILES['profile_admin']['tmp_name'];
     if ($imgtemp=='') {
@@ -123,24 +144,24 @@ if (isset($_POST['update'])) {
         $profile_admin = $d['profile_admin'];
     }
     move_uploaded_file($imgtemp,"img/$profile_admin");
-    if (empty($username) OR empty($name_admin)) {
+    if (empty($email_admin) OR empty($name_admin)) {
         echo "Field still empty";
     } else {
-            if (empty($password)) {
+            if (empty($password_admin)) {
                 $id = $_SESSION['id_admin'];
-                $sql = "UPDATE tbl_admin SET name_admin = '$name_admin', username = '$username', profile_admin = '$profile_admin' WHERE id_admin = '$id'";
+                $sql = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', profile_admin = '$profile_admin' WHERE id_admin = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['name_admin'] = $name_admin;
-                    $_SESSION['username'] = $username;
+                    $_SESSION['email_admin'] = $email_admin;
                     $_SESSION['profile_admin'] = $profile_admin;
                     echo "<script>document.location.href = 'profile.php?success=Succesfully updated!';</script>";
                 } else {
                     echo "Error";
                 }
             } else {
-                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $hash = password_hash($password_admin, PASSWORD_DEFAULT);
                 $id = $_SESSION['id_admin'];
-                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', username = '$username', password = '$hash' WHERE id_admin = '$id'";
+                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', password_admin = '$hash' WHERE id_admin = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();

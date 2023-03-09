@@ -42,8 +42,18 @@ $page = 'doctor';
                         <div class="form-group mb-3">
                             <label class="form-label" for="name_admin">Name Doctor</label>
                             <input class="form-control" type="hidden" name="id" value="<?= $data['id_doctor'] ?>">
+                            <input class="form-control" type="hidden" name="old_email" value="<?= $data['email_doctor'] ?>" >
                             <input class="form-control" type="text" id="name_admin" name="name_doctor" value="<?= $data['name_doctor'] ?>"
                                 require autofocus>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="email_doctor">Email</label>
+                            <input class="form-control" type="email" id="email_doctor" name="email_doctor"
+                                value="<?= $data['email_doctor'] ?>" require>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="password_doctor">Password</label>
+                            <input class="form-control" type="password" id="password_doctor" name="password_doctor">
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="specialist_doctor">Specialist</label>

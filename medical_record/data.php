@@ -13,15 +13,15 @@ $page = 'medical_record';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -128,7 +128,7 @@ $page = 'medical_record';
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

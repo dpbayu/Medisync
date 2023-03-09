@@ -46,13 +46,13 @@ $page = 'profile';
                             value="<?php echo $_SESSION['name_admin'] ?>">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="username">Username</label>
-                        <input class="form-control" type="text" id="username" name="username"
-                            value="<?php echo $_SESSION['username'] ?>">
+                        <label class="form-label" for="username">Email</label>
+                        <input class="form-control" type="text" id="username" name="email_admin"
+                            value="<?php echo $_SESSION['email_admin'] ?>">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="password">Password</label>
-                        <input class="form-control" type="password" id="password" name="password">
+                        <input class="form-control" type="password" id="password" name="password_admin">
                     </div>
                     <img src="img/<?php echo $_SESSION['profile_admin'] ?>" class="rounded-circle" height="200"
                         width="200">
