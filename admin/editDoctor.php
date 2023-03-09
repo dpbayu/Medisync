@@ -13,15 +13,15 @@ $page = 'doctor';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -61,8 +61,8 @@ $page = 'doctor';
                                 require><?= $data['address_doctor'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="edit">Edit data</button>
-                            <a href="data.php" class="btn btn-secondary">Back</a>
+                            <button class="btn btn-success" type="submit" name="editDoctor">Edit data</button>
+                            <a href="dataDoctor.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>
@@ -71,7 +71,7 @@ $page = 'doctor';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

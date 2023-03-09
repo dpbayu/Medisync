@@ -13,15 +13,15 @@ $page = 'patient';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -31,7 +31,7 @@ $page = 'patient';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="functionPatient.php" method="POST">
+                    <form action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label class="form-label" for="nik_patient">NIK Patient</label>
                             <input class="form-control" type="number" id="nik_patient" name="nik_patient"
@@ -64,7 +64,7 @@ $page = 'patient';
                                 style="resize: none;" placeholder="Input address" required></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add">Add data</button>
+                            <button class="btn btn-success" type="submit" name="addPatient">Add data</button>
                             <a href="dataPatient.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
@@ -74,7 +74,7 @@ $page = 'patient';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

@@ -14,15 +14,15 @@ $page = 'poly';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -30,7 +30,7 @@ $page = 'poly';
             <h1>Data Poly</h1>
         </div>
         <div class="my-3">
-            <a href="generate.php" class="btn btn-primary">Add data</a>
+            <a href="generatePoly.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -118,14 +118,14 @@ $page = 'poly';
         });
         // Function Edit
         function edit() {
-            document.process.action = 'edit.php';
+            document.process.action = 'editPoly.php';
             document.process.submit();
         }
         // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.process.action = 'delete.php';
+                    document.process.action = 'deletePoly.php';
                     document.process.submit();
                 }
             }
@@ -143,7 +143,7 @@ $page = 'poly';
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

@@ -14,15 +14,15 @@ $page = 'medicine';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -30,7 +30,7 @@ $page = 'medicine';
             <h1>Data Medicine</h1>
         </div>
         <div class="my-3">
-            <a href="generate.php" class="btn btn-primary">Add data</a>
+            <a href="generateMedicine.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -55,7 +55,7 @@ $page = 'medicine';
                     ?>
                     <div class="table">
                         <form action="" method="POST" name="process">
-                            <table id="poly" class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover" id="medicine">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -120,21 +120,21 @@ $page = 'medicine';
         });
         // Function Edit
         function edit() {
-            document.process.action = 'edit.php';
+            document.process.action = 'editMedicine.php';
             document.process.submit();
         }
         // Function Delete
         function hapus() {
             var conf = confirm('Are you sure ?'); {
                 if (conf) {
-                    document.process.action = 'delete.php';
+                    document.process.action = 'deleteMedicine.php';
                     document.process.submit();
                 }
             }
         }
         // Data Tables
         $(document).ready(function () {
-            $('#poly').DataTable({
+            $('#medicine').DataTable({
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
@@ -145,7 +145,7 @@ $page = 'medicine';
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

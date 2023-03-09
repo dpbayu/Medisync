@@ -13,15 +13,15 @@ $page = 'patient';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -33,7 +33,7 @@ $page = 'patient';
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="functionPatient.php" method="POST">
+                    <form action="function.php" method="POST">
                         <?php
                         $id = @$_GET['id'];
                         $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
@@ -74,7 +74,7 @@ $page = 'patient';
                                 style="resize: none;" required><?= $data['address_patient'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="edit">Update</button>
+                            <button class="btn btn-success" type="submit" name="editPatient">Update</button>
                             <a href="dataPatient.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
@@ -84,7 +84,7 @@ $page = 'patient';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

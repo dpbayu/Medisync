@@ -14,15 +14,15 @@ $page = 'doctor';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -30,7 +30,7 @@ $page = 'doctor';
             <h1>Data Doctor</h1>
         </div>
         <div class="my-3">
-            <a href="add.php" class="btn btn-primary">Add data</a>
+            <a href="addDoctor.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -76,10 +76,10 @@ $page = 'doctor';
                                         <td><?= $doctor['address_doctor'] ?></td>
                                         <td><?= $doctor['phone_doctor'] ?></td>
                                         <td class="text-center">
-                                            <a href="edit.php?id=<?= $doctor['id_doctor'] ?>"
+                                            <a href="editDoctor.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-warning">Edit</a>
                                             <a onclick="return confirm('Are you sure delete this data ?')"
-                                                href="delete.php?id=<?= $doctor['id_doctor'] ?>"
+                                                href="deleteDoctor.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-danger">
                                                 Delete</a>
                                         </td>
@@ -95,8 +95,22 @@ $page = 'doctor';
         </section>
     </main>
     <!-- Main End -->
+    <!-- JS Start -->
+    <script>
+        // Data Tables
+        $(document).ready(function () {
+            $('#doctor').DataTable({
+                columnDefs: [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 5,
+                }]
+            });
+        });
+    </script>
+    <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

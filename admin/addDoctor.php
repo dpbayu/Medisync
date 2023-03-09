@@ -13,15 +13,15 @@ $page = 'doctor';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -36,26 +36,27 @@ $page = 'doctor';
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label class="form-label" for="name_doctor">Name Doctor</label>
-                            <input class="form-control" type="text" id="name_doctor" name="name_doctor" placeholder="Input name doctor" required
-                                autofocus>
+                            <input class="form-control" type="text" id="name_doctor" name="name_doctor"
+                                placeholder="Input name doctor" required autofocus>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="specialist_doctor">Specialist</label>
-                            <input class="form-control" type="text" id="specialist_doctor" name="specialist_doctor" placeholder="Input specialist doctor"
-                                required>
+                            <input class="form-control" type="text" id="specialist_doctor" name="specialist_doctor"
+                                placeholder="Input specialist doctor" required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="phone_doctor">Phone</label>
-                            <input class="form-control" type="number" id="phone_doctor" name="phone_doctor" placeholder="Input phone doctor" required>
+                            <input class="form-control" type="number" id="phone_doctor" name="phone_doctor"
+                                placeholder="Input phone doctor" required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="address_doctor">Address</label>
-                            <textarea class="form-control" id="address_doctor" name="address_doctor" rows="5" placeholder="Input address doctor" required
-                                style="resize: none;"></textarea>
+                            <textarea class="form-control" id="address_doctor" name="address_doctor" rows="5"
+                                placeholder="Input address doctor" required style="resize: none;"></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add">Add data</button>
-                            <a href="data.php" class="btn btn-secondary">Back</a>
+                            <button class="btn btn-success" type="submit" name="addDoctor">Add data</button>
+                            <a href="dataDoctor.php" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>
@@ -64,7 +65,7 @@ $page = 'doctor';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

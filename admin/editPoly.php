@@ -17,15 +17,15 @@ if (!isset($chk)) {
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -34,7 +34,7 @@ if (!isset($chk)) {
         </div>
         <div class="d-flex justify-content-end gap-1 mb-3">
             <div class="d-flex justify-content-end gap-1 mb-3">
-                <a href="data.php" class="btn btn-primary">Back</a>
+                <a href="dataPoly.php" class="btn btn-primary">Back</a>
             </div>
         </div>
         <div class="row">
@@ -75,7 +75,7 @@ if (!isset($chk)) {
                         </tbody>
                     </table>
                     <div class="form-group d-flex justify-content-end">
-                        <input type="submit" name="edit" value="Edit All" class="btn btn-success">
+                        <input type="submit" name="editPoly" value="Edit All" class="btn btn-success">
                     </div>
                 </form>
             </div>
@@ -83,7 +83,7 @@ if (!isset($chk)) {
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 

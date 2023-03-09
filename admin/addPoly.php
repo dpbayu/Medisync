@@ -13,15 +13,15 @@ $page = 'poly';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partials/head.php' ?>
+<?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partials/header.php' ?>
+    <?php require '../partialsAdmin/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partials/sidebar.php' ?>
+    <?php require '../partialsAdmin/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -29,8 +29,8 @@ $page = 'poly';
             <h1>Data Poly</h1>
         </div>
         <div class="d-flex justify-content-end gap-1 mb-3">
-            <a href="data.php" class="btn btn-info">Data</a>
-            <a href="generate.php" class="btn btn-primary">Add More</a>
+            <a href="dataPoly.php" class="btn btn-info">Data</a>
+            <a href="generatePoly.php" class="btn btn-primary">Add More</a>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -55,7 +55,7 @@ $page = 'poly';
                         ?>
                     </table>
                     <div class="form-group d-flex justify-content-end">
-                        <input type="submit" name="add" value="Save All" class="btn btn-success">
+                        <input type="submit" name="addPoly" value="Save All" class="btn btn-success">
                     </div>
                 </form>
             </div>
@@ -63,7 +63,7 @@ $page = 'poly';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partials/footer.php' ?>
+    <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>
 
