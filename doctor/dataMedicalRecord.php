@@ -13,15 +13,15 @@ $page = 'medical_record';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partialsAdmin/head.php' ?>
+<?php require '../partialsDoctor/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partialsAdmin/header.php' ?>
+    <?php require '../partialsDoctor/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partialsAdmin/sidebar.php' ?>
+    <?php require '../partialsDoctor/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -29,12 +29,12 @@ $page = 'medical_record';
             <h1>Data Rekam Medik</h1>
         </div>
         <div class="my-3">
-            <a href="add.php" class="btn btn-primary">Add data</a>
+            <a href="addMedicalRecord.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                <?php
+                    <?php
                     if (isset($_GET['success'])) {
                         $msg = $_GET['success'];
                         echo '
@@ -77,7 +77,7 @@ $page = 'medical_record';
                                     INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
                                     $sql = mysqli_query($db, $query);
                                     while ($data = mysqli_fetch_array($sql)) {
-                                        ?>
+                                    ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= date("j F Y", strtotime($data['check_up'])) ?></td>
@@ -97,7 +97,9 @@ $page = 'medical_record';
                                             ?>
                                         </td>
                                         <td class="text-center">
-                                            <a href="delete.php?id=<?= $data['id_hospital'] ?>"
+                                            <a href="editMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
+                                                class="btn btn-warning btn-xs">Edit</a>
+                                            <a href="deleteMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
                                                 class="btn btn-danger btn-xs"
                                                 onclick="return confirm('Are you sure ?')">Delete</a>
                                         </td>
@@ -128,7 +130,7 @@ $page = 'medical_record';
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partialsAdmin/footer.php' ?>
+    <?php require '../partialsDoctor/footer.php' ?>
     <!-- Footer End -->
 </body>
 

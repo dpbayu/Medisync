@@ -33,7 +33,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'medical_record'){echo 'collapsed';} ?>"
-                href="../medical_record/data.php">
+                href="../admin/dataMedicalRecord.php">
                 <i class="bi bi-box"></i>
                 <span>Data Medical Record</span>
             </a>

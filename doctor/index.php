@@ -1,12 +1,53 @@
+<!-- PHP -->
+<?php
+require '../function.php';
+if (!isset($_SESSION["login"])) {
+    header("Location: ../index.php");
+    exit;
+}
+$page = 'dashboard';
+?>
+<!-- PHP -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
+<!-- Head Start -->
+<?php require '../partialsDoctor/head.php' ?>
+<!-- Head End -->
+
 <body>
-    <h1>Hello World!</h1>
+    <!-- Header Start -->
+    <?php require '../partialsDoctor/header.php' ?>
+    <!-- Header End -->
+    <!-- Sidebar Start -->
+    <?php require '../partialsDoctor/sidebar.php' ?>
+    <!-- Sidebar End-->
+    <!-- Main Start -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+        </div><!-- End Page Title -->
+        <section class="section dashboard">
+            <div class="row">
+                <!-- Left Side Start -->
+                <div class="col-lg-8">
+                    <div class="row">
+                        <h1>Welcome to E-CURE <?= $_SESSION['name_doctor'] ?></h1>
+                    </div>
+                </div>
+                <!-- Left Side Start -->
+                <!-- Right Side Start -->
+                <div class="col-lg-4">
+                    <h1>Hello World!</h1>
+                </div>
+                <!-- Right Side End -->
+            </div>
+        </section>
+    </main>
+    <!-- Main End -->
+    <!-- Footer Start -->
+    <?php require '../partialsDoctor/footer.php' ?>
+    <!-- Footer End -->
 </body>
+
 </html>
