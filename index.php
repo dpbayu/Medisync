@@ -99,13 +99,13 @@ if (isset($_POST["login"])) {
                                     </div>
                                     <!-- Message Failed Start -->
                                     <?php if(isset($error)) : ?>
-                                    <p style="color: red; font-style: italic;">email / password wrong</p>
+                                    <p style="color: red; font-style: italic;">Email / password wrong</p>
                                     <?php endif; ?>
                                     <!-- Message Failed End -->
                                     <!-- Form Start -->
                                     <form action="" method="POST" class="row g-3 needs-validation">
                                         <div class="col-12">
-                                            <label for="email" class="form-label">email</label>
+                                            <label for="email" class="form-label">Email</label>
                                             <input type="text" name="email" class="form-control" id="email"
                                                 required autofocus>
                                         </div>

@@ -52,7 +52,7 @@ if (isset($_POST['addDoctor'])) {
     } else {
         $password_doctor = password_hash($password_doctor, PASSWORD_DEFAULT);
         mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, specialist_doctor, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$specialist_doctor', '$address_doctor', '$phone_doctor')");
-        mysqli_query($db, "INSERT INTO tbl_user VALUES ('', '$email_doctor', 'Doctor')");
+        mysqli_query($db, "INSERT INTO tbl_user VALUES ('$email_doctor', 'Doctor')");
         echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
     }
 } else if (isset($_POST['editDoctor'])) {

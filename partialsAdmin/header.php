@@ -13,7 +13,7 @@
             <li class="nav-item dropdown pe-3">
                 <!-- Profile Image Start -->
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="../admin/img/<?php echo $_SESSION['profile_admin'] ?>" alt="Profile" class="rounded-circle"
+                    <img src="img/<?php echo $_SESSION['profile_admin'] ?>" alt="Profile" class="rounded-circle"
                         width="40" height="100">
                     <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['name_admin'] ?></span>
                 </a>

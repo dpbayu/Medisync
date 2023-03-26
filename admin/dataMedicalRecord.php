@@ -62,7 +62,6 @@ $page = 'medical_record';
                                         <th>Diagnosis</th>
                                         <th>Poly</th>
                                         <th>Medicine</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -93,11 +92,6 @@ $page = 'medical_record';
                                             }
                                             ?>
                                         </td>
-                                        <td class="text-center">
-                                            <a href="delete.php?id=<?= $data['id_hospital'] ?>"
-                                                class="btn btn-danger btn-xs"
-                                                onclick="return confirm('Are you sure ?')">Delete</a>
-                                        </td>
                                     </tr>
                                     <?php
                                     }
@@ -118,7 +112,7 @@ $page = 'medical_record';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 8,
+                    "targets": 7,
                 }]
             });
         });

@@ -33,4 +33,52 @@ if (isset($_POST['add'])) {
     echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Medical Record End
+
+// Update Profile Start
+if (isset($_POST['update'])) {
+    global $db;
+    $name_doctor = mysqli_real_escape_string($db, $_POST['name_doctor']);
+    $email_doctor = mysqli_real_escape_string($db, $_POST['email_doctor']);
+    $password_doctor = mysqli_real_escape_string($db, $_POST['password_doctor']);
+    $profile_doctor = $_FILES['profile_doctor']['name'];
+    $imgtemp = $_FILES['profile_doctor']['tmp_name'];
+    if ($imgtemp=='') {
+        $id = $_SESSION['id_doctor'];
+        $q = "SELECT * FROM tbl_doctor WHERE id_doctor = '$id'";
+        $r = mysqli_query($db,$q);
+        $d = mysqli_fetch_array($r);
+        $profile_doctor = $d['profile_doctor'];
+    }
+    move_uploaded_file($imgtemp,"img/$profile_doctor");
+    if (empty($email_doctor) OR empty($name_doctor)) {
+        echo "Field still empty";
+    } else {
+            if (empty($password_doctor)) {
+                $id = $_SESSION['id_doctor'];
+                $sql = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', profile_doctor = '$profile_doctor' WHERE id_doctor = '$id'";
+                if (mysqli_query($db, $sql)) {
+                    $_SESSION['name_doctor'] = $name_doctor;
+                    $_SESSION['email_doctor'] = $email_doctor;
+                    $_SESSION['profile_doctor'] = $profile_doctor;
+                    echo "<script>document.location.href = 'profile.php?success=Succesfully updated!';</script>";
+                } else {
+                    echo "Error";
+                }
+            } else {
+                $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
+                $id = $_SESSION['id_doctor'];
+                $sql2 = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash' WHERE id_doctor = '$id'";
+                if (mysqli_query($db, $sql2)) {
+                    session_unset();
+                    session_destroy();
+                    echo "<script>alert('Password success changed, please login again');
+                    document.location.href = '../index.php';
+                    </script>";
+                } else {
+                echo "error";
+            }
+        }
+    }
+}
+// Update Profile End
 ?>

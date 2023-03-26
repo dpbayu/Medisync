@@ -97,8 +97,6 @@ $page = 'medical_record';
                                             ?>
                                         </td>
                                         <td class="text-center">
-                                            <a href="editMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
-                                                class="btn btn-warning btn-xs">Edit</a>
                                             <a href="deleteMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
                                                 class="btn btn-danger btn-xs"
                                                 onclick="return confirm('Are you sure ?')">Delete</a>
