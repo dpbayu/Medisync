@@ -35,7 +35,7 @@ $page = 'medical_record';
                         <div class="form-group mb-3">
                             <label class="form-label" for="patient">Name Patient</label>
                             <select class="form-control" name="id_patient" id="patient">
-                                <option value="">- Pilih -</option>
+                                <option value="">- Choose Patient -</option>
                                 <?php
                                 $sql_pasien = mysqli_query($db, "SELECT * FROM tbl_patient");
                                 while ($data_pasien = mysqli_fetch_array($sql_pasien)) { 
@@ -52,7 +52,7 @@ $page = 'medical_record';
                         <div class="form-group mb-3">
                             <label class="form-label" for="doctor">Name Doctor</label>
                             <select class="form-control" name="id_doctor" id="doctor">
-                                <option value="">- Pilih -</option>
+                                <option value="">- Choose Doctor -</option>
                                 <?php
                                 $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
                                 while ($data_doctor = mysqli_fetch_array($sql_doctor)) { 
@@ -69,7 +69,7 @@ $page = 'medical_record';
                         <div class="form-group mb-3">
                             <label class="form-label" for="poly">Name Poly</label>
                             <select class="form-control" name="id_poly" id="poly">
-                                <option value="">- Pilih -</option>
+                                <option value="">- Choose Poly -</option>
                                 <?php
                                 $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
                                 while ($data_poly = mysqli_fetch_array($sql_poly)) { 
@@ -109,7 +109,7 @@ $page = 'medical_record';
     <script type="text/javascript">
         $(document).ready(function () {
             $('#medicine').select2({
-                placeholder: "Pilih Hobi",
+                placeholder: "Choose Medicine",
                 allowClear: true,
                 language: "id"
             });
