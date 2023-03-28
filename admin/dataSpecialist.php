@@ -6,9 +6,8 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$doctors = query("SELECT * FROM tbl_doctor 
-INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist ORDER BY name_doctor ASC");
-$page = 'doctor';
+$specialists = query("SELECT * FROM tbl_specialist ORDER BY name_specialist ASC");
+$page = 'specialist';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
@@ -28,15 +27,15 @@ $page = 'doctor';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Doctor</h1>
+            <h1>Data Specialist</h1>
         </div>
         <div class="my-3">
-            <a href="addDoctor.php" class="btn btn-primary">Add data</a>
+            <a href="generateSpecialist.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
-                    <?php
+                <?php
                     if (isset($_GET['success'])) {
                         $msg = $_GET['success'];
                         echo '
@@ -56,33 +55,25 @@ $page = 'doctor';
                     ?>
                     <div class="table">
                         <form action="" method="POST" name="process">
-                            <table class="table table-bordered table-hover" id="doctor">
+                            <table id="specialist" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Name Doctor</th>
-                                        <th>Specialist</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th class="text-center">Action</th>
+                                        <th>Name Specialist</th>
+                                        <th class="text-center">
+                                            <input type="checkbox" id="select_all" value="">
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach($doctors as $doctor) : ?>
+                                    <?php foreach($specialists as $specialist) : ?>
                                     <tr>
                                         <td><?= $i; ?></td>
-                                        <td><?= $doctor['name_doctor'] ?></td>
-                                        <td><?= $doctor['name_specialist'] ?></td>
-                                        <td><?= $doctor['address_doctor'] ?></td>
-                                        <td><?= $doctor['phone_doctor'] ?></td>
+                                        <td><?= $specialist['name_specialist'] ?></td>
                                         <td class="text-center">
-                                            <a href="editDoctor.php?id=<?= $doctor['id_doctor'] ?>"
-                                                class="btn btn-warning">Edit</a>
-                                            <a onclick="return confirm('Are you sure delete this data ?')"
-                                                href="deleteDoctor.php?id=<?= $doctor['id_doctor'] ?>"
-                                                class="btn btn-danger">
-                                                Delete</a>
+                                            <input type="checkbox" name="checked[]" class="check"
+                                                value="<?= $specialist['id_specialist'] ?>" <?= $specialist['id_specialist'] ?>>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -90,6 +81,10 @@ $page = 'doctor';
                                 </tbody>
                             </table>
                         </form>
+                        <div class="float-end border-0">
+                            <button class="btn btn-warning" onclick="edit()">Edit</button>
+                            <button class="btn btn-danger" onclick="hapus()">Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,14 +93,49 @@ $page = 'doctor';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
+        // Function Checkbox
+        $(document).ready(function () {
+            $("#select_all").on('click', function () {
+                if (this.checked) {
+                    $('.check').each(function () {
+                        this.checked = true;
+                    });
+                } else {
+                    $('.check').each(function () {
+                        this.checked = false;
+                    });
+                }
+            });
+            $('.check').on('click', function () {
+                if ($('.check:checked').length == $('.check').length) {
+                    $('#select_all').prop('checked', true)
+                } else {
+                    $('#select_all').prop('checked', false)
+                }
+            })
+        });
+        // Function Edit
+        function edit() {
+            document.process.action = 'editSpecialist.php';
+            document.process.submit();
+        }
+        // Function Delete
+        function hapus() {
+            var conf = confirm('Are you sure ?'); {
+                if (conf) {
+                    document.process.action = 'deleteSpecialist.php';
+                    document.process.submit();
+                }
+            }
+        }
         // Data Tables
         $(document).ready(function () {
-            $('#doctor').DataTable({
+            $('#specialist').DataTable({
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 5,
-                }]
+                    "targets": 2,
+                }],
             });
         });
     </script>

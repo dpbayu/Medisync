@@ -43,7 +43,7 @@ if (isset($_POST['addDoctor'])) {
     $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
     $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
     $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
-    $specialist_doctor = trim(mysqli_real_escape_string($db, $_POST['specialist_doctor']));
+    $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
     $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
     $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
     $sql_check = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE email_doctor = '$email_doctor'");
@@ -51,7 +51,7 @@ if (isset($_POST['addDoctor'])) {
         echo "<script>window.location='dataDoctor.php?failed=Email already exist! Try again';</script>";
     } else {
         $password_doctor = password_hash($password_doctor, PASSWORD_DEFAULT);
-        mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, specialist_doctor, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$specialist_doctor', '$address_doctor', '$phone_doctor')");
+        mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, id_specialist, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$id_specialist', '$address_doctor', '$phone_doctor')");
         mysqli_query($db, "INSERT INTO tbl_user VALUES ('$email_doctor', 'Doctor')");
         echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
     }
@@ -61,17 +61,17 @@ if (isset($_POST['addDoctor'])) {
     $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
     $old_email = trim(mysqli_real_escape_string($db, $_POST['old_email']));
     $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
-    $specialist_doctor = trim(mysqli_real_escape_string($db, $_POST['specialist_doctor']));
+    $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
     $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
     $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
     mysqli_query($db, "SELECT tbl_doctor.id_doctor FROM tbl_doctor INNER JOIN tbl_user ON tbl_doctor.email_doctor = tbl_user.email WHERE tbl_user.email = '$email_doctor'");
         if (empty($password_doctor)) {
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', specialist_doctor = '$specialist_doctor', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
             mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
             echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
         } else {
             $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', specialist_doctor = '$specialist_doctor', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
             mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
             echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
     }
@@ -115,7 +115,7 @@ if (isset($_POST['addPoly'])) {
     if ($sql) {
         echo "<script>window.location='dataPoly.php?success=".$total." Data successfully added!';</script>";
     } else {
-        echo "<script>window.location='generate.php?failed=Data failed added! Try again';</script>";
+        echo "<script>window.location='generatePoly.php?failed=Data failed added! Try again';</script>";
     }
 } else if (isset($_POST['editPoly'])) {
     for ($i = 0; $i < count($_POST['id']); $i++) { 
@@ -127,6 +127,29 @@ if (isset($_POST['addPoly'])) {
     echo "<script>window.location='dataPoly.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Poly End
+
+// Add & Edit Specialist Start
+if (isset($_POST['addSpecialist'])) {
+    $total = $_POST['total'];
+    for ($i = 1; $i <= $total ; $i++) { 
+        $uuid = Uuid::uuid4()->toString();
+        $name_specialist = trim(mysqli_real_escape_string($db, $_POST['name_specialist-'.$i]));
+        $sql = mysqli_query($db, "INSERT INTO tbl_specialist (id_specialist, name_specialist) VALUES ('$uuid', '$name_specialist')");
+    }
+    if ($sql) {
+        echo "<script>window.location='dataSpecialist.php?success=".$total." Data successfully added!';</script>";
+    } else {
+        echo "<script>window.location='generateSpecialist.php?failed=Data failed added! Try again';</script>";
+    }
+} else if (isset($_POST['editSpecialist'])) {
+    for ($i = 0; $i < count($_POST['id']); $i++) { 
+        $id = $_POST['id'][$i];
+        $name_specialist = $_POST['name_specialist'][$i];
+        mysqli_query($db, "UPDATE tbl_specialist SET name_specialist = '$name_specialist' WHERE id_specialist = '$id'");
+    }
+    echo "<script>window.location='dataSpecialist.php?success=Data successfuly updated!';</script>";
+}
+// Add & Edit Specialist End
 
 // Update Profile Start
 if (isset($_POST['update'])) {

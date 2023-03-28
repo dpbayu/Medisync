@@ -50,9 +50,16 @@ $page = 'doctor';
                                 placeholder="Input password" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label" for="specialist_doctor">Specialist</label>
-                            <input class="form-control" type="text" id="specialist_doctor" name="specialist_doctor"
-                                placeholder="Input specialist doctor" required>
+                            <label class="form-label" for="specialist">Name Specialist</label>
+                            <select class="form-control" name="id_specialist" id="specialist">
+                                <option value="">- Choose Specialist -</option>
+                                <?php
+                                $sql_specialist = mysqli_query($db, "SELECT * FROM tbl_specialist ORDER BY name_specialist ASC");
+                                while ($data_specialist = mysqli_fetch_array($sql_specialist)) { 
+                                    echo '<option value="'.$data_specialist['id_specialist'].'">'.$data_specialist['name_specialist'].'</option>';
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="phone_doctor">Phone</label>
