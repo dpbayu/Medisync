@@ -63,12 +63,19 @@ $page = 'patient';
                                     <th>Gender</th>
                                     <th>Address</th>
                                     <th>Phone</th>
+                                    <th>Age</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach($patients as $patient) : ?>
+                                <?php
+                                    $birth_date = new DateTime($patient['birth_date']);
+                                    $selisih = date_diff($birth_date, new DateTime());
+                                    $year = $selisih->y;
+                                    $month = $selisih->m;
+                                ?>
                                 <tr>
                                     <td><?= $i; ?></td>
                                     <td><?= $patient['nik_patient'] ?></td>
@@ -76,12 +83,15 @@ $page = 'patient';
                                     <td><?= $patient['gender_patient'] ?></td>
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $patient['phone_patient'] ?></td>
+                                    <td><?= $year. " years " .$month. " month " ?></td>
                                     <td class="text-center">
-                                        <a href="editPatient.php?id=<?= $patient['id_patient'] ?>" class="btn btn-warning">
+                                        <a href="editPatient.php?id=<?= $patient['id_patient'] ?>"
+                                            class="btn btn-warning">
                                             Edit
                                         </a>
                                         <a onclick="return confirm('Are you sure delete this data ?')"
-                                            href="deletePatient.php?id=<?= $patient['id_patient'] ?>" class="btn btn-danger">
+                                            href="deletePatient.php?id=<?= $patient['id_patient'] ?>"
+                                            class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>
@@ -104,7 +114,7 @@ $page = 'patient';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 6,
+                    "targets": 7,
                 }]
             });
         });

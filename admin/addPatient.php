@@ -43,6 +43,10 @@ $page = 'patient';
                                 placeholder="Input name" required>
                         </div>
                         <div class="form-group mb-3">
+                            <label class="form-label" for="birth_date">Birth Date Patient</label>
+                            <input class="form-control" type="date" id="birth_date" name="birth_date">
+                        </div>
+                        <div class="form-group mb-3">
                             <label class="form-label" for="gender_patient">Gender</label>
                             <div class="d-flex gap-3">
                                 <label class="form-label" class="radio-inline">

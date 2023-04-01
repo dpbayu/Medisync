@@ -42,13 +42,18 @@ $page = 'patient';
                         <div class="form-group mb-3">
                             <label class="form-label" for="nik_patient">NIK Patient</label>
                             <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
-                            <input class="form-control" type="number" id="nik_patient" name="nik_patient" value="<?= $data['nik_patient'] ?>"
-                                required autofocus>
+                            <input class="form-control" type="number" id="nik_patient" name="nik_patient"
+                                value="<?= $data['nik_patient'] ?>" required autofocus>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="name_patient">Name Patient</label>
                             <input class="form-control" type="text" id="name_patient" name="name_patient"
                                 value="<?= $data['name_patient'] ?>" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="birth_date">Birth Date Patient</label>
+                            <input class="form-control" type="date" id="birth_date" name="birth_date"
+                                value="<?= date('Y-m-d',strtotime($data["birth_date"])) ?>">
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="gender_patient">Gender</label>
