@@ -77,10 +77,10 @@ $page = 'doctor';
                                         <td><?= $doctor['address_doctor'] ?></td>
                                         <td><?= $doctor['phone_doctor'] ?></td>
                                         <td class="text-center">
-                                            <a href="editDoctor.php?id=<?= $doctor['id_doctor'] ?>"
+                                            <a href="editDoctor.php?id=<?= $doctor['id_user'] ?>"
                                                 class="btn btn-warning">Edit</a>
                                             <a onclick="return confirm('Are you sure delete this data ?')"
-                                                href="deleteDoctor.php?id=<?= $doctor['id_doctor'] ?>"
+                                                href="deleteDoctor.php?id=<?= $doctor['id_user'] ?>"
                                                 class="btn btn-danger">
                                                 Delete</a>
                                         </td>

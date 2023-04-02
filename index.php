@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
             if (mysqli_num_rows($doctor) === 1) {
                 $value = mysqli_fetch_assoc($doctor);
                 if (password_verify($password, $value["password_doctor"])) {
-                    $_SESSION['id_doctor'] = $value['id_doctor'];
+                    $_SESSION['id_user'] = $value['id_user'];
                     $_SESSION['name_doctor'] = $value['name_doctor'];
                     $_SESSION['email_doctor'] = $value['email_doctor'];
                     $_SESSION['specialist_doctor'] = $value['specialist_doctor'];
