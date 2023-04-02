@@ -92,7 +92,7 @@ $page = 'admin';
                                         <td><?= $admin['email_admin'] ?></td>
                                         <td class="text-center">
                                             <a onclick="return confirm('Are you sure delete this data ?')"
-                                                href="deleteAdmin.php?id=<?= $admin['id_admin'] ?>"
+                                                href="deleteAdmin.php?id=<?= $admin['id_user'] ?>"
                                                 class="btn btn-danger">
                                                 Delete</a>
                                         </td>

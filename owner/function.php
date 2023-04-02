@@ -16,8 +16,8 @@ if (isset($_POST['addAdmin'])) {
         echo "<script>window.location='dataAdmin.php?failed=Email already exist! Try again';</script>";
     } else {
         $password_admin = password_hash($password_admin, PASSWORD_DEFAULT);
-        mysqli_query($db, "INSERT INTO tbl_admin (id_admin, name_admin, email_admin, password_admin) VALUES ('$uuid', '$name_admin', '$email_admin', '$password_admin')");
-        mysqli_query($db, "INSERT INTO tbl_user VALUES ('$uuid', '$email_admin', 'Owner')");
+        mysqli_query($db, "INSERT INTO tbl_admin (id_user, name_admin, email_admin, password_admin) VALUES ('$uuid', '$name_admin', '$email_admin', '$password_admin')");
+        mysqli_query($db, "INSERT INTO tbl_user (id_user, email, role) VALUES ('$uuid', '$email_admin', 'Admin')");
         echo "<script>window.location='dataAdmin.php?success=Data successfuly added!';</script>";
     }
 }
