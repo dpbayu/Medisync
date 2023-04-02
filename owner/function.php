@@ -5,46 +5,23 @@ require '../assets/libs/vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
-// Add & Edit Doctor Start
-if (isset($_POST['addDoctor'])) {
+// Add Admin Start
+if (isset($_POST['addAdmin'])) {
     $uuid = Uuid::uuid4()->toString();
-    $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
-    $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
-    $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
-    $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
-    $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
-    $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
-    $sql_check = mysqli_query($db, "SELECT * FROM tbl_doctor WHERE email_doctor = '$email_doctor'");
+    $name_admin = trim(mysqli_real_escape_string($db, $_POST['name_admin']));
+    $email_admin = trim(mysqli_real_escape_string($db, $_POST['email_admin']));
+    $password_admin = trim(mysqli_real_escape_string($db, $_POST['password_admin']));
+    $sql_check = mysqli_query($db, "SELECT * FROM tbl_admin WHERE email_admin = '$email_admin'");
     if (mysqli_num_rows($sql_check) > 0) {
-        echo "<script>window.location='dataDoctor.php?failed=Email already exist! Try again';</script>";
+        echo "<script>window.location='dataAdmin.php?failed=Email already exist! Try again';</script>";
     } else {
-        $password_doctor = password_hash($password_doctor, PASSWORD_DEFAULT);
-        mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, id_specialist, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$id_specialist', '$address_doctor', '$phone_doctor')");
-        mysqli_query($db, "INSERT INTO tbl_user VALUES ('$email_doctor', 'Doctor')");
-        echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
-    }
-} else if (isset($_POST['editDoctor'])) {
-    $id = $_POST['id'];
-    $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
-    $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
-    $old_email = trim(mysqli_real_escape_string($db, $_POST['old_email']));
-    $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
-    $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
-    $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
-    $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
-    mysqli_query($db, "SELECT tbl_doctor.id_doctor FROM tbl_doctor INNER JOIN tbl_user ON tbl_doctor.email_doctor = tbl_user.email WHERE tbl_user.email = '$email_doctor'");
-        if (empty($password_doctor)) {
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
-            mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
-            echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
-        } else {
-            $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
-            mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
-            echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
+        $password_admin = password_hash($password_admin, PASSWORD_DEFAULT);
+        mysqli_query($db, "INSERT INTO tbl_admin (id_admin, name_admin, email_admin, password_admin) VALUES ('$uuid', '$name_admin', '$email_admin', '$password_admin')");
+        mysqli_query($db, "INSERT INTO tbl_user VALUES ('$uuid', '$email_admin', 'Owner')");
+        echo "<script>window.location='dataAdmin.php?success=Data successfuly added!';</script>";
     }
 }
-// Add & Edit Doctor End
+// Add Admin End
 
 // Update Profile Start
 if (isset($_POST['update'])) {
