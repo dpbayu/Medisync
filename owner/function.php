@@ -32,8 +32,8 @@ if (isset($_POST['update'])) {
     $profile_owner = $_FILES['profile_owner']['name'];
     $imgtemp = $_FILES['profile_owner']['tmp_name'];
     if ($imgtemp=='') {
-        $id = $_SESSION['id_owner'];
-        $q = "SELECT * FROM tbl_owner WHERE id_owner = '$id'";
+        $id = $_SESSION['id_user'];
+        $q = "SELECT * FROM tbl_owner WHERE id_user = '$id'";
         $r = mysqli_query($db,$q);
         $d = mysqli_fetch_array($r);
         $profile_owner = $d['profile_owner'];
@@ -43,8 +43,8 @@ if (isset($_POST['update'])) {
         echo "Field still empty";
     } else {
             if (empty($password_owner)) {
-                $id = $_SESSION['id_owner'];
-                $sql = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', profile_owner = '$profile_owner' WHERE id_owner = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', profile_owner = '$profile_owner' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['name_owner'] = $name_owner;
                     $_SESSION['email_owner'] = $email_owner;
@@ -55,8 +55,8 @@ if (isset($_POST['update'])) {
                 }
             } else {
                 $hash = password_hash($password_owner, PASSWORD_DEFAULT);
-                $id = $_SESSION['id_owner'];
-                $sql2 = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', password_owner = '$hash' WHERE id_owner = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql2 = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', password_owner = '$hash' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();

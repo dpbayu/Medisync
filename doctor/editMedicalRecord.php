@@ -36,7 +36,7 @@ $page = 'medical_record';
                             $id = $_GET['id'];
                             $sql = mysqli_query($db, "SELECT * FROM tbl_medical_record 
                             INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
-                            INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
+                            INNER JOIN tbl_doctor ON tbl_medical_record.id_user = tbl_doctor.id_user
                             INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly WHERE id_hospital = '$id'");
                             $data = mysqli_fetch_array($sql);
                         ?>
@@ -63,14 +63,14 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="doctor">Name Doctor</label>
-                            <select class="form-control" name="id_doctor" id="doctor">
+                            <select class="form-control" name="id_user" id="doctor">
                                 <?php
                                 $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
                                 while ($doctor = mysqli_fetch_assoc($sql_doctor)) {
-                                if ($doctor['id_doctor'] == $data['id_doctor']) {
-                                    echo '<option selected value="'.$doctor['id_doctor'].'">'.$doctor['name_doctor'].'</option>';
+                                if ($doctor['id_user'] == $data['id_user']) {
+                                    echo '<option selected value="'.$doctor['id_user'].'">'.$doctor['name_doctor'].'</option>';
                                 } else {
-                                    echo '<option value="'.$doctor['id_doctor'].'">'.$doctor['name_doctor'].'</option>';
+                                    echo '<option value="'.$doctor['id_user'].'">'.$doctor['name_doctor'].'</option>';
                                 }
                             }
                             ?>
