@@ -12,7 +12,7 @@ if (isset($_POST["login"])) {
             if (mysqli_num_rows($patient) === 1) {
                 $value = mysqli_fetch_assoc($patient);
                 if (password_verify($password, $value["password_admin"])) {
-                    $_SESSION['id_admin'] = $value['id_admin'];
+                    $_SESSION['id_user'] = $value['id_user'];
                     $_SESSION['name_admin'] = $value['name_admin'];
                     $_SESSION['email_admin'] = $value['email_admin'];
                     $_SESSION['profile_admin'] = $value['profile_admin'];
@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
             if (mysqli_num_rows($doctor) === 1) {
                 $value = mysqli_fetch_assoc($doctor);
                 if (password_verify($password, $value["password_doctor"])) {
-                    $_SESSION['id_doctor'] = $value['id_doctor'];
+                    $_SESSION['id_user'] = $value['id_user'];
                     $_SESSION['name_doctor'] = $value['name_doctor'];
                     $_SESSION['email_doctor'] = $value['email_doctor'];
                     $_SESSION['specialist_doctor'] = $value['specialist_doctor'];
@@ -39,6 +39,23 @@ if (isset($_POST["login"])) {
                     $_SESSION['role'] = $value['role'];
                     $_SESSION["login"] = true;
                     header("Location: doctor/index.php");
+                    exit;
+                } else {
+                    $error = true;
+                }
+            }
+        } else if ($row == 'Owner') {
+            $owner = mysqli_query($db, "SELECT * FROM tbl_owner WHERE email_owner = '$email'");
+            if (mysqli_num_rows($owner) === 1) {
+                $value = mysqli_fetch_assoc($owner);
+                if (password_verify($password, $value["password_owner"])) {
+                    $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['name_owner'] = $value['name_owner'];
+                    $_SESSION['email_owner'] = $value['email_owner'];
+                    $_SESSION['profile_owner'] = $value['profile_owner'];
+                    $_SESSION['role'] = $value['role'];
+                    $_SESSION["login"] = true;
+                    header("Location: owner/index.php");
                     exit;
                 } else {
                     $error = true;
@@ -106,8 +123,8 @@ if (isset($_POST["login"])) {
                                     <form action="" method="POST" class="row g-3 needs-validation">
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" name="email" class="form-control" id="email"
-                                                required autofocus>
+                                            <input type="text" name="email" class="form-control" id="email" required
+                                                autofocus>
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label">Password</label>

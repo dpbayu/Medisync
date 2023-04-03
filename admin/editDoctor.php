@@ -37,12 +37,12 @@ $page = 'doctor';
                         <?php
                             $id = @$_GET['id'];
                             $sql = mysqli_query($db, "SELECT * FROM tbl_doctor 
-                            INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist WHERE id_doctor = '$id'");
+                            INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist WHERE id_user = '$id'");
                             $data = mysqli_fetch_array($sql);
                         ?>
                         <div class="form-group mb-3">
                             <label class="form-label" for="name_admin">Name Doctor</label>
-                            <input class="form-control" type="hidden" name="id" value="<?= $data['id_doctor'] ?>">
+                            <input class="form-control" type="hidden" name="id" value="<?= $data['id_user'] ?>">
                             <input class="form-control" type="hidden" name="old_email"
                                 value="<?= $data['email_doctor'] ?>">
                             <input class="form-control" type="text" id="name_admin" name="name_doctor"
