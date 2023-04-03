@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 12:54 AM
+-- Generation Time: Apr 04, 2023 at 01:14 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -78,6 +78,14 @@ CREATE TABLE `tbl_hospital_medicine` (
   `id_medicine` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_hospital_medicine`
+--
+
+INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
+('6efca74d-c5b2-41d9-950a-0e621b686f87', '4846759e-04ff-49ca-88ee-2977a1a21e5d'),
+('6efca74d-c5b2-41d9-950a-0e621b686f87', '148ff283-3687-45bb-b12b-7687fc52caaa');
+
 -- --------------------------------------------------------
 
 --
@@ -88,11 +96,18 @@ CREATE TABLE `tbl_medical_record` (
   `id_hospital` varchar(50) NOT NULL,
   `id_patient` varchar(50) NOT NULL,
   `illness` text NOT NULL,
-  `id_doctor` varchar(50) NOT NULL,
+  `id_user` varchar(100) NOT NULL,
   `diagnosis` text NOT NULL,
   `id_poly` varchar(50) NOT NULL,
   `check_up` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_medical_record`
+--
+
+INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_user`, `diagnosis`, `id_poly`, `check_up`) VALUES
+('6efca74d-c5b2-41d9-950a-0e621b686f87', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'sdfsdf', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'sdfsd', '48519f64-c564-46e9-9cca-25e0b23cccdf', '2023-04-04');
 
 -- --------------------------------------------------------
 
@@ -134,7 +149,7 @@ CREATE TABLE `tbl_owner` (
 --
 
 INSERT INTO `tbl_owner` (`id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
-('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika hafiza', 'velika@gmail.com', '$2y$10$0JiL5TqJ5/iyCZ5juWC4vOUpX7DCUU02zl3nP1ADsgCQyfXki6Jri', 'Tzuyu 2.jpg');
+('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Velika Hafiza Fatiha', 'velika@gmail.com', '$2y$10$0JiL5TqJ5/iyCZ5juWC4vOUpX7DCUU02zl3nP1ADsgCQyfXki6Jri', 'Tzuyu 2.jpg');
 
 -- --------------------------------------------------------
 
@@ -256,7 +271,7 @@ ALTER TABLE `tbl_hospital_medicine`
 ALTER TABLE `tbl_medical_record`
   ADD PRIMARY KEY (`id_hospital`),
   ADD UNIQUE KEY `id_patient` (`id_patient`),
-  ADD KEY `id_doctor` (`id_doctor`),
+  ADD KEY `id_doctor` (`id_user`),
   ADD KEY `id_poly` (`id_poly`);
 
 --
@@ -324,7 +339,8 @@ ALTER TABLE `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_medical_record`
   ADD CONSTRAINT `tbl_medical_record_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `tbl_patient` (`id_patient`),
-  ADD CONSTRAINT `tbl_medical_record_ibfk_3` FOREIGN KEY (`id_poly`) REFERENCES `tbl_poly` (`id_poly`);
+  ADD CONSTRAINT `tbl_medical_record_ibfk_3` FOREIGN KEY (`id_poly`) REFERENCES `tbl_poly` (`id_poly`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_medical_record_ibfk_4` FOREIGN KEY (`id_user`) REFERENCES `tbl_doctor` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_owner`
