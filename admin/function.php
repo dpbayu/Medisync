@@ -162,8 +162,8 @@ if (isset($_POST['update'])) {
     $profile_admin = $_FILES['profile_admin']['name'];
     $imgtemp = $_FILES['profile_admin']['tmp_name'];
     if ($imgtemp=='') {
-        $id = $_SESSION['id_admin'];
-        $q = "SELECT * FROM tbl_admin WHERE id_admin = '$id'";
+        $id = $_SESSION['id_user'];
+        $q = "SELECT * FROM tbl_admin WHERE id_user = '$id'";
         $r = mysqli_query($db,$q);
         $d = mysqli_fetch_array($r);
         $profile_admin = $d['profile_admin'];
@@ -173,8 +173,8 @@ if (isset($_POST['update'])) {
         echo "Field still empty";
     } else {
             if (empty($password_admin)) {
-                $id = $_SESSION['id_admin'];
-                $sql = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', profile_admin = '$profile_admin' WHERE id_admin = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', profile_admin = '$profile_admin' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['name_admin'] = $name_admin;
                     $_SESSION['email_admin'] = $email_admin;
@@ -185,8 +185,8 @@ if (isset($_POST['update'])) {
                 }
             } else {
                 $hash = password_hash($password_admin, PASSWORD_DEFAULT);
-                $id = $_SESSION['id_admin'];
-                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', password_admin = '$hash' WHERE id_admin = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', password_admin = '$hash' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();

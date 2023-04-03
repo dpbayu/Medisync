@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2023 at 03:46 PM
+-- Generation Time: Apr 04, 2023 at 12:54 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_admin` (
-  `id_admin` varchar(50) NOT NULL,
+  `id_user` varchar(100) NOT NULL,
   `name_admin` varchar(50) NOT NULL,
   `email_admin` varchar(50) NOT NULL,
   `password_admin` varchar(255) NOT NULL,
@@ -39,9 +39,9 @@ CREATE TABLE `tbl_admin` (
 -- Dumping data for table `tbl_admin`
 --
 
-INSERT INTO `tbl_admin` (`id_admin`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
-('0fc08115-afb1-11ed-8ce2-b4a9fcffb61c', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$bYeIO6PPuDnXX9DaC/OjrOSUtZUcx7he0HzDUfXjz1WTd5VUkMXTi', 'Tzuyu 7.jpeg'),
-('7a26582f-afa7-11ed-8ce2-b4a9fcffb61c', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$oLH88W3xXef0PbrY8IOsSekHFQYQ7CJufpZv8sGyzr.bnyvTf.NVi', '');
+INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
+('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$A1oN04YucfrVBEFDFKH1suFuKV.fTYE95oeujtX.0aQzEOOU0Wlva', 'Tzuyu 4.jpg'),
+('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$9iH4J36JTrQGhd.V7O4zFOutD1iEZCn1zspBgtac/BsTyTIaipvcu', '');
 
 -- --------------------------------------------------------
 
@@ -50,7 +50,7 @@ INSERT INTO `tbl_admin` (`id_admin`, `name_admin`, `email_admin`, `password_admi
 --
 
 CREATE TABLE `tbl_doctor` (
-  `id_doctor` varchar(50) NOT NULL,
+  `id_user` varchar(100) NOT NULL,
   `name_doctor` varchar(225) NOT NULL,
   `email_doctor` varchar(255) NOT NULL,
   `password_doctor` varchar(255) NOT NULL,
@@ -64,11 +64,8 @@ CREATE TABLE `tbl_doctor` (
 -- Dumping data for table `tbl_doctor`
 --
 
-INSERT INTO `tbl_doctor` (`id_doctor`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
-('54186f24-4b95-46b6-b293-e697515c63d8', 'Rin Tohsaka', 'rintohsaka@gmail.com', '$2y$10$pZmtHDCRlxEwwmXQCPJTl.4VXvDFgqpUINQa15SzOvnxoTrgeewF.', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Baratie', '0896043335786', 'Tzuyu 1.jfif'),
-('572cb273-ae3d-43e1-adb5-72d146531153', 'Tony Tony Chopper', 'tonytonychopper@gmail.com', '$2y$10$V89hjNjN.J7upeH/dCb1ju.4FMO06I11J43hshQs06cSIH2svw0wq', '1eff1a2a-50f7-4a33-a6ea-c4a524340997', 'Sakura Kingdom', '0896043335798', ''),
-('cb8b397a-e540-4b08-9161-b7e8db017add', 'Marco', 'marco@gmail.com', '$2y$10$FJmByxPPQvmth4lMW1Ub7.TW45PMrQl3ODBnKVSPVaKGDl0QFrAn.', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Marineford', '089604333575', ''),
-('d8a5bb6e-2fc7-4666-89f9-a92b82d974d7', 'Eren Yeager', 'erenyeager@gmail.com', '$2y$10$4kkf6z5p6eqiFMBxj32skuD2oQEjz6pHSrJqRPgRhtJpDQP7TSOPi', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konoha', '0896043335789', 'Wallpaper 1.jpg');
+INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
+('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$O10XH1rcSFFvVnEFFUMaNuIPFFyOboQSKo3UCt4SAFO7OQE3CVb8y', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Wallpaper 1.jpg');
 
 -- --------------------------------------------------------
 
@@ -80,13 +77,6 @@ CREATE TABLE `tbl_hospital_medicine` (
   `id_hospital` varchar(50) NOT NULL,
   `id_medicine` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_hospital_medicine`
---
-
-INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
-('9aa9d211-6950-4f00-9e84-19d81ffd836d', '4846759e-04ff-49ca-88ee-2977a1a21e5d');
 
 -- --------------------------------------------------------
 
@@ -103,13 +93,6 @@ CREATE TABLE `tbl_medical_record` (
   `id_poly` varchar(50) NOT NULL,
   `check_up` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_medical_record`
---
-
-INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_doctor`, `diagnosis`, `id_poly`, `check_up`) VALUES
-('9aa9d211-6950-4f00-9e84-19d81ffd836d', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'Fever', '54186f24-4b95-46b6-b293-e697515c63d8', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-03-27');
 
 -- --------------------------------------------------------
 
@@ -131,6 +114,27 @@ INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicin
 ('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Angiotensin-Converting Enzyme', 'Hypertension'),
 ('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness'),
 ('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_owner`
+--
+
+CREATE TABLE `tbl_owner` (
+  `id_user` varchar(100) NOT NULL,
+  `name_owner` varchar(255) NOT NULL,
+  `email_owner` varchar(255) NOT NULL,
+  `password_owner` varchar(255) NOT NULL,
+  `profile_owner` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_owner`
+--
+
+INSERT INTO `tbl_owner` (`id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
+('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika hafiza', 'velika@gmail.com', '$2y$10$0JiL5TqJ5/iyCZ5juWC4vOUpX7DCUU02zl3nP1ADsgCQyfXki6Jri', 'Tzuyu 2.jpg');
 
 -- --------------------------------------------------------
 
@@ -206,6 +210,7 @@ INSERT INTO `tbl_specialist` (`id_specialist`, `name_specialist`) VALUES
 --
 
 CREATE TABLE `tbl_user` (
+  `id_user` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -214,13 +219,11 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`email`, `role`) VALUES
-('daas@gmail.com', 'Doctor'),
-('erenyeager@gmail.com', 'Doctor'),
-('marco@gmail.com', 'Doctor'),
-('rintohsaka@gmail.com', 'Doctor'),
-('syifa@gmail.com', 'Admin'),
-('tonytonychopper@gmail.com', 'Doctor');
+INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
+('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'eren@gmail.com', 'Doctor'),
+('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika@gmail.com', 'Owner'),
+('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'syifa@gmail.com', 'Admin'),
+('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -230,14 +233,14 @@ INSERT INTO `tbl_user` (`email`, `role`) VALUES
 -- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  ADD PRIMARY KEY (`id_admin`);
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `tbl_doctor`
 --
 ALTER TABLE `tbl_doctor`
-  ADD PRIMARY KEY (`id_doctor`),
-  ADD KEY `id_specialist` (`id_specialist`);
+  ADD KEY `id_specialist` (`id_specialist`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `tbl_hospital_medicine`
@@ -263,6 +266,12 @@ ALTER TABLE `tbl_medicine`
   ADD PRIMARY KEY (`id_medicine`);
 
 --
+-- Indexes for table `tbl_owner`
+--
+ALTER TABLE `tbl_owner`
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `tbl_patient`
 --
 ALTER TABLE `tbl_patient`
@@ -284,17 +293,24 @@ ALTER TABLE `tbl_specialist`
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  ADD CONSTRAINT `tbl_admin_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `tbl_doctor`
 --
 ALTER TABLE `tbl_doctor`
-  ADD CONSTRAINT `tbl_doctor_ibfk_1` FOREIGN KEY (`id_specialist`) REFERENCES `tbl_specialist` (`id_specialist`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_doctor_ibfk_1` FOREIGN KEY (`id_specialist`) REFERENCES `tbl_specialist` (`id_specialist`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_doctor_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_hospital_medicine`
@@ -308,8 +324,13 @@ ALTER TABLE `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_medical_record`
   ADD CONSTRAINT `tbl_medical_record_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `tbl_patient` (`id_patient`),
-  ADD CONSTRAINT `tbl_medical_record_ibfk_2` FOREIGN KEY (`id_doctor`) REFERENCES `tbl_doctor` (`id_doctor`),
   ADD CONSTRAINT `tbl_medical_record_ibfk_3` FOREIGN KEY (`id_poly`) REFERENCES `tbl_poly` (`id_poly`);
+
+--
+-- Constraints for table `tbl_owner`
+--
+ALTER TABLE `tbl_owner`
+  ADD CONSTRAINT `tbl_owner_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

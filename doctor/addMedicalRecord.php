@@ -51,12 +51,12 @@ $page = 'medical_record';
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="doctor">Name Doctor</label>
-                            <select class="form-control" name="id_doctor" id="doctor">
+                            <select class="form-control" name="id_user" id="doctor">
                                 <option value="">- Choose Doctor -</option>
                                 <?php
                                 $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor");
                                 while ($data_doctor = mysqli_fetch_array($sql_doctor)) { 
-                                    echo '<option value="'.$data_doctor['id_doctor'].'">'.$data_doctor['name_doctor'].'</option>';
+                                    echo '<option value="'.$data_doctor['id_user'].'">'.$data_doctor['name_doctor'].'</option>';
                                 }
                                 ?>
                             </select>

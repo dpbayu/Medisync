@@ -10,11 +10,11 @@ if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
     $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
     $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
-    $id_doctor = trim(mysqli_real_escape_string($db, $_POST['id_doctor']));
+    $id_user = trim(mysqli_real_escape_string($db, $_POST['id_user']));
     $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
     $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
     $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
-    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up')");
+    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_user, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_user', '$diagnosis', '$id_poly', '$check_up')");
     $medicines = $_POST['id_medicine'];
     foreach ($medicines as $medicine) {
         mysqli_query($db, "INSERT INTO tbl_hospital_medicine (id_hospital, id_medicine) VALUES ('$uuid', '$medicine')");
@@ -25,11 +25,11 @@ if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
     $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
     $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
-    $id_doctor = trim(mysqli_real_escape_string($db, $_POST['id_doctor']));
+    $id_user = trim(mysqli_real_escape_string($db, $_POST['id_user']));
     $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
     $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
     $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
-    mysqli_query($db, "UPDATE tbl_medical_record SET id_patient = '$id_patient', illness = '$illness', id_doctor = '$id_doctor', diagnosis = '$diagnosis', id_poly = '$id_poly', check_up = '$check_up' WHERE id_hospital = '$id'");
+    mysqli_query($db, "UPDATE tbl_medical_record SET id_patient = '$id_patient', illness = '$illness', id_user = '$id_user', diagnosis = '$diagnosis', id_poly = '$id_poly', check_up = '$check_up' WHERE id_hospital = '$id'");
     echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Medical Record End
@@ -43,8 +43,8 @@ if (isset($_POST['update'])) {
     $profile_doctor = $_FILES['profile_doctor']['name'];
     $imgtemp = $_FILES['profile_doctor']['tmp_name'];
     if ($imgtemp=='') {
-        $id = $_SESSION['id_doctor'];
-        $q = "SELECT * FROM tbl_doctor WHERE id_doctor = '$id'";
+        $id = $_SESSION['id_user'];
+        $q = "SELECT * FROM tbl_doctor WHERE id_user = '$id'";
         $r = mysqli_query($db,$q);
         $d = mysqli_fetch_array($r);
         $profile_doctor = $d['profile_doctor'];
@@ -54,8 +54,8 @@ if (isset($_POST['update'])) {
         echo "Field still empty";
     } else {
             if (empty($password_doctor)) {
-                $id = $_SESSION['id_doctor'];
-                $sql = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', profile_doctor = '$profile_doctor' WHERE id_doctor = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', profile_doctor = '$profile_doctor' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['name_doctor'] = $name_doctor;
                     $_SESSION['email_doctor'] = $email_doctor;
@@ -66,8 +66,8 @@ if (isset($_POST['update'])) {
                 }
             } else {
                 $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
-                $id = $_SESSION['id_doctor'];
-                $sql2 = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash' WHERE id_doctor = '$id'";
+                $id = $_SESSION['id_user'];
+                $sql2 = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash' WHERE id_user = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();
