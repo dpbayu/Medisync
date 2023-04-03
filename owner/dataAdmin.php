@@ -27,7 +27,7 @@ $page = 'admin';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Doctor</h1>
+            <h1>Data Admin</h1>
         </div>
         <?php
             if (isset($_GET['success'])) {
