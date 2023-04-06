@@ -63,6 +63,7 @@ $page = 'doctor';
                                         <th>Name Doctor</th>
                                         <th>Specialist</th>
                                         <th>Address</th>
+                                        <th>Email</th>
                                         <th>Phone</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -75,6 +76,7 @@ $page = 'doctor';
                                         <td><?= $doctor['name_doctor'] ?></td>
                                         <td><?= $doctor['name_specialist'] ?></td>
                                         <td><?= $doctor['address_doctor'] ?></td>
+                                        <td><?= $doctor['email_doctor'] ?></td>
                                         <td><?= $doctor['phone_doctor'] ?></td>
                                         <td class="text-center">
                                             <a href="editDoctor.php?id=<?= $doctor['id_user'] ?>"
@@ -104,7 +106,7 @@ $page = 'doctor';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 5,
+                    "targets": [5,6],
                 }]
             });
         });

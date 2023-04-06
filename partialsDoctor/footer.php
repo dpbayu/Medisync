@@ -15,4 +15,5 @@
     <script type="text/javascript" src="../assets/libs/dataTables/datatables.min.js"></script>
     <script src=" ../assets/js/script.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/vendor/chart.js/chart.umd.js"></script>
     <!-- JS End -->

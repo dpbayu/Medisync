@@ -87,9 +87,7 @@ $page = 'medicine';
         $(document).ready(function () {
             $('#medicine').DataTable({
                 columnDefs: [{
-                    "searchable": false,
-                    "orderable": false,
-                    "targets": 2,
+                    targets: '_all', visible: true
                 }],
             });
         });

@@ -14,23 +14,20 @@ $page = 'patient';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partialsAdmin/head.php' ?>
+<?php require '../partialsDoctor/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partialsAdmin/header.php' ?>
+    <?php require '../partialsDoctor/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partialsAdmin/sidebar.php' ?>
+    <?php require '../partialsDoctor/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Data Patient</h1>
-        </div>
-        <div class="my-3">
-            <a href="addPatient.php" class="btn btn-primary">Add data</a>
         </div>
         <section class="section dashboard">
             <div class="row">
@@ -64,7 +61,6 @@ $page = 'patient';
                                     <th>Address</th>
                                     <th>Age</th>
                                     <th>Phone</th>
-                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,17 +80,6 @@ $page = 'patient';
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $year. " years " .$month. " month " ?></td>
                                     <td><?= $patient['phone_patient'] ?></td>
-                                    <td class="text-center">
-                                        <a href="editPatient.php?id=<?= $patient['id_patient'] ?>"
-                                            class="btn btn-warning">
-                                            Edit
-                                        </a>
-                                        <a onclick="return confirm('Are you sure delete this data ?')"
-                                            href="deletePatient.php?id=<?= $patient['id_patient'] ?>"
-                                            class="btn btn-danger">
-                                            Delete
-                                        </a>
-                                    </td>
                                 </tr>
                                 <?php $i++; ?>
                                 <?php endforeach; ?>
@@ -114,14 +99,14 @@ $page = 'patient';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": [6,7],
+                    "targets": 6,
                 }]
             });
         });
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partialsAdmin/footer.php' ?>
+    <?php require '../partialsDoctor/footer.php' ?>
     <!-- Footer End -->
 </body>
 

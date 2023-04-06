@@ -8,6 +8,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?php if($page != 'patient'){echo 'collapsed';} ?>" href="../doctor/dataPatient.php">
+                <i class="bi bi-people"></i>
+                <span>Data Patient</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link <?php if($page != 'medicine'){echo 'collapsed';} ?>" href="../doctor/dataMedicine.php">
                 <i class="ri-medicine-bottle-line"></i>
                 <span>Data Medicine</span>
