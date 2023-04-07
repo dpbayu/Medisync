@@ -58,9 +58,9 @@ $page = 'medicine';
                             <table class="table table-bordered table-hover" id="medicine">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name Medicine</th>
-                                        <th>Description Medicine</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name Medicine</th>
+                                        <th class="fw-semibold">Description Medicine</th>
                                         <th class="text-center">
                                             <input type="checkbox" id="select_all" value="">
                                         </th>

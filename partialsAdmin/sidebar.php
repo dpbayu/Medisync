@@ -20,14 +20,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if($page != 'specialist'){echo 'collapsed';} ?>" href="../admin/dataSpecialist.php">
+            <a class="nav-link <?php if($page != 'specialist'){echo 'collapsed';} ?>"
+                href="../admin/dataSpecialist.php">
                 <i class="bi bi-award"></i>
                 <span>Data Specialist</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'medicine'){echo 'collapsed';} ?>" href="../admin/dataMedicine.php">
-                <i class="ri-medicine-bottle-line"></i>
+                <i class="bi bi-capsule"></i>
                 <span>Data Medicine</span>
             </a>
         </li>

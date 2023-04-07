@@ -36,7 +36,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-danger" style="background-color: rgba(255, 99, 132, 0.2);"></i></i>
+                                        <i class="bi bi-people rounded-circle fs-1 py-1 px-3 text-danger" style="background-color: rgba(255, 99, 132, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -57,7 +57,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-warning" style="background-color: rgba(255, 205, 86, 0.2);"></i></i>
+                                        <i class="bi bi-capsule rounded-circle fs-1 py-1 px-3 text-warning" style="background-color: rgba(255, 205, 86, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -78,7 +78,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
+                                        <i class="bi bi-box rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php

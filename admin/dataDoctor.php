@@ -59,13 +59,13 @@ $page = 'doctor';
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name Doctor</th>
-                                        <th>Specialist</th>
-                                        <th>Address</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th class="text-center">Action</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name Doctor</th>
+                                        <th class="fw-semibold">Specialist</th>
+                                        <th class="fw-semibold">Address</th>
+                                        <th class="fw-semibold">Email</th>
+                                        <th class="fw-semibold">Phone</th>
+                                        <th class="text-center fw-semibold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

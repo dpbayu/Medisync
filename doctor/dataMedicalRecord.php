@@ -57,15 +57,15 @@ $page = 'medical_record';
                             <table class="table table-bordered table-hover" id="medical_record">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Date</th>
-                                        <th>Patient</th>
-                                        <th>Illness</th>
-                                        <th>Doctor</th>
-                                        <th>Diagnosis</th>
-                                        <th>Poly</th>
-                                        <th>Medicine</th>
-                                        <th>Action</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Date</th>
+                                        <th class="fw-semibold">Patient</th>
+                                        <th class="fw-semibold">Illness</th>
+                                        <th class="fw-semibold">Doctor</th>
+                                        <th class="fw-semibold">Diagnosis</th>
+                                        <th class="fw-semibold">Poly</th>
+                                        <th class="fw-semibold">Medicine</th>
+                                        <th class="fw-semibold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

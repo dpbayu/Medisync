@@ -77,10 +77,10 @@ $page = 'admin';
                             <table class="table table-bordered table-hover" id="admin">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Action</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name</th>
+                                        <th class="fw-semibold">Email</th>
+                                        <th class="fw-semibold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

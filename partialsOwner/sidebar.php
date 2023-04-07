@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link <?php if($page != 'medicine'){echo 'collapsed';} ?>" href="../owner/dataMedicine.php">
-                <i class="ri-medicine-bottle-line"></i>
+                <i class="bi bi-capsule"></i>
                 <span>Data Medicine</span>
             </a>
         </li>

@@ -58,8 +58,8 @@ $page = 'specialist';
                             <table id="specialist" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name Specialist</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name Specialist</th>
                                         <th class="text-center">
                                             <input type="checkbox" id="select_all" value="">
                                         </th>

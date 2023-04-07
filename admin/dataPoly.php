@@ -58,9 +58,9 @@ $page = 'poly';
                             <table id="poly" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name Poly</th>
-                                        <th>Floor</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name Poly</th>
+                                        <th class="fw-semibold">Floor</th>
                                         <th class="text-center">
                                             <input type="checkbox" id="select_all" value="">
                                         </th>

@@ -56,11 +56,11 @@ $page = 'doctor';
                             <table class="table table-bordered table-hover" id="doctor">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Name Doctor</th>
-                                        <th>Specialist</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
+                                        <th class="fw-semibold">No</th>
+                                        <th class="fw-semibold">Name Doctor</th>
+                                        <th class="fw-semibold">Specialist</th>
+                                        <th class="fw-semibold">Address</th>
+                                        <th class="fw-semibold">Phone</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -54,13 +54,13 @@ $page = 'patient';
                         <table id="patient" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>NIK</th>
-                                    <th>Name Patient</th>
-                                    <th>Gender</th>
-                                    <th>Address</th>
-                                    <th>Age</th>
-                                    <th>Phone</th>
+                                    <th class="fw-semibold">No</th>
+                                    <th class="fw-semibold">NIK</th>
+                                    <th class="fw-semibold">Name Patient</th>
+                                    <th class="fw-semibold">Gender</th>
+                                    <th class="fw-semibold">Address</th>
+                                    <th class="fw-semibold">Age</th>
+                                    <th class="fw-semibold">Phone</th>
                                 </tr>
                             </thead>
                             <tbody>
