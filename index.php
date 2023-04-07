@@ -76,8 +76,8 @@ if (isset($_POST["login"])) {
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Dashboard - E-CURE</title>
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Vendor CSS Files Start -->
     <!-- Google Fonts Start -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
