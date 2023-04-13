@@ -144,19 +144,8 @@ if (isset($_POST["login"])) {
                                                 required>
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    value="true" id="rememberMe">
-                                                <label class="form-check-label" for="rememberMe">Remember me</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit"
                                                 name="login">Login</button>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="small mb-0">Don't have account? <a
-                                                    href="pages-register.html">Create an account</a></p>
                                         </div>
                                     </form>
                                     <!-- Form End -->
