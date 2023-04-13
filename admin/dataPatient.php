@@ -138,7 +138,7 @@ $page = 'patient';
                         <p><?= $patient['gender_patient'] ?></p>
                     </div>
                     <div class="d-flex">
-                        <label style="width: 150px;">Blood Type</label>
+                        <label style="width: 150px;">Blood type</label>
                         <p class="mx-3">:</p>
                         <p><?= $patient['blood_patient'] ?></p>
                     </div>
