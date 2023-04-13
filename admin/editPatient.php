@@ -39,21 +39,30 @@ $page = 'patient';
                         $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
                         $data = mysqli_fetch_array($sql_patient);
                         ?>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="nik_patient">NIK Patient</label>
-                            <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
-                            <input class="form-control" type="number" id="nik_patient" name="nik_patient"
-                                value="<?= $data['nik_patient'] ?>" required autofocus>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="nik_patient">NIK Patient</label>
+                                <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
+                                <input class="form-control" type="number" id="nik_patient" name="nik_patient"
+                                    value="<?= $data['nik_patient'] ?>" required autofocus>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="name_patient">Name Patient</label>
+                                <input class="form-control" type="text" id="name_patient" name="name_patient"
+                                    value="<?= $data['name_patient'] ?>" required>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="name_patient">Name Patient</label>
-                            <input class="form-control" type="text" id="name_patient" name="name_patient"
-                                value="<?= $data['name_patient'] ?>" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="birth_date">Birth Date Patient</label>
-                            <input class="form-control" type="date" id="birth_date" name="birth_date"
-                                value="<?= date('Y-m-d',strtotime($data["birth_date"])) ?>">
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="birth_place">Birth Place</label>
+                                <input class="form-control" type="text" id="birth_place" name="birth_place"
+                                    value="<?= $data['birth_place'] ?>" required>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="birth_date">Birth Date Patient</label>
+                                <input class="form-control" type="date" id="birth_date" name="birth_date"
+                                    value="<?= date('Y-m-d',strtotime($data["birth_date"])) ?>">
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="gender_patient">Gender</label>
@@ -68,10 +77,59 @@ $page = 'patient';
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="phone_patient">Phone</label>
-                            <input class="form-control" type="number" id="phone_patient" name="phone_patient"
-                                value="<?= $data['phone_patient'] ?>" required>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="BloodType">Blood Type</label>
+                                <select class="form-control" id="BloodType" name="blood_patient">
+                                    <option value="A" <?= $data['blood_patient'] == "A" ? "selected" : '' ?>>A
+                                    </option>
+                                    <option value="B" <?= $data['blood_patient'] == "B" ? "selected" : '' ?>>B
+                                    </option>
+                                    <option value="AB" <?= $data['blood_patient'] == "AB" ? "selected" : '' ?>>AB
+                                    </option>
+                                    <option value="O" <?= $data['blood_patient'] == "O" ? "selected" : '' ?>>O</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="phone_patient">Phone</label>
+                                <input class="form-control" type="number" id="phone_patient" name="phone_patient"
+                                    value="<?= $data['phone_patient'] ?>" required>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="Religion">Religion</label>
+                                <select class="form-control" id="Religion" name="religion_patient">
+                                    <option value="Islam" <?= $data['religion_patient'] == "Islam" ? "selected" : '' ?>>
+                                        Islam
+                                    </option>
+                                    <option value="Christian"
+                                        <?= $data['religion_patient'] == "Christian" ? "selected" : '' ?>>Christian
+                                    </option>
+                                    <option value="Chatolic"
+                                        <?= $data['religion_patient'] == "Chatolic" ? "selected" : '' ?>>Chatolic
+                                    </option>
+                                    <option value="Hindu" <?= $data['religion_patient'] == "Hindu" ? "selected" : '' ?>>
+                                        Hindu</option>
+                                    <option value="Budha" <?= $data['religion_patient'] == "Budha" ? "selected" : '' ?>>
+                                        Budha</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="MariaggePatient">Marital Status</label>
+                                <select class="form-control" id="MariaggePatient" name="marriage_patient">
+                                    <option value="Married"
+                                        <?= $data['marriage_patient'] == "Married" ? "selected" : '' ?>>Married
+                                    </option>
+                                    <option value="Not Married"
+                                        <?= $data['marriage_patient'] == "Not Married" ? "selected" : '' ?>>Not Married
+                                    </option>
+                                    <option value="Widow" <?= $data['marriage_patient'] == "Widow" ? "selected" : '' ?>>
+                                        Widow</option>
+                                    <option value="Widower"
+                                        <?= $data['marriage_patient'] == "Widower" ? "selected" : '' ?>>Widower</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="address_patient">Address</label>

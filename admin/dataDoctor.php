@@ -64,7 +64,6 @@ $page = 'doctor';
                                         <th class="fw-semibold">Specialist</th>
                                         <th class="fw-semibold">Address</th>
                                         <th class="fw-semibold">Email</th>
-                                        <th class="fw-semibold">Phone</th>
                                         <th class="text-center fw-semibold">Action</th>
                                     </tr>
                                 </thead>
@@ -77,10 +76,13 @@ $page = 'doctor';
                                         <td><?= $doctor['name_specialist'] ?></td>
                                         <td><?= $doctor['address_doctor'] ?></td>
                                         <td><?= $doctor['email_doctor'] ?></td>
-                                        <td><?= $doctor['phone_doctor'] ?></td>
                                         <td class="text-center">
                                             <a href="editDoctor.php?id=<?= $doctor['id_user'] ?>"
                                                 class="btn btn-warning">Edit</a>
+                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                View
+                                            </button>
                                             <a onclick="return confirm('Are you sure delete this data ?')"
                                                 href="deleteDoctor.php?id=<?= $doctor['id_user'] ?>"
                                                 class="btn btn-danger">
@@ -98,6 +100,49 @@ $page = 'doctor';
         </section>
     </main>
     <!-- Main End -->
+    <!-- Modal Start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor <span
+                            class="fw-bold"><?= $doctor['name_doctor'] ?></span></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex">
+                        <label style="width: 150px;">Name</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $doctor['name_doctor'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Specialist</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $doctor['name_specialist'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Phone</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $doctor['phone_doctor'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Email</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $doctor['email_doctor'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Address</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $doctor['address_doctor'] ?></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
     <!-- JS Start -->
     <script>
         // Data Tables
@@ -106,7 +151,7 @@ $page = 'doctor';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": [5,6],
+                    "targets": 5,
                 }]
             });
         });

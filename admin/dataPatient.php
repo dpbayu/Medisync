@@ -63,7 +63,6 @@ $page = 'patient';
                                     <th class="fw-semibold">Gender</th>
                                     <th class="fw-semibold">Address</th>
                                     <th class="fw-semibold">Age</th>
-                                    <th class="fw-semibold">Phone</th>
                                     <th class="text-center fw-semibold">Action</th>
                                 </tr>
                             </thead>
@@ -83,12 +82,15 @@ $page = 'patient';
                                     <td><?= $patient['gender_patient'] ?></td>
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $year. " years " .$month. " month " ?></td>
-                                    <td><?= $patient['phone_patient'] ?></td>
                                     <td class="text-center">
                                         <a href="editPatient.php?id=<?= $patient['id_patient'] ?>"
                                             class="btn btn-warning">
                                             Edit
                                         </a>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            View
+                                        </button>
                                         <a onclick="return confirm('Are you sure delete this data ?')"
                                             href="deletePatient.php?id=<?= $patient['id_patient'] ?>"
                                             class="btn btn-danger">
@@ -106,6 +108,68 @@ $page = 'patient';
         </section>
     </main>
     <!-- Main End -->
+    <!-- Modal Start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Patient <span class="fw-bold"><?= $patient['name_patient'] ?></span></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex">
+                        <label style="width: 150px;">NIK</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['nik_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Name</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['name_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Place, date birth</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['birth_place'] ?>, <?= date("j F Y", strtotime($patient['birth_date'])) ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Gender</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['gender_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Blood Type</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['blood_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Phone</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['phone_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Address</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['address_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Religion</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['religion_patient'] ?></p>
+                    </div>
+                    <div class="d-flex">
+                        <label style="width: 150px;">Marital Status</label>
+                        <p class="mx-3">:</p>
+                        <p><?= $patient['marriage_patient'] ?></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
     <!-- JS Start -->
     <script>
         // Data Tables
@@ -114,7 +178,7 @@ $page = 'patient';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": [6,7],
+                    "targets": 6,
                 }]
             });
         });

@@ -34,32 +34,36 @@ $page = 'doctor';
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="name_doctor">Name Doctor</label>
-                            <input class="form-control" type="text" id="name_doctor" name="name_doctor"
-                                placeholder="Input name doctor" required autofocus>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="name_doctor">Name Doctor</label>
+                                <input class="form-control" type="text" id="name_doctor" name="name_doctor"
+                                    placeholder="Input name doctor" required autofocus>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="email_doctor">Email Doctor</label>
+                                <input class="form-control" type="email" id="email_doctor" name="email_doctor"
+                                    placeholder="Input email doctor" required>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="email_doctor">Email Doctor</label>
-                            <input class="form-control" type="email" id="email_doctor" name="email_doctor"
-                                placeholder="Input email doctor" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="password_doctor">Password</label>
-                            <input class="form-control" type="password" id="password_doctor" name="password_doctor"
-                                placeholder="Input password" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="specialist">Name Specialist</label>
-                            <select class="form-control" name="id_specialist" id="specialist">
-                                <option value="">- Choose Specialist -</option>
-                                <?php
-                                $sql_specialist = mysqli_query($db, "SELECT * FROM tbl_specialist ORDER BY name_specialist ASC");
-                                while ($data_specialist = mysqli_fetch_array($sql_specialist)) { 
-                                    echo '<option value="'.$data_specialist['id_specialist'].'">'.$data_specialist['name_specialist'].'</option>';
-                                }
-                                ?>
-                            </select>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="specialist">Specialist</label>
+                                <select class="form-control" name="id_specialist" id="specialist">
+                                    <option value="">- Choose Specialist -</option>
+                                    <?php
+                                    $sql_specialist = mysqli_query($db, "SELECT * FROM tbl_specialist ORDER BY name_specialist ASC");
+                                    while ($data_specialist = mysqli_fetch_array($sql_specialist)) { 
+                                        echo '<option value="'.$data_specialist['id_specialist'].'">'.$data_specialist['name_specialist'].'</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="password_doctor">Password</label>
+                                <input class="form-control" type="password" id="password_doctor" name="password_doctor"
+                                    placeholder="Input password" required>
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="phone_doctor">Phone</label>
