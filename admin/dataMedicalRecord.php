@@ -66,7 +66,7 @@ $page = 'medical_record';
                                         <th class="fw-semibold">Diagnosis</th>
                                         <th class="fw-semibold">Poly</th>
                                         <th class="fw-semibold">Medicine</th>
-                                        <th class="fw-semibold">Action</th>
+                                        <th class="fw-semibold text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
