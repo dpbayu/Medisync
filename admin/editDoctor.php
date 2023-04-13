@@ -40,37 +40,41 @@ $page = 'doctor';
                             INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist WHERE id_user = '$id'");
                             $data = mysqli_fetch_array($sql);
                         ?>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="name_admin">Name Doctor</label>
-                            <input class="form-control" type="hidden" name="id" value="<?= $data['id_user'] ?>">
-                            <input class="form-control" type="hidden" name="old_email"
-                                value="<?= $data['email_doctor'] ?>">
-                            <input class="form-control" type="text" id="name_admin" name="name_doctor"
-                                value="<?= $data['name_doctor'] ?>" require autofocus>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="name_admin">Name Doctor</label>
+                                <input class="form-control" type="hidden" name="id" value="<?= $data['id_user'] ?>">
+                                <input class="form-control" type="hidden" name="old_email"
+                                    value="<?= $data['email_doctor'] ?>">
+                                <input class="form-control" type="text" id="name_admin" name="name_doctor"
+                                    value="<?= $data['name_doctor'] ?>" require autofocus>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="email_doctor">Email</label>
+                                <input class="form-control" type="email" id="email_doctor" name="email_doctor"
+                                    value="<?= $data['email_doctor'] ?>" require>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="email_doctor">Email</label>
-                            <input class="form-control" type="email" id="email_doctor" name="email_doctor"
-                                value="<?= $data['email_doctor'] ?>" require>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="password_doctor">Password</label>
-                            <input class="form-control" type="password" id="password_doctor" name="password_doctor">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label" for="specialist">Name Specialist</label>
-                            <select class="form-control" name="id_specialist" id="specialist">
-                                <?php
-                                $sql_specialist = mysqli_query($db, "SELECT * FROM tbl_specialist");
-                                while ($specialist = mysqli_fetch_assoc($sql_specialist)) {
-                                if ($specialist['id_specialist'] == $data['id_specialist']) {
-                                    echo '<option selected value="'.$specialist['id_specialist'].'">'.$specialist['name_specialist'].'</option>';
-                                } else {
-                                    echo '<option value="'.$specialist['id_specialist'].'">'.$specialist['name_specialist'].'</option>';
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="specialist">Name Specialist</label>
+                                <select class="form-control" name="id_specialist" id="specialist">
+                                    <?php
+                                    $sql_specialist = mysqli_query($db, "SELECT * FROM tbl_specialist");
+                                    while ($specialist = mysqli_fetch_assoc($sql_specialist)) {
+                                    if ($specialist['id_specialist'] == $data['id_specialist']) {
+                                        echo '<option selected value="'.$specialist['id_specialist'].'">'.$specialist['name_specialist'].'</option>';
+                                    } else {
+                                        echo '<option value="'.$specialist['id_specialist'].'">'.$specialist['name_specialist'].'</option>';
+                                    }
                                 }
-                            }
-                            ?>
-                            </select>
+                                ?>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="password_doctor">Password</label>
+                                <input class="form-control" type="password" id="password_doctor" name="password_doctor">
+                            </div>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="phone_doctor">Phone</label>
