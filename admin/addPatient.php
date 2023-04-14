@@ -71,10 +71,10 @@ $page = 'patient';
                             <div class="form-group mb-3 col">
                                 <label class="form-label">Blood Type</label>
                                 <select class="form-control" name="blood_patient">
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="AB">AB</option>
-                                    <option value="O">O</option>
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>AB</option>
+                                    <option>O</option>
                                 </select>
                             </div>
                             <div class="form-group mb-3 col">
