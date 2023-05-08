@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 session_start();
 // Create Connection
 $servername = "localhost";
-$database = "e-cure";
+$database = "medisync";
 $username = "root";
 $password = "";
 $db = mysqli_connect($servername, $username, $password, $database);
