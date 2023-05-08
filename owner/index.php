@@ -27,7 +27,7 @@ $page = 'dashboard';
         <div class="pagetitle">
             <h1>Dashboard</h1>
         </div>
-        <h3>Welcome to E-CURE <b><?= $_SESSION['name_owner'] ?></b></h3>
+        <h3>Welcome to Medisync <b><?= $_SESSION['name_owner'] ?></b></h3>
         <section class="section dashboard my-3">
             <div class="row">
                 <div class="col-lg-12">
@@ -125,7 +125,7 @@ $page = 'dashboard';
                             <!-- Chart Start -->
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Chart E-CURE</h5>
+                                    <h5 class="card-title">Chart Medisync</h5>
                                     <canvas id="barChart"
                                         style="max-height: 900; display: block; box-sizing: border-box; height: 244px; width: 488px;"
                                         width="976" height="488"></canvas>
@@ -138,7 +138,7 @@ $page = 'dashboard';
                                                         'Specialist'
                                                     ],
                                                     datasets: [{
-                                                        label: 'E-CURE',
+                                                        label: 'Medisync',
                                                         data: [
                                                             <?php 
                                                             $patients = mysqli_query($db,"SELECT * FROM tbl_doctor");

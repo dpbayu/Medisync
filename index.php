@@ -74,7 +74,7 @@ if (isset($_POST["login"])) {
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Dashboard - E-CURE</title>
+    <title>Dashboard - Medisync</title>
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -116,7 +116,7 @@ if (isset($_POST["login"])) {
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">E-CURE</span>
+                                    <span class="d-none d-lg-block">Medisync</span>
                                 </a>
                             </div>
                             <!-- Logo End -->

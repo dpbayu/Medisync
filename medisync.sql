@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 01:14 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: May 08, 2023 at 08:21 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `e-cure`
+-- Database: `medisync`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `tbl_admin` (
   `email_admin` varchar(50) NOT NULL,
   `password_admin` varchar(255) NOT NULL,
   `profile_admin` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_admin`
@@ -58,7 +58,7 @@ CREATE TABLE `tbl_doctor` (
   `address_doctor` text NOT NULL,
   `phone_doctor` varchar(15) NOT NULL,
   `profile_doctor` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_doctor`
@@ -76,7 +76,7 @@ INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_do
 CREATE TABLE `tbl_hospital_medicine` (
   `id_hospital` varchar(50) NOT NULL,
   `id_medicine` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_hospital_medicine`
@@ -100,7 +100,7 @@ CREATE TABLE `tbl_medical_record` (
   `diagnosis` text NOT NULL,
   `id_poly` varchar(50) NOT NULL,
   `check_up` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_medical_record`
@@ -119,7 +119,7 @@ CREATE TABLE `tbl_medicine` (
   `id_medicine` varchar(50) NOT NULL,
   `name_medicine` varchar(255) NOT NULL,
   `description_medicine` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_medicine`
@@ -142,7 +142,7 @@ CREATE TABLE `tbl_owner` (
   `email_owner` varchar(255) NOT NULL,
   `password_owner` varchar(255) NOT NULL,
   `profile_owner` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_owner`
@@ -165,7 +165,7 @@ CREATE TABLE `tbl_patient` (
   `address_patient` text NOT NULL,
   `phone_patient` varchar(15) NOT NULL,
   `birth_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_patient`
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_poly` (
   `id_poly` varchar(50) NOT NULL,
   `name_poly` varchar(50) NOT NULL,
   `place_poly` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_poly`
@@ -207,7 +207,7 @@ INSERT INTO `tbl_poly` (`id_poly`, `name_poly`, `place_poly`) VALUES
 CREATE TABLE `tbl_specialist` (
   `id_specialist` varchar(50) NOT NULL,
   `name_specialist` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_specialist`
@@ -228,7 +228,7 @@ CREATE TABLE `tbl_user` (
   `id_user` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `role` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
