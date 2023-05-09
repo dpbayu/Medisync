@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 08:21 PM
+-- Generation Time: May 09, 2023 at 07:03 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -83,8 +83,8 @@ CREATE TABLE `tbl_hospital_medicine` (
 --
 
 INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
-('6efca74d-c5b2-41d9-950a-0e621b686f87', '4846759e-04ff-49ca-88ee-2977a1a21e5d'),
-('6efca74d-c5b2-41d9-950a-0e621b686f87', '148ff283-3687-45bb-b12b-7687fc52caaa');
+('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '4846759e-04ff-49ca-88ee-2977a1a21e5d'),
+('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '148ff283-3687-45bb-b12b-7687fc52caaa');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `tbl_medical_record` (
 --
 
 INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_user`, `diagnosis`, `id_poly`, `check_up`) VALUES
-('6efca74d-c5b2-41d9-950a-0e621b686f87', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'sdfsdf', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'sdfsd', '48519f64-c564-46e9-9cca-25e0b23cccdf', '2023-04-04');
+('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -164,19 +164,20 @@ CREATE TABLE `tbl_patient` (
   `gender_patient` varchar(10) NOT NULL,
   `address_patient` text NOT NULL,
   `phone_patient` varchar(15) NOT NULL,
-  `birth_date` date NOT NULL
+  `birth_date` date NOT NULL,
+  `birth_place` varchar(255) NOT NULL,
+  `blood_patient` varchar(2) NOT NULL,
+  `religion_patient` varchar(255) NOT NULL,
+  `marriage_patient` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_patient`
 --
 
-INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`) VALUES
-('27c636fb-3c30-4d0d-9802-7edfc4593d31', '41815010140', 'Chou Tzuyu', 'Woman', 'Seoul', '089604333578', '1990-11-15'),
-('2d4f2b60-6b6b-4913-bf59-e40c5a64ba6c', '41815010143', 'Chris Prattt', 'Man', 'Jakarta', '089604333576', '1989-04-17'),
-('3e82635a-61d5-4f67-8ef2-0b2c5376e24b', '41815010149', 'Kim Jisoo', 'Woman', 'Tokyo', '089604333575', '1996-10-25'),
-('4b225c85-5c7c-43b9-80f6-5b9f6c5fb71d', '41815010141', 'Minji', 'Woman', 'Singapura', '089604333578', '1996-02-05'),
-('b30312c6-b2e8-44d6-a5e2-decef5c44a2c', '41815010144', 'Anya Taylor-Joy', 'Woman', 'London', '089604333571', '1992-12-29');
+INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`) VALUES
+('27c636fb-3c30-4d0d-9802-7edfc4593d31', '41815010140', 'Chou Tzuyu', 'Woman', 'Busan', '089604333578', '1990-11-15', 'Seoul', 'A', 'Islam', 'Not Married'),
+('484cd4f3-575b-440d-b4ef-cfc062a487b9', '41815010141', 'Chris Prattt', 'Man', 'Jakarta', '089604333589', '1991-10-29', 'Singapura', 'B', 'Chatolic', 'Married');
 
 -- --------------------------------------------------------
 
