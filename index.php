@@ -136,12 +136,12 @@ if (isset($_POST["login"])) {
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email</label>
                                             <input type="text" name="email" class="form-control" id="email" required
-                                                autofocus>
+                                                autofocus placeholder="Insert your email">
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="password"
-                                                required>
+                                                required placeholder="Insert your password">
                                         </div>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit"

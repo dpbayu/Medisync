@@ -32,11 +32,11 @@ $page = 'dashboard';
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-sm-3">
+                    <div class="col-sm-3">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-success" style="background-color: rgba(99, 255, 86, 0.2);"></i></i>
+                                        <i class="bi bi-diagram-2 rounded-circle fs-1 py-1 px-3 text-success" style="background-color: rgba(99, 255, 86, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -49,7 +49,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Doctors</h6>
                                         </div>
                                     </div>
-                                    <a href="../owner/dataDoctor.php" class="btn btn-primary w-100">Doctors</a>
+                                    <a href="../admin/dataDoctor.php" class="btn btn-primary w-100">Doctors</a>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-danger" style="background-color: rgba(255, 99, 132, 0.2);"></i></i>
+                                        <i class="bi bi-people rounded-circle fs-1 py-1 px-3 text-danger" style="background-color: rgba(255, 99, 132, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -70,7 +70,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Patients</h6>
                                         </div>
                                     </div>
-                                    <a href="../owner/dataPatient.php" class="btn btn-primary w-100">Patients</a>
+                                    <a href="../admin/dataPatient.php" class="btn btn-primary w-100">Patients</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-warning" style="background-color: rgba(255, 205, 86, 0.2);"></i></i>
+                                        <i class="bi bi-capsule rounded-circle fs-1 py-1 px-3 text-warning" style="background-color: rgba(255, 205, 86, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -91,7 +91,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Medicines</h6>
                                         </div>
                                     </div>
-                                    <a href="../owner/dataMedicine.php" class="btn btn-primary w-100">Medicines</a>
+                                    <a href="../admin/dataMedicine.php" class="btn btn-primary w-100">Medicines</a>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person-plus-fill rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
+                                        <i class="bi bi-bounding-box rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -112,7 +112,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Polys</h6>
                                         </div>
                                     </div>
-                                    <a href="../owner/dataPoly.php" class="btn btn-primary w-100">Polys</a>
+                                    <a href="../admin/dataPoly.php" class="btn btn-primary w-100">Polys</a>
                                 </div>
                             </div>
                         </div>
