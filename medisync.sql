@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2023 at 07:03 AM
+-- Generation Time: May 17, 2023 at 03:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,8 +40,8 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
-('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$A1oN04YucfrVBEFDFKH1suFuKV.fTYE95oeujtX.0aQzEOOU0Wlva', 'Tzuyu 4.jpg'),
-('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$9iH4J36JTrQGhd.V7O4zFOutD1iEZCn1zspBgtac/BsTyTIaipvcu', '');
+('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$1XSCQ5JI5AZ5Cuz7SofBwup0ROQ2UbSFh704aZQkOoSguiy8obhzC', 'Tzuyu 4.jpg'),
+('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$9iH4J36JTrQGhd.V7O4zFOutD1iEZCn1zspBgtac/BsTyTIaipvcu', 'Wallpaper 1.jpg');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ CREATE TABLE `tbl_doctor` (
 --
 
 INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
-('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$O10XH1rcSFFvVnEFFUMaNuIPFFyOboQSKo3UCt4SAFO7OQE3CVb8y', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Wallpaper 1.jpg');
+('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$O10XH1rcSFFvVnEFFUMaNuIPFFyOboQSKo3UCt4SAFO7OQE3CVb8y', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Wallpaper 1.jpg'),
+('db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$kaPiEnCRrLIJ0KIayEAF4.h6EWZFoj.isOSi54lWQJn6M6YZUfzd6', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', '');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ CREATE TABLE `tbl_hospital_medicine` (
 
 INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
 ('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '4846759e-04ff-49ca-88ee-2977a1a21e5d'),
-('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '148ff283-3687-45bb-b12b-7687fc52caaa');
+('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '148ff283-3687-45bb-b12b-7687fc52caaa'),
+('d21f2ec7-ef05-4f0e-8dad-9611a8f46085', '09a7b207-40fe-4077-8fff-8787b6688bd0');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,8 @@ CREATE TABLE `tbl_medical_record` (
 --
 
 INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_user`, `diagnosis`, `id_poly`, `check_up`) VALUES
-('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09');
+('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09'),
+('d21f2ec7-ef05-4f0e-8dad-9611a8f46085', '484cd4f3-575b-440d-b4ef-cfc062a487b9', 'High Blood Pressure', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09');
 
 -- --------------------------------------------------------
 
@@ -176,7 +179,7 @@ CREATE TABLE `tbl_patient` (
 --
 
 INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`) VALUES
-('27c636fb-3c30-4d0d-9802-7edfc4593d31', '41815010140', 'Chou Tzuyu', 'Woman', 'Busan', '089604333578', '1990-11-15', 'Seoul', 'A', 'Islam', 'Not Married'),
+('27c636fb-3c30-4d0d-9802-7edfc4593d31', '41815010140', 'Chou Tzuyu', 'Woman', 'Busan', '089604333578', '1998-11-15', 'Seoul', 'A', 'Islam', 'Not Married'),
 ('484cd4f3-575b-440d-b4ef-cfc062a487b9', '41815010141', 'Chris Prattt', 'Man', 'Jakarta', '089604333589', '1991-10-29', 'Singapura', 'B', 'Chatolic', 'Married');
 
 -- --------------------------------------------------------
@@ -196,8 +199,11 @@ CREATE TABLE `tbl_poly` (
 --
 
 INSERT INTO `tbl_poly` (`id_poly`, `name_poly`, `place_poly`) VALUES
-('48519f64-c564-46e9-9cca-25e0b23cccdf', 'Child Poly', '1'),
-('900ff3ff-52dc-436e-9c5a-83425f37f722', 'General Poly', '2');
+('48519f64-c564-46e9-9cca-25e0b23cccdf', 'Pediatric Poly', '1'),
+('900ff3ff-52dc-436e-9c5a-83425f37f722', 'General Poly', '2'),
+('959e3ca9-402b-43ea-83d2-fc87f477fb5d', 'E.N.T', '1'),
+('d4d133a4-d585-4c29-8cdf-e6046bd968d5', 'Dentistry Poly', '4'),
+('fc7924e9-01ff-46fb-bde3-a25e487a14b2', 'Infection Poly', '1');
 
 -- --------------------------------------------------------
 
@@ -239,7 +245,8 @@ INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
 ('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'eren@gmail.com', 'Doctor'),
 ('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika@gmail.com', 'Owner'),
 ('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'syifa@gmail.com', 'Admin'),
-('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin');
+('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin'),
+('db881baa-cc83-43c2-85e3-98805850141b', 'mikasa@gmail.com', 'Doctor');
 
 --
 -- Indexes for dumped tables
