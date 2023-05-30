@@ -36,13 +36,15 @@ $page = 'patient';
                     <form action="function.php" method="POST">
                         <?php
                         $id = @$_GET['id'];
-                        $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
+                        $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_user = '$id'");
                         $data = mysqli_fetch_array($sql_patient);
                         ?>
                         <div class="d-flex gap-5">
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="nik_patient">NIK Patient</label>
-                                <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
+                                <input type="hidden" name="id" value="<?= $data['id_user'] ?>">
+                                <input class="form-control" type="hidden" name="old_email"
+                                    value="<?= $data['email_patient'] ?>">
                                 <input class="form-control" type="number" id="nik_patient" name="nik_patient"
                                     value="<?= $data['nik_patient'] ?>" required autofocus>
                             </div>
@@ -50,6 +52,18 @@ $page = 'patient';
                                 <label class="form-label" for="name_patient">Name Patient</label>
                                 <input class="form-control" type="text" id="name_patient" name="name_patient"
                                     value="<?= $data['name_patient'] ?>" required>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="email_patient">Email Patient</label>
+                                <input class="form-control" type="email" id="email_patient" name="email_patient"
+                                    value="<?= $data['email_patient'] ?>" required>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="password_patient">Password Patient</label>
+                                <input class="form-control" type="password" id="password_patient"
+                                    name="password_patient">
                             </div>
                         </div>
                         <div class="d-flex gap-5">

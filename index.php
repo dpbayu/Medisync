@@ -61,6 +61,32 @@ if (isset($_POST["login"])) {
                     $error = true;
                 }
             }
+        } else if ($row == 'Patient') {
+            $patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE email_patient = '$email'");
+            if (mysqli_num_rows($patient) === 1) {
+                $value = mysqli_fetch_assoc($patient);
+                if (password_verify($password, $value["password_patient"])) {
+                    $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['nik_patient'] = $value['nik_patient'];
+                    $_SESSION['name_patient'] = $value['name_patient'];
+                    $_SESSION['email_patient'] = $value['email_patient'];
+                    $_SESSION['gender_patient'] = $value['gender_patient'];
+                    $_SESSION['address_patient'] = $value['address_patient'];
+                    $_SESSION['phone_patient'] = $value['phone_patient'];
+                    $_SESSION['birth_date'] = $value['birth_date'];
+                    $_SESSION['birth_place'] = $value['birth_place'];
+                    $_SESSION['blood_patient'] = $value['blood_patient'];
+                    $_SESSION['religion_patient'] = $value['religion_patient'];
+                    $_SESSION['marriage_patient'] = $value['marriage_patient'];
+                    $_SESSION['profile_patient'] = $value['profile_patient'];
+                    $_SESSION['role'] = $value['role'];
+                    $_SESSION["login"] = true;
+                    header("Location: patient/index.php");
+                    exit;
+                } else {
+                    $error = true;
+                }
+            }
         }
     }
     $error = true;
@@ -127,7 +153,7 @@ if (isset($_POST["login"])) {
                                         <p class="text-center small">Enter your email & password to login</p>
                                     </div>
                                     <!-- Message Failed Start -->
-                                    <?php if(isset($error)) : ?>
+                                    <?php if (isset($error)) : ?>
                                     <p style="color: red; font-style: italic;">Email / password wrong</p>
                                     <?php endif; ?>
                                     <!-- Message Failed End -->

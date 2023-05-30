@@ -67,7 +67,7 @@ $page = 'patient';
                             </thead>
                             <tbody>
                                 <?php
-                                    $id = @$_GET['id_patient'];
+                                    $id = @$_GET['id_user'];
                                     $query_patient = "SELECT * FROM tbl_patient ORDER BY name_patient ASC";
                                     $run_patient = mysqli_query($db,$query_patient);
                                     $i = 1;
@@ -87,23 +87,23 @@ $page = 'patient';
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $year. " years " .$month. " month " ?></td>
                                     <td class="text-center">
-                                        <a href="editPatient.php?id=<?= $patient['id_patient'] ?>"
+                                        <a href="editPatient.php?id=<?= $patient['id_user'] ?>"
                                             class="btn btn-warning">
                                             Edit
                                         </a>
                                         <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal<?= $patient['id_patient'] ?>">
+                                            data-bs-target="#modal<?= $patient['id_user'] ?>">
                                             View
                                         </button>
                                         <a onclick="return confirm('Are you sure delete this data ?')"
-                                            href="deletePatient.php?id=<?= $patient['id_patient'] ?>"
+                                            href="deletePatient.php?id=<?= $patient['id_user'] ?>"
                                             class="btn btn-danger">
                                             Delete
                                         </a>
                                     </td>
                                 </tr>
                                 <!-- Modal Start -->
-                                <div class="modal fade" id="modal<?= $patient['id_patient'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="modal<?= $patient['id_user'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog bg-white">
                                         <div class="modal-content">

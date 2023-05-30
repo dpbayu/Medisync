@@ -47,12 +47,12 @@ $page = 'doctor';
                                 <input class="form-control" type="hidden" name="old_email"
                                     value="<?= $data['email_doctor'] ?>">
                                 <input class="form-control" type="text" id="name_admin" name="name_doctor"
-                                    value="<?= $data['name_doctor'] ?>" require autofocus>
+                                    value="<?= $data['name_doctor'] ?>" required autofocus>
                             </div>
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="email_doctor">Email</label>
                                 <input class="form-control" type="email" id="email_doctor" name="email_doctor"
-                                    value="<?= $data['email_doctor'] ?>" require>
+                                    value="<?= $data['email_doctor'] ?>" required>
                             </div>
                         </div>
                         <div class="d-flex gap-5">
@@ -79,12 +79,12 @@ $page = 'doctor';
                         <div class="form-group mb-3">
                             <label class="form-label" for="phone_doctor">Phone</label>
                             <input class="form-control" type="number" id="phone_doctor" name="phone_doctor"
-                                value="<?= $data['phone_doctor'] ?>" require>
+                                value="<?= $data['phone_doctor'] ?>" required>
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label" for="address_doctor">Address</label>
                             <textarea class="form-control" id="address_doctor" name="address_doctor" rows="5"
-                                style="resize: none;" require><?= $data['address_doctor'] ?></textarea>
+                                style="resize: none;" required><?= $data['address_doctor'] ?></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="editDoctor">Edit data</button>

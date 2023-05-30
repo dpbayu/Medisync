@@ -10,6 +10,8 @@ if (isset($_POST['addPatient'])) {
     $uuid = Uuid::uuid4()->toString();
     $nik_patient = trim(mysqli_real_escape_string($db, $_POST['nik_patient']));
     $name_patient = trim(mysqli_real_escape_string($db, $_POST['name_patient']));
+    $email_patient = trim(mysqli_real_escape_string($db, $_POST['email_patient']));
+    $password_patient = trim(mysqli_real_escape_string($db, $_POST['password_patient']));
     $gender_patient = trim(mysqli_real_escape_string($db, $_POST['gender_patient']));
     $address_patient = trim(mysqli_real_escape_string($db, $_POST['address_patient']));
     $phone_patient = trim(mysqli_real_escape_string($db, $_POST['phone_patient']));
@@ -22,13 +24,18 @@ if (isset($_POST['addPatient'])) {
     if (mysqli_num_rows($sql_check) > 0) {
         echo "<script>window.location='dataPatient.php?failed=NIK already exist! Try again';</script>";
     } else {
-        mysqli_query($db, "INSERT INTO tbl_patient (id_patient, nik_patient, name_patient, gender_patient, address_patient, phone_patient, birth_place, birth_date, religion_patient, blood_patient, marriage_patient) VALUES ('$uuid', '$nik_patient', '$name_patient', '$gender_patient', '$address_patient', '$phone_patient', '$birth_place', '$birth_date', '$religion_patient', '$blood_patient', '$marriage_patient')");
+        $password_patient = password_hash($password_patient, PASSWORD_DEFAULT);
+        mysqli_query($db, "INSERT INTO tbl_user (id_user, email, role) VALUES ('$uuid', '$email_patient', 'Patient')");
+        mysqli_query($db, "INSERT INTO tbl_patient (id_user, nik_patient, name_patient, email_patient, password_patient, gender_patient, address_patient, phone_patient, birth_place, birth_date, religion_patient, blood_patient, marriage_patient) VALUES ('$uuid', '$nik_patient', '$name_patient', '$email_patient', '$password_patient', '$gender_patient', '$address_patient', '$phone_patient', '$birth_place', '$birth_date', '$religion_patient', '$blood_patient', '$marriage_patient')");
         echo "<script>window.location='dataPatient.php?success=Data successfully added!';</script>";
     }
 } else if (isset($_POST['editPatient'])) {
     $id = $_POST['id'];
     $nik_patient = trim(mysqli_real_escape_string($db, $_POST['nik_patient']));
     $name_patient = trim(mysqli_real_escape_string($db, $_POST['name_patient']));
+    $email_patient = trim(mysqli_real_escape_string($db, $_POST['email_patient']));
+    $old_email = trim(mysqli_real_escape_string($db, $_POST['old_email']));
+    $password_patient = trim(mysqli_real_escape_string($db, $_POST['password_patient']));
     $gender_patient = trim(mysqli_real_escape_string($db, $_POST['gender_patient']));
     $address_patient = trim(mysqli_real_escape_string($db, $_POST['address_patient']));
     $phone_patient = trim(mysqli_real_escape_string($db, $_POST['phone_patient']));
@@ -37,13 +44,24 @@ if (isset($_POST['addPatient'])) {
     $religion_patient = trim(mysqli_real_escape_string($db, $_POST['religion_patient']));
     $blood_patient = trim(mysqli_real_escape_string($db, $_POST['blood_patient']));
     $marriage_patient = trim(mysqli_real_escape_string($db, $_POST['marriage_patient']));
-    $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient' AND id_patient != '$id'");
-    if (mysqli_num_rows($sql_check) > 0) {
-        echo "<script>window.location='dataPatient.php?failed=NIK already exist!';</script>";
-    } else {
-        mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_patient = '$id'");
-        echo "<script>window.location='dataPatient.php?success=Data successfully updated!';</script>";
+    mysqli_query($db, "SELECT tbl_patient.id_user FROM tbl_patient INNER JOIN tbl_user ON tbl_patient.email_patient = tbl_user.email WHERE tbl_user.email = '$email_patient'");
+        if (empty($password_patient)) {
+            mysqli_query($db, "UPDATE tbl_user SET email = '$email_patient' WHERE email = '$old_email'");
+            mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', email_patient = '$email_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_user = '$id'");
+            echo "<script>window.location='dataPatient.php?success=Data successfuly updated!';</script>";
+        } else {
+            $hash = password_hash($password_patient, PASSWORD_DEFAULT);
+            mysqli_query($db, "UPDATE tbl_user SET email = '$email_patient' WHERE email = '$old_email'");
+            mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', email_patient = '$email_patient', password_patient = '$hash', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_user = '$id'");
+            echo "<script>window.location='dataPatient.php?success=Data successfuly updated!';</script>";
     }
+    // $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient' AND id_patient != '$id'");
+    // if (mysqli_num_rows($sql_check) > 0) {
+    //     echo "<script>window.location='dataPatient.php?failed=NIK already exist!';</script>";
+    // } else {
+    //     mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_patient = '$id'");
+    //     echo "<script>window.location='dataPatient.php?success=Data successfully updated!';</script>";
+    // }
 }
 // Add & Edit Patient End
 
