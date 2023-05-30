@@ -11,8 +11,8 @@ if (isset($_POST['update'])) {
     $profile_patient = $_FILES['profile_patient']['name'];
     $imgtemp = $_FILES['profile_patient']['tmp_name'];
     if ($imgtemp=='') {
-        $id = $_SESSION['id_user'];
-        $q = "SELECT * FROM tbl_patient WHERE id_user = '$id'";
+        $id = $_SESSION['id_patient'];
+        $q = "SELECT * FROM tbl_patient WHERE id_patient = '$id'";
         $r = mysqli_query($db,$q);
         $d = mysqli_fetch_array($r);
         $profile_patient = $d['profile_patient'];
@@ -22,8 +22,8 @@ if (isset($_POST['update'])) {
         echo "Field still empty";
     } else {
             if (empty($password_patient)) {
-                $id = $_SESSION['id_user'];
-                $sql = "UPDATE tbl_patient SET name_patient = '$name_patient', email_patient = '$email_patient', profile_patient = '$profile_patient' WHERE id_user = '$id'";
+                $id = $_SESSION['id_patient'];
+                $sql = "UPDATE tbl_patient SET name_patient = '$name_patient', email_patient = '$email_patient', profile_patient = '$profile_patient' WHERE id_patient = '$id'";
                 if (mysqli_query($db, $sql)) {
                     $_SESSION['name_patient'] = $name_patient;
                     $_SESSION['email_patient'] = $email_patient;
@@ -34,8 +34,8 @@ if (isset($_POST['update'])) {
                 }
             } else {
                 $hash = password_hash($password_patient, PASSWORD_DEFAULT);
-                $id = $_SESSION['id_user'];
-                $sql2 = "UPDATE tbl_patient SET name_patient = '$name_patient', email_patient = '$email_patient', password_patient = '$hash' WHERE id_user = '$id'";
+                $id = $_SESSION['id_patient'];
+                $sql2 = "UPDATE tbl_patient SET name_patient = '$name_patient', email_patient = '$email_patient', password_patient = '$hash' WHERE id_patient = '$id'";
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();

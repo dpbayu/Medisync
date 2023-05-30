@@ -49,7 +49,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Doctors</h6>
                                         </div>
                                     </div>
-                                    <a href="../admin/dataDoctor.php" class="btn btn-primary w-100">Doctors</a>
+                                    <a href="../owner/dataDoctor.php" class="btn btn-primary w-100">Doctors</a>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Patients</h6>
                                         </div>
                                     </div>
-                                    <a href="../admin/dataPatient.php" class="btn btn-primary w-100">Patients</a>
+                                    <a href="../owner/dataPatient.php" class="btn btn-primary w-100">Patients</a>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Medicines</h6>
                                         </div>
                                     </div>
-                                    <a href="../admin/dataMedicine.php" class="btn btn-primary w-100">Medicines</a>
+                                    <a href="../owner/dataMedicine.php" class="btn btn-primary w-100">Medicines</a>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ $page = 'dashboard';
                                             <h6 class="text-secondary">Polys</h6>
                                         </div>
                                     </div>
-                                    <a href="../admin/dataPoly.php" class="btn btn-primary w-100">Polys</a>
+                                    <a href="../owner/dataPoly.php" class="btn btn-primary w-100">Polys</a>
                                 </div>
                             </div>
                         </div>

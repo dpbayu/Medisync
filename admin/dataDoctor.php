@@ -105,6 +105,9 @@ $page = 'doctor';
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
+                                                <div class="text-center mb-3">
+                                                    <img src="../doctor/img/<?= $doctor['profile_doctor'] ?>" width="200" height="200" class="rounded-circle" alt="Image Doctor">
+                                                </div>
                                                     <div class="d-flex">
                                                         <label style="width: 150px;">Name</label>
                                                         <p class="mx-3">:</p>

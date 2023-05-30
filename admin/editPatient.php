@@ -36,13 +36,13 @@ $page = 'patient';
                     <form action="function.php" method="POST">
                         <?php
                         $id = @$_GET['id'];
-                        $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_user = '$id'");
+                        $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
                         $data = mysqli_fetch_array($sql_patient);
                         ?>
                         <div class="d-flex gap-5">
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="nik_patient">NIK Patient</label>
-                                <input type="hidden" name="id" value="<?= $data['id_user'] ?>">
+                                <input type="hidden" name="id" value="<?= $data['id_patient'] ?>">
                                 <input class="form-control" type="hidden" name="old_email"
                                     value="<?= $data['email_patient'] ?>">
                                 <input class="form-control" type="number" id="nik_patient" name="nik_patient"

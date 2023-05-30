@@ -6,8 +6,6 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$doctors = query("SELECT * FROM tbl_doctor 
-INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist ORDER BY name_doctor ASC");
 $page = 'doctor';
 ?>
 <!-- PHP -->
@@ -60,21 +58,85 @@ $page = 'doctor';
                                         <th class="fw-semibold">Name Doctor</th>
                                         <th class="fw-semibold">Specialist</th>
                                         <th class="fw-semibold">Address</th>
-                                        <th class="fw-semibold">Phone</th>
+                                        <th class="fw-semibold">Email</th>
+                                        <th class="text-center fw-semibold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1; ?>
-                                    <?php foreach($doctors as $doctor) : ?>
+                                    <?php
+                                        $id = @$_GET['id_doctor'];
+                                        $query_doctor = "SELECT * FROM tbl_doctor 
+                                        INNER JOIN tbl_specialist ON tbl_doctor.id_specialist = tbl_specialist.id_specialist ORDER BY name_doctor ASC";
+                                        $run_doctor = mysqli_query($db,$query_doctor);
+                                        $i = 1;
+                                        while ($doctor = mysqli_fetch_array($run_doctor)) {
+                                    ?>
                                     <tr>
                                         <td><?= $i; ?></td>
                                         <td><?= $doctor['name_doctor'] ?></td>
                                         <td><?= $doctor['name_specialist'] ?></td>
                                         <td><?= $doctor['address_doctor'] ?></td>
-                                        <td><?= $doctor['phone_doctor'] ?></td>
+                                        <td><?= $doctor['email_doctor'] ?></td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                data-bs-target="#modal<?= $doctor['id_user'] ?>">
+                                                View
+                                            </button>
+                                        </td>
                                     </tr>
-                                    <?php $i++; ?>
-                                    <?php endforeach; ?>
+                                    <!-- Modal Start -->
+                                    <div class="modal fade" id="modal<?= $doctor['id_user'] ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor <span
+                                                            class="fw-bold"><?= $doctor['name_doctor'] ?></span></h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <div class="text-center mb-3">
+                                                    <img src="../doctor/img/<?= $doctor['profile_doctor'] ?>" width="200" height="200" class="rounded-circle" alt="Image Doctor">
+                                                </div>
+                                                    <div class="d-flex">
+                                                        <label style="width: 150px;">Name</label>
+                                                        <p class="mx-3">:</p>
+                                                        <p><?= $doctor['name_doctor'] ?></p>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <label style="width: 150px;">Specialist</label>
+                                                        <p class="mx-3">:</p>
+                                                        <p><?= $doctor['name_specialist'] ?></p>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <label style="width: 150px;">Phone</label>
+                                                        <p class="mx-3">:</p>
+                                                        <p><?= $doctor['phone_doctor'] ?></p>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <label style="width: 150px;">Email</label>
+                                                        <p class="mx-3">:</p>
+                                                        <p><?= $doctor['email_doctor'] ?></p>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <label style="width: 150px;">Address</label>
+                                                        <p class="mx-3">:</p>
+                                                        <p><?= $doctor['address_doctor'] ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal End -->
+                                    <?php
+                                    $i++; 
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </form>
@@ -92,7 +154,7 @@ $page = 'doctor';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 4
+                    "targets": 5,
                 }]
             });
         });

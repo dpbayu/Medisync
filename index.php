@@ -32,7 +32,6 @@ if (isset($_POST["login"])) {
                     $_SESSION['id_user'] = $value['id_user'];
                     $_SESSION['name_doctor'] = $value['name_doctor'];
                     $_SESSION['email_doctor'] = $value['email_doctor'];
-                    $_SESSION['specialist_doctor'] = $value['specialist_doctor'];
                     $_SESSION['address_doctor'] = $value['address_doctor'];
                     $_SESSION['phone_doctor'] = $value['phone_doctor'];
                     $_SESSION['profile_doctor'] = $value['profile_doctor'];
@@ -66,7 +65,7 @@ if (isset($_POST["login"])) {
             if (mysqli_num_rows($patient) === 1) {
                 $value = mysqli_fetch_assoc($patient);
                 if (password_verify($password, $value["password_patient"])) {
-                    $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['id_patient'] = $value['id_patient'];
                     $_SESSION['nik_patient'] = $value['nik_patient'];
                     $_SESSION['name_patient'] = $value['name_patient'];
                     $_SESSION['email_patient'] = $value['email_patient'];
