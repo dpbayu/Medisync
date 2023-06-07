@@ -12,22 +12,22 @@ $page = 'profile';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partialsDoctor/head.php' ?>
+<?php require '../partialsPatient/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partialsDoctor/header.php' ?>
+    <?php require '../partialsPatient/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partialsDoctor/sidebar.php' ?>
+    <?php require '../partialsPatient/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
             <h1>Profile</h1>
         </div>
-        <section class="section dashboard" style="height: 75vh;">
+        <section class="section dashboard">
             <div class="col-md-12">
                 <div class="row">
                     <?php
@@ -42,25 +42,25 @@ $page = 'profile';
                     ?>
                     <div class="col-md-6">
                         <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
-                            <img src="img/<?php echo $_SESSION['profile_doctor'] ?>" class="rounded-circle" height="200"
-                                width="200">
+                            <img src="img/<?php echo $_SESSION['profile_patient'] ?>" class="rounded-circle"
+                                height="200" width="200">
                             <div class="form-group mb-3">
                                 <label class="form-label" for="profil">Profile</label>
-                                <input class="form-control" type="file" id="profile" name="profile_doctor">
+                                <input class="form-control" type="file" id="profile" name="profile_patient">
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="name">Fullname</label>
-                                <input class="form-control" type="text" id="name" name="name_doctor"
-                                    value="<?php echo $_SESSION['name_doctor'] ?>">
+                                <label class="form-label" for="name_patient">Fullname</label>
+                                <input class="form-control" type="text" id="name_patient" name="name_patient"
+                                    value="<?php echo $_SESSION['name_patient'] ?>">
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="email">Email</label>
-                                <input class="form-control" type="text" id="email" name="email_doctor"
-                                    value="<?php echo $_SESSION['email_doctor'] ?>">
+                                <input class="form-control" type="text" id="email" name="email_patient"
+                                    value="<?php echo $_SESSION['email_patient'] ?>">
                             </div>
                             <div class="form-group mb-3">
                                 <label class="form-label" for="password">Password</label>
-                                <input class="form-control" type="password" id="password" name="password_doctor">
+                                <input class="form-control" type="password" id="password" name="password_patient">
                             </div>
                             <button type="submit" name="update" class="btn btn-success me-2">Update</button>
                         </form>
@@ -72,25 +72,50 @@ $page = 'profile';
                             </tr>
                             <tr>
                                 <td class="w-50">Profile</td>
-                                <td class="text-center"><img src="img/<?php echo $_SESSION['profile_doctor'] ?>"
-                                        class="rounded-circle" alt="profile patient" width="100" height="100">
+                                <td class="text-center"><img src="img/<?php echo $_SESSION['profile_patient'] ?>" class="rounded-circle"
+                                        alt="profile patient" width="100" height="100">
                                 </td>
                             </tr>
                             <tr>
+                                <td>NIK</td>
+                                <td><?php echo $_SESSION['nik_patient'] ?></td>
+                            </tr>
+                            <tr>
                                 <td>Fullname</td>
-                                <td><?php echo $_SESSION['name_doctor'] ?></td>
+                                <td><?php echo $_SESSION['name_patient'] ?></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td><?php echo $_SESSION['email_doctor'] ?></td>
+                                <td><?php echo $_SESSION['email_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td><?php echo $_SESSION['gender_patient'] ?></td>
                             </tr>
                             <tr>
                                 <td>Address</td>
-                                <td><?php echo $_SESSION['address_doctor'] ?></td>
+                                <td><?php echo $_SESSION['address_patient'] ?></td>
                             </tr>
                             <tr>
                                 <td>Phone</td>
-                                <td><?php echo $_SESSION['phone_doctor'] ?></td>
+                                <td><?php echo $_SESSION['phone_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Birth date, place</td>
+                                <td><?php echo date("j F Y", strtotime($_SESSION['birth_date'])) ?>,
+                                    <?php echo $_SESSION['birth_place'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Blood</td>
+                                <td><?php echo $_SESSION['blood_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Religion</td>
+                                <td><?php echo $_SESSION['religion_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Marriage</td>
+                                <td><?php echo $_SESSION['marriage_patient'] ?></td>
                             </tr>
                         </table>
                     </div>
@@ -100,7 +125,7 @@ $page = 'profile';
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
-    <?php require '../partialsDoctor/footer.php' ?>
+    <?php require '../partialsPatient/footer.php' ?>
     <!-- Footer End -->
 </body>
 

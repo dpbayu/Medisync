@@ -6,7 +6,6 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$patients = query("SELECT * FROM tbl_patient ORDER BY name_patient ASC");
 $page = 'patient';
 ?>
 <!-- PHP -->
@@ -50,7 +49,7 @@ $page = 'patient';
                         </div>';
                     }
                     ?>
-                    <div class="table">
+                    <div class="mt-3">
                         <table id="patient" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -60,12 +59,17 @@ $page = 'patient';
                                     <th class="fw-semibold">Gender</th>
                                     <th class="fw-semibold">Address</th>
                                     <th class="fw-semibold">Age</th>
-                                    <th class="fw-semibold">Phone</th>
+                                    <th class="text-center fw-semibold">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1; ?>
-                                <?php foreach($patients as $patient) : ?>
+                                <?php
+                                    $id = @$_GET['id_patient'];
+                                    $query_patient = "SELECT * FROM tbl_patient ORDER BY name_patient ASC";
+                                    $run_patient = mysqli_query($db,$query_patient);
+                                    $i = 1;
+                                    while ($patient = mysqli_fetch_array($run_patient)) {
+                                ?>
                                 <?php
                                     $birth_date = new DateTime($patient['birth_date']);
                                     $selisih = date_diff($birth_date, new DateTime());
@@ -73,16 +77,93 @@ $page = 'patient';
                                     $month = $selisih->m;
                                 ?>
                                 <tr>
-                                    <td><?= $i; ?></td>
+                                    <td><?= $i ?></td>
                                     <td><?= $patient['nik_patient'] ?></td>
                                     <td><?= $patient['name_patient'] ?></td>
                                     <td><?= $patient['gender_patient'] ?></td>
                                     <td><?= $patient['address_patient'] ?></td>
                                     <td><?= $year. " years " .$month. " month " ?></td>
-                                    <td><?= $patient['phone_patient'] ?></td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                            data-bs-target="#modal<?= $patient['id_patient'] ?>">
+                                            View
+                                        </button>
+                                    </td>
                                 </tr>
-                                <?php $i++; ?>
-                                <?php endforeach; ?>
+                                <!-- Modal Start -->
+                                <div class="modal fade" id="modal<?= $patient['id_patient'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog bg-white">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Patient <span
+                                                        class="fw-bold"><?= $patient['name_patient'] ?></span></h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="text-center mb-3">
+                                                    <img src="../patient/img/<?= $patient['profile_patient'] ?>" width="200" height="200" class="rounded-circle" alt="Image Patient">
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">NIK</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['nik_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Name</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['name_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Place, date birth</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['birth_place'] ?>,
+                                                        <?= date("j F Y", strtotime($patient['birth_date'])) ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Gender</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['gender_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Blood type</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['blood_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Phone</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['phone_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Address</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['address_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Religion</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['religion_patient'] ?></p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <label style="width: 150px;">Marital Status</label>
+                                                    <p class="mx-3">:</p>
+                                                    <p><?= $patient['marriage_patient'] ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal End -->
+                                <?php
+                                $i++; 
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

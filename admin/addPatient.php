@@ -45,6 +45,18 @@ $page = 'patient';
                             </div>
                         </div>
                         <div class="d-flex gap-5">
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="email_patient">Email Patient</label>
+                                <input class="form-control" type="text" id="email_patient" name="email_patient"
+                                    placeholder="Input Email" required autofocus>
+                            </div>
+                            <div class="form-group mb-3 col">
+                                <label class="form-label" for="password_patient">Password Patient</label>
+                                <input class="form-control" type="password" id="password_patient" name="password_patient"
+                                    placeholder="Input password" required>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-5">
                         <div class="form-group mb-3 col">
                                 <label class="form-label" for="birth_place">Birth Place</label>
                                 <input class="form-control" type="text" id="birth_place" name="birth_place"
