@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 03:53 PM
+-- Generation Time: May 30, 2023 at 04:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
-('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$1XSCQ5JI5AZ5Cuz7SofBwup0ROQ2UbSFh704aZQkOoSguiy8obhzC', 'Tzuyu 4.jpg'),
+('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$1XSCQ5JI5AZ5Cuz7SofBwup0ROQ2UbSFh704aZQkOoSguiy8obhzC', 'Anya-taylor.jpg'),
 ('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$9iH4J36JTrQGhd.V7O4zFOutD1iEZCn1zspBgtac/BsTyTIaipvcu', 'Wallpaper 1.jpg');
 
 -- --------------------------------------------------------
@@ -65,8 +65,8 @@ CREATE TABLE `tbl_doctor` (
 --
 
 INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
-('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$O10XH1rcSFFvVnEFFUMaNuIPFFyOboQSKo3UCt4SAFO7OQE3CVb8y', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Wallpaper 1.jpg'),
-('db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$kaPiEnCRrLIJ0KIayEAF4.h6EWZFoj.isOSi54lWQJn6M6YZUfzd6', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', '');
+('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$aez/ChGleX5a979ZOg0yI.78WfMkwpIpMFrAK44xvC0nJRSKSX1q2', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Eren 1.jpg'),
+('db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$t.sEtq4DP5sg7SOlEbNwReJDaz.BztT1RTq8emQwlSwcwCsiuOEuO', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', 'Mikasa 1.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,9 +84,8 @@ CREATE TABLE `tbl_hospital_medicine` (
 --
 
 INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
-('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '4846759e-04ff-49ca-88ee-2977a1a21e5d'),
-('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '148ff283-3687-45bb-b12b-7687fc52caaa'),
-('d21f2ec7-ef05-4f0e-8dad-9611a8f46085', '09a7b207-40fe-4077-8fff-8787b6688bd0');
+('48451e86-08d3-483d-bb6a-e2d6e696260c', '148ff283-3687-45bb-b12b-7687fc52caaa'),
+('48451e86-08d3-483d-bb6a-e2d6e696260c', '09a7b207-40fe-4077-8fff-8787b6688bd0');
 
 -- --------------------------------------------------------
 
@@ -109,8 +108,7 @@ CREATE TABLE `tbl_medical_record` (
 --
 
 INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_user`, `diagnosis`, `id_poly`, `check_up`) VALUES
-('12de8bd0-b5e8-4945-8149-df0eea3c8d2a', '27c636fb-3c30-4d0d-9802-7edfc4593d31', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09'),
-('d21f2ec7-ef05-4f0e-8dad-9611a8f46085', '484cd4f3-575b-440d-b4ef-cfc062a487b9', 'High Blood Pressure', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Headache', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-09');
+('48451e86-08d3-483d-bb6a-e2d6e696260c', '5a1994bb-0250-4aa3-beba-29447311f064', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Flu', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-30');
 
 -- --------------------------------------------------------
 
@@ -129,7 +127,7 @@ CREATE TABLE `tbl_medicine` (
 --
 
 INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicine`) VALUES
-('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Angiotensin-Converting Enzyme', 'Hypertension'),
+('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Paracetamol', 'Fever'),
 ('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness'),
 ('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection');
 
@@ -164,6 +162,8 @@ CREATE TABLE `tbl_patient` (
   `id_patient` varchar(50) NOT NULL,
   `nik_patient` varchar(30) NOT NULL,
   `name_patient` varchar(255) NOT NULL,
+  `email_patient` varchar(255) NOT NULL,
+  `password_patient` varchar(255) NOT NULL,
   `gender_patient` varchar(10) NOT NULL,
   `address_patient` text NOT NULL,
   `phone_patient` varchar(15) NOT NULL,
@@ -171,16 +171,18 @@ CREATE TABLE `tbl_patient` (
   `birth_place` varchar(255) NOT NULL,
   `blood_patient` varchar(2) NOT NULL,
   `religion_patient` varchar(255) NOT NULL,
-  `marriage_patient` varchar(255) NOT NULL
+  `marriage_patient` varchar(255) NOT NULL,
+  `profile_patient` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_patient`
 --
 
-INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`) VALUES
-('27c636fb-3c30-4d0d-9802-7edfc4593d31', '41815010140', 'Chou Tzuyu', 'Woman', 'Busan', '089604333578', '1998-11-15', 'Seoul', 'A', 'Islam', 'Not Married'),
-('484cd4f3-575b-440d-b4ef-cfc062a487b9', '41815010141', 'Chris Prattt', 'Man', 'Jakarta', '089604333589', '1991-10-29', 'Singapura', 'B', 'Chatolic', 'Married');
+INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `email_patient`, `password_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`, `profile_patient`) VALUES
+('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$2p1M7GVp2FOnEhA6hjLzROe1mBlfvdZoLuIJHgVauoSfxqxjV3hxi', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Christian', 'Not Married', 'Tzuyu 1.jpg'),
+('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '41815010120', 'Winter', 'winter@gmail.com', '$2y$10$jmJiB2TcA8m5u9ywoQ61FOIk3qToOBvA5QaT4lcKmMq6j7jy15Pv2', 'Woman', 'Paris, France', '089604333523', '2000-05-15', 'Kuala Lumpur', 'O', 'Islam', 'Not Married', 'Winter 1.jpg'),
+('daf90ef9-5c75-4353-95a9-e9af018788f2', '41815010130', 'Irene', 'irene@gmail.com', '$2y$10$iirGZJYn6S/0HFkMA6gpgOHVjnLHQ/HzIxHGakQLr24Pjafs16SQu', 'Woman', 'Milan, Italy', '089604333526', '1991-02-20', 'Venice', 'AB', 'Hindu', 'Not Married', 'Irene 1.jpg');
 
 -- --------------------------------------------------------
 
@@ -243,9 +245,12 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
 ('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'eren@gmail.com', 'Doctor'),
+('5a1994bb-0250-4aa3-beba-29447311f064', 'tzuyu@gmail.com', 'Patient'),
 ('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika@gmail.com', 'Owner'),
+('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', 'winter@gmail.com', 'Patient'),
 ('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'syifa@gmail.com', 'Admin'),
 ('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin'),
+('daf90ef9-5c75-4353-95a9-e9af018788f2', 'irene@gmail.com', 'Patient'),
 ('db881baa-cc83-43c2-85e3-98805850141b', 'mikasa@gmail.com', 'Doctor');
 
 --
@@ -355,6 +360,12 @@ ALTER TABLE `tbl_medical_record`
 --
 ALTER TABLE `tbl_owner`
   ADD CONSTRAINT `tbl_owner_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_patient`
+--
+ALTER TABLE `tbl_patient`
+  ADD CONSTRAINT `tbl_patient_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
