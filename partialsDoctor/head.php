@@ -3,8 +3,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Doctor - Medisync</title>
     <!-- Favicons -->
-    <link href="../assets/img/favicon.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="../assets/img/icon.png" rel="icon">
     <!-- Vendor CSS Files Start -->
     <!-- Google Fonts Start -->
     <link href="https://fonts.gstatic.com" rel="preconnect">

@@ -101,8 +101,7 @@ if (isset($_POST["login"])) {
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Login - Medisync</title>
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/img/icon.png" rel="icon">
     <!-- Vendor CSS Files Start -->
     <!-- Google Fonts Start -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -140,8 +139,7 @@ if (isset($_POST["login"])) {
                             <!-- Logo Start -->
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Medisync</span>
+                                    <img src="assets/img/logo.png" alt="logo">
                                 </a>
                             </div>
                             <!-- Logo End -->
