@@ -13,6 +13,7 @@ $page = 'profile';
 
 <!-- Head Start -->
 <?php require '../partialsAdmin/head.php' ?>
+<style>
 <!-- Head End -->
 
 <body>
