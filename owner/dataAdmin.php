@@ -114,8 +114,9 @@ $page = 'admin';
         $(document).ready(function () {
             $('#admin').DataTable({
                 columnDefs: [{
-                    targets: '_all',
-                    visible: true
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 3,
                 }]
             });
         });

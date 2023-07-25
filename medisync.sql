@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 04:52 PM
+-- Generation Time: Jul 25, 2023 at 04:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,8 +40,8 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
-('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$1XSCQ5JI5AZ5Cuz7SofBwup0ROQ2UbSFh704aZQkOoSguiy8obhzC', 'Anya-taylor.jpg'),
-('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$9iH4J36JTrQGhd.V7O4zFOutD1iEZCn1zspBgtac/BsTyTIaipvcu', 'Wallpaper 1.jpg');
+('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$GjvkwxrRf7.BCIjkyeTsWehA/z9YOdhlBpJ9xk2EfA6G7NuHVi35u', 'WhatsApp Image 2019-09-05 at 23.01.25.jpeg'),
+('0c5548d7-00f9-4d5d-948a-f20fd7cee341', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$aOZ7vx80mFaqgtfZvLGGguyWZH9e0jMmT67wXK/rHntVJOtnD.hoC', '');
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_doctor` (
 --
 
 INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
-('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$aez/ChGleX5a979ZOg0yI.78WfMkwpIpMFrAK44xvC0nJRSKSX1q2', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Eren 1.jpg'),
+('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$IkRCjzZMHOvGGwNWw8bKMOrLJmWlxQkkXv2HwrDP14bjUWyjSRaRO', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Eren 1.jpg'),
 ('db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$t.sEtq4DP5sg7SOlEbNwReJDaz.BztT1RTq8emQwlSwcwCsiuOEuO', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', 'Mikasa 1.jpg');
 
 -- --------------------------------------------------------
@@ -150,7 +150,7 @@ CREATE TABLE `tbl_owner` (
 --
 
 INSERT INTO `tbl_owner` (`id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
-('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Velika Hafiza Fatiha', 'velika@gmail.com', '$2y$10$0JiL5TqJ5/iyCZ5juWC4vOUpX7DCUU02zl3nP1ADsgCQyfXki6Jri', 'Tzuyu 2.jpg');
+('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Anya Taylor-Joy', 'anya@gmail.com', '$2y$10$p4PcMfqIwm1n2efByb9y7OYuBegft9NxJWmB36M5LulAmu.Ydb5R6', 'anyataylor-joy.png');
 
 -- --------------------------------------------------------
 
@@ -180,7 +180,7 @@ CREATE TABLE `tbl_patient` (
 --
 
 INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `email_patient`, `password_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`, `profile_patient`) VALUES
-('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$2p1M7GVp2FOnEhA6hjLzROe1mBlfvdZoLuIJHgVauoSfxqxjV3hxi', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Christian', 'Not Married', 'Tzuyu 1.jpg'),
+('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$P3yoEHZ68LUrXPCpnBGXAeLv4KxQTgn0rq6LGnxNMBgHb4zqivY6q', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Christian', 'Not Married', 'Tzuyu 1.jpg'),
 ('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '41815010120', 'Winter', 'winter@gmail.com', '$2y$10$jmJiB2TcA8m5u9ywoQ61FOIk3qToOBvA5QaT4lcKmMq6j7jy15Pv2', 'Woman', 'Paris, France', '089604333523', '2000-05-15', 'Kuala Lumpur', 'O', 'Islam', 'Not Married', 'Winter 1.jpg'),
 ('daf90ef9-5c75-4353-95a9-e9af018788f2', '41815010130', 'Irene', 'irene@gmail.com', '$2y$10$iirGZJYn6S/0HFkMA6gpgOHVjnLHQ/HzIxHGakQLr24Pjafs16SQu', 'Woman', 'Milan, Italy', '089604333526', '1991-02-20', 'Venice', 'AB', 'Hindu', 'Not Married', 'Irene 1.jpg');
 
@@ -244,11 +244,11 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
+('0c5548d7-00f9-4d5d-948a-f20fd7cee341', 'syifa@gmail.com', 'Admin'),
 ('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'eren@gmail.com', 'Doctor'),
 ('5a1994bb-0250-4aa3-beba-29447311f064', 'tzuyu@gmail.com', 'Patient'),
-('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'velika@gmail.com', 'Owner'),
+('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'anya@gmail.com', 'Owner'),
 ('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', 'winter@gmail.com', 'Patient'),
-('b4a1aa96-812c-451b-b55e-a39f730d59e4', 'syifa@gmail.com', 'Admin'),
 ('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin'),
 ('daf90ef9-5c75-4353-95a9-e9af018788f2', 'irene@gmail.com', 'Patient'),
 ('db881baa-cc83-43c2-85e3-98805850141b', 'mikasa@gmail.com', 'Doctor');

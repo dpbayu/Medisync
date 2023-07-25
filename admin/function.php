@@ -213,6 +213,7 @@ if (isset($_POST['update'])) {
                 $hash = password_hash($password_admin, PASSWORD_DEFAULT);
                 $id = $_SESSION['id_user'];
                 $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', password_admin = '$hash' WHERE id_user = '$id'";
+                mysqli_query($db, "UPDATE tbl_user SET email = '$email_admin' WHERE id_user = '$id'");
                 if (mysqli_query($db, $sql2)) {
                     session_unset();
                     session_destroy();
