@@ -44,8 +44,8 @@ $page = 'poly';
             <div class="col-md-6">
                 <form action="addPoly.php" method="POST">
                     <div class="form-group mb-3">
-                        <label class="form-label" for="count_add">Data will be added</label>
-                        <input class="form-control" type="text" name="count_add" id="count_add" maxlength="2"
+                        <label class="form-label">Data will be added</label>
+                        <input class="form-control" type="text" name="count_add" maxlength="2"
                             pattern="[0-9]+" placeholder="1-9" required>
                     </div>
                     <div class="form-group mb-3">

@@ -33,7 +33,7 @@ $page = 'medicine';
             <a href="generateMedicine.php" class="btn btn-primary">Add More</a>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <form action="function.php" method="POST">
                     <input type="hidden" name="total" value="<?= @$_POST['count_add'] ?>">
                     <table class="table">
@@ -41,9 +41,10 @@ $page = 'medicine';
                             <th>#</th>
                             <th>Name Medicine</th>
                             <th>Description Medicine</th>
+                            <th>Stock Medicine</th>
                         </tr>
                         <?php
-                        for ($i = 1; $i <= $_POST['count_add']; $i++) { 
+                            for ($i = 1; $i <= $_POST['count_add']; $i++) { 
                         ?>
                         <tr>
                             <td><?= $i ?></td>
@@ -51,6 +52,9 @@ $page = 'medicine';
                                     placeholder="Input medicine" required></td>
                             <td><input class="form-control" type="text" name="description_medicine-<?= $i ?>"
                                     placeholder="Input description" required></td>
+                            <td><input class="form-control" type="number" name="stock_medicine-<?= $i ?>"
+                                    placeholder="Input stock" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
+                            </td>
                         </tr>
                         <?php
                         }

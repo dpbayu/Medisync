@@ -116,64 +116,64 @@ $page = 'medical_record';
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">NIK</label>
+                                                                <label style="width: 115px;">NIK</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['nik_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Name</label>
+                                                                <label style="width: 115px;">Name</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['name_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Place, date birth</label>
+                                                                <label style="width: 115px;">Place, date birth</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['birth_place'] ?>,
                                                                     <?= date("j-m-Y", strtotime($data['birth_date'])) ?>
                                                                 </p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Gender</label>
+                                                                <label style="width: 115px;">Gender</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['gender_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Blood Type</label>
+                                                                <label style="width: 115px;">Blood Type</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['blood_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Phone</label>
+                                                                <label style="width: 115px;">Phone</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['phone_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Address</label>
+                                                                <label style="width: 115px;">Address</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['address_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Religion</label>
+                                                                <label style="width: 115px;">Religion</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['religion_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Marital Status</label>
+                                                                <label style="width: 115px;">Marital Status</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['marriage_patient'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Illness</label>
+                                                                <label style="width: 115px;">Illness</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['illness'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Diagnosis</label>
+                                                                <label style="width: 115px;">Diagnosis</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['diagnosis'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Medicines</label>
+                                                                <label style="width: 115px;">Medicines</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p>
                                                                     <?php
@@ -189,27 +189,22 @@ $page = 'medical_record';
                                                         </div>
                                                         <div class="col-6">
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Doctor</label>
+                                                                <label style="width: 115px;">Doctor</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['name_doctor'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Email</label>
+                                                                <label style="width: 115px;">Email</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['email_doctor'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Phone</label>
+                                                                <label style="width: 115px;">Phone</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['phone_doctor'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 150px;">Address</label>
-                                                                <p class="mx-3">:</p>
-                                                                <p><?= $data['address_doctor'] ?></p>
-                                                            </div>
-                                                            <div class="d-flex">
-                                                                <label style="width: 150px;">Poly</label>
+                                                                <label style="width: 115px;">Poly</label>
                                                                 <p class="mx-3">:</p>
                                                                 <p><?= $data['name_poly'] ?></p>
                                                             </div>

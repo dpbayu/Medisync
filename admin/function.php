@@ -45,7 +45,8 @@ if (isset($_POST['addPatient'])) {
     $blood_patient = trim(mysqli_real_escape_string($db, $_POST['blood_patient']));
     $marriage_patient = trim(mysqli_real_escape_string($db, $_POST['marriage_patient']));
     mysqli_query($db, "SELECT tbl_patient.id_patient FROM tbl_patient INNER JOIN tbl_user ON tbl_patient.email_patient = tbl_user.email WHERE tbl_user.email = '$email_patient'");
-        if (empty($password_patient)) {
+    $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient'");
+    if (empty($password_patient)) {
             mysqli_query($db, "UPDATE tbl_user SET email = '$email_patient' WHERE email = '$old_email'");
             mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', email_patient = '$email_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_patient = '$id'");
             echo "<script>window.location='dataPatient.php?success=Data successfuly updated!';</script>";
@@ -55,13 +56,6 @@ if (isset($_POST['addPatient'])) {
             mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', email_patient = '$email_patient', password_patient = '$hash', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_patient = '$id'");
             echo "<script>window.location='dataPatient.php?success=Data successfuly updated!';</script>";
     }
-    // $sql_check = mysqli_query($db, "SELECT * FROM tbl_patient WHERE nik_patient = '$nik_patient' AND id_patient != '$id'");
-    // if (mysqli_num_rows($sql_check) > 0) {
-    //     echo "<script>window.location='dataPatient.php?failed=NIK already exist!';</script>";
-    // } else {
-    //     mysqli_query($db, "UPDATE tbl_patient SET nik_patient = '$nik_patient', name_patient = '$name_patient', gender_patient = '$gender_patient', address_patient = '$address_patient', phone_patient = '$phone_patient', birth_place = '$birth_place', birth_date = '$birth_date', religion_patient = '$religion_patient', blood_patient = '$blood_patient', marriage_patient = '$marriage_patient' WHERE id_patient = '$id'");
-    //     echo "<script>window.location='dataPatient.php?success=Data successfully updated!';</script>";
-    // }
 }
 // Add & Edit Patient End
 
@@ -113,7 +107,8 @@ if (isset($_POST['addMedicine'])) {
         $uuid = Uuid::uuid4()->toString();
         $name_medicine = trim(mysqli_real_escape_string($db, $_POST['name_medicine-'.$i]));
         $description_medicine = trim(mysqli_real_escape_string($db, $_POST['description_medicine-'.$i]));        
-        $sql = mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine) VALUES ('$uuid', '$name_medicine', '$description_medicine')");
+        $stock_medicine = trim(mysqli_real_escape_string($db, $_POST['stock_medicine-'.$i]));        
+        $sql = mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine, stock_medicine) VALUES ('$uuid', '$name_medicine', '$description_medicine', '$stock_medicine')");
     }
     if ($sql) {
         echo "<script>window.location='dataMedicine.php?success=".$total." Data successfully added!';</script>";
@@ -125,7 +120,8 @@ if (isset($_POST['addMedicine'])) {
         $id = $_POST['id'][$i];
         $name_medicine = $_POST['name_medicine'][$i];
         $description_medicine = $_POST['description_medicine'][$i];        
-        mysqli_query($db, "UPDATE tbl_medicine SET name_medicine = '$name_medicine', description_medicine = '$description_medicine' WHERE id_medicine = '$id'");
+        $stock_medicine = $_POST['stock_medicine'][$i];        
+        mysqli_query($db, "UPDATE tbl_medicine SET name_medicine = '$name_medicine', description_medicine = '$description_medicine', stock_medicine = '$stock_medicine' WHERE id_medicine = '$id'");
     }
     echo "<script>window.location='dataMedicine.php?success=Data successfuly updated!';</script>";
 }

@@ -38,7 +38,7 @@ if (!isset($chk)) {
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <form action="function.php" method="POST">
                     <input type="hidden" name="total" value="<?= @$_POST['count_add'] ?>">
                     <table class="table">
@@ -47,6 +47,7 @@ if (!isset($chk)) {
                                 <th>#</th>
                                 <th>Name Medicine</th>
                                 <th>Description Medicine</th>
+                                <th>Stock Medicine</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,6 +66,10 @@ if (!isset($chk)) {
                                 </td>
                                 <td>
                                     <input type="text" name="description_medicine[]" value="<?= $data['description_medicine'] ?>"
+                                        class="form-control" required>
+                                </td>
+                                <td>
+                                    <input type="text" name="stock_medicine[]" value="<?= $data['stock_medicine'] ?>"
                                         class="form-control" required>
                                 </td>
                             </tr>

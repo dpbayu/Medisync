@@ -61,6 +61,7 @@ $page = 'medicine';
                                         <th class="fw-semibold">No</th>
                                         <th class="fw-semibold">Name Medicine</th>
                                         <th class="fw-semibold">Description Medicine</th>
+                                        <th class="fw-semibold">Stock Medicine</th>
                                         <th class="text-center">
                                             <input type="checkbox" id="select_all" value="">
                                         </th>
@@ -73,6 +74,7 @@ $page = 'medicine';
                                         <td><?= $i; ?></td>
                                         <td><?= $medicine['name_medicine'] ?></td>
                                         <td><?= $medicine['description_medicine'] ?></td>
+                                        <td><?= $medicine['stock_medicine'] ?></td>
                                         <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
                                                 value="<?= $medicine['id_medicine'] ?>" <?= $medicine['id_medicine'] ?>>
@@ -138,7 +140,7 @@ $page = 'medicine';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 3,
+                    "targets": 4,
                 }],
             });
         });
