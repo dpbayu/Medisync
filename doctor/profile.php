@@ -13,6 +13,11 @@ $page = 'profile';
 
 <!-- Head Start -->
 <?php require '../partialsDoctor/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
@@ -42,7 +47,7 @@ $page = 'profile';
                     ?>
                     <div class="col-md-6">
                         <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="old_image" value="<?php echo $_SESSION['profile_doctor'] ?>">
+                            <input type="hidden" name="old_image" value="<?php echo $_SESSION['profile_doctor'] ?>">
                             <img src="img/<?php echo $_SESSION['profile_doctor'] ?>" class="rounded-circle" height="200"
                                 width="200">
                             <div class="form-group mb-3">

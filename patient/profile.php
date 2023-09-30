@@ -13,6 +13,11 @@ $page = 'profile';
 
 <!-- Head Start -->
 <?php require '../partialsPatient/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
