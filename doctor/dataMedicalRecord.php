@@ -8,7 +8,7 @@ if (!isset($_SESSION["login"])) {
 }
 $datas = query("SELECT * FROM tbl_medical_record 
 INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
-INNER JOIN tbl_doctor ON tbl_medical_record.id_user = tbl_doctor.id_user
+INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
 INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC");
 $page = 'medical_record';
 ?>

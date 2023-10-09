@@ -47,8 +47,15 @@ $page = 'medical_record';
                             </div>
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="doctor">Name Doctor</label>
-                                <input class="form-control" type="text" id="name" name="name_doctor"
-                                    value="<?php echo $_SESSION['name_doctor'] ?>" disabled>
+                                <select class="form-control" name="id_doctor" id="doctor">
+                                    <option value="">- Choose Doctor -</option>
+                                    <?php
+                                    $sql_doctor = mysqli_query($db, "SELECT * FROM tbl_doctor ORDER BY name_doctor ASC");
+                                    while ($data_doctor = mysqli_fetch_array($sql_doctor)) { 
+                                        echo '<option value="'.$data_doctor['id_doctor'].'">'.$data_doctor['name_doctor'].'</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="d-flex gap-5">
@@ -91,7 +98,7 @@ $page = 'medical_record';
                         <div class="form-group mb-3">
                             <label class="form-label" for="check_up_date">Check Up Date</label>
                             <input class="form-control" type="date" id="check_up_date" name="check_up"
-                                value="<?= date('Y-m-d') ?>" disabled>
+                                value="<?= date('Y-m-d') ?>">
                         </div>
                         <div class="form-group mb-3">
                             <button class="btn btn-success" type="submit" name="add">Add</button>
