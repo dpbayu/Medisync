@@ -13,6 +13,7 @@ if (isset($_POST["login"])) {
                 $value = mysqli_fetch_assoc($patient);
                 if (password_verify($password, $value["password_admin"])) {
                     $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['id_admin'] = $value['id_admin'];
                     $_SESSION['name_admin'] = $value['name_admin'];
                     $_SESSION['email_admin'] = $value['email_admin'];
                     $_SESSION['profile_admin'] = $value['profile_admin'];
@@ -30,6 +31,7 @@ if (isset($_POST["login"])) {
                 $value = mysqli_fetch_assoc($doctor);
                 if (password_verify($password, $value["password_doctor"])) {
                     $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['id_doctor'] = $value['id_doctor'];
                     $_SESSION['name_doctor'] = $value['name_doctor'];
                     $_SESSION['email_doctor'] = $value['email_doctor'];
                     $_SESSION['address_doctor'] = $value['address_doctor'];
@@ -49,6 +51,7 @@ if (isset($_POST["login"])) {
                 $value = mysqli_fetch_assoc($owner);
                 if (password_verify($password, $value["password_owner"])) {
                     $_SESSION['id_user'] = $value['id_user'];
+                    $_SESSION['id_owner'] = $value['id_owner'];
                     $_SESSION['name_owner'] = $value['name_owner'];
                     $_SESSION['email_owner'] = $value['email_owner'];
                     $_SESSION['profile_owner'] = $value['profile_owner'];

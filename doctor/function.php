@@ -5,6 +5,10 @@ require '../assets/libs/vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
+// Send to Medical Record Start
+
+// Send to Medical Record End
+
 // Add & Edit Medical Record Start
 if (isset($_POST['add'])) {
     $uuid = Uuid::uuid4()->toString();
