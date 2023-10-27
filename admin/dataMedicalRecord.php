@@ -50,7 +50,7 @@ $page = 'medical_record';
                     }
                     ?>
                     <div class="table">
-                        <form action="" method="POST" name="proses">
+                        <form action="" method="POST">
                             <table class="table table-bordered table-hover" id="medical_record">
                                 <thead>
                                     <tr>

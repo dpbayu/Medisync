@@ -14,6 +14,11 @@ $page = 'doctor';
 
 <!-- Head Start -->
 <?php require '../partialsOwner/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
@@ -79,13 +84,13 @@ $page = 'doctor';
                                         <td><?= $doctor['email_doctor'] ?></td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal<?= $doctor['id_user'] ?>">
+                                                data-bs-target="#modal<?= $doctor['id_doctor'] ?>">
                                                 View
                                             </button>
                                         </td>
                                     </tr>
                                     <!-- Modal Start -->
-                                    <div class="modal fade" id="modal<?= $doctor['id_user'] ?>" tabindex="-1"
+                                    <div class="modal fade" id="modal<?= $doctor['id_doctor'] ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

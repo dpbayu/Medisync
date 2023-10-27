@@ -15,6 +15,11 @@ $page = 'admin';
 
 <!-- Head Start -->
 <?php require '../partialsOwner/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
