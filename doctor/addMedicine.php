@@ -27,17 +27,17 @@ $page = 'medical_record';
     <main id="main" class="main">
         <div class="pagetitle">
             <?php
-            $id = @$_GET['id'];
-            $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
-            $data = mysqli_fetch_array($sql_patient);
+                $id = @$_GET['id'];
+                $sql_patient = mysqli_query($db, "SELECT * FROM tbl_medical_record WHERE id_hospital = '$id'");
+                $data = mysqli_fetch_array($sql_patient);
             ?>
-            <h1>Data Medicine <?= $data['name_patient'] ?></h1>
+            <h1>Data Medicine</h1>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
-                    <input class="form-control" type="hidden" name="id_patient" value="<?= $data['id_patient'] ?>">
+                    <input class="form-control" type="hidden" name="id_hospital" value="<?= $data['id_hospital'] ?>">
                         <div class="control-group after-add-more">
                             <div class="row">
                                 <div class="col-3">
@@ -46,7 +46,7 @@ $page = 'medical_record';
                                         <select class="form-control" name="id_medicine[]" id="medicine">
                                             <option value="">- Choose Medicine -</option>
                                             <?php
-                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
+                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine ORDER BY name_medicine");
                                             while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
                                                 echo '<option value="' . $data_medicine['id_medicine'] . '">' . $data_medicine['name_medicine'] . '</option>';
                                             }
