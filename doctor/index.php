@@ -57,27 +57,6 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-capsule rounded-circle fs-1 py-1 px-3 text-warning" style="background-color: rgba(255, 205, 86, 0.2);"></i></i>
-                                        <div class="d-block">
-                                            <h2 class="fw-bolder">
-                                                <?php
-                                                    $sql = "SELECT * FROM tbl_medicine";
-                                                    $query = mysqli_query($db, $sql);
-                                                    $count = mysqli_num_rows($query);
-                                                    echo "$count";
-                                                ?>
-                                            </h2>
-                                            <h6 class="text-secondary">Medicines</h6>
-                                        </div>
-                                    </div>
-                                    <a href="../doctor/dataMedicine.php" class="btn btn-primary w-100">Medicines</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex gap-4 py-4 px-3">
                                         <i class="bi bi-box rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">

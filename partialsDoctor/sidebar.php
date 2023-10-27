@@ -14,12 +14,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if ($page != 'medicine') {echo 'collapsed';} ?>" href="../doctor/dataMedicine.php">
-                <i class="bi bi-capsule"></i>
-                <span>Data Medicine</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link <?php if ($page != 'medical_record') {echo 'collapsed';} ?>"
                 href="../doctor/dataMedicalRecord.php">
                 <i class="bi bi-box"></i>

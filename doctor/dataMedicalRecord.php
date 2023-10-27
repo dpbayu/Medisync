@@ -74,7 +74,7 @@ $page = 'medical_record';
                                     $query_data = "SELECT * FROM tbl_medical_record 
                                     INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
                                     INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY id ASC";
                                     $run_data = mysqli_query($db, $query_data);
                                     $i = 1;
                                     while ($data = mysqli_fetch_array($run_data)) {
@@ -143,6 +143,20 @@ $page = 'medical_record';
                                                             <label style="width: 125px;">Illness</label>
                                                             <p class="mx-3">:</p>
                                                             <p><?= $data['illness'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Medicine</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p>
+                                                                <?php
+                                                                $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_hospital_medicine 
+                                                                JOIN tbl_medicine ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
+                                                                WHERE id_patient = '$data[id_patient]'");
+                                                                while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
+                                                                    echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                                }
+                                                                ?>
+                                                            </p>
                                                         </div>
                                                         <hr>
                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor</h1>

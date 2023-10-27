@@ -94,7 +94,7 @@ $page = 'patient';
                                     </tr>
                                     <!-- Modal Start -->
                                     <div class="modal fade" id="modal<?= $patient['id_patient'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog bg-white">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Patient <span class="fw-bold"><?= $patient['name_patient'] ?></span></h1>

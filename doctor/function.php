@@ -11,14 +11,13 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
 // Add & Edit Medical Record Start
 if (isset($_POST['addMedicalRecord'])) {
-    $uuid = Uuid::uuid4()->toString();
     $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
     $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
     $id_doctor = trim(mysqli_real_escape_string($db, $_POST['id_doctor']));
     $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
     $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
     $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
-    mysqli_query($db, "INSERT INTO tbl_medical_record (id, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('$uuid', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up')");
+    mysqli_query($db, "INSERT INTO tbl_medical_record (id, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up')");
     echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly added!';</script>";
 } else if (isset($_POST['edit'])) {
     $id = $_POST['id'];
