@@ -51,7 +51,7 @@ $page = 'medicine';
                     }
                     ?>
                     <div class="table">
-                        <form action="" method="POST" name="process">
+                        <form action="" method="POST">
                             <table class="table table-bordered table-hover" id="medicine">
                                 <thead>
                                     <tr>

@@ -26,7 +26,12 @@ $page = 'medical_record';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Medical Record</h1>
+            <?php
+            $id = @$_GET['id'];
+            $sql_patient = mysqli_query($db, "SELECT * FROM tbl_patient WHERE id_patient = '$id'");
+            $data = mysqli_fetch_array($sql_patient);
+            ?>
+            <h1>Data Medicine <?= $data['name_patient'] ?></h1>
         </div>
         <section class="section dashboard">
             <div class="row">
