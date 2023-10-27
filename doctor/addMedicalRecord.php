@@ -14,6 +14,8 @@ $page = 'medical_record';
 
 <!-- Head Start -->
 <?php require '../partialsDoctor/head.php' ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.7.2/tinymce.min.js" integrity="sha512-AHsE0IVoihNpGako20z2Tsgg77r5h9VS20XIKa+ZZ8WzzXxdbiUszgVUmXqpUE8GVUEQ88BKQqtlB/xKIY3tUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>tinymce.init({ selector:'textarea'});</script>
 <!-- Head End -->
 
 <body>
@@ -69,15 +71,15 @@ $page = 'medical_record';
                         <div class="d-flex gap-5">
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="illness">Illness</label>
-                                <textarea class="form-control" id="illness" name="illness" placeholder="Input illness" rows="5" style="resize: none;" required></textarea>
+                                <textarea class="form-control" name="illness" id="default" placeholder="Input illness" rows="5" style="resize: none;"></textarea>
                             </div>
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="diagnosis">Diagnosis</label>
-                                <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Input diagnosis" rows="5" style="resize: none;" required></textarea>
+                                <textarea class="form-control" name="diagnosis" id="default" placeholder="Input diagnosis" rows="5" style="resize: none;"></textarea>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add">Add</button>
+                            <button class="btn btn-success" type="submit" name="addMedicalRecord">Add</button>
                             <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
                             <a href="dataMedicalRecord.php" class="btn btn-secondary">Back</a>
                         </div>
@@ -95,6 +97,9 @@ $page = 'medical_record';
                 allowClear: true,
                 language: "id"
             });
+        });
+        tinymce.init({
+            selector: 'textarea#default'
         });
     </script>
     <!-- JS -->

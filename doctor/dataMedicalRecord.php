@@ -85,7 +85,7 @@ $page = 'medical_record';
                                             <td><?= $data['name_patient'] ?></td>
                                             <td><?= $data['name_doctor'] ?></td>
                                             <td class="text-center">
-                                                <a href="addMedicalRecord.php" class="btn btn-success">Medicine</a>
+                                                <a href="addMedicine.php?id=<?= $data['id_patient'] ?>" class="btn btn-success">Medicine</a>
                                             </td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal<?= $data['id_patient'] ?>">
@@ -134,6 +134,16 @@ $page = 'medical_record';
                                                             <p class="mx-3">:</p>
                                                             <p><?= $data['address_patient'] ?></p>
                                                         </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Diagnosis</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['diagnosis'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Illness</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['illness'] ?></p>
+                                                        </div>
                                                         <hr>
                                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor</h1>
                                                         <div class="d-flex">
@@ -145,16 +155,6 @@ $page = 'medical_record';
                                                             <label style="width: 125px;">Poly</label>
                                                             <p class="mx-3">:</p>
                                                             <p><?= $data['name_poly'] ?></p>
-                                                        </div>
-                                                        <div class="d-flex">
-                                                            <label style="width: 125px;">Diagnosis</label>
-                                                            <p class="mx-3">:</p>
-                                                            <p><?= $data['diagnosis'] ?></p>
-                                                        </div>
-                                                        <div class="d-flex">
-                                                            <label style="width: 125px;">Illness</label>
-                                                            <p class="mx-3">:</p>
-                                                            <p><?= $data['illness'] ?></p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

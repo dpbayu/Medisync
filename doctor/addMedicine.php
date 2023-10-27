@@ -37,56 +37,62 @@ $page = 'medical_record';
             <div class="row">
                 <div class="col-md-12">
                     <form action="function.php" method="POST">
-                        <div class="form-group mb-3 d-none">
-                            <label class="form-label" for="check_up_date">Check Up Date</label>
-                            <input class="form-control" type="date" id="check_up_date" name="check_up" value="<?= date('Y-m-d') ?>">
-                        </div>
-                        <div class="form-group mb-3 d-none">
-                            <label class="form-label" for="doctor">Doctor</label>
-                            <input class="form-control" type="text" id="name" name="id_doctor" value="<?php echo $_SESSION['id_doctor'] ?>">
-                        </div>
-                        <div class="d-flex gap-5">
-                            <div class="form-group mb-3 col">
-                                <label class="form-label" for="patient">Patient</label>
-                                <select class="form-control" name="id_patient" id="patient">
-                                    <option value="">- Choose Patient -</option>
-                                    <?php
-                                    $sql_pasien = mysqli_query($db, "SELECT * FROM tbl_patient");
-                                    while ($data_pasien = mysqli_fetch_array($sql_pasien)) {
-                                        echo '<option value="' . $data_pasien['id_patient'] . '">' . $data_pasien['name_patient'] . '</option>';
-                                    }
-                                    ?>
-                                </select>
+                    <input class="form-control" type="hidden" name="id_patient" value="<?= $data['id_patient'] ?>">
+                        <div class="control-group after-add-more">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="medicine">Medicine</label>
+                                        <select class="form-control" name="id_medicine[]" id="medicine">
+                                            <option value="">- Choose Medicine -</option>
+                                            <?php
+                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
+                                            while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
+                                                echo '<option value="' . $data_medicine['id_medicine'] . '">' . $data_medicine['name_medicine'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label class="form-label" for="qty_medicine">Quantity</label>
+                                    <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
+                                </div>
                             </div>
-                            <div class="form-group mb-3 col">
-                                <label class="form-label" for="poly">Poly</label>
-                                <select class="form-control" name="id_poly" id="poly">
-                                    <option value="">- Choose Poly -</option>
-                                    <?php
-                                    $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
-                                    while ($data_poly = mysqli_fetch_array($sql_poly)) {
-                                        echo '<option value="' . $data_poly['id_poly'] . '">' . $data_poly['name_poly'] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                            <button class="btn btn-info add-more" type="button">Add Form</button>
+                            <hr>
                         </div>
-                        <div class="d-flex gap-5">
-                            <div class="form-group mb-3 col">
-                                <label class="form-label" for="illness">Illness</label>
-                                <textarea class="form-control" id="illness" name="illness" placeholder="Input illness" rows="5" style="resize: none;" required></textarea>
-                            </div>
-                            <div class="form-group mb-3 col">
-                                <label class="form-label" for="diagnosis">Diagnosis</label>
-                                <textarea class="form-control" id="diagnosis" name="diagnosis" placeholder="Input diagnosis" rows="5" style="resize: none;" required></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group mb-3">
-                            <button class="btn btn-success" type="submit" name="add">Add</button>
-                            <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
-                            <a href="dataMedicalRecord.php" class="btn btn-secondary">Back</a>
-                        </div>
+                        <button class="btn btn-success" type="submit" name="addMedicine">Finish</button>
+                        <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
+                        <a href="dataMedicalRecord.php" class="btn btn-secondary">Back</a>
                     </form>
+                    <!-- class hide membuat form disembunyikan  -->
+                    <!-- hide adalah fungsi bootstrap 3, klo bootstrap 4 pake invisible  -->
+                    <div class="copy invisible">
+                        <div class="control-group mb-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label" for="medicine">Medicine</label>
+                                        <select class="form-control" name="id_medicine[]" id="medicine">
+                                            <option value="">- Choose Medicine -</option>
+                                            <?php
+                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
+                                            while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
+                                                echo '<option value="' . $data_medicine['id_medicine'] . '">' . $data_medicine['name_medicine'] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label class="form-label" for="qty_medicine">Quantity</label>
+                                    <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger remove" type="button">Remove</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -95,10 +101,12 @@ $page = 'medical_record';
     <!-- JS -->
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#medicine').select2({
-                placeholder: "Choose Medicine",
-                allowClear: true,
-                language: "id"
+            $(".add-more").click(function() {
+                var html = $(".copy").html();
+                $(".after-add-more").after(html);
+            });
+            $("body").on("click", ".remove", function() {
+                $(this).parents(".control-group").remove();
             });
         });
     </script>

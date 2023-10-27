@@ -10,7 +10,7 @@ use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 // Send to Medical Record End
 
 // Add & Edit Medical Record Start
-if (isset($_POST['add'])) {
+if (isset($_POST['addMedicalRecord'])) {
     $uuid = Uuid::uuid4()->toString();
     $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
     $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
@@ -33,6 +33,20 @@ if (isset($_POST['add'])) {
     echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly updated!';</script>";
 }
 // Add & Edit Medical Record End
+
+// Add Medicine Start
+if (isset($_POST['addMedicine'])) {
+    $id_patient = $_POST['id_patient'];
+    $id_medicine = $_POST['id_medicine'];
+    $qty_medicine = $_POST['qty_medicine'];
+    $total = count($id_medicine);
+    //melakukan perulangan input
+    for ($i = 0; $i < $total; $i++) {
+        mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_patient = '$id_patient', id_medicine = '$id_medicine[$i]', qty_medicine = '$qty_medicine[$i]'");
+    }
+    echo "<script>window.location='dataMedicalRecord.php?success=Medicine successfuly added!';</script>";
+}
+// Add Medicine End
 
 // Update Profile Start
 if (isset($_POST['update'])) {
