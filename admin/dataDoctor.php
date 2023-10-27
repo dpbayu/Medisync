@@ -14,6 +14,11 @@ $page = 'doctor';
 
 <!-- Head Start -->
 <?php require '../partialsAdmin/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
@@ -81,20 +86,20 @@ $page = 'doctor';
                                         <td><?= $doctor['address_doctor'] ?></td>
                                         <td><?= $doctor['email_doctor'] ?></td>
                                         <td class="text-center">
-                                            <a href="editDoctor.php?id=<?= $doctor['id_user'] ?>"
+                                            <a href="editDoctor.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-warning">Edit</a>
                                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal<?= $doctor['id_user'] ?>">
+                                                data-bs-target="#modal<?= $doctor['id_doctor'] ?>">
                                                 View
                                             </button>
                                             <a onclick="return confirm('Are you sure delete this data ?')"
-                                                href="deleteDoctor.php?id=<?= $doctor['id_user'] ?>"
+                                                href="deleteDoctor.php?id=<?= $doctor['id_doctor'] ?>"
                                                 class="btn btn-danger">
                                                 Delete</a>
                                         </td>
                                     </tr>
                                     <!-- Modal Start -->
-                                    <div class="modal fade" id="modal<?= $doctor['id_user'] ?>" tabindex="-1"
+                                    <div class="modal fade" id="modal<?= $doctor['id_doctor'] ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">

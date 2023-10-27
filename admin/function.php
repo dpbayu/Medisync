@@ -74,7 +74,7 @@ if (isset($_POST['addDoctor'])) {
     } else {
         $password_doctor = password_hash($password_doctor, PASSWORD_DEFAULT);
         mysqli_query($db, "INSERT INTO tbl_user (id_user, email, role) VALUES ('$uuid', '$email_doctor', 'Doctor')");
-        mysqli_query($db, "INSERT INTO tbl_doctor (id_user, name_doctor, email_doctor, password_doctor, id_specialist, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$id_specialist', '$address_doctor', '$phone_doctor')");
+        mysqli_query($db, "INSERT INTO tbl_doctor (id_doctor, name_doctor, email_doctor, password_doctor, id_specialist, address_doctor, phone_doctor) VALUES ('$uuid', '$name_doctor', '$email_doctor', '$password_doctor', '$id_specialist', '$address_doctor', '$phone_doctor')");
         echo "<script>window.location='dataDoctor.php?success=Data successfuly added!';</script>";
     }
 } else if (isset($_POST['editDoctor'])) {
@@ -86,15 +86,15 @@ if (isset($_POST['addDoctor'])) {
     $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
     $address_doctor = trim(mysqli_real_escape_string($db, $_POST['address_doctor']));
     $phone_doctor = trim(mysqli_real_escape_string($db, $_POST['phone_doctor']));
-    mysqli_query($db, "SELECT tbl_doctor.id_user FROM tbl_doctor INNER JOIN tbl_user ON tbl_doctor.email_doctor = tbl_user.email WHERE tbl_user.email = '$email_doctor'");
+    mysqli_query($db, "SELECT tbl_doctor.id_doctor FROM tbl_doctor INNER JOIN tbl_user ON tbl_doctor.email_doctor = tbl_user.email WHERE tbl_user.email = '$email_doctor'");
         if (empty($password_doctor)) {
             mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_user = '$id'");
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
             echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
         } else {
             $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
             mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE email = '$old_email'");
-            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_user = '$id'");
+            mysqli_query($db, "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash', id_specialist = '$id_specialist', address_doctor = '$address_doctor', phone_doctor = '$phone_doctor' WHERE id_doctor = '$id'");
             echo "<script>window.location='dataDoctor.php?success=Data successfuly updated!';</script>";
     }
 }

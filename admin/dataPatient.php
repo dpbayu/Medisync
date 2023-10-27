@@ -14,6 +14,11 @@ $page = 'patient';
 
 <!-- Head Start -->
 <?php require '../partialsAdmin/head.php' ?>
+<style>
+    img {
+        object-fit: cover;
+    }
+</style>
 <!-- Head End -->
 
 <body>
