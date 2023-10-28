@@ -90,10 +90,6 @@ $page = 'profile';
                                 </div>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="form-label" for="email">Email</label>
-                                <input class="form-control" type="email" id="email" name="email_patient" value="<?php echo $_SESSION['email_patient'] ?>">
-                            </div>
-                            <div class="form-group mb-3">
                                 <label class="form-label" for="address">Address</label>
                                 <input class="form-control" type="text" id="address" name="address_patient" value="<?php echo $_SESSION['address_patient'] ?>">
                             </div>
@@ -132,6 +128,10 @@ $page = 'profile';
                                 </div>
                             </div>
                             <div class="form-group mb-3">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-control" type="email" id="email" name="email_patient" value="<?php echo $_SESSION['email_patient'] ?>">
+                            </div>
+                            <div class="form-group mb-3">
                                 <label class="form-label" for="password">Password</label>
                                 <input class="form-control" type="password" id="password" name="password_patient">
                             </div>
@@ -157,12 +157,16 @@ $page = 'profile';
                                 <td><?php echo $_SESSION['name_patient'] ?></td>
                             </tr>
                             <tr>
-                                <td>Email</td>
-                                <td><?php echo $_SESSION['email_patient'] ?></td>
-                            </tr>
-                            <tr>
                                 <td>Gender</td>
                                 <td><?php echo $_SESSION['gender_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Blood</td>
+                                <td><?php echo $_SESSION['blood_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Birth place, date</td>
+                                <td><?php echo $_SESSION['birth_place'] ?>, <?php echo date("j F Y", strtotime($_SESSION['birth_date'])) ?></td>
                             </tr>
                             <tr>
                                 <td>Address</td>
@@ -173,21 +177,16 @@ $page = 'profile';
                                 <td><?php echo $_SESSION['phone_patient'] ?></td>
                             </tr>
                             <tr>
-                                <td>Birth date, place</td>
-                                <td><?php echo date("j F Y", strtotime($_SESSION['birth_date'])) ?>,
-                                    <?php echo $_SESSION['birth_place'] ?></td>
-                            </tr>
-                            <tr>
-                                <td>Blood</td>
-                                <td><?php echo $_SESSION['blood_patient'] ?></td>
-                            </tr>
-                            <tr>
                                 <td>Religion</td>
                                 <td><?php echo $_SESSION['religion_patient'] ?></td>
                             </tr>
                             <tr>
                                 <td>Marriage</td>
                                 <td><?php echo $_SESSION['marriage_patient'] ?></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><?php echo $_SESSION['email_patient'] ?></td>
                             </tr>
                         </table>
                     </div>
