@@ -90,7 +90,7 @@ $page = 'medical_record';
                                         </td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal<?= $data['id_patient'] ?>">
+                                                data-bs-target="#modal<?= $data['id_hospital'] ?>">
                                                 View
                                             </button>
                                             <a href="deleteMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
@@ -99,7 +99,7 @@ $page = 'medical_record';
                                         </td>
                                     </tr>
                                     <!-- Modal Start -->
-                                    <div class="modal fade" id="modal<?= $data['id_patient'] ?>" tabindex="-1"
+                                    <div class="modal fade" id="modal<?= $data['id_hospital'] ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -162,7 +162,7 @@ $page = 'medical_record';
                                                                 while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
                                                                     echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
                                                                 }
-                                                                ?>
+                                                            ?>
                                                         </p>
                                                     </div>
                                                     <hr>

@@ -21,6 +21,13 @@
                 <span>Invoice</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?php if ($page != 'treatment') {echo 'collapsed';} ?>"
+                href="../patient/historyTreatment.php">
+                <i class="bi bi-clipboard-pulse"></i>
+                <span>Treatment</span>
+            </a>
+        </li>
         <li class="nav-heading">Account</li>
         <li class="nav-item">
             <a class="nav-link <?php if ($page != 'profile') {echo 'collapsed';} ?>" href="../patient/profile.php">
