@@ -25,7 +25,7 @@
             <a class="nav-link <?php if ($page != 'treatment') {echo 'collapsed';} ?>"
                 href="../patient/historyTreatment.php">
                 <i class="bi bi-clipboard-pulse"></i>
-                <span>Treatment</span>
+                <span>History</span>
             </a>
         </li>
         <li class="nav-heading">Account</li>

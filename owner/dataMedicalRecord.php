@@ -36,7 +36,7 @@ $page = 'medical_record';
                         $msg = $_GET['success'];
                         echo '
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>'.$msg.'</strong>
+                        <strong>' . $msg . '</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
                     }
@@ -44,14 +44,14 @@ $page = 'medical_record';
                         $msg = $_GET['failed'];
                         echo '
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>'.$msg.'</strong>
+                        <strong>' . $msg . '</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
                     }
                     ?>
                     <div class="table">
                         <form action="" method="POST">
-                        <table class="table table-bordered table-hover" id="medical_record">
+                            <table class="table table-bordered table-hover" id="medical_record">
                                 <thead>
                                     <tr>
                                         <th class="fw-semibold">No</th>
@@ -86,11 +86,16 @@ $page = 'medical_record';
                                             <td><?= $data['name_poly'] ?></td>
                                             <td>
                                                 <?php
-                                                $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_hospital_medicine 
-                                                JOIN tbl_medicine ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
-                                                WHERE id_hospital = '$data[id_hospital]'");
-                                                while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
-                                                    echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine 
+                                                ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
+                                                WHERE id_hospital = '$data[id_hospital]'";
+                                                $run_medicine = mysqli_query($db, $sql_medicine);
+                                                if (mysqli_num_rows($run_medicine) > 0) {
+                                                    while ($data_medicine = mysqli_fetch_array($run_medicine)) {
+                                                        echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                    }
+                                                } else {
+                                                    echo '<p>-</p>';
                                                 }
                                                 ?>
                                             </td>
@@ -175,11 +180,16 @@ $page = 'medical_record';
                                                                     <p class="mx-3">:</p>
                                                                     <p>
                                                                         <?php
-                                                                        $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_hospital_medicine 
-                                                                        JOIN tbl_medicine ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
-                                                                        WHERE id_hospital = '$data[id_hospital]'");
-                                                                        while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
-                                                                            echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                                        $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine 
+                                                                        ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
+                                                                        WHERE id_hospital = '$data[id_hospital]'";
+                                                                        $run_medicine = mysqli_query($db, $sql_medicine);
+                                                                        if (mysqli_num_rows($run_medicine) > 0) {
+                                                                            while ($data_medicine = mysqli_fetch_array($run_medicine)) {
+                                                                                echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                                            }
+                                                                        } else {
+                                                                            echo '<p>-</p>';
                                                                         }
                                                                         ?>
                                                                     </p>
@@ -231,7 +241,7 @@ $page = 'medical_record';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#medical_record').DataTable({
                 columnDefs: [{
                     "searchable": false,
