@@ -5,10 +5,6 @@ require '../assets/libs/vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDepedencyException;
 
-// Send to Medical Record Start
-
-// Send to Medical Record End
-
 // Add & Edit Medical Record Start
 if (isset($_POST['addMedicalRecord'])) {
     $uuid = Uuid::uuid4()->toString();
@@ -40,7 +36,6 @@ if (isset($_POST['addMedicine'])) {
     $id_medicine = $_POST['id_medicine'];
     $qty_medicine = $_POST['qty_medicine'];
     $total = count($id_medicine);
-    //melakukan perulangan input
     for ($i = 0; $i < $total; $i++) {
         mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_hospital = '$id_hospital', id_medicine = '$id_medicine[$i]', qty_medicine = '$qty_medicine[$i]'");
     }
@@ -54,6 +49,7 @@ if (isset($_POST['update'])) {
     $name_doctor = mysqli_real_escape_string($db, $_POST['name_doctor']);
     $email_doctor = mysqli_real_escape_string($db, $_POST['email_doctor']);
     $password_doctor = mysqli_real_escape_string($db, $_POST['password_doctor']);
+    $old_profile = $_POST['old_profile'];
     $profile_doctor = $_FILES['profile_doctor']['name'];
     $imgtemp = $_FILES['profile_doctor']['tmp_name'];
     if ($imgtemp=='') {
@@ -64,6 +60,7 @@ if (isset($_POST['update'])) {
         $profile_doctor = $d['profile_doctor'];
     }
     move_uploaded_file($imgtemp,"img/$profile_doctor");
+    unlink('img/'.$old_profile);
     if (empty($email_doctor) OR empty($name_doctor)) {
         echo "Field still empty";
     } else {
@@ -82,7 +79,7 @@ if (isset($_POST['update'])) {
             } else {
                 $hash = password_hash($password_doctor, PASSWORD_DEFAULT);
                 $id = $_SESSION['id_doctor'];
-                $sql2 = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', password_doctor = '$hash' WHERE id_doctor = '$id'";
+                $sql2 = "UPDATE tbl_doctor SET name_doctor = '$name_doctor', email_doctor = '$email_doctor', profile_doctor = '$profile_doctor', password_doctor = '$hash' WHERE id_doctor = '$id'";
                 mysqli_query($db, "UPDATE tbl_user SET email = '$email_doctor' WHERE id_user = '$id'");
                 if (mysqli_query($db, $sql2)) {
                     session_unset();

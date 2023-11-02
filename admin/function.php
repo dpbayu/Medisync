@@ -181,6 +181,7 @@ if (isset($_POST['update'])) {
     $name_admin = mysqli_real_escape_string($db, $_POST['name_admin']);
     $email_admin = mysqli_real_escape_string($db, $_POST['email_admin']);
     $password_admin = mysqli_real_escape_string($db, $_POST['password_admin']);
+    $old_profile = $_POST['old_profile'];
     $profile_admin = $_FILES['profile_admin']['name'];
     $imgtemp = $_FILES['profile_admin']['tmp_name'];
     if ($imgtemp=='') {
@@ -190,6 +191,7 @@ if (isset($_POST['update'])) {
         $d = mysqli_fetch_array($r);
         $profile_admin = $d['profile_admin'];
     }
+    unlink('img/'.$old_profile);
     move_uploaded_file($imgtemp,"img/$profile_admin");
     if (empty($email_admin) OR empty($name_admin)) {
         echo "Field still empty";
@@ -208,7 +210,7 @@ if (isset($_POST['update'])) {
             } else {
                 $hash = password_hash($password_admin, PASSWORD_DEFAULT);
                 $id = $_SESSION['id_user'];
-                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', password_admin = '$hash' WHERE id_user = '$id'";
+                $sql2 = "UPDATE tbl_admin SET name_admin = '$name_admin', email_admin = '$email_admin', profile_admin = '$profile_admin', password_admin = '$hash' WHERE id_user = '$id'";
                 mysqli_query($db, "UPDATE tbl_user SET email = '$email_admin' WHERE id_user = '$id'");
                 if (mysqli_query($db, $sql2)) {
                     session_unset();

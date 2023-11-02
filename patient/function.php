@@ -16,6 +16,7 @@ if (isset($_POST['update'])) {
     $religion_patient = mysqli_real_escape_string($db, $_POST['religion_patient']);
     $marriage_patient = mysqli_real_escape_string($db, $_POST['marriage_patient']);
     $password_patient = mysqli_real_escape_string($db, $_POST['password_patient']);
+    $old_profile = $_POST['old_profile'];
     $profile_patient = $_FILES['profile_patient']['name'];
     $imgtemp = $_FILES['profile_patient']['tmp_name'];
     if ($imgtemp=='') {
@@ -25,6 +26,7 @@ if (isset($_POST['update'])) {
         $d = mysqli_fetch_array($r);
         $profile_patient = $d['profile_patient'];
     }
+    unlink('img/'.$old_profile);
     move_uploaded_file($imgtemp,"img/$profile_patient");
     if (empty($email_patient) OR empty($name_patient)) {
         echo "Field still empty";

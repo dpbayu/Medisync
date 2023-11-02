@@ -29,6 +29,7 @@ if (isset($_POST['update'])) {
     $name_owner = mysqli_real_escape_string($db, $_POST['name_owner']);
     $email_owner = mysqli_real_escape_string($db, $_POST['email_owner']);
     $password_owner = mysqli_real_escape_string($db, $_POST['password_owner']);
+    $old_profile = $_POST['old_profile'];
     $profile_owner = $_FILES['profile_owner']['name'];
     $imgtemp = $_FILES['profile_owner']['tmp_name'];
     if ($imgtemp=='') {
@@ -38,6 +39,7 @@ if (isset($_POST['update'])) {
         $d = mysqli_fetch_array($r);
         $profile_owner = $d['profile_owner'];
     }
+    unlink('img/'.$old_profile);
     move_uploaded_file($imgtemp,"img/$profile_owner");
     if (empty($email_owner) OR empty($name_owner)) {
         echo "Field still empty";
@@ -56,7 +58,7 @@ if (isset($_POST['update'])) {
             } else {
                 $hash = password_hash($password_owner, PASSWORD_DEFAULT);
                 $id = $_SESSION['id_user'];
-                $sql2 = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', password_owner = '$hash' WHERE id_user = '$id'";
+                $sql2 = "UPDATE tbl_owner SET name_owner = '$name_owner', email_owner = '$email_owner', profile_owner = '$profile_owner', password_owner = '$hash' WHERE id_user = '$id'";
                 mysqli_query($db, "UPDATE tbl_user SET email = '$email_owner' WHERE id_user = '$id'");
                 if (mysqli_query($db, $sql2)) {
                     session_unset();

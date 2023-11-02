@@ -47,8 +47,9 @@ $page = 'profile';
                     ?>
                     <div class="col-md-6">
                         <form class="forms-sample" action="function.php" method="POST" enctype="multipart/form-data">
-                            <img src="img/<?php echo $_SESSION['profile_admin'] ?>" class="rounded-circle"
-                                height="200" width="200">
+                            <input type="hidden" name="old_profile" value="<?php echo $_SESSION['profile_admin'] ?>">
+                            <img src="img/<?php echo $_SESSION['profile_admin'] ?>" class="rounded-circle" height="200"
+                                width="200">
                             <div class="form-group mb-3">
                                 <label class="form-label" for="profil">Profile</label>
                                 <input class="form-control" type="file" id="profile" name="profile_admin">
@@ -77,8 +78,8 @@ $page = 'profile';
                             </tr>
                             <tr>
                                 <td class="w-50">Profile</td>
-                                <td class="text-center"><img src="img/<?php echo $_SESSION['profile_admin'] ?>" class="rounded-circle"
-                                        alt="profile patient" width="100" height="100">
+                                <td class="text-center"><img src="img/<?php echo $_SESSION['profile_admin'] ?>"
+                                        class="rounded-circle" alt="profile patient" width="100" height="100">
                                 </td>
                             </tr>
                             <tr>
