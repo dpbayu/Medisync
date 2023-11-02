@@ -106,9 +106,15 @@ $page = 'patient';
                                             </div>
                                             <div class="modal-body">
                                                 <div class="text-center mb-3">
-                                                    <img src="../patient/img/<?= $patient['profile_patient'] ?>"
-                                                        width="200" height="200" class="rounded-circle"
-                                                        alt="Image Patient">
+                                                <?php
+                                                    if (empty($patient['profile_patient'])) {
+                                                        echo "<img width='200' height='200' src='../assets/img/User.png' />";
+                                                    } else {
+                                                        echo "<img src='../patient/img/" . $patient['profile_patient'] . "'
+                                                        width='200' height='200' class='rounded-circle'
+                                                        alt='Image Patient'>";                                                        
+                                                    }
+                                                ?>
                                                 </div>
                                                 <div class="d-flex">
                                                     <label style="width: 150px;">NIK</label>
