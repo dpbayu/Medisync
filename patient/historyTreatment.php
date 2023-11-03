@@ -31,7 +31,8 @@ $page = 'dashboard';
             <div class="row">
                 <div class="col-md-12">
                     <?php
-                    $sql_medical_record = "SELECT * FROM tbl_medical_record ORDER BY check_up DESC";
+                    $sql_medical_record = "SELECT * FROM tbl_medical_record
+                    INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor ORDER BY check_up DESC";
                     $run_medical_record = mysqli_query($db, $sql_medical_record);
                     if (mysqli_num_rows($run_medical_record) > 0) {
                         $i;
@@ -42,6 +43,10 @@ $page = 'dashboard';
                                 <h4 class="card-title">Medisync</h4>
                                 <h6 class="text-end"><?= date("j F Y", strtotime($medical_record['check_up'])); ?></h6>
                                 <hr>
+                                <div class="mb-3">
+                                    <h5 class="card-subtitle mb-2 text-primary fw-bold"><i class="fa fa-user-md me-2"></i>Doctor</h5>
+                                    <p class="card-text"><?= $medical_record['name_doctor'] ?></p>
+                                </div>
                                 <div class="mb-3">
                                     <h5 class="card-subtitle mb-2 text-primary fw-bold"><i class="fa fa-stethoscope me-2"></i>Illness</h5>
                                     <p class="card-text"><?= $medical_record['illness'] ?></p>
@@ -55,7 +60,7 @@ $page = 'dashboard';
                                     <p class="card-text">
                                         <?php
                                         $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
-                                        WHERE id_hospital = '$medical_record[id_hospital]'";
+                                    WHERE id_hospital = '$medical_record[id_hospital]'";
                                         $run_medicine = mysqli_query($db, $sql_medicine);
                                         if (mysqli_num_rows($run_medicine) > 0) {
                                             while ($data_medicine = mysqli_fetch_array($run_medicine)) {

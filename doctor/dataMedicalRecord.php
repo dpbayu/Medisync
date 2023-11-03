@@ -139,11 +139,6 @@ $page = 'medical_record';
                                                         <p><?= $data['blood_patient'] ?></p>
                                                     </div>
                                                     <div class="d-flex">
-                                                        <label style="width: 125px;">Address</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['address_patient'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
                                                         <label style="width: 125px;">Diagnosis</label>
                                                         <p class="mx-3">:</p>
                                                         <p><?= $data['diagnosis'] ?></p>
