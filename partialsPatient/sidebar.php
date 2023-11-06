@@ -22,7 +22,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if ($page != 'treatment') {echo 'collapsed';} ?>"
+            <a class="nav-link <?php if ($page != 'history') {echo 'collapsed';} ?>"
                 href="../patient/historyTreatment.php">
                 <i class="bi bi-clipboard-pulse"></i>
                 <span>History</span>

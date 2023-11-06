@@ -15,19 +15,20 @@
         </li>
         <li class="nav-item">
             <a class="nav-link <?php if ($page != 'doctor') {echo 'collapsed';} ?>" href="../owner/dataDoctor.php">
-                <i class="bi bi-diagram-2"></i>
+                <i class="fa fa-user-md"></i>
                 <span>Data Doctor</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if ($page != 'specialist') {echo 'collapsed';} ?>" href="../owner/dataSpecialist.php">
-                <i class="bi bi-award"></i>
+            <a class="nav-link <?php if ($page != 'specialist') {echo 'collapsed';} ?>"
+                href="../owner/dataSpecialist.php">
+                <i class="fa fa-hospital-o"></i>
                 <span>Data Specialist</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link <?php if ($page != 'medicine') {echo 'collapsed';} ?>" href="../owner/dataMedicine.php">
-                <i class="bi bi-capsule"></i>
+                <i class="fa fa-medkit"></i>
                 <span>Data Medicine</span>
             </a>
         </li>

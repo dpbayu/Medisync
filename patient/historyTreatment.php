@@ -5,7 +5,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$page = 'dashboard';
+$page = 'history';
 ?>
 <!-- PHP -->
 <!DOCTYPE html>
