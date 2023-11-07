@@ -74,85 +74,93 @@ $page = 'medical_record';
                                     $query_data = "SELECT * FROM tbl_medical_record 
                                     INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
                                     INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY id_hospital DESC";
                                     $run_data = mysqli_query($db, $query_data);
                                     $i = 1;
                                     while ($data = mysqli_fetch_array($run_data)) {
                                     ?>
-                                    <tr>
-                                        <td><?= $i ?></td>
-                                        <td><?= date("j F Y", strtotime($data['check_up'])) ?></td>
-                                        <td><?= $data['name_patient'] ?></td>
-                                        <td><?= $data['name_doctor'] ?></td>
-                                        <td class="text-center">
-                                            <a href="addMedicine.php?id=<?= $data['id_hospital'] ?>"
-                                                class="btn btn-success">Medicine</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal<?= $data['id_hospital'] ?>">
-                                                View
-                                            </button>
-                                            <a href="deleteMedicalRecord.php?id=<?= $data['id_hospital'] ?>"
-                                                class="btn btn-danger btn-xs"
-                                                onclick="return confirm('Are you sure ?')">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <!-- Modal Start -->
-                                    <div class="modal fade" id="modal<?= $data['id_hospital'] ?>" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Medical Record
-                                                        <span class="fw-bold"><?= $data['name_patient'] ?></span>
-                                                    </h1>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">NIK</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['nik_patient'] ?></p>
+                                        <tr>
+                                            <td><?= $i ?></td>
+                                            <td><?= date("j F Y", strtotime($data['check_up'])) ?></td>
+                                            <td><?= $data['name_patient'] ?></td>
+                                            <td><?= $data['name_doctor'] ?></td>
+                                            <?php
+                                            $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine 
+                                        ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
+                                        WHERE id_hospital = '$data[id_hospital]'";
+                                            $run_medicine = mysqli_query($db, $sql_medicine);
+                                            if (mysqli_num_rows($run_medicine) > 0) {
+                                                $list_medicine = '';
+                                                while ($data_medicine = mysqli_fetch_array($run_medicine)) {
+                                                    $list_medicine .= $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                }
+                                                echo "<td>{$list_medicine}</td>";
+                                            } else {
+                                                echo '<td class="text-center"><a class="btn btn-success" href="addMedicine.php?id='.$data['id_hospital'].'">Tambah Obat</a></td>';
+                                            }
+                                            ?>
+                                            <td class="text-center">
+                                                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal<?= $data['id_hospital'] ?>">
+                                                    View
+                                                </button>
+                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#kirim<?= $data['id_hospital'] ?>">
+                                                    Send to Pharmachist
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <!-- Modal View Start -->
+                                        <div class="modal fade" id="modal<?= $data['id_hospital'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Medical Record
+                                                            <span class="fw-bold"><?= $data['name_patient'] ?></span>
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Name</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['name_patient'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Place, date birth</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['birth_place'] ?>,
-                                                            <?= date("j F Y", strtotime($data['birth_date'])) ?>
-                                                        </p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Gender</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['gender_patient'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Blood type</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['blood_patient'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Diagnosis</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['diagnosis'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Illness</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['illness'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Medicine</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p>
-                                                            <?php
+                                                    <div class="modal-body">
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">NIK</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['nik_patient'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Name</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['name_patient'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Place, date birth</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['birth_place'] ?>,
+                                                                <?= date("j F Y", strtotime($data['birth_date'])) ?>
+                                                            </p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Gender</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['gender_patient'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Blood type</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['blood_patient'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Diagnosis</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['diagnosis'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Illness</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['illness'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Medicine</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p>
+                                                                <?php
                                                                 $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine 
                                                                 ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
                                                                 WHERE id_hospital = '$data[id_hospital]'";
@@ -165,31 +173,30 @@ $page = 'medical_record';
                                                                     echo '<p>-</p>';
                                                                 }
                                                                 ?>
-                                                        </p>
-                                                    </div>
-                                                    <hr>
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor</h1>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Name</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['name_doctor'] ?></p>
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <label style="width: 125px;">Poly</label>
-                                                        <p class="mx-3">:</p>
-                                                        <p><?= $data['name_poly'] ?></p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                            </p>
+                                                        </div>
+                                                        <hr>
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Doctor</h1>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Name</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['name_doctor'] ?></p>
+                                                        </div>
+                                                        <div class="d-flex">
+                                                            <label style="width: 125px;">Poly</label>
+                                                            <p class="mx-3">:</p>
+                                                            <p><?= $data['name_poly'] ?></p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Modal End -->
+                                        <!-- Modal View End -->
                                     <?php
-                                    $i++;
+                                        $i++;
                                     }
                                     ?>
                                 </tbody>
@@ -203,12 +210,12 @@ $page = 'medical_record';
     <!-- Main End -->
     <!-- JS Start -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#medical_record').DataTable({
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 5,
+                    "targets": [4, 5],
                 }]
             });
         });

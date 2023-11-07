@@ -70,12 +70,12 @@ $page = 'medical_record';
                         </div>
                         <div class="d-flex gap-5">
                             <div class="form-group mb-3 col">
-                                <label class="form-label" for="illness">Illness</label>
-                                <textarea class="form-control" name="illness" id="default" placeholder="Input illness" rows="5" style="resize: none;"></textarea>
+                                <label class="form-label" for="diagnosis">Diagnosis</label>
+                                <textarea class="form-control" name="diagnosis" placeholder="Input diagnosis"></textarea>
                             </div>
                             <div class="form-group mb-3 col">
-                                <label class="form-label" for="diagnosis">Diagnosis</label>
-                                <textarea class="form-control" name="diagnosis" id="default" placeholder="Input diagnosis" rows="5" style="resize: none;"></textarea>
+                                <label class="form-label" for="illness">Illness</label>
+                                <textarea class="form-control" name="illness" placeholder="Input illness"></textarea>
                             </div>
                         </div>
                         <div class="form-group mb-3">

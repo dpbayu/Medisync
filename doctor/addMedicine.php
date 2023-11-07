@@ -27,20 +27,34 @@ $page = 'medical_record';
     <main id="main" class="main">
         <div class="pagetitle">
             <?php
-                $id = @$_GET['id'];
-                $sql_patient = mysqli_query($db, "SELECT * FROM tbl_medical_record WHERE id_hospital = '$id'");
-                $data = mysqli_fetch_array($sql_patient);
+            $id = @$_GET['id'];
+            $sql_patient = mysqli_query($db, "SELECT * FROM tbl_medical_record 
+            INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
+            WHERE id_hospital = '$id'");
+            $data = mysqli_fetch_array($sql_patient);
             ?>
-            <h1>Data Medicine</h1>
+            <h1>Data Medicine <?= $data['name_patient'] ?></h1>
         </div>
         <section class="section dashboard">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="fw-semibold text-center">Patient</th>
+                            <th class="fw-semibold text-center">Diagnosis</th>
+                            <th class="fw-semibold text-center">Illness</th>
+                        </tr>
+                        <tr>
+                            <td><?= $data['name_patient'] ?></td>
+                            <td><?= $data['diagnosis'] ?></td>
+                            <td><?= $data['illness'] ?></td>
+                        </tr>
+                    </table>
                     <form action="function.php" method="POST">
-                    <input class="form-control" type="hidden" name="id_hospital" value="<?= $data['id_hospital'] ?>">
+                        <input class="form-control" type="hidden" name="id_hospital" value="<?= $data['id_hospital'] ?>">
                         <div class="control-group after-add-more">
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="medicine">Medicine</label>
                                         <select class="form-control" name="id_medicine[]" id="medicine">
@@ -54,24 +68,22 @@ $page = 'medical_record';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col">
                                     <label class="form-label" for="qty_medicine">Quantity</label>
                                     <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
                                 </div>
+                                <div class="col position-relative">
+                                    <button class="btn btn-info position-absolute bottom-0 start-0 mb-3 add-more" type="button">Add Form</button>
+                                </div>
                             </div>
-                            <button class="btn btn-info add-more" type="button">Add Form</button>
-                            <hr>
                         </div>
                         <button class="btn btn-success" type="submit" name="addMedicine">Finish</button>
                         <button class="btn btn-danger" type="reset" name="reset" value="Reset">Reset</button>
-                        <a href="dataMedicalRecord.php" class="btn btn-secondary">Back</a>
                     </form>
-                    <!-- class hide membuat form disembunyikan  -->
-                    <!-- hide adalah fungsi bootstrap 3, klo bootstrap 4 pake invisible  -->
                     <div class="copy invisible">
-                        <div class="control-group mb-2">
+                        <div class="control-group mb-3">
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col">
                                     <div class="form-group mb-3">
                                         <label class="form-label" for="medicine">Medicine</label>
                                         <select class="form-control" name="id_medicine[]" id="medicine">
@@ -85,12 +97,15 @@ $page = 'medical_record';
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col">
                                     <label class="form-label" for="qty_medicine">Quantity</label>
                                     <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
                                 </div>
+                                <div class="col position-relative">
+                                    <button class="btn btn-danger position-absolute bottom-0 start-0 mb-3 remove" type="button">Remove</button>
+                                </div>
+                                <hr>
                             </div>
-                            <button class="btn btn-danger remove" type="button">Remove</button>
                         </div>
                     </div>
                 </div>
