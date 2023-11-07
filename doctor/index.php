@@ -61,7 +61,7 @@ $page = 'dashboard';
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
-                                                    $sql = "SELECT * FROM tbl_medical_record";
+                                                    $sql = "SELECT * FROM tbl_medical_record WHERE tbl_medical_record.id_doctor = '".$_SESSION['id_doctor']."'";
                                                     $query = mysqli_query($db, $sql);
                                                     $count = mysqli_num_rows($query);
                                                     echo "$count";

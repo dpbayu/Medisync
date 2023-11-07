@@ -74,7 +74,9 @@ $page = 'medical_record';
                                     $query_data = "SELECT * FROM tbl_medical_record 
                                     INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
                                     INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY id_hospital DESC";
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly
+                                    WHERE tbl_medical_record.id_doctor = '".$_SESSION['id_doctor']."'
+                                    ORDER BY id_hospital DESC";
                                     $run_data = mysqli_query($db, $query_data);
                                     $i = 1;
                                     while ($data = mysqli_fetch_array($run_data)) {
@@ -96,7 +98,7 @@ $page = 'medical_record';
                                                 }
                                                 echo "<td>{$list_medicine}</td>";
                                             } else {
-                                                echo '<td class="text-center"><a class="btn btn-success" href="addMedicine.php?id='.$data['id_hospital'].'">Tambah Obat</a></td>';
+                                                echo '<td class="text-center"><a class="btn btn-success" href="addMedicine.php?id=' . $data['id_hospital'] . '">Medicine</a></td>';
                                             }
                                             ?>
                                             <td class="text-center">

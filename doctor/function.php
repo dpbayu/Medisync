@@ -30,9 +30,10 @@ if (isset($_POST['addMedicine'])) {
     $id_hospital = $_POST['id_hospital'];
     $id_medicine = $_POST['id_medicine'];
     $qty_medicine = $_POST['qty_medicine'];
+    $price_medicine = $_POST['price_medicine'];
     $total = count($id_medicine);
     for ($i = 0; $i < $total; $i++) {
-        mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_hospital = '$id_hospital', id_medicine = '$id_medicine[$i]', qty_medicine = '$qty_medicine[$i]'");
+        mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_hospital = '$id_hospital', id_medicine = '$id_medicine[$i]', qty_medicine = '$qty_medicine[$i]', price_medicine = '$price_medicine[$i]'");
     }
     echo "<script>window.location='dataMedicalRecord.php?success=Medicine successfuly added!';</script>";
 }
