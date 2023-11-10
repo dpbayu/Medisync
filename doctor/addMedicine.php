@@ -72,6 +72,10 @@ $page = 'medical_record';
                                     <label class="form-label" for="qty_medicine">Quantity</label>
                                     <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
                                 </div>
+                                <div class="col">
+                                    <label class="form-label" for="price_medicine">Price</label>
+                                    <input class="form-control" type="text" name="price_medicine[]" id="price_medicine" readonly>
+                                </div>
                                 <div class="col position-relative">
                                     <button class="btn btn-info position-absolute bottom-0 start-0 mb-3 add-more" type="button">Add Form</button>
                                 </div>
@@ -101,6 +105,10 @@ $page = 'medical_record';
                                     <label class="form-label" for="qty_medicine">Quantity</label>
                                     <input class="form-control" type="text" name="qty_medicine[]" id="qty_medicine" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
                                 </div>
+                                <div class="col">
+                                    <label class="form-label" for="price_medicine">Price</label>
+                                    <input class="form-control" type="text" name="price_medicine[]" id="price_medicine" readonly>
+                                </div>
                                 <div class="col position-relative">
                                     <button class="btn btn-danger position-absolute bottom-0 start-0 mb-3 remove" type="button">Remove</button>
                                 </div>
@@ -116,14 +124,46 @@ $page = 'medical_record';
     <!-- JS -->
     <script type="text/javascript">
         $(document).ready(function() {
+            // Event handler untuk menambahkan elemen dinamis
             $(".add-more").click(function() {
                 var html = $(".copy").html();
                 $(".after-add-more").after(html);
             });
+            // Event handler untuk menghapus elemen dinamis
             $("body").on("click", ".remove", function() {
                 $(this).parents(".control-group").remove();
             });
+            // Event handler untuk elemen select yang sudah ada saat halaman dimuat
+            $("select[name='id_medicine[]']").change(function() {
+                updatePrice($(this));
+            });
+            // Event handler untuk elemen select yang ditambahkan secara dinamis
+            $("body").on("change", "select[name='id_medicine[]']", function() {
+                updatePrice($(this));
+            });
         });
+        function updatePrice(selectElement) {
+            var selectedMedicineId = selectElement.val();
+            var priceInput = selectElement.closest('.row').find('input[name="price_medicine[]"]');
+            if (isValidUUID(selectedMedicineId)) {
+                $.ajax({
+                    url: 'get_price.php', // Ganti dengan URL sebenarnya ke skrip server Anda
+                    type: 'POST',
+                    data: {
+                        id_medicine: selectedMedicineId
+                    },
+                    success: function(response) {
+                        priceInput.val(response);
+                    }
+                });
+            } else {
+                priceInput.val('Invalid UUID');
+            }
+        }
+        function isValidUUID(uuid) {
+            const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+            return uuidRegex.test(uuid);
+        }
     </script>
     <!-- JS -->
     <!-- Footer Start -->
