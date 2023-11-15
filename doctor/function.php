@@ -1,6 +1,16 @@
 <?php
 require '../function.php';
-require '../assets/libs/vendor/autoload.php';
+
+// Send to Pharmacist Start
+if (isset($_POST['sendPharmacist'])) {
+    $id_hospital = $_POST['id_hospital'];
+    $total_medicine = $_POST['total_medicine'];
+    $total_price = $_POST['total_price'];
+    $sql_insert = "INSERT INTO tbl_transaction (id, id_hospital, total_medicine, total_price) VALUES ('', '$id_hospital', '$total_medicine', '$total_price')";
+    $query_insert = mysqli_query($db, $sql_insert);
+    echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly send to pharmachist!';</script>";
+}
+// Send to Pharmacist End
 
 // Add & Edit Medical Record Start
 if (isset($_POST['addMedicalRecord'])) {

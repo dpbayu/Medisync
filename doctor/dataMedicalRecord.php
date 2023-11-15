@@ -6,10 +6,6 @@ if (!isset($_SESSION["login"])) {
     header("Location: ../index.php");
     exit;
 }
-$datas = query("SELECT * FROM tbl_medical_record 
-INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
-INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC");
 $page = 'medical_record';
 ?>
 <!-- PHP -->
@@ -57,7 +53,7 @@ $page = 'medical_record';
                     }
                     ?>
                     <div class="table">
-                        <form action="" method="POST" name="proses">
+                        <form action="function.php" method="POST">
                             <table class="table table-bordered table-hover" id="medical_record">
                                 <thead>
                                     <tr>
@@ -71,6 +67,7 @@ $page = 'medical_record';
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $grand_total = 0;
                                     $query_data = "SELECT * FROM tbl_medical_record 
                                     INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
                                     INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
@@ -88,8 +85,8 @@ $page = 'medical_record';
                                             <td><?= $data['name_doctor'] ?></td>
                                             <?php
                                             $sql_medicine = "SELECT * FROM tbl_hospital_medicine JOIN tbl_medicine 
-                                        ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
-                                        WHERE id_hospital = '$data[id_hospital]'";
+                                            ON tbl_hospital_medicine.id_medicine = tbl_medicine.id_medicine 
+                                            WHERE id_hospital = '$data[id_hospital]'";
                                             $run_medicine = mysqli_query($db, $sql_medicine);
                                             if (mysqli_num_rows($run_medicine) > 0) {
                                                 $list_medicine = '';
@@ -98,16 +95,14 @@ $page = 'medical_record';
                                                 }
                                                 echo "<td>{$list_medicine}</td>";
                                             } else {
-                                                echo '<td class="text-center"><a class="btn btn-success" href="addMedicine.php?id=' . $data['id_hospital'] . '">Medicine</a></td>';
+                                                echo '<td class="text-center"><a class="btn btn-success" href="addMedicine.php?id='.$data['id_hospital'].'">Medicine</a></td>';
                                             }
                                             ?>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal<?= $data['id_hospital'] ?>">
                                                     View
                                                 </button>
-                                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#kirim<?= $data['id_hospital'] ?>">
-                                                    Send to Pharmachist
-                                                </button>
+                                                <a class="btn btn-success" href="receipt.php?id=<?= $data['id_hospital'] ?>">Receipt</a>
                                             </td>
                                         </tr>
                                         <!-- Modal View Start -->
@@ -198,7 +193,7 @@ $page = 'medical_record';
                                         </div>
                                         <!-- Modal View End -->
                                     <?php
-                                        $i++;
+                                    $i++;
                                     }
                                     ?>
                                 </tbody>
