@@ -93,7 +93,7 @@ $page = 'medical_record';
                                         <select class="form-control" name="id_medicine[]" id="medicine">
                                             <option value="">- Choose Medicine -</option>
                                             <?php
-                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine");
+                                            $sql_medicine = mysqli_query($db, "SELECT * FROM tbl_medicine ORDER BY name_medicine");
                                             while ($data_medicine = mysqli_fetch_array($sql_medicine)) {
                                                 echo '<option value="' . $data_medicine['id_medicine'] . '">' . $data_medicine['name_medicine'] . '</option>';
                                             }

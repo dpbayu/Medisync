@@ -47,18 +47,34 @@ if (isset($_POST['addMedicine'])) {
     $price_medicine = $_POST['price_medicine'];
     $total = count($id_medicine);
     for ($i = 0; $i < $total; $i++) {
-        mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_hospital = '$id_hospital', id_medicine = '$id_medicine[$i]', qty_medicine = '$qty_medicine[$i]', price_medicine = '$price_medicine[$i]'");
+        $selSto = mysqli_query($db, "SELECT * FROM tbl_medicine WHERE id_medicine = '" . $id_medicine[$i] . "'");
+        $sto = mysqli_fetch_array($selSto);
+        if (!$sto) {
+            die("Medicine not found for id: " . $id_medicine[$i]);
+        }
+        $stok = $sto['stock_medicine'];
+        $sisa = $stok - $qty_medicine[$i];
+        if ($stok < $qty_medicine[$i]) {
+            echo "<script>window.location='dataMedicalRecord.php?failed=Stock medicine too low!';</script>";
+            } else {
+            $insert = mysqli_query($db, "INSERT INTO tbl_hospital_medicine SET id_hospital = '$id_hospital', id_medicine = '" . $id_medicine[$i] . "', qty_medicine = '" . $qty_medicine[$i] . "', price_medicine = '" . $price_medicine[$i] . "'");
+            if ($insert) {
+                $upstok = mysqli_query($db, "UPDATE tbl_medicine SET stock_medicine = '$sisa' WHERE id_medicine = '" . $id_medicine[$i] . "'");
+                echo "<script>window.location='dataMedicalRecord.php?success=Medicine successfuly added!';</script>";
+            } else {
+                echo "<div><b>Oops!</b> 404 Error Server.</div>";
+            }
+        }
     }
-    echo "<script>window.location='dataMedicalRecord.php?success=Medicine successfuly added!';</script>";
 }
 // Add Medicine End
 
 // Update Profile Start
 if (isset($_POST['update'])) {
     global $db;
-    $name_doctor = mysqli_real_escape_string($db, $_POST['name_doctor']);
-    $email_doctor = mysqli_real_escape_string($db, $_POST['email_doctor']);
-    $password_doctor = mysqli_real_escape_string($db, $_POST['password_doctor']);
+    $name_doctor = trim(mysqli_real_escape_string($db, $_POST['name_doctor']));
+    $email_doctor = trim(mysqli_real_escape_string($db, $_POST['email_doctor']));
+    $password_doctor = trim(mysqli_real_escape_string($db, $_POST['password_doctor']));
     $old_profile = $_POST['old_profile'];
     $profile_doctor = $_FILES['profile_doctor']['name'];
     $imgtemp = $_FILES['profile_doctor']['tmp_name'];
