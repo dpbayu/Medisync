@@ -106,7 +106,7 @@ $page = 'medical_record';
                                                     $sql_medicine = "SELECT * FROM tbl_pharmacist WHERE id_hospital = '$data[id_hospital]'";
                                                     $run_medicine = mysqli_query($db, $sql_medicine);
                                                     if (mysqli_num_rows($run_medicine) > 0) {
-                                                        echo '<a class="btn btn-warning" href="receipt.php?id='.$data['id_hospital'].'">Receipt</a>';
+                                                        echo '<a class="btn btn-warning d-none" href="receipt.php?id='.$data['id_hospital'].'">Receipt</a>';
                                                     } else {
                                                         echo '<a class="btn btn-warning" href="receipt.php?id='.$data['id_hospital'].'">Receipt</a>';
                                                     }
