@@ -97,7 +97,7 @@ $page = 'medical_record';
                                 $run_medicine = mysqli_query($db, $query_medicine);
                                 $i = 1;
                                 while ($medicine = mysqli_fetch_array($run_medicine)) {
-                                    $medicine_item[] = $medicine['name_medicine'].'('.$medicine['qty_medicine'].'xRp'.number_format($medicine['price_medicine'], 0, ',', '.') . ') <br> ';
+                                    $medicine_item[] = $medicine['name_medicine'] .' ('.$medicine['qty_medicine'].' x Rp '.number_format($medicine['price_medicine'], 0, ',', '.').' ) <br> ';
                                     $total_medicine = implode($medicine_item);
                                     $grand_total += ($medicine['qty_medicine'] * $medicine['price_medicine']);
                                 ?>
@@ -123,6 +123,10 @@ $page = 'medical_record';
                         <p>Total : <span>Rp <?= number_format($grand_total, 0, ',', '.'); ?></span></p>
                     </div>
                     <input type="hidden" name="id_hospital" value="<?= $data['id_hospital'] ?>">
+                    <input type="hidden" name="id_patient" value="<?= $data['id_patient'] ?>">
+                    <input type="hidden" name="id_doctor" value="<?= $data['id_doctor'] ?>">
+                    <input type="hidden" name="birth_date" value="<?= $data['birth_date'] ?>">
+                    <input type="hidden" name="check_up" value="<?= $data['check_up'] ?>">
                     <input type="hidden" name="total_medicine" value="<?= $total_medicine ?>">
                     <input type="hidden" name="total_price" value="<?= $grand_total ?>">
                     <div class="col-md-12 my-3 text-center">

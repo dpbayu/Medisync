@@ -69,9 +69,9 @@ $page = 'medical_record';
                                     <?php
                                     $id = @$_GET['id_hospital'];
                                     $query_medical = "SELECT * FROM tbl_medical_record 
-                                        INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
-                                        INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                        INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
+                                    INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
+                                    INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
                                     $run_medical = mysqli_query($db, $query_medical);
                                     $i = 1;
                                     while ($data = mysqli_fetch_array($run_medical)) {

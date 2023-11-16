@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2023 at 04:22 PM
+-- Generation Time: Nov 16, 2023 at 05:48 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_admin` (
+  `id` int(11) NOT NULL,
   `id_user` varchar(100) NOT NULL,
   `name_admin` varchar(50) NOT NULL,
   `email_admin` varchar(50) NOT NULL,
@@ -39,9 +40,10 @@ CREATE TABLE `tbl_admin` (
 -- Dumping data for table `tbl_admin`
 --
 
-INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
-('d558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$GjvkwxrRf7.BCIjkyeTsWehA/z9YOdhlBpJ9xk2EfA6G7NuHVi35u', 'WhatsApp Image 2019-09-05 at 23.01.25.jpeg'),
-('0c5548d7-00f9-4d5d-948a-f20fd7cee341', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$aOZ7vx80mFaqgtfZvLGGguyWZH9e0jMmT67wXK/rHntVJOtnD.hoC', '');
+INSERT INTO `tbl_admin` (`id`, `id_user`, `name_admin`, `email_admin`, `password_admin`, `profile_admin`) VALUES
+(1, 'd558e35a-318d-4605-8d98-6df32b8962cf', 'Dwi Putra Bayu', 'bayu@gmail.com', '$2y$10$CgAN8xj/z5ap05l3mcx2i.DyHaJqlIU8nTB/gKELDW3fjuowyVyeC', 'Bayu 2.jpeg'),
+(2, '0c5548d7-00f9-4d5d-948a-f20fd7cee341', 'Syifa Khairunnisa', 'syifa@gmail.com', '$2y$10$oPhKWpdokFlyzBgXoTD8EeardutZePK0kgYoAMthkp.hMnXoLkW5K', 'Web capture_9-10-2023_233250_www.instagram.com.jpeg'),
+(4, 'ae9297b6-6ede-429e-ba45-3f6410563d03', 'Silaindi', 'sila@gmail.com', '$2y$10$ksSdsqzrIRy7XLNBQmfVfuxwFOWeInLxFk0JcK24PxZ30.LpdtcuO', 'Web capture_28-10-2023_61724_www.instagram.com.jpeg');
 
 -- --------------------------------------------------------
 
@@ -50,7 +52,8 @@ INSERT INTO `tbl_admin` (`id_user`, `name_admin`, `email_admin`, `password_admin
 --
 
 CREATE TABLE `tbl_doctor` (
-  `id_user` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_doctor` varchar(100) NOT NULL,
   `name_doctor` varchar(225) NOT NULL,
   `email_doctor` varchar(255) NOT NULL,
   `password_doctor` varchar(255) NOT NULL,
@@ -64,9 +67,10 @@ CREATE TABLE `tbl_doctor` (
 -- Dumping data for table `tbl_doctor`
 --
 
-INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
-('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$IkRCjzZMHOvGGwNWw8bKMOrLJmWlxQkkXv2HwrDP14bjUWyjSRaRO', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Eren 1.jpg'),
-('db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$t.sEtq4DP5sg7SOlEbNwReJDaz.BztT1RTq8emQwlSwcwCsiuOEuO', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', 'Mikasa 1.jpg');
+INSERT INTO `tbl_doctor` (`id`, `id_doctor`, `name_doctor`, `email_doctor`, `password_doctor`, `id_specialist`, `address_doctor`, `phone_doctor`, `profile_doctor`) VALUES
+(1, '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Eren Yeager', 'eren@gmail.com', '$2y$10$IgYy.Ee7W5bDBf7Cp.xEoea1B/d8RxcHVvzB4E8ci2UikpxAzFd7y', '1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Konohagakure', '0896043335789', 'Eren.jpeg'),
+(2, 'db881baa-cc83-43c2-85e3-98805850141b', 'Mikasa Ackerman', 'mikasa@gmail.com', '$2y$10$t.sEtq4DP5sg7SOlEbNwReJDaz.BztT1RTq8emQwlSwcwCsiuOEuO', '1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Cocoyashi Village', '089604333575', 'Mikasa 1.jpg'),
+(3, '7083507b-e00e-48f3-8c40-be7ea2633512', 'Tony Tony Chopper', 'tony@gmail.com', '$2y$10$VIsZ8t93B7q41vYCjOStzOwwjiCKi7f/nGQmPLDYCrpsVT4QXfq1i', '3038e55f-5539-4360-bb44-7da1f43e101f', 'Sakura Kingdom', '08960433587', 'chopper.jpg');
 
 -- --------------------------------------------------------
 
@@ -75,17 +79,12 @@ INSERT INTO `tbl_doctor` (`id_user`, `name_doctor`, `email_doctor`, `password_do
 --
 
 CREATE TABLE `tbl_hospital_medicine` (
-  `id_hospital` varchar(50) NOT NULL,
-  `id_medicine` varchar(50) NOT NULL
+  `id` int(11) NOT NULL,
+  `id_hospital` int(11) NOT NULL,
+  `id_medicine` varchar(50) NOT NULL,
+  `qty_medicine` varchar(255) NOT NULL,
+  `price_medicine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_hospital_medicine`
---
-
-INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
-('48451e86-08d3-483d-bb6a-e2d6e696260c', '148ff283-3687-45bb-b12b-7687fc52caaa'),
-('48451e86-08d3-483d-bb6a-e2d6e696260c', '09a7b207-40fe-4077-8fff-8787b6688bd0');
 
 -- --------------------------------------------------------
 
@@ -94,21 +93,14 @@ INSERT INTO `tbl_hospital_medicine` (`id_hospital`, `id_medicine`) VALUES
 --
 
 CREATE TABLE `tbl_medical_record` (
-  `id_hospital` varchar(50) NOT NULL,
+  `id_hospital` int(11) NOT NULL,
   `id_patient` varchar(50) NOT NULL,
   `illness` text NOT NULL,
-  `id_user` varchar(100) NOT NULL,
+  `id_doctor` varchar(50) NOT NULL,
   `diagnosis` text NOT NULL,
   `id_poly` varchar(50) NOT NULL,
   `check_up` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_medical_record`
---
-
-INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_user`, `diagnosis`, `id_poly`, `check_up`) VALUES
-('48451e86-08d3-483d-bb6a-e2d6e696260c', '5a1994bb-0250-4aa3-beba-29447311f064', 'Fever', '34e61663-73f6-4b03-b55b-9dd48b3954a0', 'Flu', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-05-30');
 
 -- --------------------------------------------------------
 
@@ -119,17 +111,24 @@ INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_us
 CREATE TABLE `tbl_medicine` (
   `id_medicine` varchar(50) NOT NULL,
   `name_medicine` varchar(255) NOT NULL,
-  `description_medicine` text NOT NULL
+  `description_medicine` text NOT NULL,
+  `stock_medicine` varchar(255) NOT NULL,
+  `price_medicine` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_medicine`
 --
 
-INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicine`) VALUES
-('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Paracetamol', 'Fever'),
-('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness'),
-('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection');
+INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicine`, `stock_medicine`, `price_medicine`) VALUES
+('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Paracetamol', 'Fever', '50', 5000),
+('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness', '25', 7000),
+('19c74196-b2d4-4de9-a9ae-220d9376d58e', 'Ranitidin', 'Menurunkan produksi asam lambung berlebih', '30', 3500),
+('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection', '15', 4000),
+('4fcdb2f7-bb21-4d8e-874f-7c73102c7bd1', 'Antihistamin', 'Alergi', '60', 6500),
+('5947aa9d-f5da-4c40-95ab-80f9eb8ba109', 'Paliperidone', 'Skizofrenia', '80', 9000),
+('d811aafa-eaa6-431b-bb40-9110c3493aac', 'Antasida', 'Maag', '45', 3500),
+('f68d912e-ec37-4e8d-94f8-d80622f3d65f', 'Vitamin C', 'Kekurangan vitam C', '70', 2000);
 
 -- --------------------------------------------------------
 
@@ -138,6 +137,7 @@ INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicin
 --
 
 CREATE TABLE `tbl_owner` (
+  `id` int(11) NOT NULL,
   `id_user` varchar(100) NOT NULL,
   `name_owner` varchar(255) NOT NULL,
   `email_owner` varchar(255) NOT NULL,
@@ -149,8 +149,8 @@ CREATE TABLE `tbl_owner` (
 -- Dumping data for table `tbl_owner`
 --
 
-INSERT INTO `tbl_owner` (`id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
-('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Anya Taylor-Joy', 'anya@gmail.com', '$2y$10$p4PcMfqIwm1n2efByb9y7OYuBegft9NxJWmB36M5LulAmu.Ydb5R6', 'anyataylor-joy.png');
+INSERT INTO `tbl_owner` (`id`, `id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
+(1, '5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Anya Taylor-Joy', 'anya@gmail.com', '$2y$10$V3TJ2I.KcYm0D//9Sp9qS.eABQdk7zlmS4CPwojfXjF5Lwj1VQ.ES', 'Anya 2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -180,9 +180,27 @@ CREATE TABLE `tbl_patient` (
 --
 
 INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `email_patient`, `password_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`, `profile_patient`) VALUES
-('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$P3yoEHZ68LUrXPCpnBGXAeLv4KxQTgn0rq6LGnxNMBgHb4zqivY6q', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Christian', 'Not Married', 'Tzuyu 1.jpg'),
+('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$0F7Tonk6L5ip3E0yWljBveY29YXuPIwzlPltSx8XLT/JuDmM2oUzu', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Islam', 'Not Married', 'Tzuyu 2.jpg'),
+('762860c9-18ff-4bed-ac59-f1a713593c56', '41815010145', 'Giselle', 'giselle@gmail.com', '$2y$10$htQFUB76QwqW7h7i9RJd7uPvgV9f3ZgXNW0QlbmTaNzJBE593J.Ze', 'Woman', 'Surabaya, Indonesia', '0896043367', '1994-10-19', 'Canada', 'B', 'Chatolic', 'Widower', ''),
 ('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '41815010120', 'Winter', 'winter@gmail.com', '$2y$10$jmJiB2TcA8m5u9ywoQ61FOIk3qToOBvA5QaT4lcKmMq6j7jy15Pv2', 'Woman', 'Paris, France', '089604333523', '2000-05-15', 'Kuala Lumpur', 'O', 'Islam', 'Not Married', 'Winter 1.jpg'),
 ('daf90ef9-5c75-4353-95a9-e9af018788f2', '41815010130', 'Irene', 'irene@gmail.com', '$2y$10$iirGZJYn6S/0HFkMA6gpgOHVjnLHQ/HzIxHGakQLr24Pjafs16SQu', 'Woman', 'Milan, Italy', '089604333526', '1991-02-20', 'Venice', 'AB', 'Hindu', 'Not Married', 'Irene 1.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_pharmacist`
+--
+
+CREATE TABLE `tbl_pharmacist` (
+  `id` int(11) NOT NULL,
+  `id_hospital` int(11) NOT NULL,
+  `id_patient` varchar(50) NOT NULL,
+  `id_doctor` varchar(50) NOT NULL,
+  `birth_date` date NOT NULL,
+  `check_up` date NOT NULL,
+  `total_medicine` text NOT NULL,
+  `total_price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -202,6 +220,7 @@ CREATE TABLE `tbl_poly` (
 
 INSERT INTO `tbl_poly` (`id_poly`, `name_poly`, `place_poly`) VALUES
 ('48519f64-c564-46e9-9cca-25e0b23cccdf', 'Pediatric Poly', '1'),
+('6fc1516b-9381-4b20-a0c2-d517af138620', 'OBGYN Poly', '5'),
 ('900ff3ff-52dc-436e-9c5a-83425f37f722', 'General Poly', '2'),
 ('959e3ca9-402b-43ea-83d2-fc87f477fb5d', 'E.N.T', '1'),
 ('d4d133a4-d585-4c29-8cdf-e6046bd968d5', 'Dentistry Poly', '4'),
@@ -223,9 +242,13 @@ CREATE TABLE `tbl_specialist` (
 --
 
 INSERT INTO `tbl_specialist` (`id_specialist`, `name_specialist`) VALUES
+('0e2814a5-444b-4e6a-bcf0-5e6c7e337985', 'Anesthetic'),
 ('1c1fb5da-cd3a-11ed-bbfa-b4a9fcffb61c', 'Neurologist'),
 ('1c1fbfe2-cd3a-11ed-bbfa-b4a9fcffb61c', 'Pediatrician'),
-('1eff1a2a-50f7-4a33-a6ea-c4a524340997', 'Neurosurgery');
+('1eff1a2a-50f7-4a33-a6ea-c4a524340997', 'Neurosurgery'),
+('3038e55f-5539-4360-bb44-7da1f43e101f', 'Dentist'),
+('3a84e784-bd37-49af-a450-7f4d891876d3', 'Nutritionist'),
+('9445be39-570c-4ada-985d-51f9a307ac04', 'Radiologist');
 
 -- --------------------------------------------------------
 
@@ -248,7 +271,10 @@ INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
 ('34e61663-73f6-4b03-b55b-9dd48b3954a0', 'eren@gmail.com', 'Doctor'),
 ('5a1994bb-0250-4aa3-beba-29447311f064', 'tzuyu@gmail.com', 'Patient'),
 ('5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'anya@gmail.com', 'Owner'),
+('7083507b-e00e-48f3-8c40-be7ea2633512', 'tony@gmail.com', 'Doctor'),
+('762860c9-18ff-4bed-ac59-f1a713593c56', 'giselle@gmail.com', 'Patient'),
 ('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', 'winter@gmail.com', 'Patient'),
+('ae9297b6-6ede-429e-ba45-3f6410563d03', 'velika@gmail.com', 'Admin'),
 ('d558e35a-318d-4605-8d98-6df32b8962cf', 'bayu@gmail.com', 'Admin'),
 ('daf90ef9-5c75-4353-95a9-e9af018788f2', 'irene@gmail.com', 'Patient'),
 ('db881baa-cc83-43c2-85e3-98805850141b', 'mikasa@gmail.com', 'Doctor');
@@ -261,20 +287,22 @@ INSERT INTO `tbl_user` (`id_user`, `email`, `role`) VALUES
 -- Indexes for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `tbl_doctor`
 --
 ALTER TABLE `tbl_doctor`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_specialist` (`id_specialist`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_doctor`);
 
 --
 -- Indexes for table `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_hospital_medicine`
-  ADD KEY `id_medical_record` (`id_hospital`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_medicine` (`id_medicine`),
   ADD KEY `id_hospital` (`id_hospital`);
 
@@ -283,8 +311,8 @@ ALTER TABLE `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_medical_record`
   ADD PRIMARY KEY (`id_hospital`),
-  ADD UNIQUE KEY `id_patient` (`id_patient`),
-  ADD KEY `id_doctor` (`id_user`),
+  ADD KEY `id_doctor` (`id_doctor`),
+  ADD KEY `id_patient` (`id_patient`),
   ADD KEY `id_poly` (`id_poly`);
 
 --
@@ -297,6 +325,7 @@ ALTER TABLE `tbl_medicine`
 -- Indexes for table `tbl_owner`
 --
 ALTER TABLE `tbl_owner`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`);
 
 --
@@ -304,6 +333,15 @@ ALTER TABLE `tbl_owner`
 --
 ALTER TABLE `tbl_patient`
   ADD PRIMARY KEY (`id_patient`);
+
+--
+-- Indexes for table `tbl_pharmacist`
+--
+ALTER TABLE `tbl_pharmacist`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_hospital` (`id_hospital`),
+  ADD KEY `id_doctor` (`id_doctor`),
+  ADD KEY `id_patient` (`id_patient`);
 
 --
 -- Indexes for table `tbl_poly`
@@ -324,6 +362,46 @@ ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_admin`
+--
+ALTER TABLE `tbl_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_doctor`
+--
+ALTER TABLE `tbl_doctor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_hospital_medicine`
+--
+ALTER TABLE `tbl_hospital_medicine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_medical_record`
+--
+ALTER TABLE `tbl_medical_record`
+  MODIFY `id_hospital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_owner`
+--
+ALTER TABLE `tbl_owner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_pharmacist`
+--
+ALTER TABLE `tbl_pharmacist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -338,22 +416,21 @@ ALTER TABLE `tbl_admin`
 --
 ALTER TABLE `tbl_doctor`
   ADD CONSTRAINT `tbl_doctor_ibfk_1` FOREIGN KEY (`id_specialist`) REFERENCES `tbl_specialist` (`id_specialist`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_doctor_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_doctor_ibfk_2` FOREIGN KEY (`id_doctor`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_hospital_medicine`
-  ADD CONSTRAINT `tbl_hospital_medicine_ibfk_1` FOREIGN KEY (`id_hospital`) REFERENCES `tbl_medical_record` (`id_hospital`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_hospital_medicine_ibfk_2` FOREIGN KEY (`id_medicine`) REFERENCES `tbl_medicine` (`id_medicine`);
+  ADD CONSTRAINT `tbl_hospital_medicine_ibfk_1` FOREIGN KEY (`id_hospital`) REFERENCES `tbl_medical_record` (`id_hospital`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_medical_record`
 --
 ALTER TABLE `tbl_medical_record`
-  ADD CONSTRAINT `tbl_medical_record_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `tbl_patient` (`id_patient`),
-  ADD CONSTRAINT `tbl_medical_record_ibfk_3` FOREIGN KEY (`id_poly`) REFERENCES `tbl_poly` (`id_poly`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_medical_record_ibfk_4` FOREIGN KEY (`id_user`) REFERENCES `tbl_doctor` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_medical_record_ibfk_1` FOREIGN KEY (`id_doctor`) REFERENCES `tbl_doctor` (`id_doctor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_medical_record_ibfk_2` FOREIGN KEY (`id_patient`) REFERENCES `tbl_patient` (`id_patient`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_medical_record_ibfk_3` FOREIGN KEY (`id_poly`) REFERENCES `tbl_poly` (`id_poly`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_owner`
@@ -366,6 +443,14 @@ ALTER TABLE `tbl_owner`
 --
 ALTER TABLE `tbl_patient`
   ADD CONSTRAINT `tbl_patient_ibfk_1` FOREIGN KEY (`id_patient`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pharmacist`
+--
+ALTER TABLE `tbl_pharmacist`
+  ADD CONSTRAINT `tbl_pharmacist_ibfk_1` FOREIGN KEY (`id_hospital`) REFERENCES `tbl_medical_record` (`id_hospital`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pharmacist_ibfk_2` FOREIGN KEY (`id_doctor`) REFERENCES `tbl_doctor` (`id_doctor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pharmacist_ibfk_3` FOREIGN KEY (`id_patient`) REFERENCES `tbl_patient` (`id_patient`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

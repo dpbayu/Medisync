@@ -45,6 +45,13 @@
                 <span>Data Medical Record</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?php if ($page != 'pharmacist') {echo 'collapsed';} ?>"
+                href="../admin/dataPharmacist.php">
+                <i class="bi bi-bag"></i>
+                <span>Data Pharmacist</span>
+            </a>
+        </li>
         <li class="nav-heading">Account</li>
         <li class="nav-item">
             <a class="nav-link <?php if ($page != 'profile') {echo 'collapsed';} ?>" href="../admin/profile.php">

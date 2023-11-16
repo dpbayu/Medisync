@@ -4,11 +4,15 @@ require '../function.php';
 // Send to Pharmacist Start
 if (isset($_POST['sendPharmacist'])) {
     $id_hospital = $_POST['id_hospital'];
+    $id_patient = $_POST['id_patient'];
+    $id_doctor = $_POST['id_doctor'];
+    $birth_date = $_POST['birth_date'];
+    $check_up = $_POST['check_up'];
     $total_medicine = $_POST['total_medicine'];
     $total_price = $_POST['total_price'];
-    $sql_insert = "INSERT INTO tbl_transaction (id, id_hospital, total_medicine, total_price) VALUES ('', '$id_hospital', '$total_medicine', '$total_price')";
+    $sql_insert = "INSERT INTO tbl_pharmacist (id, id_hospital, id_patient, id_doctor, birth_date, check_up, total_medicine, total_price) VALUES ('', '$id_hospital', '$id_patient', '$id_doctor', '$birth_date', '$check_up', '$total_medicine', '$total_price')";
     $query_insert = mysqli_query($db, $sql_insert);
-    echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly send to pharmachist!';</script>";
+    echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly added to pharmachist!';</script>";
 }
 // Send to Pharmacist End
 
