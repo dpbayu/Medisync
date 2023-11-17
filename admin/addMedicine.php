@@ -42,6 +42,7 @@ $page = 'medicine';
                             <th>Name Medicine</th>
                             <th>Description Medicine</th>
                             <th>Stock Medicine</th>
+                            <th>Price Medicine</th>
                         </tr>
                         <?php
                             for ($i = 1; $i <= $_POST['count_add']; $i++) { 
@@ -54,6 +55,9 @@ $page = 'medicine';
                                     placeholder="Input description" required></td>
                             <td><input class="form-control" type="number" name="stock_medicine-<?= $i ?>"
                                     placeholder="Input stock" maxlength="2" pattern="[0-9]+" placeholder="1-9" required>
+                            </td>
+                            <td><input class="form-control" type="number" name="price_medicine-<?= $i ?>"
+                                    placeholder="Input price" pattern="[0-9]+" placeholder="1-9" required>
                             </td>
                         </tr>
                         <?php

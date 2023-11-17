@@ -108,7 +108,8 @@ if (isset($_POST['addMedicine'])) {
         $name_medicine = trim(mysqli_real_escape_string($db, $_POST['name_medicine-'.$i]));
         $description_medicine = trim(mysqli_real_escape_string($db, $_POST['description_medicine-'.$i]));        
         $stock_medicine = trim(mysqli_real_escape_string($db, $_POST['stock_medicine-'.$i]));        
-        $sql = mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine, stock_medicine) VALUES ('$uuid', '$name_medicine', '$description_medicine', '$stock_medicine')");
+        $price_medicine = trim(mysqli_real_escape_string($db, $_POST['price_medicine-'.$i]));        
+        $sql = mysqli_query($db, "INSERT INTO tbl_medicine (id_medicine, name_medicine, description_medicine, stock_medicine, price_medicine) VALUES ('$uuid', '$name_medicine', '$description_medicine', '$stock_medicine', '$price_medicine')");
     }
     if ($sql) {
         echo "<script>window.location='dataMedicine.php?success=".$total." Data successfully added!';</script>";
@@ -121,7 +122,8 @@ if (isset($_POST['addMedicine'])) {
         $name_medicine = $_POST['name_medicine'][$i];
         $description_medicine = $_POST['description_medicine'][$i];        
         $stock_medicine = $_POST['stock_medicine'][$i];        
-        mysqli_query($db, "UPDATE tbl_medicine SET name_medicine = '$name_medicine', description_medicine = '$description_medicine', stock_medicine = '$stock_medicine' WHERE id_medicine = '$id'");
+        $price_medicine = $_POST['price_medicine'][$i];        
+        mysqli_query($db, "UPDATE tbl_medicine SET name_medicine = '$name_medicine', description_medicine = '$description_medicine', stock_medicine = '$stock_medicine', price_medicine = '$price_medicine' WHERE id_medicine = '$id'");
     }
     echo "<script>window.location='dataMedicine.php?success=Data successfuly updated!';</script>";
 }

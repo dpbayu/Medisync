@@ -58,10 +58,11 @@ $page = 'medicine';
                             <table class="table table-bordered table-hover" id="medicine">
                                 <thead>
                                     <tr>
-                                        <th class="fw-semibold">No</th>
-                                        <th class="fw-semibold">Name Medicine</th>
-                                        <th class="fw-semibold">Description Medicine</th>
-                                        <th class="fw-semibold">Stock Medicine</th>
+                                        <th class="fw-semibold text-center">No</th>
+                                        <th class="fw-semibold text-center">Name Medicine</th>
+                                        <th class="fw-semibold text-center">Description Medicine</th>
+                                        <th class="fw-semibold text-center">Stock Medicine</th>
+                                        <th class="fw-semibold text-center">Price Medicine</th>
                                         <th class="text-center">
                                             <input type="checkbox" id="select_all" value="">
                                         </th>
@@ -75,6 +76,7 @@ $page = 'medicine';
                                         <td><?= $medicine['name_medicine'] ?></td>
                                         <td><?= $medicine['description_medicine'] ?></td>
                                         <td><?= $medicine['stock_medicine'] ?></td>
+                                        <td><?= 'Rp ' . number_format($medicine['price_medicine'], 0, ',', '.') ?></td>
                                         <td class="text-center">
                                             <input type="checkbox" name="checked[]" class="check"
                                                 value="<?= $medicine['id_medicine'] ?>" <?= $medicine['id_medicine'] ?>>
@@ -140,7 +142,7 @@ $page = 'medicine';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": 4,
+                    "targets": 5,
                 }],
             });
         });
