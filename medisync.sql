@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 05:48 AM
+-- Generation Time: Nov 18, 2023 at 03:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,6 +86,19 @@ CREATE TABLE `tbl_hospital_medicine` (
   `price_medicine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_hospital_medicine`
+--
+
+INSERT INTO `tbl_hospital_medicine` (`id`, `id_hospital`, `id_medicine`, `qty_medicine`, `price_medicine`) VALUES
+(1, 1, '09a7b207-40fe-4077-8fff-8787b6688bd0', '5', 5500),
+(2, 1, 'f68d912e-ec37-4e8d-94f8-d80622f3d65f', '10', 20000),
+(3, 2, 'f68d912e-ec37-4e8d-94f8-d80622f3d65f', '5', 20000),
+(4, 2, '09a7b207-40fe-4077-8fff-8787b6688bd0', '5', 5500),
+(5, 3, '94ca103b-470d-401e-bf1f-2a3bd94500ef', '12', 30000),
+(6, 3, 'dca87eaa-79b9-4318-bb01-2824a36200c5', '6', 65000),
+(7, 3, 'f68d912e-ec37-4e8d-94f8-d80622f3d65f', '6', 20000);
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +114,15 @@ CREATE TABLE `tbl_medical_record` (
   `id_poly` varchar(50) NOT NULL,
   `check_up` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_medical_record`
+--
+
+INSERT INTO `tbl_medical_record` (`id_hospital`, `id_patient`, `illness`, `id_doctor`, `diagnosis`, `id_poly`, `check_up`) VALUES
+(1, '5a1994bb-0250-4aa3-beba-29447311f064', '<p>Fever</p>', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '<ol>\r\n<li>Out of breath</li>\r\n<li>Headaches</li>\r\n<li>Nauseous</li>\r\n</ol>', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-11-17'),
+(2, '77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '<p>Sore throat</p>', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '<ol>\r\n<li>Cough</li>\r\n<li>Ulcer</li>\r\n</ol>', '900ff3ff-52dc-436e-9c5a-83425f37f722', '2023-11-18'),
+(3, '5a1994bb-0250-4aa3-beba-29447311f064', '<p>Bleeding gums</p>', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '<p>Canker sores on the tongue</p>', 'd4d133a4-d585-4c29-8cdf-e6046bd968d5', '2023-11-18');
 
 -- --------------------------------------------------------
 
@@ -121,14 +143,19 @@ CREATE TABLE `tbl_medicine` (
 --
 
 INSERT INTO `tbl_medicine` (`id_medicine`, `name_medicine`, `description_medicine`, `stock_medicine`, `price_medicine`) VALUES
-('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Paracetamol', 'Fever', '50', 5000),
-('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness', '25', 7000),
-('19c74196-b2d4-4de9-a9ae-220d9376d58e', 'Ranitidin', 'Menurunkan produksi asam lambung berlebih', '30', 3500),
-('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection', '15', 4000),
-('4fcdb2f7-bb21-4d8e-874f-7c73102c7bd1', 'Antihistamin', 'Alergi', '60', 6500),
-('5947aa9d-f5da-4c40-95ab-80f9eb8ba109', 'Paliperidone', 'Skizofrenia', '80', 9000),
-('d811aafa-eaa6-431b-bb40-9110c3493aac', 'Antasida', 'Maag', '45', 3500),
-('f68d912e-ec37-4e8d-94f8-d80622f3d65f', 'Vitamin C', 'Kekurangan vitam C', '70', 2000);
+('09a7b207-40fe-4077-8fff-8787b6688bd0', 'Paracetamol', 'Fever', '15', 5500),
+('148ff283-3687-45bb-b12b-7687fc52caaa', 'Acetazolamide', 'Glaucoma, Epilepsy or Altitude Sickness', '10', 100000),
+('19c74196-b2d4-4de9-a9ae-220d9376d58e', 'Ranitidin', 'Reduces excess stomach acid production', '25', 20000),
+('25d84410-b8a9-4b1b-8fd1-458e6d58b754', 'Klomifen', 'Medicines to treat infertility or infertility in women who experience ovulation disorders', '35', 23000),
+('4846759e-04ff-49ca-88ee-2977a1a21e5d', 'Abacavir', 'HIV Infection', '5', 695000),
+('4fcdb2f7-bb21-4d8e-874f-7c73102c7bd1', 'Antihistamin', 'Alergi', '48', 60000),
+('5947aa9d-f5da-4c40-95ab-80f9eb8ba109', 'Paliperidone', 'Skizofrenia', '80', 57000),
+('5b4b06d3-f861-46c0-b6d9-3e5f39cccb51', 'Stavudin', 'Reduces the number of HIV viruses in the body', '75', 69000),
+('5bf32014-c1ca-4e57-9f15-47a90217a24d', 'Ambroxol', 'Thinning phlegm', '100', 5000),
+('94ca103b-470d-401e-bf1f-2a3bd94500ef', 'Vitamin B', 'Helps maintain the health and function of body organs, such as maintaining the digestive system and helping cell development', '38', 30000),
+('d811aafa-eaa6-431b-bb40-9110c3493aac', 'Antasida', 'Maag', '13', 2000),
+('dca87eaa-79b9-4318-bb01-2824a36200c5', 'Zinc', 'Strengthens the body\'s resistance, relieves inflammation, and accelerates wound healing', '74', 65000),
+('f68d912e-ec37-4e8d-94f8-d80622f3d65f', 'Vitamin C', 'Vitamin C deficiency', '29', 20000);
 
 -- --------------------------------------------------------
 
@@ -150,7 +177,7 @@ CREATE TABLE `tbl_owner` (
 --
 
 INSERT INTO `tbl_owner` (`id`, `id_user`, `name_owner`, `email_owner`, `password_owner`, `profile_owner`) VALUES
-(1, '5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Anya Taylor-Joy', 'anya@gmail.com', '$2y$10$V3TJ2I.KcYm0D//9Sp9qS.eABQdk7zlmS4CPwojfXjF5Lwj1VQ.ES', 'Anya 2.jpeg');
+(1, '5f41259b-d1ad-11ed-b3e4-b4a9fcffb61c', 'Anya Taylor-Joy', 'anya@gmail.com', '$2y$10$V3TJ2I.KcYm0D//9Sp9qS.eABQdk7zlmS4CPwojfXjF5Lwj1VQ.ES', 'Anya Taylor-Joy.jpg');
 
 -- --------------------------------------------------------
 
@@ -180,8 +207,8 @@ CREATE TABLE `tbl_patient` (
 --
 
 INSERT INTO `tbl_patient` (`id_patient`, `nik_patient`, `name_patient`, `email_patient`, `password_patient`, `gender_patient`, `address_patient`, `phone_patient`, `birth_date`, `birth_place`, `blood_patient`, `religion_patient`, `marriage_patient`, `profile_patient`) VALUES
-('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$0F7Tonk6L5ip3E0yWljBveY29YXuPIwzlPltSx8XLT/JuDmM2oUzu', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Islam', 'Not Married', 'Tzuyu 2.jpg'),
-('762860c9-18ff-4bed-ac59-f1a713593c56', '41815010145', 'Giselle', 'giselle@gmail.com', '$2y$10$htQFUB76QwqW7h7i9RJd7uPvgV9f3ZgXNW0QlbmTaNzJBE593J.Ze', 'Woman', 'Surabaya, Indonesia', '0896043367', '1994-10-19', 'Canada', 'B', 'Chatolic', 'Widower', ''),
+('5a1994bb-0250-4aa3-beba-29447311f064', '41815010140', 'Chou Tzuyu', 'tzuyu@gmail.com', '$2y$10$0F7Tonk6L5ip3E0yWljBveY29YXuPIwzlPltSx8XLT/JuDmM2oUzu', 'Woman', 'Taipei, Taiwan', '089604333578', '1994-10-29', 'New Taipei', 'B', 'Islam', 'Not Married', ''),
+('762860c9-18ff-4bed-ac59-f1a713593c56', '41815010145', 'Giselle', 'giselle@gmail.com', '$2y$10$htQFUB76QwqW7h7i9RJd7uPvgV9f3ZgXNW0QlbmTaNzJBE593J.Ze', 'Woman', 'Surabaya, Indonesia', '0896043367', '1994-10-09', 'Canada', 'B', 'Chatolic', 'Widower', ''),
 ('77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '41815010120', 'Winter', 'winter@gmail.com', '$2y$10$jmJiB2TcA8m5u9ywoQ61FOIk3qToOBvA5QaT4lcKmMq6j7jy15Pv2', 'Woman', 'Paris, France', '089604333523', '2000-05-15', 'Kuala Lumpur', 'O', 'Islam', 'Not Married', 'Winter 1.jpg'),
 ('daf90ef9-5c75-4353-95a9-e9af018788f2', '41815010130', 'Irene', 'irene@gmail.com', '$2y$10$iirGZJYn6S/0HFkMA6gpgOHVjnLHQ/HzIxHGakQLr24Pjafs16SQu', 'Woman', 'Milan, Italy', '089604333526', '1991-02-20', 'Venice', 'AB', 'Hindu', 'Not Married', 'Irene 1.jpg');
 
@@ -201,6 +228,15 @@ CREATE TABLE `tbl_pharmacist` (
   `total_medicine` text NOT NULL,
   `total_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_pharmacist`
+--
+
+INSERT INTO `tbl_pharmacist` (`id`, `id_hospital`, `id_patient`, `id_doctor`, `birth_date`, `check_up`, `total_medicine`, `total_price`) VALUES
+(1, 1, '5a1994bb-0250-4aa3-beba-29447311f064', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '1994-10-29', '2023-11-17', 'Paracetamol (5 x Rp 5.500 ) <br> Vitamin C (10 x Rp 20.000 ) <br> ', 455000),
+(2, 2, '77083b9b-2ff7-4ae3-b32d-7303cccb6e68', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '2000-05-15', '2023-11-18', 'Vitamin C (5 x Rp 20.000 ) <br> Paracetamol (5 x Rp 5.500 ) <br> ', 255000),
+(3, 3, '5a1994bb-0250-4aa3-beba-29447311f064', '34e61663-73f6-4b03-b55b-9dd48b3954a0', '1994-10-29', '2023-11-18', 'Vitamin B (12 x Rp 30.000 ) <br> Zinc (6 x Rp 65.000 ) <br> Vitamin C (6 x Rp 20.000 ) <br> ', 1740000);
 
 -- --------------------------------------------------------
 
@@ -381,13 +417,13 @@ ALTER TABLE `tbl_doctor`
 -- AUTO_INCREMENT for table `tbl_hospital_medicine`
 --
 ALTER TABLE `tbl_hospital_medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_medical_record`
 --
 ALTER TABLE `tbl_medical_record`
-  MODIFY `id_hospital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hospital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_owner`
@@ -399,7 +435,7 @@ ALTER TABLE `tbl_owner`
 -- AUTO_INCREMENT for table `tbl_pharmacist`
 --
 ALTER TABLE `tbl_pharmacist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
