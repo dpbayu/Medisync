@@ -12,6 +12,7 @@
         rel="stylesheet">
     <!-- Google Fonts End -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Datables Start -->
     <link rel="stylesheet" type="text/css" href="../assets/libs/dataTables/datatables.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

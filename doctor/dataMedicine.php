@@ -14,15 +14,15 @@ $page = 'medicine';
 <html lang="en">
 
 <!-- Head Start -->
-<?php require '../partialsOwner/head.php' ?>
+<?php require '../partialsDoctor/head.php' ?>
 <!-- Head End -->
 
 <body>
     <!-- Header Start -->
-    <?php require '../partialsOwner/header.php' ?>
+    <?php require '../partialsDoctor/header.php' ?>
     <!-- Header End -->
     <!-- Sidebar Start -->
-    <?php require '../partialsOwner/sidebar.php' ?>
+    <?php require '../partialsDoctor/sidebar.php' ?>
     <!-- Sidebar End-->
     <!-- Main Start -->
     <main id="main" class="main">
@@ -99,7 +99,7 @@ $page = 'medicine';
     </script>
     <!-- JS End -->
     <!-- Footer Start -->
-    <?php require '../partialsOwner/footer.php' ?>
+    <?php require '../partialsDoctor/footer.php' ?>
     <!-- Footer End -->
 </body>
 
