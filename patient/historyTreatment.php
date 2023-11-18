@@ -77,7 +77,7 @@ $page = 'history';
                     <?php
                     }
                     } else {
-                        echo '<p>no history treatment!</p>';
+                        echo '<p>No history treatment</p>';
                     }
                     ?>
                 </div>
