@@ -33,11 +33,12 @@ $page = 'invoice';
                         <table class="table table-bordered table-hover" id="invoice">
                             <thead>
                                 <tr>
-                                    <th class="fw-semibold">No</th>
-                                    <th class="fw-semibold">Date</th>
-                                    <th class="fw-semibold">Doctor</th>
-                                    <th class="fw-semibold">Medicine</th>
-                                    <th class="fw-semibold">Total</th>
+                                    <th class="fw-semibold text-center">No</th>
+                                    <th class="fw-semibold text-center">Date</th>
+                                    <th class="fw-semibold text-center">Doctor</th>
+                                    <th class="fw-semibold text-center">Medicine</th>
+                                    <th class="fw-semibold text-center">Total</th>
+                                    <th class="fw-semibold text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,6 +57,7 @@ $page = 'invoice';
                                         <td><?= $data['name_doctor'] ?></td>
                                         <td><?= $data['total_medicine'] ?></td>
                                         <td><?= 'Rp ' . number_format($data['total_price'], 0, ',', '.') ?></td>
+                                        <td class="text-center"><a class="btn btn-warning" href="receipt.php?id=<?= $data['id_hospital'] ?>">Receipt</a></td>
                                     </tr>
                                 <?php
                                 $i++;

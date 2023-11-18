@@ -8,13 +8,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if ($page != 'appointment') {echo 'collapsed';} ?>"
-                href="../patient/appointment.php">
-                <i class="bi bi-exclude"></i>
-                <span>Book Appointment</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link <?php if ($page != 'invoice') {echo 'collapsed';} ?>"
                 href="../patient/invoice.php">
                 <i class="bi bi-stickies"></i>
