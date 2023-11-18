@@ -32,11 +32,11 @@ $page = 'history';
                 <div class="col-md-12">
                     <?php
                     $sql_medical_record = "SELECT * FROM tbl_medical_record
-                    INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor ORDER BY check_up DESC";
+                    INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor WHERE id_patient = '" . $_SESSION['id_patient'] . "' ORDER BY check_up DESC";
                     $run_medical_record = mysqli_query($db, $sql_medical_record);
                     if (mysqli_num_rows($run_medical_record) > 0) {
-                        $i;
-                        while ($medical_record = mysqli_fetch_assoc($run_medical_record)) {
+                    $i;
+                    while ($medical_record = mysqli_fetch_assoc($run_medical_record)) {
                     ?>
                         <div class="card">
                             <div class="card-body">
