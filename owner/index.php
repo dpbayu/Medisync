@@ -164,7 +164,28 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-person rounded-circle fs-1 py-1 px-3 text-info" style="background-color: rgba(13, 202, 240, 0.2);"></i></i>
+                                        <i class="bi bi-bag rounded-circle fs-1 py-1 px-3 text-info" style="background-color: rgba(13, 202, 240, 0.2);"></i></i>
+                                        <div class="d-block">
+                                            <h2 class="fw-bolder">
+                                                <?php
+                                                $sql = "SELECT * FROM tbl_pharmacist";
+                                                $query = mysqli_query($db, $sql);
+                                                $count = mysqli_num_rows($query);
+                                                echo "$count";
+                                                ?>
+                                            </h2>
+                                            <h6 class="text-secondary">Pharmacist</h6>
+                                        </div>
+                                    </div>
+                                    <a href="../owner/dataPharmacist.php" class="btn btn-primary w-100">Pharmacist</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex gap-4 py-4 px-3">
+                                        <i class="bi bi-person rounded-circle fs-1 py-1 px-3 text-danger" style="background-color: rgba(255, 200, 255, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -174,10 +195,10 @@ $page = 'dashboard';
                                                 echo "$count";
                                                 ?>
                                             </h2>
-                                            <h6 class="text-secondary">Admins</h6>
+                                            <h6 class="text-secondary">Admin</h6>
                                         </div>
                                     </div>
-                                    <a href="../owner/dataAdmin.php" class="btn btn-primary w-100">Admins</a>
+                                    <a href="../owner/dataAdmin.php" class="btn btn-primary w-100">Admin</a>
                                 </div>
                             </div>
                         </div>
@@ -191,14 +212,14 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Chart Medisync</h5>
-                                    <canvas id="barChart" style="max-height: 900; display: block; box-sizing: border-box; height: 244px; width: 488px;" width="976" height="488"></canvas>
+                                    <canvas id="barChart" style="max-height: 400; display: block; box-sizing: border-box; height: 244px; width: 488px;" width="976" height="400"></canvas>
                                     <script>
                                         document.addEventListener("DOMContentLoaded", () => {
                                             new Chart(document.querySelector('#barChart'), {
                                                 type: 'bar',
                                                 data: {
                                                     labels: ['Patient', 'Doctor', 'Medicine', 'Poly',
-                                                        'Specialist', 'Medical Record', 'Admin'
+                                                        'Specialist', 'Medical Record', 'Pharmacist', 'Admin'
                                                     ],
                                                     datasets: [{
                                                         label: 'Medisync',
@@ -228,8 +249,12 @@ $page = 'dashboard';
                                                             echo mysqli_num_rows($medicalRecords);
                                                             ?>,
                                                             <?php
-                                                            $admins = mysqli_query($db, "SELECT * FROM tbl_admin");
-                                                            echo mysqli_num_rows($admins);
+                                                            $pharmacists = mysqli_query($db, "SELECT * FROM tbl_pharmacist");
+                                                            echo mysqli_num_rows($pharmacists);
+                                                            ?>,
+                                                            <?php
+                                                            $pharmacists = mysqli_query($db, "SELECT * FROM tbl_admin");
+                                                            echo mysqli_num_rows($pharmacists);
                                                             ?>
                                                         ],
                                                         backgroundColor: [
@@ -239,7 +264,8 @@ $page = 'dashboard';
                                                             'rgba(54, 162, 235, 0.2)',
                                                             'rgba(200, 200, 250, 0.2)',
                                                             'rgba(108, 117, 125, 0.2)',
-                                                            'rgba(13, 202, 240, 0.2)'
+                                                            'rgba(13, 202, 240, 0.2)',
+                                                            'rgba(255, 200, 255, 0.2)'
                                                         ],
                                                         borderColor: [
                                                             'rgb(255, 99, 132)',
@@ -248,7 +274,8 @@ $page = 'dashboard';
                                                             'rgb(54, 162, 235)',
                                                             'rgb(200, 200, 250)',
                                                             'rgb(108, 117, 125)',
-                                                            'rgb(13, 202, 240)'
+                                                            'rgb(13, 202, 240)',
+                                                            'rgb(255, 200, 255)'
                                                         ],
                                                         borderWidth: 1
                                                     }]
@@ -268,10 +295,92 @@ $page = 'dashboard';
                             <!-- Chart End -->
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chart Age</h5>
+                            <!-- Doughnut Chart Start -->
+                            <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    new Chart(document.querySelector('#doughnutChart'), {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: [
+                                                '0 - 17',
+                                                '18 - 35',
+                                                '> 36'
+                                            ],
+                                            datasets: [{
+                                                data: [
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) BETWEEN 0 AND 17");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) BETWEEN 18 AND 35");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) > 36");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>
+                                                ],
+                                                backgroundColor: [
+                                                    'rgb(255, 99, 132)',
+                                                    'rgb(54, 162, 235)',
+                                                    'rgb(255, 205, 86)'
+                                                ],
+                                                hoverOffset: 4
+                                            }]
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- Doughnut Chart End -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Left Side Start -->
                 <!-- Right Side Start -->
                 <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chart Patient Woman & Man</h5>
+                            <!-- Pie Chart Start -->
+                            <canvas id="pieChart" style="max-height: 400px;"></canvas>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    new Chart(document.querySelector('#pieChart'), {
+                                        type: 'pie',
+                                        data: {
+                                            labels: [
+                                                'Man',
+                                                'Woman'
+                                            ],
+                                            datasets: [{
+                                                data: [
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE gender_patient = 'Man'");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE gender_patient = 'Woman'");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>
+                                                ],
+                                                backgroundColor: [
+                                                    'rgb(255, 99, 132)',
+                                                    'rgb(54, 162, 235)',
+                                                ],
+                                                hoverOffset: 4
+                                            }]
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- Pie Chart End -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Right Side End -->
             </div>

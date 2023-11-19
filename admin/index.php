@@ -191,7 +191,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Chart Medisync</h5>
-                                    <canvas id="barChart" style="max-height: 900; display: block; box-sizing: border-box; height: 244px; width: 488px;" width="976" height="488"></canvas>
+                                    <canvas id="barChart" style="max-height: 400; display: block; box-sizing: border-box; height: 244px; width: 488px;" width="976" height="400"></canvas>
                                     <script>
                                         document.addEventListener("DOMContentLoaded", () => {
                                             new Chart(document.querySelector('#barChart'), {
@@ -268,10 +268,92 @@ $page = 'dashboard';
                             <!-- Chart End -->
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chart Age</h5>
+                            <!-- Doughnut Chart Start -->
+                            <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    new Chart(document.querySelector('#doughnutChart'), {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: [
+                                                '0 - 17',
+                                                '18 - 35',
+                                                '> 36'
+                                            ],
+                                            datasets: [{
+                                                data: [
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) BETWEEN 0 AND 17");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) BETWEEN 18 AND 35");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) > 36");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>
+                                                ],
+                                                backgroundColor: [
+                                                    'rgb(255, 99, 132)',
+                                                    'rgb(54, 162, 235)',
+                                                    'rgb(255, 205, 86)'
+                                                ],
+                                                hoverOffset: 4
+                                            }]
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- Doughnut Chart End -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Left Side Start -->
                 <!-- Right Side Start -->
                 <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chart Patient Woman & Man</h5>
+                            <!-- Pie Chart Start -->
+                            <canvas id="pieChart" style="max-height: 400px;"></canvas>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", () => {
+                                    new Chart(document.querySelector('#pieChart'), {
+                                        type: 'pie',
+                                        data: {
+                                            labels: [
+                                                'Man',
+                                                'Woman'
+                                            ],
+                                            datasets: [{
+                                                data: [
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE gender_patient = 'Man'");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>,
+                                                    <?php
+                                                    $patients = mysqli_query($db, "SELECT * FROM tbl_patient WHERE gender_patient = 'Woman'");
+                                                    echo mysqli_num_rows($patients);
+                                                    ?>
+                                                ],
+                                                backgroundColor: [
+                                                    'rgb(255, 99, 132)',
+                                                    'rgb(54, 162, 235)',
+                                                ],
+                                                hoverOffset: 4
+                                            }]
+                                        }
+                                    });
+                                });
+                            </script>
+                            <!-- Pie Chart End -->
+                        </div>
+                    </div>
                 </div>
                 <!-- Right Side End -->
             </div>
