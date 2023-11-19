@@ -20,13 +20,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link <?php if ($page != 'specialist') {echo 'collapsed';} ?>"
-                href="../owner/dataSpecialist.php">
-                <i class="fa fa-hospital-o"></i>
-                <span>Data Specialist</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link <?php if ($page != 'medicine') {echo 'collapsed';} ?>" href="../owner/dataMedicine.php">
                 <i class="fa fa-medkit"></i>
                 <span>Data Medicine</span>
@@ -36,6 +29,13 @@
             <a class="nav-link <?php if ($page != 'poly') {echo 'collapsed';} ?>" href="../owner/dataPoly.php">
                 <i class="bi bi-bounding-box"></i>
                 <span>Data Poly</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?php if ($page != 'specialist') {echo 'collapsed';} ?>"
+                href="../owner/dataSpecialist.php">
+                <i class="fa fa-hospital-o"></i>
+                <span>Data Specialist</span>
             </a>
         </li>
         <li class="nav-item">

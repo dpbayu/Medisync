@@ -57,7 +57,7 @@ $page = 'dashboard';
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex gap-4 py-4 px-3">
-                                        <i class="bi bi-box rounded-circle fs-1 py-1 px-3 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
+                                        <i class="fa fa-user-md rounded-circle fs-1 py-3 px-4 text-primary" style="background-color: rgba(54, 162, 235, 0.2);"></i></i>
                                         <div class="d-block">
                                             <h2 class="fw-bolder">
                                                 <?php
@@ -77,85 +77,8 @@ $page = 'dashboard';
                     </div>                
                 </div>
                 <!-- Left Side Start -->
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Chart Start -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chart Medisync</h5>
-                                    <canvas id="barChart"
-                                        style="max-height: 900; display: block; box-sizing: border-box; height: 244px; width: 488px;"
-                                        width="976" height="488"></canvas>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", () => {
-                                            new Chart(document.querySelector('#barChart'), {
-                                                type: 'bar',
-                                                data: {
-                                                    labels: ['Doctor', 'Patient', 'Medicine', 'Poly',
-                                                        'Specialist'
-                                                    ],
-                                                    datasets: [{
-                                                        label: 'Medisync',
-                                                        data: [
-                                                            <?php 
-                                                            $patients = mysqli_query($db,"SELECT * FROM tbl_doctor");
-                                                            echo mysqli_num_rows($patients);
-                                                            ?>,
-                                                            <?php 
-                                                            $doctors = mysqli_query($db,"SELECT * FROM tbl_patient");
-                                                            echo mysqli_num_rows($doctors);
-                                                            ?>,
-                                                            <?php 
-                                                            $medicines = mysqli_query($db,"SELECT * FROM tbl_medicine");
-                                                            echo mysqli_num_rows($medicines);
-                                                            ?>,
-                                                            <?php 
-                                                            $polys = mysqli_query($db,"SELECT * FROM tbl_poly");
-                                                            echo mysqli_num_rows($polys);
-                                                            ?>,
-                                                            <?php 
-                                                            $specialists = mysqli_query($db,"SELECT * FROM tbl_specialist");
-                                                            echo mysqli_num_rows($specialists);
-                                                            ?>
-                                                            ],
-                                                        backgroundColor: [
-                                                            'rgba(99, 255, 86, 0.2)',
-                                                            'rgba(255, 99, 132, 0.2)',
-                                                            'rgba(255, 205, 86, 0.2)',
-                                                            'rgba(75, 192, 192, 0.2)',
-                                                            'rgba(54, 162, 235, 0.2)'
-                                                        ],
-                                                        borderColor: [
-                                                            'rgb(99, 255, 86)',
-                                                            'rgb(255, 99, 132)',
-                                                            'rgb(255, 205, 86)',
-                                                            'rgb(75, 192, 192)',
-                                                            'rgb(54, 162, 235)'
-                                                        ],
-                                                        borderWidth: 1
-                                                    }]
-                                                },
-                                                options: {
-                                                    scales: {
-                                                        y: {
-                                                            beginAtZero: true
-                                                        }
-                                                    }
-                                                }
-                                            });
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                            <!-- Chart End -->
-                        </div>
-                    </div>
-                </div>
                 <!-- Left Side Start -->
                 <!-- Right Side Start -->
-                <div class="col-lg-4">
-                </div>
                 <!-- Right Side End -->
             </div>
         </section>
