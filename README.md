@@ -56,6 +56,7 @@ Medisync is an innovative web application specifically designed to assist medica
 ## Contact
 
 Dwi Putra Bayu Oktantyo - [Instagram](https://instagram.com/dwptrbayu) - dwiputrabayu19@gmail.com
+<br>
 Project Link: [Portfolio](https://dwiputrabayu.vercel.app/#portfolio)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
