@@ -32,7 +32,9 @@ if (isset($_POST["login"])) {
                 if (password_verify($password, $value["password_doctor"])) {
                     $_SESSION['id_user'] = $value['id_user'];
                     $_SESSION['id_doctor'] = $value['id_doctor'];
+                    $_SESSION['id_specialist'] = $value['id_specialist'];
                     $_SESSION['name_doctor'] = $value['name_doctor'];
+                    $_SESSION['id_poly'] = $value['id_poly'];
                     $_SESSION['email_doctor'] = $value['email_doctor'];
                     $_SESSION['address_doctor'] = $value['address_doctor'];
                     $_SESSION['phone_doctor'] = $value['phone_doctor'];

@@ -38,7 +38,6 @@ $page = 'pharmacist';
                                     <th class="fw-semibold text-center">Date</th>
                                     <th class="fw-semibold text-center">Doctor</th>
                                     <th class="fw-semibold text-center">Patient</th>
-                                    <th class="fw-semibold text-center">Medicine</th>
                                     <th class="fw-semibold text-center">Total</th>
                                     <th class="fw-semibold text-center">Action</th>
                                 </tr>
@@ -57,7 +56,6 @@ $page = 'pharmacist';
                                         <td><?= date("j F Y", strtotime($data['check_up'])) ?></td>
                                         <td><?= $data['name_doctor'] ?></td>
                                         <td><?= $data['name_patient'] ?></td>
-                                        <td><?= $data['total_medicine'] ?></td>
                                         <td><?= 'Rp ' . number_format($data['total_price'], 0, ',', '.') ?></td>
                                         <td class="text-center"><a class="btn btn-warning" href="receipt.php?id=<?= $data['id_hospital'] ?>">Receipt</a></td>
                                     </tr>
@@ -79,7 +77,7 @@ $page = 'pharmacist';
                 columnDefs: [{
                     "searchable": false,
                     "orderable": false,
-                    "targets": [4,5,6],
+                    "targets": [4,5],
                 }]
             });
         });

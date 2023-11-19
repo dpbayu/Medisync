@@ -69,9 +69,10 @@ $page = 'medical_record';
                                     <?php
                                     $id = @$_GET['id_hospital'];
                                     $query_medical = "SELECT * FROM tbl_medical_record 
-                                        INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
-                                        INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
-                                        INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
+                                    INNER JOIN tbl_patient ON tbl_medical_record.id_patient = tbl_patient.id_patient
+                                    INNER JOIN tbl_doctor ON tbl_medical_record.id_doctor = tbl_doctor.id_doctor
+                                    INNER JOIN tbl_specialist ON tbl_medical_record.id_specialist = tbl_specialist.id_specialist
+                                    INNER JOIN tbl_poly ON tbl_medical_record.id_poly = tbl_poly.id_poly ORDER BY check_up DESC";
                                     $run_medical = mysqli_query($db, $query_medical);
                                     $i = 1;
                                     while ($data = mysqli_fetch_array($run_medical)) {
@@ -92,7 +93,7 @@ $page = 'medical_record';
                                                 $run_medicine = mysqli_query($db, $sql_medicine);
                                                 if (mysqli_num_rows($run_medicine) > 0) {
                                                     while ($data_medicine = mysqli_fetch_array($run_medicine)) {
-                                                        echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                        echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' pack ' . '<br>';
                                                     }
                                                 } else {
                                                     echo '<p>-</p>';
@@ -186,7 +187,7 @@ $page = 'medical_record';
                                                                         $run_medicine = mysqli_query($db, $sql_medicine);
                                                                         if (mysqli_num_rows($run_medicine) > 0) {
                                                                             while ($data_medicine = mysqli_fetch_array($run_medicine)) {
-                                                                                echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                                                echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' pack ' . '<br>';
                                                                             }
                                                                         } else {
                                                                             echo '<p>-</p>';
@@ -203,14 +204,9 @@ $page = 'medical_record';
                                                                 <p><?= $data['name_doctor'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
-                                                                <label style="width: 125px;">Email</label>
+                                                                <label style="width: 125px;">Specialist</label>
                                                                 <p class="mx-3">:</p>
-                                                                <p><?= $data['email_doctor'] ?></p>
-                                                            </div>
-                                                            <div class="d-flex">
-                                                                <label style="width: 125px;">Phone</label>
-                                                                <p class="mx-3">:</p>
-                                                                <p><?= $data['phone_doctor'] ?></p>
+                                                                <p><?= $data['name_specialist'] ?></p>
                                                             </div>
                                                             <div class="d-flex">
                                                                 <label style="width: 125px;">Poly</label>

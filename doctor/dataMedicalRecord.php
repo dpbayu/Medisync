@@ -91,7 +91,7 @@ $page = 'medical_record';
                                             if (mysqli_num_rows($run_medicine) > 0) {
                                                 $list_medicine = '';
                                                 while ($data_medicine = mysqli_fetch_array($run_medicine)) {
-                                                    $list_medicine .= $data_medicine['name_medicine'].' = '.$data_medicine['qty_medicine'].' tablet '.'<br>';
+                                                    $list_medicine .= $data_medicine['name_medicine'].' = '.$data_medicine['qty_medicine'].' unit '.'<br>';
                                                 }
                                                 echo "<td>{$list_medicine}</td>";
                                             } else {
@@ -172,7 +172,7 @@ $page = 'medical_record';
                                                                 $run_medicine = mysqli_query($db, $sql_medicine);
                                                                 if (mysqli_num_rows($run_medicine) > 0) {
                                                                     while ($data_medicine = mysqli_fetch_array($run_medicine)) {
-                                                                        echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                                        echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' unit ' . '<br>';
                                                                     }
                                                                 } else {
                                                                     echo '<p>-</p>';

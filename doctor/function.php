@@ -16,28 +16,19 @@ if (isset($_POST['sendPharmacist'])) {
 }
 // Send to Pharmacist End
 
-// Add & Edit Medical Record Start
+// Add Medical Record Start
 if (isset($_POST['addMedicalRecord'])) {
     $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
     $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
     $id_doctor = trim(mysqli_real_escape_string($db, $_POST['id_doctor']));
+    $id_specialist = trim(mysqli_real_escape_string($db, $_POST['id_specialist']));
     $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
     $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
     $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
-    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, diagnosis, id_poly, check_up) VALUES ('', '$id_patient', '$illness', '$id_doctor', '$diagnosis', '$id_poly', '$check_up')");
+    mysqli_query($db, "INSERT INTO tbl_medical_record (id_hospital, id_patient, illness, id_doctor, id_specialist, diagnosis, id_poly, check_up) VALUES ('', '$id_patient', '$illness', '$id_doctor', '$id_specialist', '$diagnosis', '$id_poly', '$check_up')");
     echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly added!';</script>";
-} else if (isset($_POST['edit'])) {
-    $id = $_POST['id'];
-    $id_patient = trim(mysqli_real_escape_string($db, $_POST['id_patient']));
-    $illness = trim(mysqli_real_escape_string($db, $_POST['illness']));
-    $id_doctor = trim(mysqli_real_escape_string($db, $_POST['id_doctor']));
-    $diagnosis = trim(mysqli_real_escape_string($db, $_POST['diagnosis']));
-    $id_poly = trim(mysqli_real_escape_string($db, $_POST['id_poly']));
-    $check_up = trim(mysqli_real_escape_string($db, $_POST['check_up']));
-    mysqli_query($db, "UPDATE tbl_medical_record SET id_patient = '$id_patient', illness = '$illness', id_doctor = '$id_doctor', diagnosis = '$diagnosis', id_poly = '$id_poly', check_up = '$check_up' WHERE id = '$id'");
-    echo "<script>window.location='dataMedicalRecord.php?success=Data successfuly updated!';</script>";
 }
-// Add & Edit Medical Record End
+// Add Medical Record End
 
 // Add Medicine Start
 if (isset($_POST['addMedicine'])) {

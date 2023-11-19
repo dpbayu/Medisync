@@ -64,7 +64,7 @@ $page = 'history';
                                         $run_medicine = mysqli_query($db, $sql_medicine);
                                         if (mysqli_num_rows($run_medicine) > 0) {
                                             while ($data_medicine = mysqli_fetch_array($run_medicine)) {
-                                                echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' tablet ' . '<br>';
+                                                echo $data_medicine['name_medicine'] . ' = ' . $data_medicine['qty_medicine'] . ' pack ' . '<br>';
                                             }
                                         } else {
                                             echo '<p>-</p>';

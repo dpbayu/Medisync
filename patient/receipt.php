@@ -98,7 +98,7 @@ $page = 'invoice';
                                         </td>
                                     </tr>
                                 <?php
-                                    $grand_total += $sub_total;
+                                    $grand_total + $sub_total;
                                     $i++;
                                 }
                                 ?>

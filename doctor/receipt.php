@@ -82,8 +82,8 @@ $page = 'medical_record';
                                 <tr>
                                     <th class="fw-semibold">No</th>
                                     <th class="fw-semibold">Medicine</th>
-                                    <th class="fw-semibold">Quantity</th>
-                                    <th class="fw-semibold">Price</th>
+                                    <th class="fw-semibold">Quantity (Pack / Bottle)</th>
+                                    <th class="fw-semibold">Unit Price</th>
                                     <th class="fw-semibold">Subtotal</th>
                                 </tr>
                             </thead>
@@ -97,9 +97,9 @@ $page = 'medical_record';
                                 $run_medicine = mysqli_query($db, $query_medicine);
                                 $i = 1;
                                 while ($medicine = mysqli_fetch_array($run_medicine)) {
-                                    $medicine_item[] = $medicine['name_medicine'] .' ('.$medicine['qty_medicine'].' x Rp '.number_format($medicine['price_medicine'], 0, ',', '.').' ) <br> ';
+                                    $medicine_item[] = $medicine['name_medicine'] .' ('.$medicine['qty_medicine'].' x Rp'.number_format($medicine['price_medicine'], 0, ',', '.').') <br> ';
                                     $total_medicine = implode($medicine_item);
-                                    $grand_total += ($medicine['qty_medicine'] * $medicine['price_medicine']);
+                                    $grand_total + ($medicine['qty_medicine'] * $medicine['price_medicine']);
                                 ?>
                                     <tr>
                                         <td><?= $i ?></td>

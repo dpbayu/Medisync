@@ -42,6 +42,14 @@ $page = 'medical_record';
                             <label class="form-label" for="doctor">Doctor</label>
                             <input class="form-control" type="text" id="name" name="id_doctor" value="<?php echo $_SESSION['id_doctor'] ?>">
                         </div>
+                        <div class="form-group mb-3 d-none">
+                            <label class="form-label" for="specialist">Specialist</label>
+                            <input class="form-control" type="text" id="name" name="id_specialist" value="<?php echo $_SESSION['id_specialist'] ?>">
+                        </div>
+                        <div class="form-group mb-3 d-none">
+                            <label class="form-label" for="poly">Poly</label>
+                            <input class="form-control" type="text" id="name" name="id_poly" value="<?php echo $_SESSION['id_poly'] ?>">
+                        </div>
                         <div class="d-flex gap-5">
                             <div class="form-group mb-3 col">
                                 <label class="form-label" for="patient">Patient</label>
@@ -51,18 +59,6 @@ $page = 'medical_record';
                                     $sql_pasien = mysqli_query($db, "SELECT * FROM tbl_patient");
                                     while ($data_pasien = mysqli_fetch_array($sql_pasien)) {
                                         echo '<option value="' . $data_pasien['id_patient'] . '">' . $data_pasien['name_patient'] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group mb-3 col">
-                                <label class="form-label" for="poly">Poly</label>
-                                <select class="form-control" name="id_poly" id="poly">
-                                    <option value="">- Choose Poly -</option>
-                                    <?php
-                                    $sql_poly = mysqli_query($db, "SELECT * FROM tbl_poly ORDER BY name_poly ASC");
-                                    while ($data_poly = mysqli_fetch_array($sql_poly)) {
-                                        echo '<option value="' . $data_poly['id_poly'] . '">' . $data_poly['name_poly'] . '</option>';
                                     }
                                     ?>
                                 </select>

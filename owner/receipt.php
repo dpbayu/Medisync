@@ -79,7 +79,7 @@ $page = 'pharmacist';
                                 <tr>
                                     <th class="fw-semibold">No</th>
                                     <th class="fw-semibold">Medicine</th>
-                                    <th class="fw-semibold">Quantity</th>
+                                    <th class="fw-semibold">Quantity (Pack / Bottle)</th>
                                     <th class="fw-semibold">Price</th>
                                     <th class="fw-semibold">Subtotal</th>
                                 </tr>
@@ -111,7 +111,7 @@ $page = 'pharmacist';
                                         </td>
                                     </tr>
                                 <?php
-                                    $grand_total += $sub_total;
+                                    $grand_total + $sub_total;
                                     $i++;
                                 }
                                 ?>
