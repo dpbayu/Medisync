@@ -22,7 +22,6 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -37,7 +36,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
