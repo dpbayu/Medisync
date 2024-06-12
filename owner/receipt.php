@@ -49,28 +49,34 @@ $page = 'pharmacist';
                         <h2 class="text-center">Receipt</h2>
                         <hr>
                         <div class="d-flex">
-                            <div class="col">
+                            <div class="col-md-5">
                                 <div class="d-flex">
-                                    <label style="width: 125px;">Patient</label>
+                                    <label style="width: 100px;">Patient</label>
                                     <p class="mx-3">:</p>
                                     <p><?= $data['name_patient'] ?></p>
                                 </div>
+                                <?php
+                                    $birth_date = new DateTime($data['birth_date']);
+                                    $selisih = date_diff($birth_date, new DateTime());
+                                    $year = $selisih->y;
+                                    $month = $selisih->m;
+                                    ?>
                                 <div class="d-flex">
-                                    <label style="width: 125px;">Date, birth place</label>
+                                    <label style="width: 100px;">Age</label>
                                     <p class="mx-3">:</p>
-                                    <p><?= date("j F Y", strtotime($data['birth_date'])) ?></p>
+                                    <p><?= $year . " years "?></p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="d-flex">
-                                    <label style="width: 125px;">Doctor</label>
+                            <div class="col-md-7">
+                                <div class="d-flex justify-content-end">
+                                    <label style="width: 100px;">Doctor</label>
                                     <p class="mx-3">:</p>
-                                    <p><?= $data['name_doctor'] ?></p>
+                                    <p style="width: 32%;"><?= $data['name_doctor'] ?></p>
                                 </div>
-                                <div class="d-flex">
-                                    <label style="width: 125px;">Date</label>
+                                <div class="d-flex justify-content-end">
+                                    <label style="width: 100px;">Date</label>
                                     <p class="mx-3">:</p>
-                                    <p><?= date("j F Y", strtotime($data['check_up'])) ?></p>
+                                    <p style="width: 32%;"><?= date("j F Y", strtotime($data['check_up'])) ?></p>
                                 </div>
                             </div>
                         </div>

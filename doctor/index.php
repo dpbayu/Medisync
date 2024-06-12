@@ -67,7 +67,7 @@ $page = 'dashboard';
                                                     echo "$count";
                                                 ?>
                                             </h2>
-                                            <h6 class="text-secondary">Medical Record</h6>
+                                            <h6 class="text-secondary">Med Rec</h6>
                                         </div>
                                     </div>
                                     <a href="../doctor/dataMedicalRecord.php" class="btn btn-primary w-100">Medical Record</a>

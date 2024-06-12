@@ -54,7 +54,7 @@ $page = 'admin';
         ?>
         <section class="section dashboard">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <form action="function.php" method="POST">
                         <div class="form-group mb-3">
                             <label class="form-label" for="name_admin">Name Admin</label>
@@ -76,7 +76,7 @@ $page = 'admin';
                         </div>
                     </form>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-7">
                     <div class="table">
                         <form action="" method="POST" name="process">
                             <table class="table table-bordered table-hover" id="admin">

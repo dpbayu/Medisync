@@ -26,7 +26,7 @@ $page = 'medical_record';
     <!-- Main Start -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Data Rekam Medik</h1>
+            <h1>Data Medical Record</h1>
         </div>
         <div class="my-3">
             <a href="addMedicalRecord.php" class="btn btn-primary">Add data</a>
