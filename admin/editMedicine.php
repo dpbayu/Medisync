@@ -20,6 +20,15 @@ if (!isset($chk)) {
 <?php require '../partialsAdmin/head.php' ?>
 <!-- Head End -->
 
+<style>
+    .table>:not(:first-child) {
+        border: none;
+    }
+    .table-bordered>:not(caption)>* {
+        border: 1px solid #e0e0e0;
+    }
+</style>
+
 <body>
     <!-- Header Start -->
     <?php require '../partialsAdmin/header.php' ?>
@@ -41,8 +50,8 @@ if (!isset($chk)) {
             <div class="col-md-12">
                 <form action="function.php" method="POST">
                     <input type="hidden" name="total" value="<?= @$_POST['count_add'] ?>">
-                    <table class="table table-striped">
-                        <thead>
+                    <table class="table table-bordered" id="medicine">
+                        <thead class="text-center">
                             <tr>
                                 <th>#</th>
                                 <th>Name Medicine</th>
@@ -52,28 +61,28 @@ if (!isset($chk)) {
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        $no = 1;
-                        foreach ($chk as $id) {
-                        $sql = mysqli_query($db, "SELECT * FROM tbl_medicine WHERE id_medicine = '$id'");
-                        while ($data = mysqli_fetch_array($sql)) {
+                            <?php
+                            $no = 1;
+                            foreach ($chk as $id) {
+                            $sql = mysqli_query($db, "SELECT * FROM tbl_medicine WHERE id_medicine = '$id'");
+                            while ($data = mysqli_fetch_array($sql)) {
                         ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td>
+                                <td style="width: 200px;">
                                     <input type="hidden" name="id[]" value="<?= $data['id_medicine'] ?>">
                                     <input type="text" name="name_medicine[]" value="<?= $data['name_medicine'] ?>"
                                         class="form-control" required>
                                 </td>
                                 <td>
-                                    <input type="text" name="description_medicine[]" value="<?= $data['description_medicine'] ?>"
-                                        class="form-control" required>
+                                    <input type="text" name="description_medicine[]"
+                                        value="<?= $data['description_medicine'] ?>" class="form-control" required>
                                 </td>
-                                <td>
+                                <td style="width: 100px;">
                                     <input type="text" name="stock_medicine[]" value="<?= $data['stock_medicine'] ?>"
                                         class="form-control" required>
                                 </td>
-                                <td>
+                                <td style="width: 125px;">
                                     <input type="text" name="price_medicine[]" value="<?= $data['price_medicine'] ?>"
                                         class="form-control" required>
                                 </td>
@@ -93,6 +102,8 @@ if (!isset($chk)) {
     </main>
     <!-- Main End -->
     <!-- Footer Start -->
+    <!-- JS Start -->
+    <!-- JS End -->
     <?php require '../partialsAdmin/footer.php' ?>
     <!-- Footer End -->
 </body>

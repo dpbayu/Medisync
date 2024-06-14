@@ -119,10 +119,10 @@ if (isset($_POST['addMedicine'])) {
 } else if (isset($_POST['editMedicine'])) {
     for ($i = 0; $i < count($_POST['id']); $i++) { 
         $id = $_POST['id'][$i];
-        $name_medicine = $_POST['name_medicine'][$i];
-        $description_medicine = $_POST['description_medicine'][$i];        
-        $stock_medicine = $_POST['stock_medicine'][$i];        
-        $price_medicine = $_POST['price_medicine'][$i];        
+        $name_medicine = trim(mysqli_real_escape_string($db, $_POST['name_medicine'][$i]));
+        $description_medicine = trim(mysqli_real_escape_string($db, $_POST['description_medicine'][$i]));        
+        $stock_medicine = trim(mysqli_real_escape_string($db, $_POST['stock_medicine'][$i]));        
+        $price_medicine = trim(mysqli_real_escape_string($db, $_POST['price_medicine'][$i]));;        
         mysqli_query($db, "UPDATE tbl_medicine SET name_medicine = '$name_medicine', description_medicine = '$description_medicine', stock_medicine = '$stock_medicine', price_medicine = '$price_medicine' WHERE id_medicine = '$id'");
     }
     echo "<script>window.location='dataMedicine.php?success=Data successfuly updated!';</script>";
