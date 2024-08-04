@@ -31,7 +31,7 @@ $page = 'dashboard';
         <section class="section dashboard my-3">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Dashboard Patient</h1>          
+                    <h1>Dashboard Patient</h1>         
                 </div>
             </div>
         </section>
